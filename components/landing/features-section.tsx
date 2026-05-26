@@ -191,7 +191,7 @@ export function FeaturesSection() {
           >
             {/* Left: text content */}
             <div className="relative flex-1 p-8 lg:p-12 bg-white">
-              <ParticleVisualization />
+              {/* <ParticleVisualization /> disabled — 70-particle 60fps RAF loop was killing dev server */}
               <div className="relative z-10">
                 <span className="font-mono text-sm text-muted-foreground">{features[0].number}</span>
                 <h3 className="text-3xl lg:text-4xl font-display mt-4 mb-6 group-hover:translate-x-2 transition-transform duration-500">

@@ -45,7 +45,7 @@ export function Navigation() {
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-xl text-foreground" : "text-2xl text-[#334F5A]"}`}>Novitatis</span>
+            <img src="/images/novi_logo.png" alt=""  height={40} width={150} />
           </a>
 
           {/* Desktop Navigation */}

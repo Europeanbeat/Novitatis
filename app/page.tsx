@@ -6,11 +6,13 @@ import { InfrastructureSection } from "@/components/landing/infrastructure-secti
 import { IntegrationsSection } from "@/components/landing/integrations-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
-
+import { PageBackground } from "@/components/landing/background";
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
+
       <Navigation />
+      <PageBackground />
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />
