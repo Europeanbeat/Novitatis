@@ -5,27 +5,27 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "Autonomous Execution",
-    description: "Deploy AI agents that work independently. They analyze, decide, and execute complex multi-step tasks without human intervention.",
-    stats: { value: "99.7%", label: "task completion" },
+    title: "Stratégiai szemlélet",
+    description: "Nem csupán szolgáltatást nyújtunk – stratégiai partnereként gondolkodunk. Minden projektet a hosszú távú üzleti célok mentén tervezünk és valósítunk meg.",
+    stats: { value: "10+", label: "év iparági tapasztalat" },
   },
   {
     number: "02",
-    title: "Distributed Computing",
-    description: "Offload compute-heavy tasks to our global network. Your agents run on optimized infrastructure across 50+ regions worldwide.",
-    stats: { value: "50+", label: "global regions" },
+    title: "Technológia & innováció",
+    description: "Az AI, a digitalizáció és a legújabb technológiai megoldások alkalmazásával segítjük partnereinket, hogy versenyelőnyre tegyenek szert a turizmusban.",
+    stats: { value: "3", label: "saját technológiai márka" },
   },
   {
     number: "03",
-    title: "Multi-Agent Orchestration",
-    description: "Coordinate teams of specialized agents. They communicate, delegate, and collaborate to solve complex problems together.",
-    stats: { value: "1000x", label: "parallel execution" },
+    title: "Tudásmegosztás",
+    description: "Workshopok, mentoring programok és előadások révén adjuk át tudásunkat – mert a fenntartható fejlődés alapja a folyamatos tanulás.",
+    stats: { value: "100+", label: "workshop & előadás" },
   },
   {
     number: "04",
-    title: "Secure Sandboxing",
-    description: "Each agent runs in isolated environments. Full audit trails, encrypted execution, and zero data leakage between tasks.",
-    stats: { value: "0", label: "data breaches" },
+    title: "Iparági fókusz",
+    description: "Kizárólag a turizmus és vendéglátás szektorra specializálódtunk. Ismerjük a kihívásokat, a szereplőket és a lehetőségeket.",
+    stats: { value: "100%", label: "turizmus fókusz" },
   },
 ];
 
@@ -158,23 +158,23 @@ export function FeaturesSection() {
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-12 h-px bg-foreground/30" />
-                Capabilities
+                Miért mi?
               </span>
               <h2
                 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                Intelligent
+                Miért a
                 <br />
-                <span className="text-muted-foreground">workers.</span>
+                <span className="text-muted-foreground">Novitatis?</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-4">
               <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                Deploy autonomous AI agents that execute complex tasks across distributed infrastructure. No supervision required.
+                Stratégia, technológia, tudás és inspiráció – négy pillérre építjük a turizmus digitális jövőjét.
               </p>
             </div>
           </div>

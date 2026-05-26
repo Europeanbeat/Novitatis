@@ -66,18 +66,14 @@ const logos: Record<string, React.ReactNode> = {
 };
 
 const integrations = [
-  { name: "OpenAI", category: "LLM" },
-  { name: "Anthropic", category: "LLM" },
-  { name: "Slack", category: "Comms" },
-  { name: "GitHub", category: "Code" },
-  { name: "Jira", category: "PM" },
-  { name: "AWS S3", category: "Storage" },
-  { name: "Google Drive", category: "Docs" },
-  { name: "Salesforce", category: "CRM" },
-  { name: "HubSpot", category: "Marketing" },
-  { name: "Zapier", category: "Auto" },
-  { name: "Snowflake", category: "Data" },
-  { name: "Stripe", category: "Payments" },
+  { name: "TDM szervezetek", category: "Desztináció" },
+  { name: "DMO-k", category: "Desztináció" },
+  { name: "Önkormányzatok", category: "Közszféra" },
+  { name: "NTO-k", category: "Nemzeti" },
+  { name: "KKV-k", category: "Vállalkozás" },
+  { name: "Szálláshelyek", category: "Szolgáltató" },
+  { name: "Vendéglátóhelyek", category: "Szolgáltató" },
+  { name: "Turisztikai attrakciók", category: "Élmény" },
 ];
 
 export function IntegrationsSection() {
@@ -99,7 +95,7 @@ export function IntegrationsSection() {
   }, []);
 
   return (
-    <section id="integrations" ref={sectionRef} className="relative overflow-hidden">
+    <section id="partnereink" ref={sectionRef} className="relative overflow-hidden">
 
       {/* Header — centré verticalement sur l'image */}
       <div className="relative z-10 pt-32 lg:pt-40 text-center">
@@ -107,22 +103,22 @@ export function IntegrationsSection() {
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <span className="w-12 h-px bg-foreground/20" />
-          Integrations
+          Partnereink
           <span className="w-12 h-px bg-foreground/20" />
         </span>
 
         <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          Connect
+          Kinek
           <br />
-          <span className="text-muted-foreground">everything.</span>
+          <span className="text-muted-foreground">dolgozunk?</span>
         </h2>
 
         <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto transition-all duration-1000 delay-100 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          Your agents connect to 100+ tools and services. They read, write, and act autonomously across your entire stack.
+          Desztinációmenedzsment szervezetektől vendéglátó vállalkozásokig – partnereink a turizmus teljes ökoszisztémáját lefedik.
         </p>
       </div>
 
@@ -140,7 +136,7 @@ export function IntegrationsSection() {
 
       {/* Integration grid — remonte sur l'image avec spacing mobile approprié */}
       <div className="relative z-10 mt-0 lg:-mt-24 max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {integrations.map((integration, index) => (
             <div
               key={integration.name}
@@ -185,14 +181,7 @@ export function IntegrationsSection() {
                 {integration.category}
               </span>
 
-              {/* Logo */}
-              <div className={`w-10 h-10 mb-6 flex items-center justify-center transition-colors ${
-                hoveredIndex === index ? "text-white" : "text-foreground/60"
-              }`}>
-                {logos[integration.name]}
-              </div>
-
-              <span className="font-medium block">{integration.name}</span>
+              <span className="font-medium block mt-6 text-lg">{integration.name}</span>
 
               {/* Animated underline */}
               <div className="absolute bottom-0 left-0 right-0 h-px bg-foreground/20 overflow-hidden">
@@ -210,9 +199,9 @@ export function IntegrationsSection() {
         }`}>
           <div className="flex flex-wrap gap-12">
             {[
-              { value: "100+", label: "Integrations" },
-              { value: "OAuth", label: "Auth built-in" },
-              { value: "Webhooks", label: "Real-time sync" },
+              { value: "50+", label: "Partner" },
+              { value: "6+", label: "Szegmens" },
+              { value: "HU & EU", label: "Lefedettség" },
             ].map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-3">
                 <span className="text-3xl font-display">{stat.value}</span>
@@ -221,8 +210,8 @@ export function IntegrationsSection() {
             ))}
           </div>
 
-          <a href="#" className="group inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors">
-            View all integrations
+          <a href="#kapcsolat" className="group inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors">
+            Beszéljünk a projektjéről
             <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </a>
         </div>

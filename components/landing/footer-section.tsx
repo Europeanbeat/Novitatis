@@ -4,35 +4,33 @@ import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const footerLinks = {
-  Product: [
-    { name: "Agent capabilities", href: "#features" },
-    { name: "How it works", href: "#how-it-works" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Integrations", href: "#integrations" },
+  Szolgáltatások: [
+    { name: "Tanácsadás", href: "#szolgaltatasok" },
+    { name: "Fejlesztés", href: "#szolgaltatasok" },
+    { name: "Edukáció", href: "#szolgaltatasok" },
+    { name: "Public Speaking", href: "#szolgaltatasok" },
   ],
-  Developers: [
-    { name: "Documentation", href: "#developers" },
-    { name: "Agent SDK", href: "#" },
-    { name: "API Reference", href: "#developers" },
-    { name: "Status", href: "#" },
+  Márkáink: [
+    { name: "Visible Tourism", href: "https://visibletourism.com" },
+    { name: "Turizmus Tudástár", href: "https://turizmustudastar.hu" },
+    { name: "AI4Tourism", href: "https://ai4tourism.com" },
   ],
-  Company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Careers", href: "#", badge: "Hiring" },
-    { name: "Contact", href: "#" },
+  Cég: [
+    { name: "Rólunk", href: "#" },
+    { name: "Kapcsolat", href: "#kapcsolat" },
+    { name: "Publikációk", href: "#" },
   ],
-  Legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
-    { name: "Security", href: "#security" },
+  Jogi: [
+    { name: "Adatvédelem", href: "#" },
+    { name: "ÁSZF", href: "#" },
+    { name: "Impresszum", href: "#" },
   ],
 };
 
 const socialLinks = [
-  { name: "Twitter", href: "#" },
-  { name: "GitHub", href: "#" },
   { name: "LinkedIn", href: "#" },
+  { name: "Facebook", href: "#" },
+  { name: "Instagram", href: "#" },
 ];
 
 function AnimatedWaveCanvas() {
@@ -115,12 +113,11 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display text-[#334F5A]">COMPUTE</span>
-                <span className="text-xs text-[#334F5A]/40 font-mono">TM</span>
+                <span className="text-2xl font-display text-[#334F5A]">Novitatis</span>
               </a>
 
               <p className="text-[#334F5A]/50 leading-relaxed mb-8 max-w-xs text-sm">
-                Autonomous AI agents for distributed computing. Delegate complex tasks to intelligent workers.
+                Innováció a turizmusban. Tanácsadás, fejlesztés, edukáció és public speaking a digitális jövőért.
               </p>
 
               {/* Social Links */}
@@ -167,13 +164,13 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-[#334F5A]/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#334F5A]/30">
-            &copy; 2025 COMPUTE. All rights reserved.
+            &copy; 2025 Novitatis. Minden jog fenntartva.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-[#334F5A]/30">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#AAD7E6]" />
-              All agents operational
+              info@novitatis.hu
             </span>
           </div>
         </div>

@@ -21,9 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'COMPUTE - AI Agents for Distributed Computing',
-  description: 'Deploy autonomous AI agents on distributed infrastructure. Offload complex tasks to intelligent workers that run 24/7.',
-  generator: 'v0.app',
+  title: 'Novitatis – Innováció a turizmusban',
+  description: 'Tanácsadás, egyedi fejlesztés, edukáció és public speaking a turizmus digitális jövőjéért. Márkáink: Visible Tourism, Turizmus Tudástár, AI4Tourism.',
 }
 
 export default function RootLayout({
