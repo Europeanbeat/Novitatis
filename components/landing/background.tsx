@@ -56,3 +56,6 @@ export function PageBackground() {
     </div>
   );
 }
+
+
+//What I understand :  There is a Fucntion  called Floatingpath takes two object parements about position i guess would be start number but i am not sure how these parementes injected to in the first place  i dont see where this is declared but i see there is  caluclations which  I am not sure i should be going to detail  but yeah is confusing  

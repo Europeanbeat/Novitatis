@@ -66,8 +66,8 @@ export function InfrastructureSection() {
               key={brand.name}
               className={`group relative p-8 lg:p-12 border transition-all duration-700 cursor-default hover:border-foreground/30 ${
                 activeBrand === index
-                  ? "border-foreground/30 bg-foreground/[0.04]"
-                  : "border-foreground/10 bg-foreground/[0.02]"
+                ? "border-foreground/30 bg-[#AAD7E6]/80"
+                : "border-foreground/10 bg-white"
               } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${index * 100}ms` }}
               onMouseEnter={() => setActiveBrand(index)}
@@ -81,7 +81,7 @@ export function InfrastructureSection() {
               <p className="text-muted-foreground leading-relaxed mb-8">
                 {brand.description}
               </p>
-              <span className="text-sm font-mono text-[#AAD7E6]">
+              <span className="text-sm font-mono text-[#334F5A]">
                 {brand.url}
               </span>
               <div className={`absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] transition-transform duration-500 origin-left ${

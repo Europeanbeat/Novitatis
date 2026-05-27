@@ -23,3 +23,5 @@ export default function Home() {
     </main>
   );
 }
+
+// What I understand that  pretty much schema for the main page import all the nesscary ocmpintetn i guess this one that is showed in the main page... I see that it has only references this functions is here  althogugh what i dont undestand  how is this actually one that showcased in hte main where that is set  actually ?  

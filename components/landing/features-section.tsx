@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
+
+// Here i see that we import useeffect function useReff Us
+
 const features = [
   {
     number: "01",
@@ -28,6 +31,8 @@ const features = [
     stats: { value: "100%", label: "turizmus fókusz" },
   },
 ];
+
+
 
 // Floating dot particles visualization
 function ParticleVisualization() {

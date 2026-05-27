@@ -34,6 +34,8 @@ export function HowItWorksSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  // i think it would help me to understand useffect here  i am not usre but useffect dowbellow is resposible if there is change 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -163,3 +165,4 @@ export function HowItWorksSection() {
     </section>
   );
 }
+// i dont undestand what steps supposete ot mean here ...

@@ -39,3 +39,6 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+// I see  here  i declare the actualy fonts  but i am not sure why i need to have array saying its lating  what is anal

@@ -147,3 +147,5 @@ export function Navigation() {
     </header>
   );
 }
+
+// so i have top nav licks  that naviagets to cetain section of the page 

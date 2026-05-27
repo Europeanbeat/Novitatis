@@ -101,3 +101,6 @@ export function CtaSection() {
     </section>
   );
 }
+
+
+// If rememebre correctly useeffect the actualy functino that  connected loading   the element jsx elemnts  ?   its also connected lazy realoding 
