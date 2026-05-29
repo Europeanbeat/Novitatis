@@ -1,27 +1,25 @@
-import { Navigation } from "@/components/landing/navigation";
-import { HeroSection } from "@/components/landing/hero-section";
-import { FeaturesSection } from "@/components/landing/features-section";
-import { HowItWorksSection } from "@/components/landing/how-it-works-section";
-import { InfrastructureSection } from "@/components/landing/infrastructure-section";
-import { IntegrationsSection } from "@/components/landing/integrations-section";
-import { CtaSection } from "@/components/landing/cta-section";
-import { FooterSection } from "@/components/landing/footer-section";
-import { PageBackground } from "@/components/landing/background";
+import { Navigation } from "@/components/layout/navigation";
+import { PageBackground } from "@/components/layout/page-background";
+import { FooterSection } from "@/components/layout/footer";
+import { HeroSection } from "@/components/sections/hero-section";
+import { FeaturesSection } from "@/components/sections/features-section";
+import { HowItWorksSection } from "@/components/sections/how-it-works-section";
+import { BrandsSection } from "@/components/sections/brands-section";
+import { AudienceSection } from "@/components/sections/audience-section";
+import { CtaSection } from "@/components/sections/cta-section";
+
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-
       <Navigation />
       <PageBackground />
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />
-      <InfrastructureSection />
-      <IntegrationsSection />
+      <BrandsSection />
+      <AudienceSection />
       <CtaSection />
       <FooterSection />
     </main>
   );
 }
-
-// What I understand that  pretty much schema for the main page import all the nesscary ocmpintetn i guess this one that is showed in the main page... I see that it has only references this functions is here  althogugh what i dont undestand  how is this actually one that showcased in hte main where that is set  actually ?  
