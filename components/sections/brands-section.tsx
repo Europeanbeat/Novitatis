@@ -44,18 +44,26 @@ export function BrandsSection() {
             Brand portfólió
           </span>
 
-          <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
+          <h2 className={`relative text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] isolate transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
+            <span
+              aria-hidden
+              className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+            />
             Márkáink
             <br />
             <span className="text-muted-foreground">a turizmusért.</span>
           </h2>
 
-          <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg transition-all duration-1000 delay-100 ${
+          <p className={`relative mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg isolate transition-all duration-1000 delay-100 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
-            Három önálló márkánk a turizmus különböző szegmenseit szolgálja – a digitális láthatóságtól az AI-alapú megoldásokig.
+            <span
+              aria-hidden
+              className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+            />
+            Három önálló márkánk a turizmus különböző szegmenseit szolgálja, a digitális láthatóságtól az AI-alapú megoldásokig.
           </p>
         </div>
 

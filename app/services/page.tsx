@@ -126,7 +126,11 @@ export default function ServicesPage() {
         <div className="grid lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7">
             <ScrollReveal direction="up" duration={1} delay={0.05}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95] mb-8">
+              <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95] mb-8 isolate">
+                <span
+                  aria-hidden
+                  className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+                />
                 Four areas,
                 <br />
                 <span className="text-muted-foreground">one goal: progress.</span>
@@ -135,8 +139,12 @@ export default function ServicesPage() {
           </div>
           <div className="lg:col-span-5 lg:pb-3">
             <ScrollReveal direction="up" duration={0.9} delay={0.15}>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Every project follows the same logic — so that each development is
+              <p className="relative text-xl text-muted-foreground leading-relaxed isolate">
+                <span
+                  aria-hidden
+                  className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+                />
+                Every project follows the same logic, so that each development is
                 well-founded, innovative and built to work over the long term.
               </p>
             </ScrollReveal>
@@ -265,23 +273,35 @@ export default function ServicesPage() {
       <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal direction="up" duration={1}>
-            <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight">
+            <h2 className="relative text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight isolate">
+              <span
+                aria-hidden
+                className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+              />
               Have a project
               <br />
               in mind?
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="up" duration={0.9} delay={0.1}>
-            <div className="space-y-6">
+            <div className="relative space-y-6 isolate">
+              <span
+                aria-hidden
+                className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+              />
               <p className="text-muted-foreground leading-relaxed">
                 Whether you need a strategy, a study, a training programme, or
-                simply a conversation about where your organisation is heading —
+                simply a conversation about where your organisation is heading,
                 we&apos;re here for all of it.
               </p>
               <a
                 href="/contact-us"
-                className="inline-flex items-center gap-3 font-mono text-sm text-[#334F5A] group"
+                className="relative inline-flex items-center gap-3 font-mono text-sm text-[#334F5A] group isolate w-fit"
               >
+                <span
+                  aria-hidden
+                  className="absolute -inset-x-6 -inset-y-3 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+                />
                 <span>Get in touch</span>
                 <span className="text-[#AAD7E6] group-hover:translate-x-1 transition-transform">
                   →
