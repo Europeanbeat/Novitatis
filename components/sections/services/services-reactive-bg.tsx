@@ -80,98 +80,91 @@ function curvedSeg(a: Pt, b: Pt, rand: () => number, curve: number): Pt[] {
   ];
 }
 
-function buildTreeData(): { lines: Pt[][]; nodes: { x: number; y: number }[] } {
+function buildTreeData(): {
+  structural: Pt[][];
+  foliage: { pts: Pt[]; root: Pt; o: number }[];
+  nodes: { x: number; y: number }[];
+} {
   const rand = seeded(20260603);
   const ranked: { pts: Pt[]; rank: number }[] = [];
 
-  // Flowing S-curve trunk, woven from many parallel strands (the "made of lines" trunk)
-  const T: Pt[] = [
-    [352, 309],
-    [331, 264],
-    [373, 230],
-    [353, 197],
-    [343, 177],
-    [337, 159],
-    [347, 150],
-  ];
-  const STRANDS = 15;
-  const trunkW = 26;
-  for (let s = 0; s < STRANDS; s++) {
-    const o = (s / (STRANDS - 1) - 0.5) * trunkW;
-    const pts: Pt[] = T.map((p, j) => [
-      p[0] + o * (1 - j * 0.05) + Math.sin(j * 1.2 + s * 0.7) * 2.2,
-      p[1] + Math.cos(j * 0.9 + s) * 1.1,
-    ]);
-    ranked.push({ pts, rank: 100 - Math.abs(o) });
-  }
-  // Flared roots
-  for (const dir of [-1, 1]) {
-    for (let r = 0; r < 3; r++) {
-      ranked.push({
-        pts: curvedSeg([352 + dir * 5, 305], [352 + dir * (42 + r * 22), 312 + r * 3], rand, 14),
-        rank: 92,
-      });
-    }
-  }
-
-  // Four service limbs: each flows from the upper trunk out to its node, so every
-  // service sits at the tip of its own branch (no floating labels).
-  const N: Pt[] = [
-    [150, 168],
-    [296, 116],
-    [470, 116],
-    [610, 168],
-  ];
-  const starts: Pt[] = [
-    [346, 184],
-    [347, 168],
-    [349, 160],
-    [350, 178],
-  ];
-  for (let n = 0; n < 4; n++) {
-    const a = starts[n];
-    const b = N[n];
-    const dist = Math.hypot(b[0] - a[0], b[1] - a[1]);
-    ranked.push({ pts: curvedSeg(a, b, rand, dist * 0.3), rank: 75 });
-    const baseAng = Math.atan2(b[1] - a[1], b[0] - a[0]);
-    for (let t = 0; t < 4; t++) {
-      const ang = baseAng + (rand() - 0.5) * 1.4;
-      const len = 12 + rand() * 18;
-      ranked.push({
-        pts: curvedSeg(b, [b[0] + Math.cos(ang) * len, b[1] + Math.sin(ang) * len], rand, len * 0.5),
-        rank: 64,
-      });
-    }
-  }
-
-  // Extra canopy branches for fullness
-  const grow = (x: number, y: number, ang: number, len: number, depth: number, base: number) => {
-    if (depth <= 0 || len < 6) return;
+  // Recursive fractal (Coding Train / Marllon-Freitas): each branch splits into two
+  // at +/- an angle, shorter each time, every child starting at its parent's tip, so
+  // the whole tree is ONE connected system. Thickness comes from drawing low-depth
+  // segments with several woven strands and high-depth ones with a single line.
+  const baseP: Pt = [349, 303];
+  const ROT = 0.66;
+  const LF = 0.72;
+  const MAXD = 9;
+  const fseg: { a: Pt; b: Pt; depth: number }[] = [];
+  const branch = (x: number, y: number, ang: number, len: number, depth: number) => {
     const ex = x + Math.cos(ang) * len;
     const ey = y + Math.sin(ang) * len;
-    ranked.push({ pts: curvedSeg([x, y], [ex, ey], rand, len * 0.5), rank: base - (8 - depth) });
-    const sp = 0.4 + rand() * 0.45;
-    const drift = (rand() - 0.5) * 0.4;
-    grow(ex, ey, ang - sp + drift, len * 0.7, depth - 1, base);
-    grow(ex, ey, ang + sp + drift, len * 0.7, depth - 1, base);
+    fseg.push({ a: [x, y], b: [ex, ey], depth });
+    if (len < 4 || depth >= MAXD) return;
+    const jl = () => LF * (0.86 + rand() * 0.28);
+    const ja = () => (rand() - 0.5) * 0.3;
+    branch(ex, ey, ang - ROT + ja(), len * jl(), depth + 1);
+    branch(ex, ey, ang + ROT + ja(), len * jl(), depth + 1);
   };
-  grow(348, 158, -Math.PI * 0.5, 44, 6, 69); // apex
-  grow(345, 180, -Math.PI * 0.82, 34, 5, 66);
-  grow(351, 180, -Math.PI * 0.18, 34, 5, 66);
-  grow(347, 168, -Math.PI * 0.62, 30, 4, 65);
-  grow(349, 168, -Math.PI * 0.38, 30, 4, 65);
+  branch(baseP[0], baseP[1], -Math.PI / 2, 56, 0);
+  fseg.sort((a, b) => a.depth - b.depth || a.b[0] - b.b[0]);
+
+  const strandsFor = (d: number) => (d === 0 ? 7 : d === 1 ? 4 : d === 2 ? 3 : d === 3 ? 2 : 1);
+  const segPaths = (s: { a: Pt; b: Pt; depth: number }): Pt[][] => {
+    const dx = s.b[0] - s.a[0];
+    const dy = s.b[1] - s.a[1];
+    const L = Math.hypot(dx, dy) || 1;
+    const px = -dy / L;
+    const py = dx / L;
+    const n = strandsFor(s.depth);
+    const width = 6 * (n / 7);
+    const out: Pt[][] = [];
+    for (let k = 0; k < n; k++) {
+      const o = n > 1 ? (k / (n - 1) - 0.5) * width : 0;
+      out.push(curvedSeg([s.a[0] + px * o, s.a[1] + py * o], s.b, rand, L * 0.16));
+    }
+    return out;
+  };
+
+  // Structural: fill up to 72 from the lowest-depth segments (trunk + main branches).
+  let cursor = 0;
+  for (const s of fseg) {
+    if (ranked.length >= 72) break;
+    for (const p of segPaths(s)) {
+      if (ranked.length >= 72) break;
+      ranked.push({ pts: p, rank: 80 - s.depth * 4 });
+    }
+    cursor++;
+  }
 
   ranked.sort((a, b) => b.rank - a.rank);
-  const lines = ranked.slice(0, 72).map((l) => l.pts);
-  while (lines.length < 72) lines.push(lines[lines.length - 1]);
+  const structural = ranked.slice(0, 72).map((l) => l.pts);
+  while (structural.length < 72) structural.push(structural[structural.length - 1]);
 
+  // Foliage: the remaining deeper segments, single strands that grow out of their
+  // parent's tip (collapse to s.a) and vanish at rest.
+  const foliage: { pts: Pt[]; root: Pt; o: number }[] = [];
+  for (let i = cursor; i < fseg.length && foliage.length < 150; i++) {
+    const s = fseg[i];
+    const L = Math.hypot(s.b[0] - s.a[0], s.b[1] - s.a[1]);
+    foliage.push({ pts: curvedSeg(s.a, s.b, rand, L * 0.2), root: s.a, o: 0.16 + rand() * 0.2 });
+  }
+
+  // Service nodes: four well-spread fractal tips.
+  const cand = fseg.filter((s) => s.depth >= 4 && s.depth <= 6).map((s) => s.b);
+  cand.sort((a, b) => a[0] - b[0]);
+  const pick = (f: number) =>
+    cand[Math.min(cand.length - 1, Math.max(0, Math.round(f * (cand.length - 1))))];
+  const N: Pt[] = [pick(0.06), pick(0.37), pick(0.63), pick(0.94)];
   const nodes = N.map((p) => ({ x: p[0], y: p[1] }));
-  return { lines, nodes };
+  return { structural, foliage, nodes };
 }
 
 const BG = backgroundLines().sort((a, b) => b.w - a.w);
 const TREE_DATA = buildTreeData();
-const TREE: Pt[][] = TREE_DATA.lines;
+const STRUCT: Pt[][] = TREE_DATA.structural;
+const FOL = TREE_DATA.foliage;
 const NODES = TREE_DATA.nodes;
 const ROOT: Pt = [349, 303];
 
@@ -185,6 +178,7 @@ export function ServicesReactiveBg() {
   const reduce = useReducedMotion();
   const anchorRef = useRef<HTMLDivElement>(null);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
+  const folRefs = useRef<(SVGPathElement | null)[]>([]);
   const [formed, setFormed] = useState(false);
   const [tf, setTf] = useState<{ s: number; ox: number; oy: number } | null>(null);
 
@@ -222,7 +216,7 @@ export function ServicesReactiveBg() {
         if (!el) continue;
         const ki = ease(clamp((k - (i / BG.length) * 0.32) / 0.68, 0, 1));
         const og = BG[i].pts;
-        const tr = TREE[i];
+        const tr = STRUCT[i];
         const P: Pt[] = [];
         for (let j = 0; j < 7; j++) {
           const ph = i * 0.5 + j;
@@ -236,6 +230,27 @@ export function ServicesReactiveBg() {
           "d",
           `M${f(P[0])} C ${f(P[1])} ${f(P[2])} ${f(P[3])} C ${f(P[4])} ${f(P[5])} ${f(P[6])}`,
         );
+      }
+      // Foliage grows out of the branch tips as the tree forms, collapses back at rest
+      const growK = ease(clamp((k - 0.3) / 0.62, 0, 1));
+      if (growK > 0.005) {
+        for (let i = 0; i < FOL.length; i++) {
+          const el = folRefs.current[i];
+          if (!el) continue;
+          const fl = FOL[i];
+          const P: Pt[] = [];
+          for (let j = 0; j < 7; j++) {
+            P.push([
+              fl.root[0] + (fl.pts[j][0] - fl.root[0]) * growK,
+              fl.root[1] + (fl.pts[j][1] - fl.root[1]) * growK,
+            ]);
+          }
+          el.setAttribute(
+            "d",
+            `M${f(P[0])} C ${f(P[1])} ${f(P[2])} ${f(P[3])} C ${f(P[4])} ${f(P[5])} ${f(P[6])}`,
+          );
+          el.setAttribute("stroke-opacity", (fl.o * growK).toFixed(3));
+        }
       }
       const fm = k > 0.86;
       if (fm !== formedNow) {
@@ -285,6 +300,20 @@ export function ServicesReactiveBg() {
               stroke="currentColor"
               strokeWidth={line.w}
               strokeOpacity={line.o}
+              strokeLinecap="round"
+            />
+          ))}
+          {/* Foliage twigs that grow out of the branch tips on scroll */}
+          {FOL.map((fl, i) => (
+            <path
+              key={`f${i}`}
+              ref={(el) => {
+                folRefs.current[i] = el;
+              }}
+              d={`M${fl.root[0]} ${fl.root[1]} C ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} C ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]}`}
+              stroke="currentColor"
+              strokeWidth={0.7}
+              strokeOpacity={0}
               strokeLinecap="round"
             />
           ))}
