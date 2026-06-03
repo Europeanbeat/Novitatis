@@ -4,7 +4,7 @@ import { FooterSection } from "@/components/layout/footer";
 import { ServicesHero } from "@/components/sections/services/services-hero";
 import { OurApproach } from "@/components/sections/services/our-approach";
 import { ServicesReactiveBg } from "@/components/sections/services/services-reactive-bg";
-import { Challenges } from "@/components/sections/services/challenges";
+import { ServicesGrid } from "@/components/sections/services/services-grid";
 import { MethodSpine } from "@/components/sections/services/method-spine";
 import { ClientSpectrum } from "@/components/sections/services/client-spectrum";
 import { ClosingStatement } from "@/components/sections/services/closing-statement";
@@ -30,8 +30,8 @@ export default function ServicesPage() {
       {/* 3 — Reactive background that gathers the lines into the services tree */}
       <ServicesReactiveBg />
 
-      {/* 4 — The problems we solve (ref.digital-style challenge framing) */}
-      <Challenges />
+      {/* 4 — The four main services in detail (cards link to the sub-pages) */}
+      <ServicesGrid />
 
       {/* 5 — How an engagement runs: the method */}
       <MethodSpine />

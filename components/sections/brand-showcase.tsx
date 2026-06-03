@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SplineScene } from "@/components/ui/splite";
@@ -557,8 +557,19 @@ export function BrandShowcase() {
     setActiveBrand((prev) => (prev === id ? null : id));
   };
 
+  // If arriving from a homepage brand card (/brands?brand=<id>), open that brand.
+  useEffect(() => {
+    const sel = new URLSearchParams(window.location.search).get("brand");
+    if (sel && brands.some((b) => b.id === sel)) {
+      setActiveBrand(sel as BrandId);
+      setTimeout(() => {
+        document.getElementById("brand-showcase")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 250);
+    }
+  }, []);
+
   return (
-    <div>
+    <div id="brand-showcase" className="scroll-mt-28">
       <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-8">
         Visit the brands
       </span>

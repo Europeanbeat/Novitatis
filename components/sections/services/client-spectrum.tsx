@@ -5,14 +5,7 @@ import { clientTiers } from "@/lib/services-content";
 // Solid tinted section, so it sits cleanly over the page lines.
 export function ClientSpectrum() {
   return (
-    <section className="relative z-10 overflow-hidden bg-[#f9fbff] border-y border-foreground/8 py-20 lg:py-28">
-      {/* Classical pillar motif, faint, as a recurring brand texture */}
-      <img
-        src="/images/Pillars.png"
-        aria-hidden
-        alt=""
-        className="pointer-events-none select-none absolute bottom-0 right-0 w-[min(520px,55%)] opacity-[0.06] object-contain object-bottom"
-      />
+    <section className="relative z-10 bg-[#f9fbff] border-y border-foreground/8 py-20 lg:py-28">
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         <ScrollReveal direction="up" duration={0.8}>
           <div className="max-w-[60ch] mb-12 lg:mb-16">

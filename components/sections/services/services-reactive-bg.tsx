@@ -93,7 +93,7 @@ function buildTreeData(): {
   // the whole tree is ONE connected system. Thickness comes from drawing low-depth
   // segments with several woven strands and high-depth ones with a single line.
   const baseP: Pt = [349, 303];
-  const ROT = 0.66;
+  const ROT = 0.72;
   const LF = 0.72;
   const MAXD = 9;
   const fseg: { a: Pt; b: Pt; depth: number }[] = [];
@@ -107,7 +107,7 @@ function buildTreeData(): {
     branch(ex, ey, ang - ROT + ja(), len * jl(), depth + 1);
     branch(ex, ey, ang + ROT + ja(), len * jl(), depth + 1);
   };
-  branch(baseP[0], baseP[1], -Math.PI / 2, 56, 0);
+  branch(baseP[0], baseP[1], -Math.PI / 2, 66, 0);
   fseg.sort((a, b) => a.depth - b.depth || a.b[0] - b.b[0]);
 
   const strandsFor = (d: number) => (d === 0 ? 7 : d === 1 ? 4 : d === 2 ? 3 : d === 3 ? 2 : 1);
@@ -151,12 +151,27 @@ function buildTreeData(): {
     foliage.push({ pts: curvedSeg(s.a, s.b, rand, L * 0.2), root: s.a, o: 0.16 + rand() * 0.2 });
   }
 
-  // Service nodes: four well-spread fractal tips.
-  const cand = fseg.filter((s) => s.depth >= 4 && s.depth <= 6).map((s) => s.b);
-  cand.sort((a, b) => a[0] - b[0]);
-  const pick = (f: number) =>
-    cand[Math.min(cand.length - 1, Math.max(0, Math.round(f * (cand.length - 1))))];
-  const N: Pt[] = [pick(0.06), pick(0.37), pick(0.63), pick(0.94)];
+  // Service nodes: the fractal tip nearest each of four target corners, so the two
+  // upper services sit at the same height and the lower two mirror them.
+  const cand = fseg.filter((s) => s.depth >= 4 && s.depth <= 7).map((s) => s.b);
+  const nearest = (t: Pt) => {
+    let best = cand[0];
+    let bd = Infinity;
+    for (const c of cand) {
+      const d = (c[0] - t[0]) ** 2 + (c[1] - t[1]) ** 2;
+      if (d < bd) {
+        bd = d;
+        best = c;
+      }
+    }
+    return best;
+  };
+  const N: Pt[] = [
+    nearest([188, 196]), // Consulting (lower-left)
+    nearest([250, 102]), // Development (upper-left, same height as Education)
+    nearest([446, 102]), // Education (upper-right)
+    nearest([508, 196]), // Public speaking (lower-right)
+  ];
   const nodes = N.map((p) => ({ x: p[0], y: p[1] }));
   return { structural, foliage, nodes };
 }
@@ -179,6 +194,7 @@ export function ServicesReactiveBg() {
   const anchorRef = useRef<HTMLDivElement>(null);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const folRefs = useRef<(SVGPathElement | null)[]>([]);
+  const headingRef = useRef<HTMLDivElement>(null);
   const [formed, setFormed] = useState(false);
   const [tf, setTf] = useState<{ s: number; ox: number; oy: number } | null>(null);
 
@@ -207,7 +223,13 @@ export function ServicesReactiveBg() {
     const f = (p: Pt) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`;
     const loop = () => {
       const p = scrollYProgress.get();
-      const k = clamp(Math.min(p / 0.34, (1 - p) / 0.34, 1), 0, 1);
+      // Heading sticks while the tree gathers, then fades out before the next section.
+      if (headingRef.current) {
+        headingRef.current.style.opacity = String(clamp(Math.min(p / 0.05, (0.68 - p) / 0.12, 1), 0, 1));
+      }
+      // Gradual gather and dissolve (~25% slower than before), brief hold in the middle,
+      // fully dissolved by ~p = 0.68, just before the next section scrolls in (~p = 0.71).
+      const k = clamp(Math.min(p / 0.375, (0.68 - p) / 0.2, 1), 0, 1);
       const ek = ease(k);
       const amp = (1 - ek) * 4;
       const t = performance.now() / 1000;
@@ -331,6 +353,21 @@ export function ServicesReactiveBg() {
           ))}
         </svg>
 
+        {/* Pinned heading: sticks while the tree gathers, fades as you leave */}
+        <div
+          ref={headingRef}
+          className="absolute left-1/2 -translate-x-1/2 top-[12%] w-[44ch] max-w-[88vw] text-center"
+          style={{ opacity: 0 }}
+        >
+          <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
+            Four services. One method.
+          </h2>
+          <p className="mt-4 text-lg text-[#334F5A]/80 leading-relaxed mx-auto max-w-[44ch]">
+            Consulting, development, education and public speaking, our four main
+            services, all run on the same research-first method.
+          </p>
+        </div>
+
         {/* HTML labels, positioned over the SVG via the letterbox transform */}
         {tf && (
           <div className="absolute inset-0">
@@ -347,26 +384,28 @@ export function ServicesReactiveBg() {
             </span>
             {NODES.map((n, i) => {
               const p = practices[i];
+              const isLeft = n.x < 348;
               return (
                 <a
                   key={p.slug}
                   href={`/services/${p.slug}`}
-                  className="group absolute w-[180px] -translate-x-1/2 -translate-y-full text-center"
+                  className={`group absolute w-[300px] ${isLeft ? "text-right" : "text-left"}`}
                   style={{
-                    left: tf.ox + n.x * tf.s,
-                    top: tf.oy + (n.y - 12) * tf.s,
+                    left: tf.ox + n.x * tf.s + (isLeft ? -54 : 54),
+                    top: tf.oy + n.y * tf.s,
+                    transform: isLeft ? "translate(-100%, -50%)" : "translate(0, -50%)",
                     opacity: formed ? 1 : 0,
                     transition: "opacity 0.5s ease",
                     pointerEvents: formed ? "auto" : "none",
                   }}
                 >
-                  <div className="flex items-baseline justify-center gap-2 mb-0.5">
-                    <span className="font-mono text-[11px] text-[#AAD7E6]">{p.number}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#334F5A]/55">
+                  <div className={`flex items-baseline gap-2 mb-1 ${isLeft ? "justify-end" : ""}`}>
+                    <span className="font-mono text-xs text-[#AAD7E6]">{p.number}</span>
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/55">
                       {p.tag}
                     </span>
                   </div>
-                  <h3 className="font-display text-lg xl:text-xl text-[#334F5A] leading-tight transition-colors group-hover:text-[#5b94a8]">
+                  <h3 className="font-display text-3xl lg:text-4xl text-[#334F5A] leading-[1.05] transition-colors group-hover:text-[#5b94a8]">
                     {p.title}
                   </h3>
                 </a>
@@ -376,15 +415,14 @@ export function ServicesReactiveBg() {
         )}
       </div>
 
-      {/* In-flow anchor: drives the scroll, holds the heading, and on mobile the list */}
+      {/* In-flow anchor: drives the scroll. Desktop is empty space (the fixed tree +
+          heading pin over it); mobile shows the heading + static list. */}
       <div ref={anchorRef} className="relative z-10">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-20 lg:pt-28">
+        <div className="md:hidden max-w-[1400px] mx-auto px-6 pt-20">
           <TreeHeading />
-        </div>
-        <div className="hidden md:block h-[200vh]" aria-hidden />
-        <div className="md:hidden max-w-[1400px] mx-auto px-6 pb-4">
           <StaticList />
         </div>
+        <div className="hidden md:block h-[250vh]" aria-hidden />
       </div>
     </>
   );
@@ -397,8 +435,8 @@ function TreeHeading() {
         One method. Four branches.
       </h2>
       <p className="mt-5 text-lg text-[#334F5A]/80 leading-relaxed">
-        Scroll, and the background gathers into one tree. Every practice grows
-        from the same research-first root.
+        Consulting, development, education and public speaking, our four main
+        services, all run on the same research-first method.
       </p>
     </div>
   );

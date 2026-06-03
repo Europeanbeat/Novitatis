@@ -2,15 +2,26 @@
 
 import { useEffect, useState, useRef } from "react";
 
-const brands = [
-  { name: "Visible Tourism", url: "visibletourism.com", description: "Digitális láthatóság desztinációknak (TDM, DMO). Google-alapú infrastruktúra." },
-  { name: "Turizmus Tudástár", url: "turizmustudastar.hu", description: "Tudásplatform és GBP mentoring turisztikai KKV-knak. Mentorprogram." },
-  { name: "AI4Tourism", url: "ai4tourism.com", description: "AI Mentoring Program – gyakorlati MI turisztikai szereplőknek." },
+type Brand = {
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  logo?: string;
+  logoClass?: string;
+  icon?: string;
+  iconClass?: string;
+};
+
+const brands: Brand[] = [
+  { id: "visible-tourism", name: "Visible Tourism", url: "visibletourism.com", description: "Digitális láthatóság desztinációknak (TDM, DMO). Google-alapú infrastruktúra.", logo: "/images/visibletourism_logo.svg", logoClass: "h-11" },
+  { id: "turizmus-tudastar", name: "Turizmus Tudástár", url: "turizmustudastar.hu", description: "Tudásplatform és GBP mentoring turisztikai KKV-knak. Mentorprogram.", icon: "/images/turizmus_tudastar.png", iconClass: "h-14" },
+  { id: "ai4tourism", name: "AI4Tourism", url: "ai4tourism.com", description: "AI Mentoring Program – gyakorlati MI turisztikai szereplőknek.", logo: "/images/ai4tourism-logo.png", logoClass: "h-8" },
 ];
 
 export function BrandsSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeBrand, setActiveBrand] = useState(0);
+  const [activeBrand, setActiveBrand] = useState(-1);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -23,13 +34,6 @@ export function BrandsSection() {
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveBrand((prev) => (prev + 1) % brands.length);
-    }, 3000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -70,22 +74,43 @@ export function BrandsSection() {
         {/* Brand cards */}
         <div className="grid lg:grid-cols-3 gap-6">
           {brands.map((brand, index) => (
-            <div
+            <a
               key={brand.name}
-              className={`group relative p-8 lg:p-12 border transition-all duration-700 cursor-default hover:border-foreground/30 ${
+              href={`/brands?brand=${brand.id}`}
+              className={`group relative block p-8 lg:p-12 border transition-all duration-700 cursor-pointer hover:border-foreground/30 ${
                 activeBrand === index
-                ? "border-foreground/30 bg-[#AAD7E6]/80"
+                ? "border-foreground/30 bg-[#AAD7E6]"
                 : "border-foreground/10 bg-white"
               } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${index * 100}ms` }}
               onMouseEnter={() => setActiveBrand(index)}
+              onMouseLeave={() => setActiveBrand(-1)}
             >
               <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-6">
                 Önálló márka
               </span>
-              <h3 className="text-2xl lg:text-3xl font-display mb-4 group-hover:translate-x-2 transition-transform duration-500">
-                {brand.name}
-              </h3>
+              <div className="h-14 flex items-center gap-3 mb-4">
+                {brand.logo ? (
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className={`${brand.logoClass ?? "h-8"} w-auto object-contain object-left`}
+                  />
+                ) : (
+                  <>
+                    {brand.icon && (
+                      <img
+                        src={brand.icon}
+                        alt=""
+                        className={`${brand.iconClass ?? "h-10"} w-auto object-contain shrink-0`}
+                      />
+                    )}
+                    <h3 className="text-2xl lg:text-3xl font-display text-[#334F5A] whitespace-nowrap">
+                      {brand.name}
+                    </h3>
+                  </>
+                )}
+              </div>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 {brand.description}
               </p>
@@ -95,7 +120,7 @@ export function BrandsSection() {
               <div className={`absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] transition-transform duration-500 origin-left ${
                 activeBrand === index ? "scale-x-100" : "scale-x-0"
               }`} />
-            </div>
+            </a>
           ))}
         </div>
       </div>
