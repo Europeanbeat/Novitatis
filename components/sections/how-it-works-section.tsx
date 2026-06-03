@@ -66,7 +66,7 @@ export function HowItWorksSection() {
         {/* Header — titre + image cerisier */}
         <div className="relative mb-0 lg:mb-0 grid lg:grid-cols-2 gap-4 lg:gap-12 items-end">
           {/* Titre colonne gauche */}
-          <div className="overflow-hidden pb-0 lg:pb-32">
+          <div className="pb-0 lg:pb-32">
             <div className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
               <span className="inline-flex items-center gap-3 text-sm font-mono text-[#334F5A]/40 mb-8">
                 <span className="w-12 h-px bg-[#334F5A]/20" />
@@ -74,12 +74,12 @@ export function HowItWorksSection() {
               </span>
             </div>
 
-            <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
+            <h2 className={`relative text-6xl md:text-7xl lg:text-[125px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
-              <span className="block">Stratégia.</span>
-              <span className="block text-[#334F5A]/30">Technológia.</span>
-              <span className="block text-[#334F5A]/10">Tudás.</span>
+              <span className="block">Stratégia</span>
+              <span className="block text-[#334F5A]/30">Technológia</span>
+              <span className="block text-[#AAD7E6]">Tudás</span>
             </h2>
           </div>
 
@@ -91,10 +91,10 @@ export function HowItWorksSection() {
               src="/images/Pillars.png"
               alt="pillars"
               aria-hidden="true"
-              className="absolute bottom-0 left-0 w-full h-full object-contain object-bottom"
+              className="absolute bottom-0 left-0 w-full h-full object-contain object-right-bottom"
             />
             {/* Fade sur le bord gauche */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#f5f9fa] via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#f5f9fa] from-30% via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
 
