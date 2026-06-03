@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
-import { PageBackground } from "@/components/layout/page-background";
 import { ServicesHero } from "@/components/sections/services/services-hero";
 import { OurApproach } from "@/components/sections/services/our-approach";
-import { ServicesTree } from "@/components/sections/services/services-tree";
+import { ServicesReactiveBg } from "@/components/sections/services/services-reactive-bg";
 import { Challenges } from "@/components/sections/services/challenges";
 import { MethodSpine } from "@/components/sections/services/method-spine";
 import { ClientSpectrum } from "@/components/sections/services/client-spectrum";
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <PageBackground />
       <Navigation />
 
       {/* 1 — Hero */}
@@ -29,8 +27,8 @@ export default function ServicesPage() {
       {/* 2 — Our approach: the framework / operating model */}
       <OurApproach />
 
-      {/* 3 — The four services as a tree (one method, four branches) */}
-      <ServicesTree />
+      {/* 3 — Reactive background that gathers the lines into the services tree */}
+      <ServicesReactiveBg />
 
       {/* 4 — The problems we solve (ref.digital-style challenge framing) */}
       <Challenges />
