@@ -1,8 +1,11 @@
-version: '3.8'
 services:
   web:
+    container_name: novitatis_web
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+    restart: unless-stopped
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
