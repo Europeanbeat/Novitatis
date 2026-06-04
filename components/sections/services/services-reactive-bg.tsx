@@ -432,7 +432,7 @@ function TreeHeading() {
   return (
     <div className="max-w-[60ch]">
       <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
-        One method. Four branches.
+        Four areas we excel in
       </h2>
       <p className="mt-5 text-lg text-[#334F5A]/80 leading-relaxed">
         Consulting, development, education and public speaking, our four main
