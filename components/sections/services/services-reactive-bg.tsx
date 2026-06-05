@@ -128,7 +128,15 @@ function buildTreeData(): {
     const out: Pt[][] = [];
     for (let k = 0; k < n; k++) {
       const o = n > 1 ? (k / (n - 1) - 0.5) * width : 0;
-      out.push(curvedSeg([s.a[0] + px * o, s.a[1] + py * o], s.b, rand, L * 0.16));
+      if (s.depth === 0) {
+        // Trunk: flared wide where it meets the ground (s.a), then a uniform
+        // narrow shaft up to the fork (s.b) instead of converging to a point.
+        const a: Pt = [s.a[0] + px * o * 1.9, s.a[1] + py * o * 1.9];
+        const b: Pt = [s.b[0] + px * o * 0.7, s.b[1] + py * o * 0.7];
+        out.push(curvedSeg(a, b, rand, L * 0.12));
+      } else {
+        out.push(curvedSeg([s.a[0] + px * o, s.a[1] + py * o], s.b, rand, L * 0.16));
+      }
     }
     return out;
   };
@@ -263,6 +271,7 @@ export function ServicesReactiveBg() {
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const folRefs = useRef<(SVGPathElement | null)[]>([]);
   const leafRefs = useRef<(SVGEllipseElement | null)[]>([]);
+  const groundRef = useRef<SVGGElement | null>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const [formed, setFormed] = useState(false);
   const [tf, setTf] = useState<{ s: number; ox: number; oy: number } | null>(null);
@@ -303,6 +312,10 @@ export function ServicesReactiveBg() {
       const ek = ease(k);
       const amp = (1 - ek) * 4;
       const t = performance.now() / 1000;
+      // Ground fades in/out with the tree.
+      if (groundRef.current) {
+        groundRef.current.style.opacity = String(ease(clamp((k - 0.15) / 0.45, 0, 1)));
+      }
       for (let i = 0; i < BG.length; i++) {
         const el = pathRefs.current[i];
         if (!el) continue;
@@ -413,6 +426,32 @@ export function ServicesReactiveBg() {
           className="w-full h-full text-[#334F5A]"
           fill="none"
         >
+          {/* Ground — soil mound + moss + grass, fades in/out with the tree */}
+          <g ref={groundRef} style={{ opacity: 0 }}>
+            <ellipse cx={ROOT[0]} cy={ROOT[1] + 4} rx={92} ry={9} fill="#6b4a32" opacity={0.16} />
+            <ellipse cx={ROOT[0]} cy={ROOT[1] + 2} rx={58} ry={6} fill="#3FB27A" opacity={0.16} />
+            <line
+              x1={ROOT[0] - 98}
+              y1={ROOT[1] + 2}
+              x2={ROOT[0] + 98}
+              y2={ROOT[1] + 2}
+              stroke="#6b4a32"
+              strokeWidth={1}
+              strokeOpacity={0.32}
+              strokeLinecap="round"
+            />
+            {[-46, -32, -18, 16, 30, 44].map((dx, gi) => (
+              <path
+                key={gi}
+                d={`M${ROOT[0] + dx} ${ROOT[1] + 2} q ${dx > 0 ? 2 : -2} -6 ${dx > 0 ? 5 : -5} -10`}
+                stroke="#3FB27A"
+                strokeWidth={1}
+                strokeOpacity={0.5}
+                fill="none"
+                strokeLinecap="round"
+              />
+            ))}
+          </g>
           {BG.map((line, i) => (
             <path
               key={i}
