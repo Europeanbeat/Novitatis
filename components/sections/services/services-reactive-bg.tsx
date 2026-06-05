@@ -80,9 +80,15 @@ function curvedSeg(a: Pt, b: Pt, rand: () => number, curve: number): Pt[] {
   ];
 }
 
+type Leaf = {
+  x: number; y: number; rot: number; rx: number; ry: number;
+  color: string; dx: number; dy: number; phase: number;
+};
+
 function buildTreeData(): {
   structural: Pt[][];
   foliage: { pts: Pt[]; root: Pt; o: number }[];
+  leaves: Leaf[];
   nodes: { x: number; y: number }[];
 } {
   const rand = seeded(20260603);
@@ -173,15 +179,77 @@ function buildTreeData(): {
     nearest([508, 196]), // Public speaking (lower-right)
   ];
   const nodes = N.map((p) => ({ x: p[0], y: p[1] }));
-  return { structural, foliage, nodes };
+
+  // Leaves: small clusters at the canopy tips. They scale in as the canopy
+  // forms, and on the way back fall (drift down + spin) and fade with the lines.
+  // Include inner branches (depth >= 3) so the canopy interior gets leaves too.
+  const leafCands = fseg.filter((s) => s.depth >= 3).map((s) => s.b);
+  let cx = 0;
+  let cy = 0;
+  for (const c of leafCands) {
+    cx += c[0];
+    cy += c[1];
+  }
+  cx /= Math.max(1, leafCands.length);
+  cy /= Math.max(1, leafCands.length);
+  const pickLeafColor = () => {
+    const r = rand();
+    if (r < 0.16) return "#AAD7E6"; // blue accent (brand)
+    if (r < 0.46) return "#c9b06a"; // warm gold
+    return "#8fae9b"; // muted teal-green
+  };
+  // Dense, bushy canopy: cycle the candidates, scatter jittered leaves, and pull
+  // a portion of them toward the canopy centre so the middle fills out.
+  const LEAF_COUNT = 1600;
+  const leaves: Leaf[] = [];
+  for (let i = 0; leaves.length < LEAF_COUNT && leafCands.length; i++) {
+    const b = leafCands[i % leafCands.length];
+    let lx = b[0] + (rand() - 0.5) * 18;
+    let ly = b[1] + (rand() - 0.5) * 18;
+    const pull = rand() * rand() * 0.7; // skewed small; a tail pulls inward
+    lx += (cx - lx) * pull;
+    ly += (cy - ly) * pull;
+    leaves.push({
+      x: lx,
+      y: ly,
+      rot: rand() * 360,
+      rx: 2.2 + rand() * 2.0,
+      ry: 1.1 + rand() * 0.9,
+      color: pickLeafColor(),
+      dx: (rand() - 0.5) * 30,
+      dy: 24 + rand() * 72,
+      phase: rand() * Math.PI * 2,
+    });
+  }
+
+  return { structural, foliage, leaves, nodes };
 }
 
 const BG = backgroundLines().sort((a, b) => b.w - a.w);
 const TREE_DATA = buildTreeData();
 const STRUCT: Pt[][] = TREE_DATA.structural;
 const FOL = TREE_DATA.foliage;
+const LEAVES = TREE_DATA.leaves;
 const NODES = TREE_DATA.nodes;
 const ROOT: Pt = [349, 303];
+
+// Trunk/branch colouring: each line fades from the resting grey to its own brown
+// shade as the tree forms (darker for the wide trunk lines, lighter for thin ones).
+const hexRgb = (h: string): [number, number, number] => {
+  const n = parseInt(h.slice(1), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+};
+const FROM_RGB = hexRgb("#334F5A");
+const BROWNS = ["#3a2418", "#4a2f1e", "#5a3c28", "#6b4a32", "#7d5a3e", "#8a6646"];
+const _brnd = seeded(99172);
+const LINE_TO: [number, number, number][] = BG.map((_, i) => {
+  const t = i / BG.length; // 0 = widest (trunk) → 1 = thinnest (branch)
+  const idx = Math.max(
+    0,
+    Math.min(BROWNS.length - 1, Math.floor(t * BROWNS.length + (_brnd() - 0.5) * 1.6)),
+  );
+  return hexRgb(BROWNS[idx]);
+});
 
 const clamp = (v: number, a: number, b: number) => (v < a ? a : v > b ? b : v);
 const ease = (t: number) => {
@@ -194,6 +262,7 @@ export function ServicesReactiveBg() {
   const anchorRef = useRef<HTMLDivElement>(null);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const folRefs = useRef<(SVGPathElement | null)[]>([]);
+  const leafRefs = useRef<(SVGEllipseElement | null)[]>([]);
   const headingRef = useRef<HTMLDivElement>(null);
   const [formed, setFormed] = useState(false);
   const [tf, setTf] = useState<{ s: number; ox: number; oy: number } | null>(null);
@@ -220,6 +289,7 @@ export function ServicesReactiveBg() {
     if (reduce) return;
     let raf = 0;
     let formedNow = false;
+    let lastGrowK = -1;
     const f = (p: Pt) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`;
     const loop = () => {
       const p = scrollYProgress.get();
@@ -252,10 +322,22 @@ export function ServicesReactiveBg() {
           "d",
           `M${f(P[0])} C ${f(P[1])} ${f(P[2])} ${f(P[3])} C ${f(P[4])} ${f(P[5])} ${f(P[6])}`,
         );
+        // Colour fades grey -> brown with this line's morph progress.
+        const to = LINE_TO[i];
+        el.setAttribute(
+          "stroke",
+          `rgb(${Math.round(FROM_RGB[0] + (to[0] - FROM_RGB[0]) * ki)},${Math.round(
+            FROM_RGB[1] + (to[1] - FROM_RGB[1]) * ki,
+          )},${Math.round(FROM_RGB[2] + (to[2] - FROM_RGB[2]) * ki)})`,
+        );
       }
       // Foliage grows out of the branch tips as the tree forms, collapses back at rest
       const growK = ease(clamp((k - 0.3) / 0.62, 0, 1));
-      if (growK > 0.005) {
+      const dG = Math.abs(growK - lastGrowK);
+      lastGrowK = growK;
+      // Only touch foliage + leaves while the canopy is actually changing (i.e.
+      // while scrolling). At rest the dense canopy costs nothing per frame.
+      if (growK > 0.005 && dG > 1e-6) {
         for (let i = 0; i < FOL.length; i++) {
           const el = folRefs.current[i];
           if (!el) continue;
@@ -272,6 +354,25 @@ export function ServicesReactiveBg() {
             `M${f(P[0])} C ${f(P[1])} ${f(P[2])} ${f(P[3])} C ${f(P[4])} ${f(P[5])} ${f(P[6])}`,
           );
           el.setAttribute("stroke-opacity", (fl.o * growK).toFixed(3));
+        }
+        // Leaves: grow at the tips as the canopy forms; on the way back they
+        // fall (drift down + spin) and fade, so they leave with the lines.
+        // Every leaf, every frame (60fps) — smoothest fall. Count is kept at a
+        // level this can afford; raise LEAF_COUNT only as far as it stays smooth.
+        for (let i = 0; i < LEAVES.length; i++) {
+          const el = leafRefs.current[i];
+          if (!el) continue;
+          const lf = LEAVES[i];
+          const g = ease(clamp((growK - (i / LEAVES.length) * 0.12) / 0.88, 0, 1));
+          const fall = 1 - g;
+          const x = lf.x + lf.dx * fall;
+          const y = lf.y + lf.dy * fall * fall;
+          const sc = ease(g);
+          el.setAttribute(
+            "transform",
+            `translate(${x} ${y}) rotate(${lf.rot + fall * 120}) scale(${sc})`,
+          );
+          el.setAttribute("fill-opacity", (g * 0.9).toFixed(2));
         }
       }
       const fm = k > 0.86;
@@ -333,10 +434,26 @@ export function ServicesReactiveBg() {
                 folRefs.current[i] = el;
               }}
               d={`M${fl.root[0]} ${fl.root[1]} C ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} C ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]}`}
-              stroke="currentColor"
+              stroke="#6b4a32"
               strokeWidth={0.7}
               strokeOpacity={0}
               strokeLinecap="round"
+            />
+          ))}
+          {/* Leaves at the canopy tips — grow in, then fall away on scroll-back */}
+          {LEAVES.map((lf, i) => (
+            <ellipse
+              key={`l${i}`}
+              ref={(el) => {
+                leafRefs.current[i] = el;
+              }}
+              cx={0}
+              cy={0}
+              rx={lf.rx}
+              ry={lf.ry}
+              fill={lf.color}
+              fillOpacity={0}
+              transform={`translate(${lf.x} ${lf.y}) scale(0)`}
             />
           ))}
           {/* Green root node */}
