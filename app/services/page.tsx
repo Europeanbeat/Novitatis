@@ -27,7 +27,7 @@ export default function ServicesPage() {
       {/* 2 — Our approach: the framework / operating model */}
       <OurApproach />
 
-      {/* 3 — Reactive background that gathers the lines into the services tree */}
+      {/* 3 — The 72 background lines morph into the tree skeleton */}
       <ServicesReactiveBg />
 
       {/* 4 — The four main services in detail (cards link to the sub-pages) */}
