@@ -10,8 +10,8 @@ const principles = [
     body: "Every engagement starts from evidence: field work, data and analysis before any recommendation.",
   },
   {
-    title: "One method, four practices",
-    body: "The same sequence runs across all four practices, so consulting, development, education and speaking connect rather than sit apart.",
+    title: "One method, four services",
+    body: "The same sequence runs across all four services, so consulting, development, education and public speaking connect rather than sit apart.",
   },
 ];
 

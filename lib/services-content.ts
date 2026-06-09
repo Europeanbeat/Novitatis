@@ -20,9 +20,9 @@ export const practices: Practice[] = [
     slug: "consulting",
     tag: "Strategy",
     title: "Consulting & strategy",
-    lead: "From raw data to clear direction.",
+    lead: "From raw data to a direction you can defend.",
     description:
-      "We produce the strategies, feasibility studies and development plans that public bodies and destinations act on. Design-thinking research and field work come first, then a direction you can defend, with the funding case to support it.",
+      "We produce the destination strategies, feasibility studies and development plans that ministries, destinations and municipalities act on. Field research and analysis come first, then a clear direction, with the funding or grant case to support it.",
     serves: ["Ministries & NTOs", "DMO & TDM organisations", "Municipalities", "Tourism SMEs"],
     deliverables: [
       "Destination strategies & development plans",
@@ -41,9 +41,9 @@ export const practices: Practice[] = [
     slug: "development",
     tag: "Build",
     title: "Development & digitalisation",
-    lead: "From validated idea to working system.",
+    lead: "From a validated idea to a working system.",
     description:
-      "We turn validated ideas into working solutions at the digital, service and organisational level: pilot projects, digital process design and AI adoption, built for how tourism actually operates and measured against the original goal.",
+      "We turn a validated idea into something that works: digital process design, pilot projects and practical AI adoption, built for how tourism organisations actually operate and measured against the goal you started with.",
     serves: ["DMO & TDM organisations", "Tourism SMEs", "Attractions & operators"],
     deliverables: [
       "Digital process design & system integration",
@@ -62,14 +62,14 @@ export const practices: Practice[] = [
     slug: "education",
     tag: "Mentoring",
     title: "Education & mentoring",
-    lead: "Knowledge that changes how teams operate.",
+    lead: "Capability that stays after we leave.",
     description:
-      "We design education that holds, from national training programmes with full curricula to one-to-one Google-profile and AI mentoring, so capability stays inside the organisation rather than leaving with the consultant.",
+      "We design education that holds, from national training programmes with full curricula to one-to-one Google-profile and AI mentoring, so the capability stays inside your team rather than leaving with the consultant.",
     serves: ["Tourism SMEs", "DMO & TDM organisations", "Public institutions"],
     deliverables: [
       "National training programme design",
       "Turizmus Tudástár mentoring",
-      "AI Mentoring Program",
+      "AI mentoring",
       "Organisational development",
     ],
     flagship: {
@@ -85,7 +85,7 @@ export const practices: Practice[] = [
     title: "Public speaking",
     lead: "We set the agenda, not just attend it.",
     description:
-      "Through keynotes, panels and our own podcast we make digital and innovation trends usable for the sector, and push organisations to think differently about where tourism is heading.",
+      "Through keynotes, panels and our own podcast we make digital and AI trends usable for the sector, translating where tourism is heading into something organisations can act on, on Hungarian and international stages.",
     serves: ["Conferences & sector events", "Public institutions", "Industry programmes"],
     deliverables: [
       "Digital & innovation keynotes",

@@ -113,7 +113,7 @@ function buildTreeData(): {
     branch(ex, ey, ang - ROT + ja(), len * jl(), depth + 1);
     branch(ex, ey, ang + ROT + ja(), len * jl(), depth + 1);
   };
-  branch(baseP[0], baseP[1], -Math.PI / 2, 66, 0);
+  branch(baseP[0], baseP[1], -Math.PI / 2, 54, 0);
   fseg.sort((a, b) => a.depth - b.depth || a.b[0] - b.b[0]);
 
   const strandsFor = (d: number) => (d === 0 ? 7 : d === 1 ? 4 : d === 2 ? 3 : d === 3 ? 2 : 1);
@@ -165,28 +165,15 @@ function buildTreeData(): {
     foliage.push({ pts: curvedSeg(s.a, s.b, rand, L * 0.2), root: s.a, o: 0.16 + rand() * 0.2 });
   }
 
-  // Service nodes: the fractal tip nearest each of four target corners, so the two
-  // upper services sit at the same height and the lower two mirror them.
-  const cand = fseg.filter((s) => s.depth >= 4 && s.depth <= 7).map((s) => s.b);
-  const nearest = (t: Pt) => {
-    let best = cand[0];
-    let bd = Infinity;
-    for (const c of cand) {
-      const d = (c[0] - t[0]) ** 2 + (c[1] - t[1]) ** 2;
-      if (d < bd) {
-        bd = d;
-        best = c;
-      }
-    }
-    return best;
-  };
-  const N: Pt[] = [
-    nearest([188, 196]), // Consulting (lower-left)
-    nearest([250, 102]), // Development (upper-left, same height as Education)
-    nearest([446, 102]), // Education (upper-right)
-    nearest([508, 196]), // Public speaking (lower-right)
+  // Service nodes: fixed symmetric positions around the tree, equal distance
+  // from centre for both pairs, identical heights for upper/lower pairs.
+  // Forces clean layout instead of picking "nearest fractal tip" which drifts.
+  const nodes: { x: number; y: number }[] = [
+    { x: 240, y: 240 }, // Consulting (lower-left)
+    { x: 240, y: 140 }, // Development (upper-left)
+    { x: 456, y: 140 }, // Education (upper-right)
+    { x: 456, y: 240 }, // Public speaking (lower-right)
   ];
-  const nodes = N.map((p) => ({ x: p[0], y: p[1] }));
 
   // Leaves: small clusters at the canopy tips. They scale in as the canopy
   // forms, and on the way back fall (drift down + spin) and fade with the lines.
@@ -426,32 +413,9 @@ export function ServicesReactiveBg() {
           className="w-full h-full text-[#334F5A]"
           fill="none"
         >
-          {/* Ground — soil mound + moss + grass, fades in/out with the tree */}
-          <g ref={groundRef} style={{ opacity: 0 }}>
-            <ellipse cx={ROOT[0]} cy={ROOT[1] + 4} rx={92} ry={9} fill="#6b4a32" opacity={0.16} />
-            <ellipse cx={ROOT[0]} cy={ROOT[1] + 2} rx={58} ry={6} fill="#3FB27A" opacity={0.16} />
-            <line
-              x1={ROOT[0] - 98}
-              y1={ROOT[1] + 2}
-              x2={ROOT[0] + 98}
-              y2={ROOT[1] + 2}
-              stroke="#6b4a32"
-              strokeWidth={1}
-              strokeOpacity={0.32}
-              strokeLinecap="round"
-            />
-            {[-46, -32, -18, 16, 30, 44].map((dx, gi) => (
-              <path
-                key={gi}
-                d={`M${ROOT[0] + dx} ${ROOT[1] + 2} q ${dx > 0 ? 2 : -2} -6 ${dx > 0 ? 5 : -5} -10`}
-                stroke="#3FB27A"
-                strokeWidth={1}
-                strokeOpacity={0.5}
-                fill="none"
-                strokeLinecap="round"
-              />
-            ))}
-          </g>
+          {/* Ground hidden — green removed by request. Keeping the ref for the
+              loop's groundRef.opacity write so it doesn't crash. */}
+          <g ref={groundRef} style={{ opacity: 0, display: "none" }} />
           {BG.map((line, i) => (
             <path
               key={i}
@@ -520,7 +484,7 @@ export function ServicesReactiveBg() {
           </h2>
           <p className="mt-4 text-lg text-[#334F5A]/80 leading-relaxed mx-auto max-w-[44ch]">
             Consulting, development, education and public speaking, our four main
-            services, all run on the same research-first method.
+            services, all built on the same combination of strategy and design thinking.
           </p>
         </div>
 
@@ -536,7 +500,7 @@ export function ServicesReactiveBg() {
                 transition: "opacity 0.5s ease",
               }}
             >
-              Research-first method
+              Strategy + design thinking
             </span>
             {NODES.map((n, i) => {
               const p = practices[i];
@@ -547,7 +511,7 @@ export function ServicesReactiveBg() {
                   href={`/services/${p.slug}`}
                   className={`group absolute w-[300px] ${isLeft ? "text-right" : "text-left"}`}
                   style={{
-                    left: tf.ox + n.x * tf.s + (isLeft ? -54 : 54),
+                    left: tf.ox + n.x * tf.s + (isLeft ? -56 : 56),
                     top: tf.oy + n.y * tf.s,
                     transform: isLeft ? "translate(-100%, -50%)" : "translate(0, -50%)",
                     opacity: formed ? 1 : 0,

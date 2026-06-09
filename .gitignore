@@ -14,3 +14,12 @@ next.user-config.*
 node_modules
 .next/
 .DS_Store
+
+Novi honlap
+
+# build cache
+tsconfig.tsbuildinfo
+
+# temp screenshots / scratch source images
+_*.png
+public/images/Gemini_Generated_Image_*
