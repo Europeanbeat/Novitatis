@@ -78,13 +78,13 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95]">
-                  Beszéljünk a
+                  Let's talk about
                   <br />
-                  következő lépésről.
+                  the next step.
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Legyen szó stratégiáról, fejlesztésről vagy képzésről – vegye fel velünk a kapcsolatot, és találjuk meg együtt a megoldást.
+                  Whether it's strategy, development or training, get in touch and let's find the right solution together.
                 </p>
 
                 <p className="text-sm text-muted-foreground font-mono">
@@ -97,14 +97,14 @@ export function CtaSection() {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
                     <label htmlFor="name" className="text-sm font-mono text-muted-foreground">
-                      Név
+                      Name
                     </label>
                     <input
                       id="name"
                       type="text"
                       name="name"
                       required
-                      placeholder="Az Ön neve"
+                      placeholder="Your name"
                       className="h-12 px-4 rounded-lg border border-foreground/15 bg-white/80 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors"
                     />
                   </div>
@@ -118,21 +118,21 @@ export function CtaSection() {
                       type="email"
                       name="email"
                       required
-                      placeholder="pelda@email.hu"
+                      placeholder="you@email.com"
                       className="h-12 px-4 rounded-lg border border-foreground/15 bg-white/80 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label htmlFor="message" className="text-sm font-mono text-muted-foreground">
-                      Üzenet
+                      Message
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       required
                       rows={4}
-                      placeholder="Miben segíthetünk?"
+                      placeholder="How can we help?"
                       className="px-4 py-3 rounded-lg border border-foreground/15 bg-white/80 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors resize-none"
                     />
                   </div>
@@ -143,19 +143,19 @@ export function CtaSection() {
                     disabled={status === "sending"}
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group mt-2 disabled:opacity-60"
                   >
-                    {status === "sending" ? "Küldés..." : "Üzenet küldése"}
+                    {status === "sending" ? "Sending..." : "Send message"}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
 
                   {/* Status messages */}
                   {status === "success" && (
                     <p className="text-sm text-[#334F5A] font-mono">
-                      Köszönjük! Hamarosan jelentkezünk.
+                      Thank you. We'll be in touch soon.
                     </p>
                   )}
                   {status === "error" && (
                     <p className="text-sm text-red-600 font-mono">
-                      Hiba történt. Kérjük, próbálja újra, vagy írjon az info@novitatis.hu címre.
+                      Something went wrong. Please try again, or email info@novitatis.hu.
                     </p>
                   )}
                 </form>

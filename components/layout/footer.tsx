@@ -3,26 +3,26 @@
 import { ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
-  Szolgáltatások: [
-    { name: "Tanácsadás", href: "#szolgaltatasok" },
-    { name: "Fejlesztés", href: "#szolgaltatasok" },
-    { name: "Edukáció", href: "#szolgaltatasok" },
+  Services: [
+    { name: "Consulting", href: "#szolgaltatasok" },
+    { name: "Development", href: "#szolgaltatasok" },
+    { name: "Education", href: "#szolgaltatasok" },
     { name: "Public Speaking", href: "#szolgaltatasok" },
   ],
-  Márkáink: [
+  "Our Brands": [
     { name: "Visible Tourism", href: "https://visibletourism.com" },
     { name: "Turizmus Tudástár", href: "https://turizmustudastar.hu" },
     { name: "AI4Tourism", href: "https://ai4tourism.com" },
   ],
-  Cég: [
-    { name: "Rólunk", href: "#" },
-    { name: "Kapcsolat", href: "#kapcsolat" },
-    { name: "Publikációk", href: "#" },
+  Company: [
+    { name: "About Us", href: "#" },
+    { name: "Contact", href: "#kapcsolat" },
+    { name: "Publications", href: "#" },
   ],
-  Jogi: [
-    { name: "Adatvédelem", href: "#" },
-    { name: "ÁSZF", href: "#" },
-    { name: "Impresszum", href: "#" },
+  Legal: [
+    { name: "Privacy", href: "#" },
+    { name: "Terms", href: "#" },
+    { name: "Imprint", href: "#" },
   ],
 };
 
@@ -52,7 +52,7 @@ export function FooterSection() {
           </a>
 
               <p className="text-[#FFFFFF]/50 leading-relaxed mb-8 max-w-xs text-sm">
-                Innováció a turizmusban. Tanácsadás, fejlesztés, edukáció és public speaking a digitális jövőért.
+                Innovation in tourism. Consulting, development, education and public speaking for the digital future.
               </p>
 
               {/* Social Links */}

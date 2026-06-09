@@ -57,7 +57,7 @@ export default async function ReferencePage({
           href="/references"
           className="font-mono text-sm text-[#334F5A]/70 inline-flex items-center gap-2 mb-10"
         >
-          <span className="text-[#AAD7E6]">&larr;</span> All references
+          <span className="text-[#AAD7E6]">&larr;</span> All projects
         </a>
 
         {/* Header */}

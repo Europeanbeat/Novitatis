@@ -7,7 +7,7 @@ import { Halo } from "@/components/sections/services/_halo";
 import { ReferencesGallery } from "@/components/sections/references/references-gallery";
 
 export const metadata: Metadata = {
-  title: "References",
+  title: "Our Projects",
   description:
     "Selected work across talks, panels, podcasts, exhibitions, workshops and publications. Filter the record behind our work.",
 };

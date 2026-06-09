@@ -6,27 +6,27 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "Stratégiai szemlélet",
-    description: "We don't just deliver a service — we think alongside you. Every project is planned and executed around long-term goals, not short-term outputs.",
-    stats: { value: "10+", label: "év iparági tapasztalat" },
+    title: "Strategic mindset",
+    description: "We don't just deliver a service, we think alongside you. Every project is planned and executed around long-term goals, not short-term outputs.",
+    stats: { value: "10+", label: "years of industry experience" },
   },
   {
     number: "02",
-    title: "Technológia & innováció",
-    description: "We apply AI, digitisation and the latest technology to help clients gain a real competitive edge in tourism — not as a trend, but as a practical tool.",
-    stats: { value: "3", label: "saját technológiai márka" },
+    title: "Technology & innovation",
+    description: "We apply AI, digitisation and the latest technology to help clients gain a real competitive edge in tourism, not as a trend, but as a practical tool.",
+    stats: { value: "3", label: "own technology brands" },
   },
   {
     number: "03",
-    title: "Tudásmegosztás",
-    description: "Workshopok, mentoring programok és előadások révén adjuk át tudásunkat – mert a fenntartható fejlődés alapja a folyamatos tanulás.",
-    stats: { value: "100+", label: "workshop & előadás" },
+    title: "Knowledge sharing",
+    description: "We share what we know through workshops, mentoring programmes and talks, because lasting development is built on continuous learning.",
+    stats: { value: "100+", label: "workshops & talks" },
   },
   {
     number: "04",
-    title: "Iparági fókusz",
-    description: "Kizárólag a turizmus és vendéglátás szektorra specializálódtunk. Ismerjük a kihívásokat, a szereplőket és a lehetőségeket.",
-    stats: { value: "100%", label: "turizmus fókusz" },
+    title: "Industry focus",
+    description: "We work only in tourism and hospitality. We know the challenges, the players and the opportunities.",
+    stats: { value: "100%", label: "tourism focus" },
   },
 ];
 
@@ -63,14 +63,14 @@ export function FeaturesSection() {
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-12 h-px bg-foreground/30" />
-                Miért mi?
+                Why us?
               </span>
               <h2
                 className={`text-6xl md:text-7xl lg:text-8xl font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                Miért a <span className="text-muted-foreground">Novitatis?</span>
+                Why <span className="text-muted-foreground">Novitatis?</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-4">

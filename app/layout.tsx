@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Novitatis – Innováció a turizmusban',
-  description: 'Tanácsadás, egyedi fejlesztés, edukáció és public speaking a turizmus digitális jövőjéért. Márkáink: Visible Tourism, Turizmus Tudástár, AI4Tourism.',
+  title: 'Novitatis – Innovation in tourism',
+  description: 'Consulting, custom development, education and public speaking for the digital future of tourism. Our brands: Visible Tourism, Turizmus Tudástár, AI4Tourism.',
 }
 
 export default function RootLayout({

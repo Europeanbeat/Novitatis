@@ -45,7 +45,7 @@ export function BrandsSection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <span className="w-12 h-px bg-foreground/20" />
-            Brand portfólió
+            Brand portfolio
           </span>
 
           <h2 className={`relative text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] isolate transition-all duration-1000 ${
@@ -55,9 +55,9 @@ export function BrandsSection() {
               aria-hidden
               className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
             />
-            Márkáink
+            Our brands
             <br />
-            <span className="text-muted-foreground">a turizmusért.</span>
+            <span className="text-muted-foreground">for tourism.</span>
           </h2>
 
           <p className={`relative mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg isolate transition-all duration-1000 delay-100 ${
@@ -67,7 +67,7 @@ export function BrandsSection() {
               aria-hidden
               className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
             />
-            Három önálló márkánk a turizmus különböző szegmenseit szolgálja, a digitális láthatóságtól az AI-alapú megoldásokig.
+            Three independent brands serving different segments of tourism, from digital visibility to AI-based solutions.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export function BrandsSection() {
               onMouseLeave={() => setActiveBrand(-1)}
             >
               <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-6">
-                Önálló márka
+                Independent brand
               </span>
               <div className="h-14 flex items-center gap-3 mb-4">
                 {brand.logo ? (

@@ -5,27 +5,27 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "01",
-    title: "Tanácsadás",
-    subtitle: "és stratégia",
-    description: "Elemezzük a piaci helyzetet, desztinációs stratégiát építünk, és segítünk a digitális átállásban. KKV-któl önkormányzatokig.",
+    title: "Consulting",
+    subtitle: "& strategy",
+    description: "We analyse the market, build destination strategy, and support the digital transition. From SMEs to municipalities.",
   },
   {
     number: "02",
-    title: "Fejlesztés",
-    subtitle: "és digitalizáció",
-    description: "Egyedi webes megoldások, AI-alapú eszközök és digitalizációs projektek – az ötlettől a megvalósításig.",
+    title: "Development",
+    subtitle: "& digitalisation",
+    description: "Custom web solutions, AI-based tools and digitalisation projects, from idea to delivery.",
   },
   {
     number: "03",
-    title: "Edukáció",
-    subtitle: "és mentorálás",
-    description: "Workshopok, mentoring programok és képzések a turizmus szereplőinek. Google, AI, Smart Destination témákban.",
+    title: "Education",
+    subtitle: "& mentoring",
+    description: "Workshops, mentoring programmes and training for tourism professionals, on Google, AI and Smart Destination topics.",
   },
   {
     number: "04",
     title: "Public Speaking",
-    subtitle: "és szemléletformálás",
-    description: "Konferenciák, szakmai rendezvények és előadások – a turizmus digitális jövőjéről szóló párbeszéd formálása.",
+    subtitle: "& shaping the field",
+    description: "Conferences, professional events and talks, shaping the conversation about the digital future of tourism.",
   },
 ];
 
@@ -70,16 +70,16 @@ export function HowItWorksSection() {
             <div className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
               <span className="inline-flex items-center gap-3 text-sm font-mono text-[#334F5A]/40 mb-8">
                 <span className="w-12 h-px bg-[#334F5A]/20" />
-                Szolgáltatásaink
+                Our services
               </span>
             </div>
 
             <h2 className={`relative text-6xl md:text-7xl lg:text-[125px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
-              <span className="block">Stratégia</span>
-              <span className="block text-[#334F5A]/30">Technológia</span>
-              <span className="block text-[#AAD7E6]">Tudás</span>
+              <span className="block">Strategy</span>
+              <span className="block text-[#334F5A]/30">Technology</span>
+              <span className="block text-[#AAD7E6]">Knowledge</span>
             </h2>
           </div>
 

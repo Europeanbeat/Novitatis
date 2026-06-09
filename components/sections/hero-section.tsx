@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 
-const words = ["innovál", "digitalizál", "inspirál", "fejleszt"];
+const words = ["innovates", "digitalises", "inspires", "develops"];
 
 function BlurWord({ word, trigger }: { word: string; trigger: number }) {
   const letters = word.split("");
@@ -174,7 +174,7 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-[#334F5A]/60">
             <span className="w-8 h-px bg-[#334F5A]/30" />
-            Innováció a turizmusban
+            Innovation in tourism
           </span>
         </div>
         
@@ -185,9 +185,9 @@ export function HeroSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="block whitespace-nowrap">A turizmus jövője,</span>
+            <span className="block whitespace-nowrap">The future of tourism,</span>
             <span className="block whitespace-nowrap">
-              ami{" "}
+              that{" "}
               <span className="relative inline-block">
                 <BlurWord word={words[wordIndex]} trigger={wordIndex} />
               </span>
@@ -205,9 +205,9 @@ export function HeroSection() {
       >
         <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
           {[
-            { value: "4", label: "szolgáltatási pillér" },
-            { value: "3", label: "saját márka" },
-            { value: "10+", label: "év tapasztalat" },
+            { value: "4", label: "service pillars" },
+            { value: "3", label: "own brands" },
+            { value: "10+", label: "years' experience" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
               <span className="text-3xl lg:text-4xl font-display text-[#334F5A]">{stat.value}</span>
