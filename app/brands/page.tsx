@@ -8,7 +8,7 @@ import { BrandShowcase } from "@/components/sections/brand-showcase";
 export const metadata: Metadata = {
   title: "Our Brands",
   description:
-    "Novitatis operates three focused brands — Visible Tourism, Turizmus Tudástár, and AI4Tourism — each built to close tourism's digital gap at a different scale.",
+    "Novitatis operates three focused brands, Visible Tourism, Turizmus Tudástár and AI4Tourism, each built to close tourism's digital gap at a different scale.",
 };
 
 

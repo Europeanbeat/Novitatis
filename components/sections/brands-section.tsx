@@ -14,9 +14,9 @@ type Brand = {
 };
 
 const brands: Brand[] = [
-  { id: "visible-tourism", name: "Visible Tourism", url: "visibletourism.com", description: "Digitális láthatóság desztinációknak (TDM, DMO). Google-alapú infrastruktúra.", logo: "/images/visibletourism_logo.svg", logoClass: "h-11" },
-  { id: "turizmus-tudastar", name: "Turizmus Tudástár", url: "turizmustudastar.hu", description: "Tudásplatform és GBP mentoring turisztikai KKV-knak. Mentorprogram.", icon: "/images/turizmus_tudastar.png", iconClass: "h-14" },
-  { id: "ai4tourism", name: "AI4Tourism", url: "ai4tourism.com", description: "AI Mentoring Program – gyakorlati MI turisztikai szereplőknek.", logo: "/images/ai4tourism-logo.png", logoClass: "h-8" },
+  { id: "visible-tourism", name: "Visible Tourism", url: "visibletourism.com", description: "Digital visibility for destinations (TDM, DMO), on a Google-based infrastructure.", logo: "/images/visibletourism_logo.svg", logoClass: "h-11" },
+  { id: "turizmus-tudastar", name: "Turizmus Tudástár", url: "turizmustudastar.hu", description: "A knowledge platform and Google Business Profile mentoring for tourism SMEs.", icon: "/images/turizmus_tudastar.png", iconClass: "h-14" },
+  { id: "ai4tourism", name: "AI4Tourism", url: "ai4tourism.com", description: "An AI mentoring programme: practical AI for people working in tourism.", logo: "/images/ai4tourism-logo.png", logoClass: "h-8" },
 ];
 
 export function BrandsSection() {
