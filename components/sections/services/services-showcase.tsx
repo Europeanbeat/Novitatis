@@ -16,6 +16,63 @@ if (typeof window !== "undefined") {
 // second scene runs dark for tonal rhythm, photo sides alternate.
 
 export function ServicesShowcase() {
+  const stackRef = useRef<HTMLDivElement>(null);
+
+  // Stacking cards: each card pins below the nav while the next one slides up
+  // and covers it; the covered card recedes slightly. Desktop only, and each
+  // pin releases exactly when its successor has covered it, so the jump back
+  // to natural position is never visible.
+  useEffect(() => {
+    const stack = stackRef.current;
+    if (!stack) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const TOP = 96;
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
+      const cards = gsap.utils.toArray<HTMLElement>(stack.children);
+      const triggers: ScrollTrigger[] = [];
+      const tweens: gsap.core.Tween[] = [];
+      cards.forEach((card, i) => {
+        if (i === cards.length - 1) return;
+        const next = cards[i + 1];
+        triggers.push(
+          ScrollTrigger.create({
+            trigger: card,
+            start: `top ${TOP}`,
+            // hold a little past full coverage so the released card's jump
+            // back to natural position happens entirely above the viewport
+            end: () => "+=" + (next.offsetTop - card.offsetTop + TOP),
+            pin: true,
+            pinSpacing: false,
+          }),
+        );
+        // While the next card approaches, the pinned one recedes
+        tweens.push(
+          gsap.to(card, {
+            scale: 0.95,
+            transformOrigin: "center top",
+            ease: "none",
+            scrollTrigger: {
+              trigger: next,
+              start: "top bottom",
+              end: `top ${TOP}`,
+              scrub: true,
+            },
+          }),
+        );
+      });
+      return () => {
+        triggers.forEach((t) => t.kill());
+        tweens.forEach((t) => {
+          t.scrollTrigger?.kill();
+          t.kill();
+        });
+      };
+    });
+    return () => mm.revert();
+  }, []);
+
   return (
     <section className="relative z-10">
       {/* Section opener */}
@@ -30,13 +87,17 @@ export function ServicesShowcase() {
         </h2>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-8 lg:space-y-12 pb-8 lg:pb-12">
+      <div
+        ref={stackRef}
+        className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-8 lg:space-y-12 pb-8 lg:pb-12"
+      >
         {practices.map((p, i) => (
           <PracticeMoment
             key={p.slug}
             practice={p}
             reversed={i % 2 === 1}
             dark={i === 1}
+            zIndex={i + 1}
           />
         ))}
       </div>
@@ -48,10 +109,12 @@ function PracticeMoment({
   practice,
   reversed,
   dark,
+  zIndex,
 }: {
   practice: Practice;
   reversed: boolean;
   dark: boolean;
+  zIndex: number;
 }) {
   const cardRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -105,6 +168,7 @@ function PracticeMoment({
   return (
     <article
       ref={cardRef}
+      style={{ zIndex }}
       className={`relative overflow-hidden rounded-[2rem] border shadow-[0_30px_80px_-50px_rgba(51,79,90,0.3)] ${
         dark ? "bg-[#334F5A] border-white/10" : "bg-white border-foreground/10"
       }`}
