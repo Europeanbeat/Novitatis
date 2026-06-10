@@ -2,7 +2,6 @@ import { Navigation } from "@/components/layout/navigation";
 import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
-import { ManifestoSection } from "@/components/sections/manifesto-section";
 import { FeaturesSection } from "@/components/sections/features-section";
 import { HowItWorksSection } from "@/components/sections/how-it-works-section";
 import { BrandsSection } from "@/components/sections/brands-section";
@@ -17,7 +16,6 @@ export default function Home() {
       <Navigation />
       <PageBackground />
       <HeroSection />
-      <ManifestoSection />
       <FeaturesSection />
       <HowItWorksSection />
       <BrandsSection />
