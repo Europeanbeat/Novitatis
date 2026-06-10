@@ -31,6 +31,13 @@ export function ServicesShowcase() {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 1024px)", () => {
       const cards = gsap.utils.toArray<HTMLElement>(stack.children);
+      // Equal heights, or a shorter card sliding over a taller one leaves the
+      // taller card's bottom sticking out beneath the stack.
+      const max = Math.max(...cards.map((c) => c.offsetHeight));
+      cards.forEach((c) => {
+        c.style.height = `${max}px`;
+      });
+      ScrollTrigger.refresh();
       const triggers: ScrollTrigger[] = [];
       const tweens: gsap.core.Tween[] = [];
       cards.forEach((card, i) => {
@@ -45,6 +52,7 @@ export function ServicesShowcase() {
             end: () => "+=" + (next.offsetTop - card.offsetTop + TOP),
             pin: true,
             pinSpacing: false,
+            anticipatePin: 1,
           }),
         );
         // While the next card approaches, the pinned one recedes
@@ -61,12 +69,29 @@ export function ServicesShowcase() {
             },
           }),
         );
+        // ...and fades out just before full coverage, so its tail is never
+        // seen trailing through the gap above the stack after release
+        tweens.push(
+          gsap.to(card, {
+            autoAlpha: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: next,
+              start: `top ${TOP + 180}`,
+              end: `top ${TOP}`,
+              scrub: true,
+            },
+          }),
+        );
       });
       return () => {
         triggers.forEach((t) => t.kill());
         tweens.forEach((t) => {
           t.scrollTrigger?.kill();
           t.kill();
+        });
+        cards.forEach((c) => {
+          c.style.height = "";
         });
       };
     });
