@@ -4,6 +4,7 @@ import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/goo
 import { Analytics } from '@vercel/analytics/next'
 import { SmoothScroll } from '@/components/layout/smooth-scroll'
 import { PageCurtain } from '@/components/layout/page-curtain'
+import { DiscoveryPopup } from '@/components/layout/discovery-popup'
 import './globals.css'
 
 // "latin-ext" is needed for Hungarian characters like ő and ű
@@ -40,6 +41,7 @@ export default function RootLayout({
         <PageCurtain />
         <SmoothScroll />
         {children}
+        <DiscoveryPopup />
         <Analytics />
       </body>
     </html>

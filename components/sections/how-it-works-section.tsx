@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { practices } from "@/lib/services-content";
 
 const steps = [
   {
@@ -30,10 +31,8 @@ const steps = [
 ];
 
 export function HowItWorksSection() {
-  const [activeStep, setActiveStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,13 +44,6 @@ export function HowItWorksSection() {
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 6000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -66,7 +58,7 @@ export function HowItWorksSection() {
         {/* Header — titre + image cerisier */}
         <div className="relative mb-0 lg:mb-0 grid lg:grid-cols-2 gap-4 lg:gap-12 items-end">
           {/* Titre colonne gauche */}
-          <div className="pb-0 lg:pb-32">
+          <div className="pb-10 lg:pb-24">
             <div className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
               <span className="inline-flex items-center gap-3 text-sm font-mono text-[#334F5A]/40 mb-8">
                 <span className="w-12 h-px bg-[#334F5A]/20" />
@@ -78,7 +70,7 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
               <span className="block">Strategy</span>
-              <span className="block text-[#334F5A]/30">Technology</span>
+              <span className="block text-[#334F5A]/45">Technology</span>
               <span className="block text-[#AAD7E6]">Knowledge</span>
             </h2>
           </div>
@@ -98,69 +90,58 @@ export function HowItWorksSection() {
           </div>
         </div>
 
-        {/* Horizontal Steps Layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {steps.map((step, index) => (
-            <button
-              key={step.number}
-              type="button"
-              onClick={() => setActiveStep(index)}
-              className={`relative text-left p-8 lg:p-12 border transition-all duration-500 ${
-                activeStep === index 
-                  ? "bg-white border-[#334F5A]/60" 
-                  : "bg-white border-[#334F5A]/25 hover:border-[#334F5A]/50"
-              }`}
-            >
-              {/* Step number with animated line */}
-              <div className="flex items-center gap-4 mb-8">
-                <span className={`text-4xl font-display transition-colors duration-300 ${
-                  activeStep === index ? "text-[#AAD7E6]" : "text-[#334F5A]/20"
-                }`}>
-                  {step.number}
-                </span>
-                <div className="flex-1 h-px bg-[#334F5A]/10 overflow-hidden">
-                  {activeStep === index && (
-                    <div className="h-full bg-[#AAD7E6]/50 animate-progress" />
-                  )}
+        {/* Photo cards, one per service, linking to the subpages */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+          {steps.map((step, index) => {
+            const practice = practices[index];
+            return (
+              <a
+                key={step.number}
+                href={`/services/${practice.slug}`}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-foreground/10 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-28px_rgba(51,79,90,0.4)] ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: isVisible ? `${index * 90}ms` : "0ms" }}
+              >
+                {/* Treated photo */}
+                <div className="relative h-44 overflow-hidden shrink-0">
+                  <img
+                    src={practice.photo.src}
+                    alt={practice.photo.alt}
+                    className="absolute inset-0 h-full w-full object-cover grayscale-[30%] transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-[#334F5A]/25 mix-blend-multiply pointer-events-none" />
+                  <span className="absolute top-3 left-3 font-mono text-[11px] px-2.5 py-1 rounded-full bg-white/85 backdrop-blur-sm text-[#334F5A]">
+                    {step.number}
+                  </span>
                 </div>
-              </div>
 
-              {/* Title */}
-              <h3 className="text-3xl lg:text-4xl font-display mb-2">
-                {step.title}
-              </h3>
-              <span className="text-xl text-[#334F5A]/40 font-display block mb-6">
-                {step.subtitle}
-              </span>
+                <div className="flex flex-col flex-1 p-6 lg:p-7">
+                  <h3 className="text-2xl lg:text-[1.7rem] font-display leading-tight">
+                    {step.title}
+                  </h3>
+                  <span className="text-lg text-[#334F5A]/40 font-display block mb-4">
+                    {step.subtitle}
+                  </span>
+                  <p className="text-sm text-[#334F5A]/65 leading-relaxed mb-6">
+                    {step.description}
+                  </p>
 
-              {/* Description */}
-              <p className={`text-[#334F5A]/60 leading-relaxed transition-opacity duration-300 ${
-                activeStep === index ? "opacity-100" : "opacity-60"
-              }`}>
-                {step.description}
-              </p>
+                  <span className="mt-auto inline-flex items-center gap-2 font-mono text-xs text-[#334F5A]">
+                    <span className="link-sweep">Read more</span>
+                    <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1.5">
+                      &rarr;
+                    </span>
+                  </span>
+                </div>
 
-              {/* Active indicator */}
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] transition-transform duration-500 origin-left ${
-                activeStep === index ? "scale-x-100" : "scale-x-0"
-              }`} />
-            </button>
-          ))}
+                {/* Accent line that sweeps in on hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-x-100" />
+              </a>
+            );
+          })}
         </div>
-
-        {/* Code Preview - Large terminal */}
-        
       </div>
-
-      <style jsx>{`
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-        .animate-progress {
-          animation: progress 6s linear forwards;
-        }
-      `}</style>
     </section>
   );
 }
