@@ -20,9 +20,9 @@ export const practices: Practice[] = [
     slug: "consulting",
     tag: "Strategy",
     title: "Consulting & strategy",
-    lead: "From raw data to a direction you can defend.",
+    lead: "Where it starts: research and strategy.",
     description:
-      "We produce the destination strategies, feasibility studies and development plans that ministries, destinations and municipalities act on. Field research and analysis come first, then a clear direction, with the funding or grant case to support it.",
+      "We produce the destination strategies, feasibility studies and development plans that ministries, destinations and municipalities act on. Grounded in research and field knowledge, the result is a direction you can defend, with the funding or grant case to support it.",
     serves: ["Ministries & NTOs", "DMO & TDM organisations", "Municipalities", "Tourism SMEs"],
     deliverables: [
       "Destination strategies & development plans",
@@ -41,9 +41,9 @@ export const practices: Practice[] = [
     slug: "development",
     tag: "Build",
     title: "Development & digitalisation",
-    lead: "From a validated idea to a working system.",
+    lead: "Where strategy becomes a working system.",
     description:
-      "We turn a validated idea into something that works: digital process design, pilot projects and practical AI adoption, built for how tourism organisations actually operate and measured against the goal you started with.",
+      "We turn a validated idea into something that works: digital process design, pilot projects and practical AI adoption, built for how tourism organisations actually operate. Where it fits, we deliver this through our own brands, Visible Tourism and AI4Tourism.",
     serves: ["DMO & TDM organisations", "Tourism SMEs", "Attractions & operators"],
     deliverables: [
       "Digital process design & system integration",
@@ -62,9 +62,9 @@ export const practices: Practice[] = [
     slug: "education",
     tag: "Mentoring",
     title: "Education & mentoring",
-    lead: "Capability that stays after we leave.",
+    lead: "Where the capability stays in your team.",
     description:
-      "We design education that holds, from national training programmes with full curricula to one-to-one Google-profile and AI mentoring, so the capability stays inside your team rather than leaving with the consultant.",
+      "We design education that holds, from national training programmes with full curricula to one-to-one Google-profile and AI mentoring, so the capability stays inside your team rather than leaving with the consultant. Our mentoring runs under Turizmus Tudástár.",
     serves: ["Tourism SMEs", "DMO & TDM organisations", "Public institutions"],
     deliverables: [
       "National training programme design",
@@ -108,11 +108,11 @@ export type ProcessStep = {
 };
 
 export const processSteps: ProcessStep[] = [
-  { number: "01", title: "Research", blurb: "We map the real situation with scientifically grounded research." },
-  { number: "02", title: "Analysis", blurb: "We turn findings into insight and locate the genuine opportunities." },
-  { number: "03", title: "Development", blurb: "We design solutions and working prototypes, with the client involved throughout." },
-  { number: "04", title: "Implementation", blurb: "We put the concept to work, digitally, organisationally or in service." },
-  { number: "05", title: "Measurement", blurb: "We measure the outcome against the original objective and refine from there." },
+  { number: "01", title: "Frame", blurb: "We agree the real question before answering it." },
+  { number: "02", title: "Research", blurb: "We gather the evidence the decision needs." },
+  { number: "03", title: "Develop", blurb: "We design the strategy or solution, with you involved throughout." },
+  { number: "04", title: "Build", blurb: "We put it to work, digitally, organisationally or in service." },
+  { number: "05", title: "Measure", blurb: "We check the result against the goal, and refine." },
 ];
 
 export type ClientTier = {

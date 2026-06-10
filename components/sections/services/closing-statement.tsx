@@ -25,9 +25,9 @@ export function ClosingStatement() {
               <span className="text-muted-foreground">A specialist network.</span>
             </h2>
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-[58ch]">
-              We combine strategy with design-thinking research, bring in the
-              specialist each problem needs, and work towards long-term partnerships
-              with the organisations we advise.
+              We research, advise, build and embed. We bring in the specialist each
+              problem needs, and work towards long-term partnerships with the
+              organisations we advise.
             </p>
           </div>
         </ScrollReveal>

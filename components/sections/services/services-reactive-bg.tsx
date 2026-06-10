@@ -483,8 +483,8 @@ export function ServicesReactiveBg() {
             Four services. One method.
           </h2>
           <p className="mt-4 text-lg text-[#334F5A]/80 leading-relaxed mx-auto max-w-[44ch]">
-            Consulting, development, education and public speaking, our four main
-            services, all built on the same combination of strategy and design thinking.
+            Research and strategy, development, education and public speaking. Each
+            one feeds the next.
           </p>
         </div>
 
@@ -500,7 +500,7 @@ export function ServicesReactiveBg() {
                 transition: "opacity 0.5s ease",
               }}
             >
-              Strategy + design thinking
+              Research-led method
             </span>
             {NODES.map((n, i) => {
               const p = practices[i];
@@ -542,7 +542,7 @@ export function ServicesReactiveBg() {
           <TreeHeading />
           <StaticList />
         </div>
-        <div className="hidden md:block h-[250vh]" aria-hidden />
+        <div className="hidden md:block h-[400vh]" aria-hidden />
       </div>
     </>
   );

@@ -212,4 +212,16 @@
   .animate-spotlight {
     animation: spotlight 2s ease 0.75s 1 forwards;
   }
+
+  /* GSAP SplitText: ensure chars rise from below a word-mask. The .word
+     containers clip their chars while the chars are still translated. */
+  .split-word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+  }
+  .split-char {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
 }

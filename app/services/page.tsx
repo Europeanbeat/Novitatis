@@ -4,7 +4,7 @@ import { FooterSection } from "@/components/layout/footer";
 import { ServicesHero } from "@/components/sections/services/services-hero";
 import { OurApproach } from "@/components/sections/services/our-approach";
 import { ServicesReactiveBg } from "@/components/sections/services/services-reactive-bg";
-import { ServicesGrid } from "@/components/sections/services/services-grid";
+import { ServicesShowcase } from "@/components/sections/services/services-showcase";
 import { MethodSpine } from "@/components/sections/services/method-spine";
 import { ClientSpectrum } from "@/components/sections/services/client-spectrum";
 import { ClosingStatement } from "@/components/sections/services/closing-statement";
@@ -30,8 +30,8 @@ export default function ServicesPage() {
       {/* 3 — The 72 background lines morph into the tree skeleton */}
       <ServicesReactiveBg />
 
-      {/* 4 — The four main services in detail (cards link to the sub-pages) */}
-      <ServicesGrid />
+      {/* 4 — Editorial showcase of the four main services */}
+      <ServicesShowcase />
 
       {/* 5 — How an engagement runs: the method */}
       <MethodSpine />

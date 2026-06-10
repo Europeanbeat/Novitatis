@@ -2,16 +2,16 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const principles = [
   {
-    title: "A specialist network",
-    body: "We assemble the right senior experts around each problem, rather than staffing it from a fixed bench.",
+    title: "Research & strategy",
+    body: "We work out what your destination or business should actually do, and back it with evidence.",
   },
   {
-    title: "Research-first",
-    body: "Every engagement starts from evidence: field work, data and analysis before any recommendation.",
+    title: "Build & digitalise",
+    body: "We turn the strategy into working digital and AI tools, through our own products.",
   },
   {
-    title: "One method, four services",
-    body: "The same sequence runs across all four services, so consulting, development, education and public speaking connect rather than sit apart.",
+    title: "Embed",
+    body: "We train your team so the capability stays with you, not on a consultant's laptop.",
   },
 ];
 
@@ -23,12 +23,12 @@ export function OurApproach() {
         <ScrollReveal direction="up" duration={0.8}>
           <div className="max-w-[60ch] mb-10 lg:mb-12">
             <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight">
-              A specialist network, not a fixed bench.
+              We don&apos;t just advise. We build what we recommend.
             </h2>
             <p className="mt-5 text-[#334F5A]/80 leading-relaxed">
-              Novitatis combines strategy with design-thinking research for the
-              tourism sector. We bring in the experts each problem needs, work from
-              evidence, and run the same method across everything we do.
+              Most tourism consultancies hand over a report and leave. We do the
+              research and the strategy, then build the digital and AI that makes it
+              real, and train your team so it lasts.
             </p>
           </div>
         </ScrollReveal>

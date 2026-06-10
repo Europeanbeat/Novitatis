@@ -1,0 +1,342 @@
+================================================================
+NOVITATIS — PAGE DRAFTS (ready-to-use copy, in text)
+June 2026 · concept: research + innovation, turned into digital reality
+International register. No "think tank" wording. British English. No em-dashes.
+================================================================
+
+HOW TO READ THIS
+----------------
+This is real draft copy for each page, not options. I made the calls. Where a
+genuine fact is missing it is marked [CONFIRM] with a safe placeholder you can
+ship as-is. UI elements stay; this is the wording to drop in. One or two
+ALT lines are given only where the choice is close.
+
+Locked decisions reflected here:
+ - Concept, not label: "research and innovation, turned into digital reality."
+   The words "think tank" appear nowhere on the site.
+ - International by method + footprint (ITB Berlin, Interreg Europe, Edinburgh),
+   NOT by naming a client (the one you have cannot be used yet).
+ - Hungary = proof of rigour (Decree 634/2020), never the ceiling.
+ - The 4 services are one chain; the 3 brands are how we deliver the digital.
+
+
+################################################################
+1. HOMEPAGE   [these files are on your "do not touch" list -> apply only if
+   you want; nothing here is applied to code, it is draft copy for your call]
+################################################################
+
+1.1 HERO
+  Eyebrow:  Innovation in tourism
+  Headline: We turn tourism research into digital reality.
+  (Typewriter verbs, keep the device: research / innovate / digitalise / build)
+  Subline:  A specialist network for tourism. We bring research and innovation
+            to destinations and the businesses in them, then build the digital
+            and AI tools that make it real.
+  Stats:    4 services · 3 products · 10+ years
+  ALT headline: Where tourism research meets digitalisation.
+
+1.2 "WHY NOVITATIS" (features) — keep 4 cards, new copy:
+  Eyebrow: Why us?     Heading: Why Novitatis?
+  01 Research-led
+     We start from evidence and field knowledge, not assumption, so the
+     direction holds up in front of a board or a funder.
+  02 Built, not just advised
+     We do not stop at the report. We build the digital and AI tools that turn
+     a strategy into something live.
+  03 One sector, in depth
+     We work only in tourism and hospitality. We know the operators, the
+     funding, and where the real obstacles are.
+  04 Proven at the highest level
+     Our work has been adopted into national law and reached international
+     stages, from ITB Berlin to Interreg Europe.
+
+1.3 HOW IT WORKS (the 4-service teaser) — keep structure, new descriptions:
+  Eyebrow: Our services     Heading: Strategy / Technology / Knowledge
+  01 Consulting & strategy
+     Research, interviews and strategy for destinations and municipalities. The
+     thinking the rest of the work is built on.
+  02 Development & digitalisation
+     Where research meets digital: process design, AI adoption and the tools
+     that make a strategy real, delivered through our own products.
+  03 Education & mentoring
+     Training and mentoring that leave the capability inside your team, not on
+     a consultant's laptop.
+  04 Public speaking
+     Keynotes, panels and our podcast, shaping where tourism goes next, on
+     national and international stages.
+
+1.4 BRANDS SECTION  (this is the big "connect the pieces" fix)
+  Eyebrow: Our products
+  Heading: Three products. One method.
+  Subline: Where our consulting work repeats, we turn it into a product. Each
+           one closes the digital gap in tourism at a different scale.
+  Card label (all three): Novitatis product
+  - Visible Tourism:   Done-for-you digital visibility for destinations, built
+                       inside Google's ecosystem. Tourists ask Google; we make
+                       sure it answers.
+  - Turizmus Tudástár: Training and mentoring that teach tourism businesses to
+                       run their Google presence like a pro, in the AI era.
+  - AI4Tourism:        An AI decision system for tourism businesses: where AI
+                       pays off, where it does not, and what to do about it.
+
+
+################################################################
+2. /SERVICES   (full draft — keep every section/UI element)
+################################################################
+
+2.1 HERO  (services-hero.tsx)
+  Eyebrow:  Services
+  Headline: We turn tourism research into digital reality.
+  Subline:  A specialist network for tourism. We do the research and strategy
+            destinations act on, then build the digital and AI tools that make
+            it real.
+  ALT headline: Where tourism research meets digitalisation.
+
+2.2 OUR APPROACH  (our-approach.tsx)
+  Heading: A specialist network that builds what it researches.
+  Intro:   Novitatis brings research and innovation to tourism and turns it
+           into something that works. We assemble the experts each problem
+           needs, work from evidence, and stay involved from the first question
+           to the live result.
+  01 Research-led
+     Evidence and fresh thinking come first. The work has to survive contact
+     with the operators, budgets and timelines it depends on.
+  02 A specialist network
+     We bring the right senior experts around each problem, anywhere, rather
+     than staffing it from a fixed bench.
+  03 We build what we research
+     Where research meets digitalisation. Our own products take the digital and
+     AI work from idea to live, so a strategy does not end as a document.
+
+2.3 THE TREE  (services-reactive-bg.tsx)
+  Heading: Four services. One method.
+  Subtext: Consulting, development, education and public speaking. Four services
+           that feed each other, run on one research-led method.
+  (labels unchanged: the 4 service names)
+
+2.4 THE 4 SERVICE CARDS  (services-grid.tsx + lib/services-content.ts)
+  Section heading: Our four main services.
+  Section intro:   One chain, not a menu. The research and strategy come first,
+                   then we build it, embed it, and carry the ideas to the stage.
+
+  01 Consulting & strategy
+     Lead:  Where it starts: research and strategy.
+     Body:  We produce the destination strategies, feasibility studies and
+            development plans that ministries, destinations and municipalities
+            act on. Grounded in research and field knowledge, built to hold up
+            in front of a board or a funder.
+     What's included: Destination strategies & development plans · Feasibility
+            studies & cost-benefit analysis · Market & digital-presence research
+            · Regulatory methodology & legislative input
+     Explore consulting & strategy ->
+
+  02 Development & digitalisation
+     Lead:  Where strategy becomes a working system.
+     Body:  We turn a validated idea into something that works: digital process
+            design, pilots and practical AI adoption, built for how tourism
+            actually operates. Delivered, where it fits, through our own
+            products, Visible Tourism and AI4Tourism.
+     What's included: Digital process design & system integration · Pilot &
+            innovation projects · AI adoption & data-driven operations ·
+            Experience & service development
+     Explore development & digitalisation ->
+
+  03 Education & mentoring
+     Lead:  Where the capability stays in your team.
+     Body:  From national training programmes with full curricula to one-to-one
+            Google-profile and AI mentoring, we design education that holds, so
+            the knowledge stays in the organisation. Powered by Turizmus
+            Tudástár.
+     What's included: National training programme design · Turizmus Tudástár
+            mentoring · AI mentoring · Organisational development
+     Explore education & mentoring ->
+
+  04 Public speaking
+     Lead:  Where we help set the agenda.
+     Body:  Through keynotes, panels and our own podcast we make digital and AI
+            trends usable for the sector, on national and international stages,
+            and push organisations to think clearly about what comes next.
+     What's included: Digital & innovation keynotes · Research & best-practice
+            sessions · Panel moderation · Professional programme design
+     Explore public speaking ->
+
+2.5 METHOD  (method-spine.tsx)   [CONFIRM the real starting point with Bence]
+  Heading: How a project runs.
+  Intro:   Most engagements move through some version of these stages. We adapt
+           the entry point to what the client already has. [CONFIRM: is this
+           accurate, and what does a project usually start from?]
+  01 Frame      We agree the real question before answering it.
+  02 Research   We gather the evidence the decision needs.
+  03 Develop    We design the strategy or the solution, with you involved.
+  04 Build      We put it to work, digitally, organisationally or in service.
+  05 Measure    We check the result against the goal, and refine.
+  NOTE: this replaces the old "every engagement starts from field research"
+  claim you flagged as wrong. Confirm and I will lock the real wording.
+
+2.6 CLIENT SPECTRUM  (client-spectrum.tsx)
+  Heading: From national tourism bodies to a single venue.
+  Intro:   We work across the whole of tourism, in Hungary and internationally.
+  Public & national   Ministries · National tourism organisations · Regional
+                      development agencies
+  Destination mgmt    DMOs · TDMs · Municipalities
+  Businesses & providers  Tourism SMEs · Accommodation · Restaurants &
+                      hospitality · Attractions & experiences
+
+2.7 CLOSING  (closing-statement.tsx)
+  Heading: Not a classic consultancy. / A specialist network.
+  Subline: We research, advise, build and embed. We bring in the specialist
+           each problem needs, and work toward long-term partnerships with the
+           organisations we advise.
+
+2.8 CTA  (services-cta.tsx)   [no change needed]
+  Heading: Tell us what / you are working on.
+  Body:    A strategy, a study, a programme, or an early-stage idea. Send us a
+           short note and we will tell you whether and how we can help.
+  Button:  Get in touch ->
+
+
+################################################################
+3. SERVICE SUB-PAGES   (currently empty stubs -> full draft content)
+   Structure per page: intro · how we work · what's included · selected work
+   (real proof) · who it's for · CTA. Keep it on the existing sub-page shell.
+################################################################
+
+3.1 /services/consulting  — CONSULTING & STRATEGY
+  Tag: Strategy
+  Title: Consulting & strategy
+  Lead: Where it starts: research and strategy.
+  Intro: We produce the destination strategies, feasibility studies and
+    development plans that ministries, destinations and municipalities act on.
+    The research and the field knowledge come first; the output is a direction
+    you can defend, with the funding or grant case behind it.
+  What's included: Destination strategies & development plans · Feasibility
+    studies & cost-benefit analysis · Market & digital-presence research ·
+    Regulatory methodology & legislative input
+  Selected work:
+   - 2020 · National hospitality categorisation. A full classification
+     methodology, definitions and a registration mechanism, agreed with sector
+     leaders and adopted into national law as Government Decree 634/2020.
+   - 2018 · Lake Balaton Bike Route. A feasibility study and cost-benefit
+     analysis for a region-wide cycling investment. The graphic summary was
+     picked up across the press.
+   - 2020 · Wine & gastro-tourism development plans. Development plans and grant
+     proposals across three destinations, built on a custom provider rating
+     system.
+   - 2022 · Attraction development concept. A feasibility study and operating
+     model for a HUF 1.45bn tourism attraction, which opened in 2022.
+  Who it's for: Ministries & NTOs · DMOs & TDMs · Municipalities · Tourism SMEs
+  CTA: Have a strategy question? Get in touch ->
+
+3.2 /services/development  — DEVELOPMENT & DIGITALISATION
+  Tag: Build
+  Title: Development & digitalisation
+  Lead: Where strategy becomes a working system.
+  Intro: We turn a validated idea into something that works: digital process
+    design, pilots and practical AI adoption, built for how tourism
+    organisations actually operate and measured against the goal you started
+    with. Where it fits, we deliver through our own products, Visible Tourism
+    and AI4Tourism.
+  What's included: Digital process design & system integration · Pilot &
+    innovation projects · AI adoption & data-driven operations · Experience &
+    service development
+  Selected work:
+   - 2022 · Digital tourism research, 1,300 providers. A custom scoring system
+     applied across 1,300 providers, mapping the full online visitor journey.
+     The first study of its kind in Hungary.
+   - 2025 · AI adoption for a destination team. Practical AI training and
+     adoption focused on real day-to-day use, not theory.
+   - 2023 · Digital-presence assessment. An evaluation of how a national network
+     of tourism offices performs online, with prioritised improvements.
+  Who it's for: DMOs & TDMs · Tourism SMEs · Attractions & operators
+  CTA: Have a development question? Get in touch ->
+
+3.3 /services/education  — EDUCATION & MENTORING
+  Tag: Mentoring
+  Title: Education & mentoring
+  Lead: Where the capability stays in your team.
+  Intro: From national training programmes with full curricula to one-to-one
+    Google-profile and AI mentoring, we design education that holds, so the
+    capability stays inside your team rather than leaving with the consultant.
+    Our mentoring runs under Turizmus Tudástár.
+  What's included: National training programme design · Turizmus Tudástár
+    mentoring · AI mentoring · Organisational development
+  Selected work:
+   - 2022 · National training programme. A programme built from the ground up,
+     with a full curriculum and clear entry and exit requirements. Launched in
+     April 2022 and still running.
+   - 2025 · Product-development workshop. A two-day, hands-on workshop for
+     tourism providers on building and packaging experiences.
+   - 2024 · Online-presence workshop. A practical workshop with an accompanying
+     handbook, run for tourism providers.
+   - 2025 · AI training for a destination team. A full-day, practical session on
+     prompting, content and real workflows.
+  Who it's for: Tourism SMEs · DMOs & TDMs · Public institutions
+  CTA: Have a training question? Get in touch ->
+
+3.4 /services/public-speaking  — PUBLIC SPEAKING
+  Tag: Speaking
+  Title: Public speaking
+  Lead: Where we help set the agenda.
+  Intro: Through keynotes, panels and our own podcast we make digital and AI
+    trends usable for the sector, translating where tourism is heading into
+    something organisations can act on, on national and international stages.
+  What's included: Digital & innovation keynotes · Research & best-practice
+    sessions · Panel moderation · Professional programme design
+  Selected work:
+   - 2026 · ITB Berlin. Exhibiting ai4tourism at the world's largest tourism
+     trade fair.
+   - 2025 · Tourism Summit. Exhibiting Visible Tourism, on digital visibility
+     and being found on Google and in AI search.
+   - 2026 · Smart Tour, Interreg Europe. An international talk on data-driven
+     tourism, in Côtes-d'Armor.
+   - 2025 · AI Opener Bootcamp, Edinburgh. An international talk on a
+     destination's practical AI journey.
+   - Ongoing · Podcast & keynotes on AI in tourism and staying visible in the
+     age of AI search.
+  Who it's for: Conferences & sector events · Public institutions · Industry
+    programmes
+  CTA: Planning an event? Get in touch ->
+
+
+################################################################
+4. /BRANDS  +  homepage brands  (the connective narrative)
+################################################################
+Intro (both the /brands hero and the homepage brands section):
+  Heading: Three products. One method.
+  Body:    Novitatis works in tourism every day. Where that work repeats, we
+           turn it into a product. Each one closes the digital gap at a
+           different scale, and each runs on the same research-led method.
+
+  Visible Tourism   — Destinations.  Done-for-you digital visibility inside
+                      Google's ecosystem: data corrected, listings structured,
+                      routes and Street View published, visitor flow guided.
+                      "Tourists ask Google. We make sure it answers."
+  Turizmus Tudástár — SMEs.  A course and mentoring that teach a tourism
+                      business to run its Google presence like a pro, manage
+                      reviews, and stay visible in the AI era.
+  AI4Tourism        — Businesses.  An AI decision system: where AI creates real
+                      revenue or saves cost in a tourism business, where it does
+                      not, and the step-by-step way to act on it.
+
+
+################################################################
+5. OUR PROJECTS  (the gallery intro)
+################################################################
+  Heading: Our projects.
+  Intro:   Where the method has been proven, from national policy to
+           international stages. Filter by the kind of work you need.
+
+
+================================================================
+OPEN ITEMS (only these, everything else is ready to apply)
+================================================================
+ 1. METHOD [CONFIRM]: section 2.5 / 3.x. What does a project actually start
+    from? I removed the false "field research first" claim and wrote a safe,
+    honest version. Confirm and I lock it.
+ 2. INTERNATIONAL CLIENT: when the one you have becomes usable, we add it as a
+    named international case and the positioning gets much stronger.
+ 3. BRANDS = "our products": I wrote them as Novitatis products. If any is a
+    separate venture, I will adjust one word ("products" -> "ventures we built").
+ 4. BOLDNESS: this draft sits at about a 3/5 (confident, not provocative). Say
+    "go bolder" and I will sharpen the hero and the public-speaking voice.
+================================================================

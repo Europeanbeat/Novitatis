@@ -1,0 +1,265 @@
+================================================================
+NOVITATIS — THE PLAN: ONE CONNECTED STORY, GOING INTERNATIONAL
+For Bence · June 2026 · my strategic input + a section-by-section content plan
+(Keep every UI element. Only the WORDING changes.)
+================================================================
+
+This builds on SERVICES-DIRECTION-RESEARCH.txt (the peer + style + brand
+research). That doc was the inputs. THIS doc is the decision.
+
+
+================================================================
+A. THE DIAGNOSIS — why it feels "all over the place" (my honest read)
+================================================================
+Right now a visitor meets three separate things with no spine:
+  - 4 services that read like a MENU (pick one),
+  - 3 brands that look like 3 UNRELATED companies,
+  - a projects gallery that floats on its own.
+Nothing answers the only question that matters: "What IS Novitatis, and why
+are these things one company?" That is the fragmentation. It is not a design
+problem (the UI is fine). It is a NARRATIVE problem. Fix the narrative and
+the same UI suddenly reads as one system.
+
+
+================================================================
+B. THE SPINE — the one idea that connects everything
+================================================================
+IDENTITY (what Novitatis IS) — the CONCEPT, in our own words:
+   Research and innovation for tourism, turned into digital reality.
+   Where research meets digitalisation.
+
+   IMPORTANT: "think tank" is the ETHOS your boss likes (research-led,
+   innovative, forward, agenda-setting). We borrow the SPIRIT, NOT the term.
+   Do NOT put the words "think tank" on the site. Express the concept in
+   Novitatis's own language (research, innovation, digitalisation, applied).
+
+Why this works: it is international by nature (research and innovation have no
+postcode), it is forward-leaning, and no peer in Part 2 of the research doc
+claims it cleanly. Group NAO is the closest in spirit ("strategy & ideas
+bureau"); we own the research + innovation + DIGITALISATION version for tourism.
+
+ENGINE (what pays the bills): consulting and strategy (the bread-and-butter:
+research, interviews, strategy for destinations and municipalities) plus the
+three digital products. The think-tank credibility (research, innovation,
+agenda-setting talks) is exactly what WINS the consulting and SELLS the
+products. Identity and engine reinforce each other, they are not separate.
+   -> Important nuance: do NOT drift into "pure think tank" copy that sounds
+      academic or non-commercial. The think tank is the brand; the consulting
+      and products are how it shows up and gets paid. Say both.
+
+THE DIFFERENTIATOR: most tourism consultancies only advise (THR, Twenty31,
+Toposophy all stop at the report). Novitatis researches, advises AND ships
+the digital. Research and innovation, made real through digitalisation.
+
+So everything hangs off a VALUE CHAIN, not a menu:
+
+   RESEARCH & INNOVATION ──> STRATEGY ──> DIGITALISATION ──> EMBED ──> INFLUENCE
+   (Consulting & strategy)              (Development)   (Education) (Public speaking)
+     the thinking / core               where research   capability   the public
+                                       meets digital      stays        voice, global
+                                       (the brands live here)
+
+And the 3 BRANDS are not separate companies. They are the PRODUCTISED
+DELIVERY of the consulting practice, the repeatable products that came out
+of doing the research over and over:
+   Visible Tourism   = the BUILD product at DESTINATION scale (Google visibility)
+   Turizmus Tudástár = the EMBED product at SME scale (training/mentoring)
+   AI4Tourism        = the BUILD/DECIDE product at BUSINESS scale (AI decisions)
+
+That is the connective tissue. Say it once, clearly, and the brands stop
+looking random: they are HOW Novitatis delivers and scales its consulting.
+
+Projects / "Our Projects" = the PROOF the research-led method works.
+
+One sentence that carries the whole system (put a version of this in the hero):
+   "We do the research and innovation destinations act on, then build the
+    digital and AI tools that make it real."
+
+
+================================================================
+C. THE INTERNATIONAL PIVOT — 5 concrete moves (my input)
+================================================================
+You want the MAIN brand (Novitatis) to read international. Hungary becomes
+"where we proved it", not "who we serve". Five moves:
+
+  1. LEAD WITH METHOD + OUTCOME, NOT GEOGRAPHY. "We turn research into
+     strategy destinations act on" works in any country. No "Hungarian" in
+     the hero.
+  2. REFRAME HUNGARY AS PROOF OF RIGOUR. "Our methodology was adopted into
+     national law" is evidence you operate at the highest level. Keep the
+     decree in the PROOF layer (projects / sub-pages), not the hero.
+  3. PUT THE INTERNATIONAL FOOTPRINT UP FRONT. ITB Berlin, Interreg Europe /
+     Smart Tour (Côtes-d'Armor), Edinburgh. You already work across borders,
+     so show it early as a credibility strip.
+  4. STRIP LOCAL JARGON FROM PRIMARY COPY. NTAK, specific decree numbers,
+     Hungarian org names -> move to proof/detail, not headlines. A German or
+     French DMO should never hit a word they have to Google.
+  5. CLIENT = "destinations and municipalities" (universal), never
+     "Hungarian destinations". Register = Group NAO / DTTT international English.
+
+
+================================================================
+D. /SERVICES PAGE — SECTION-BY-SECTION CONTENT PLAN
+   (UI stays. Each block: CURRENT -> PROBLEM -> NEW WORDING)
+================================================================
+
+[1] HERO  (services-hero.tsx)
+  CURRENT: "We turn tourism strategy into measurable development." +
+           "A specialist network for the tourism sector, combining strategy
+           with design-thinking research."
+  PROBLEM: fine, but it stops at "strategy". It hides the differentiator
+           (you also build) and says nothing international.
+  NEW (pick one headline — concept-led, NO "think tank" wording):
+    H1a: "Where tourism research meets digitalisation."
+    H1b: "Research and innovation, built into how tourism works."
+    H1c: "We turn tourism research into digital reality."
+    H1d: "The research and innovation behind tourism's digital future."
+  NEW SUBLINE (this does the connective work, keep it):
+    "We bring research and innovation to tourism, then build the digital and
+     AI tools that make it real, for destinations and the businesses in them."
+  -> Optional: a thin credibility line UNDER the hero (not inside it):
+    "Adopted into national law · ITB Berlin · Interreg Europe · Edinburgh"
+  -> H1a is the cleanest expression of "research meets digitalisation".
+     H1c is the most active. All carry the concept without the label.
+
+[2] OUR APPROACH  (our-approach.tsx — 3 principles)
+  CURRENT: "A specialist network, not a fixed bench." +
+           [specialist network / research-first / one method, four services]
+  PROBLEM: principle 3 ("one method, four services") is inward-looking. The
+           real differentiator is missing.
+  NEW HEADER: "A specialist network that builds what it researches."
+  NEW 3 PRINCIPLES:
+    01 Research and innovation — "Evidence and new thinking come first. The
+       work has to hold up in front of a board or a funder."
+    02 A specialist network — "We assemble the right senior experts around
+       each problem, anywhere, rather than staffing from a fixed bench."
+    03 We build what we research — "Where research meets digitalisation: our
+       own products take the digital and AI work from idea to live."
+  -> Principle 03 is the bridge to the brands. This is the most important
+     single change on the page.
+
+[3] THE TREE  (services-reactive-bg.tsx heading + 4 labels)
+  CURRENT: "Four services. One method." + the 4 service labels.
+  PROBLEM: "four services" still reads as a menu.
+  NEW HEADING: "One method. Four connected moves." (or keep "Four services.
+           One method." if you like it — minor.)
+  NEW SUBTEXT: "Research and strategy, development, education and influence.
+           Four services that feed each other, run on one research-led method."
+  (Labels stay as the 4 service names.)
+
+[4] THE 4 SERVICE CARDS  (services-grid.tsx + lib/services-content.ts)
+  CURRENT: "Our four main services." 4 white cards (lead/description/
+           what's-included/explore).
+  PROBLEM: the cards don't show the CHAIN or the brand connection.
+  NEW SECTION HEADER: "Four services. One chain." or keep "Our four main
+           services." Then reframe each card's LEAD so the chain is visible:
+    01 Consulting & strategy  -> "Where it starts: research and strategy."
+       (the core / bread-and-butter; the other three follow from this.)
+    02 Development & digitalisation -> "Where strategy becomes a working
+       system." ADD one line: "Delivered through our products, Visible
+       Tourism and AI4Tourism." (explicit services->brands bridge.)
+    03 Education & mentoring -> "Where the capability stays in your team."
+       ADD: "Powered by Turizmus Tudástár." (bridge.)
+    04 Public speaking -> "Where we help set the agenda, internationally."
+  -> Keep the existing card descriptions you approved, just swap the LEADS
+     and add the one brand-bridge line on cards 02 and 03.
+
+[5] METHOD  (method-spine.tsx — the 5 steps)
+  CURRENT: Research -> Analysis -> Development -> Implementation -> Measurement.
+  PROBLEM: [CONFIRM] you said "field research first" is WRONG. So I will NOT
+           assert this sequence until you tell me the real one. This block
+           is on hold pending Q1 below. Everything else can proceed without it.
+
+[6] CLIENT SPECTRUM  (client-spectrum.tsx — 3 tiers)
+  CURRENT: Public & national / Destination management / Businesses & providers
+           (Hungarian-flavoured client names).
+  PROBLEM: reads local; the international signal is missing.
+  NEW HEADER: "From national tourism bodies to a single venue, anywhere."
+  KEEP the 3 tiers, but generalise the client names (ministries and national
+  tourism organisations; DMOs, TDMs and municipalities; tourism SMEs,
+  accommodation, hospitality and attractions). Add a small line: "Across
+  Hungary and internationally."
+
+[7] CLOSING  (closing-statement.tsx)
+  CURRENT: "Not a classic consultancy. A specialist network."
+  KEEP — it is on-brand and strong. Sharpen the subline to carry the spine:
+  NEW SUBLINE: "We advise, build and embed. We bring in the specialist each
+           problem needs, and we work toward long-term partnerships with the
+           organisations we advise."
+
+[8] CTA  (services-cta.tsx)
+  CURRENT: "Tell us what you are working on." -> "Get in touch."
+  KEEP. It is universal and single-intent. No change.
+
+
+================================================================
+E. HOW THE BRANDS CONNECT (services -> brands bridge)
+================================================================
+The fix is to stop presenting the brands as 3 companies and present them as
+"Our products": the productised delivery arm of the consulting practice.
+  - On /services: cards 02 and 03 NAME the brands as how they deliver (above).
+  - On the homepage brands section / /brands page: reframe the intro to:
+    "Three products, one method. Where our consulting work repeats, we turn
+     it into a product. Each closes the digital gap at a different scale."
+    Then the LADDER (this is the connector):
+       Visible Tourism   -> destinations (done-for-you Google visibility)
+       Turizmus Tudástár -> SMEs (learn-it-yourself training + mentoring)
+       AI4Tourism        -> businesses (AI decisions that pay off)
+  - This makes the brands feel INEVITABLE, not random.
+
+  [STRUCTURAL QUESTION -> Q3 below] This whole framing assumes the brands ARE
+  Novitatis's products. If they are actually separate ventures / joint things,
+  the wording changes (still connected, but "ventures we built" not "our
+  products"). I need your answer before I lock the brand wording.
+
+
+================================================================
+F. HOW "OUR PROJECTS" CONNECTS (the proof layer)
+================================================================
+"Our Projects" (was References) = the evidence the method works. Job: prove
+the research-led claim and the international reach in one scroll.
+  - Each service sub-page pulls its 3-5 relevant projects (consulting shows
+    634/2020, Balaton CBA, etc.; public speaking shows ITB, Interreg).
+  - Lead the gallery with the strongest international + authority proof, not
+    chronology: 634/2020 (national law), then ITB Berlin / Interreg
+    (international), then the rest.
+  - One line at the top of Our Projects: "Where the method has been proven,
+    from national policy to international stages."
+
+
+================================================================
+G. THE NARRATIVE IN ONE PARAGRAPH (the elevator) + taglines
+================================================================
+ELEVATOR (use a trimmed version anywhere you need the full story):
+  "Novitatis brings research and innovation to tourism, and turns it into
+   digital reality. We do the deep research and strategy that destinations
+   and municipalities act on, then we build the digital and AI tools that
+   make it real, through our own products: Visible Tourism, Turizmus Tudástár
+   and AI4Tourism. Our work has shaped national policy and reached
+   international stages. We don't just advise. We build what we research, and
+   we make it last."
+
+TAGLINE OPTIONS (react — none use the term "think tank"):
+  T1. "Where tourism research meets digitalisation."
+  T2. "Research and innovation, made real."
+  T3. "We research, build and embed."
+  T4. "Research-led. Digitally delivered."
+  T5. "Tourism research, turned into digital reality."
+  My pick: T1 as the line, T4 as the short stamp.
+
+
+================================================================
+H. WHAT I NEED FROM YOU (the real blockers — short)
+================================================================
+Q1. THE REAL PROCESS. What actually happens when a project starts? ("Field
+    research first" is wrong, per you.) This unblocks the Method section [5].
+Q2. INTERNATIONAL PROOF. Any non-Hungarian client work I can NAME (not just
+    speak at)? Even one international project changes the whole credibility.
+Q3. BRANDS = ? Are the 3 brands Novitatis's OWN PRODUCTS, or separate
+    ventures / partnerships? This gates all the brand wording (Part E).
+Q4. HOW BOLD. Group NAO is provocative ("we question the question"). How far
+    toward that vs safe-and-credible? Pick a number 1 (safe) to 5 (bold).
+
+Answer these four and I can turn this plan into live wording across the
+/services page and the brands, fast, keeping every UI element.
+================================================================

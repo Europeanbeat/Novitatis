@@ -15,8 +15,9 @@ export function ServicesGrid() {
             Our four main services.
           </h2>
           <p className="mt-5 text-lg text-[#334F5A]/80 leading-relaxed">
-            A short introduction to each. Open a service for the full detail, who it
-            is for, what is included, and the work behind it.
+            One connected chain, not a menu. The research and strategy come first,
+            then we build it, embed it, and take the ideas to the stage. Each with
+            the real work behind it.
           </p>
         </div>
       </ScrollReveal>
@@ -37,8 +38,14 @@ export function ServicesGrid() {
 
               <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
                 <div className="lg:col-span-7">
-                  <p className="text-lg text-[#334F5A]/80 leading-relaxed max-w-[62ch] mb-6">
+                  <p className="text-lg text-[#334F5A]/80 leading-relaxed max-w-[62ch] mb-4">
                     {p.description}
+                  </p>
+                  <p className="mb-6 text-sm text-[#334F5A]/70 leading-snug max-w-[62ch]">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#AAD7E6] mr-2">
+                      Proof
+                    </span>
+                    {p.flagship.outcome}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {p.serves.map((s) => (

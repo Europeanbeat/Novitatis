@@ -13,8 +13,8 @@ export function ClientSpectrum() {
               From ministries to family-run guesthouses.
             </h2>
             <p className="mt-4 text-[#334F5A]/75 leading-relaxed max-w-[52ch]">
-              We work at every level of the tourism economy, and translate between
-              them.
+              We work at every level of the tourism economy, in Hungary and
+              internationally, and translate between them.
             </p>
           </div>
         </ScrollReveal>
