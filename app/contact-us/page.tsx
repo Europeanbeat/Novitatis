@@ -18,8 +18,13 @@ export default function ContactUsPage() {
 
       <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-40 pb-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left: intro + contact info */}
-          <div>
+          {/* Left: intro + contact info, with a soft halo so the background
+              lines do not fight the text */}
+          <div className="relative isolate">
+            <span
+              aria-hidden
+              className="absolute -inset-x-10 -inset-y-8 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+            />
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-12 h-px bg-foreground/30" />
               Contact
@@ -30,8 +35,8 @@ export default function ContactUsPage() {
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed max-w-md mb-12">
-              Get in touch and let&apos;s discuss how we can help — whether it&apos;s
-              strategy, development or education.
+              Get in touch and let&apos;s discuss how we can help, whether
+              it&apos;s strategy, development or education.
             </p>
 
             <div className="space-y-4">
