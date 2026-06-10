@@ -37,12 +37,15 @@ export function ServicesFaq() {
                 href="/contact-us"
                 className="group mt-8 inline-flex items-center gap-3 font-mono text-sm text-[#334F5A]"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#334F5A]/20 text-[#AAD7E6] transition-all duration-300 group-hover:bg-[#334F5A] group-hover:border-[#334F5A]">
-                  <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+                <span className="relative h-9 w-9 overflow-hidden rounded-full border border-[#334F5A]/20 text-[#AAD7E6] transition-all duration-500 ease-[cubic-bezier(0.32,1.51,0.36,0.97)] group-hover:scale-110 group-hover:bg-[#334F5A] group-hover:border-[#334F5A]">
+                  <span className="absolute inset-0 grid place-items-center transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-full">
+                    &rarr;
+                  </span>
+                  <span className="absolute inset-0 grid place-items-center -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-0">
                     &rarr;
                   </span>
                 </span>
-                Ask us anything
+                <span className="link-sweep">Ask us anything</span>
               </a>
             </div>
           </ScrollReveal>

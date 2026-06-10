@@ -204,11 +204,16 @@ function PracticeMoment({
             <a
               ref={ctaRef}
               href={`/services/${practice.slug}`}
-              className="group mt-12 inline-flex items-center gap-3 rounded-full border border-[#334F5A]/20 bg-white pl-6 pr-2 py-2 font-mono text-sm text-[#334F5A] transition-all duration-300 hover:border-[#334F5A] hover:bg-[#334F5A] hover:text-white hover:shadow-[0_12px_32px_-12px_rgba(51,79,90,0.45)]"
+              className="group mt-12 inline-flex items-center gap-3 rounded-full border border-[#334F5A]/20 bg-white pl-6 pr-2 py-2 font-mono text-sm text-[#334F5A] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#334F5A] hover:bg-[#334F5A] hover:text-white hover:shadow-[0_12px_32px_-12px_rgba(51,79,90,0.45)]"
             >
               <span>Read more about {practice.title.toLowerCase()}</span>
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#AAD7E6]/20 text-[#AAD7E6] transition-all duration-300 group-hover:bg-[#AAD7E6] group-hover:text-[#334F5A]">
-                <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+              {/* Arrow fly-through: the visible arrow exits right while its twin
+                  flies in from the left; the circle pops with a slight bounce */}
+              <span className="relative h-8 w-8 overflow-hidden rounded-full bg-[#AAD7E6]/20 text-[#AAD7E6] transition-all duration-500 ease-[cubic-bezier(0.32,1.51,0.36,0.97)] group-hover:scale-110 group-hover:bg-[#AAD7E6] group-hover:text-[#334F5A]">
+                <span className="absolute inset-0 grid place-items-center transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-full">
+                  &rarr;
+                </span>
+                <span className="absolute inset-0 grid place-items-center -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-0">
                   &rarr;
                 </span>
               </span>
@@ -237,7 +242,7 @@ function PracticeMoment({
             <div ref={flagshipRef} className="relative -mt-12 lg:-mt-20">
             <a
               href={`/services/${practice.slug}`}
-              className="group/card relative block rounded-2xl bg-[#334F5A] overflow-hidden p-7 lg:p-9 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_32px_64px_-24px_rgba(51,79,90,0.55)]"
+              className="group/card relative block rounded-2xl bg-[#334F5A] overflow-hidden p-7 lg:p-9 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-2 hover:shadow-[0_32px_64px_-24px_rgba(51,79,90,0.55)]"
             >
               <div className="absolute -top-16 -right-12 w-64 h-64 rounded-full bg-[#AAD7E6]/15 blur-[80px] pointer-events-none transition-all duration-700 group-hover/card:bg-[#AAD7E6]/30 group-hover/card:scale-125" />
               <div className="relative">

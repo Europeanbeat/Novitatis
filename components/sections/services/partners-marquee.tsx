@@ -44,13 +44,13 @@ export function PartnersMarquee() {
                 {partners.map((p) => (
                   <div
                     key={`${copy}-${p.name}`}
-                    className="group mx-3 flex h-28 w-48 lg:h-32 lg:w-56 shrink-0 items-center justify-center rounded-2xl bg-white border border-foreground/10 p-6 transition-all duration-300 hover:border-[#AAD7E6] hover:shadow-[0_12px_32px_-16px_rgba(51,79,90,0.25)]"
+                    className="group mx-3 flex h-28 w-48 lg:h-32 lg:w-56 shrink-0 items-center justify-center rounded-2xl bg-white border border-foreground/10 p-6 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:shadow-[0_12px_32px_-16px_rgba(51,79,90,0.25)]"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={p.src}
                       alt={p.name}
-                      className="max-h-full max-w-full object-contain grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                      className="max-h-full max-w-full object-contain grayscale opacity-60 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
                     />
                   </div>
                 ))}

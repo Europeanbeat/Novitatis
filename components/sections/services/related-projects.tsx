@@ -40,8 +40,8 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
             href="/references"
             className="group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A] shrink-0"
           >
-            All projects
-            <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1.5">
+            <span className="link-sweep">All projects</span>
+            <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1.5">
               &rarr;
             </span>
           </a>
@@ -53,7 +53,7 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
           <ScrollReveal key={r.slug} direction="up" duration={0.8} delay={i * 0.08}>
             <a
               href={`/references/${r.slug}`}
-              className="group flex h-full flex-col rounded-2xl bg-white border border-foreground/10 p-7 transition-all duration-400 hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-24px_rgba(51,79,90,0.35)]"
+              className="group flex h-full flex-col rounded-2xl bg-white border border-foreground/10 p-7 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-24px_rgba(51,79,90,0.35)]"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#334F5A]/[0.06] text-[#334F5A]/70">
@@ -68,8 +68,8 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
                 {r.summary}
               </p>
               <span className="mt-auto inline-flex items-center gap-2 font-mono text-xs text-[#334F5A]">
-                Read the story
-                <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1">
+                <span className="link-sweep">Read the story</span>
+                <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1">
                   &rarr;
                 </span>
               </span>
