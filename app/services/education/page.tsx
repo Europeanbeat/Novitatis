@@ -3,6 +3,7 @@ import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
 import { PageBackground } from "@/components/layout/page-background";
 import { practices } from "@/lib/services-content";
+import { RelatedProjects } from "@/components/sections/services/related-projects";
 
 const practice = practices.find((p) => p.slug === "education")!;
 
@@ -34,6 +35,8 @@ export default function EducationPage() {
           {practice.description}
         </p>
       </section>
+
+      <RelatedProjects practiceSlug="education" />
 
       <FooterSection />
     </main>

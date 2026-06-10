@@ -292,16 +292,17 @@ export function ServicesReactiveBg() {
       const p = scrollYProgress.get();
       // Heading sticks while the tree gathers, then fades out before the next section.
       if (headingRef.current) {
-        headingRef.current.style.opacity = String(clamp(Math.min(p / 0.05, (0.68 - p) / 0.12, 1), 0, 1));
+        headingRef.current.style.opacity = String(clamp(Math.min(p / 0.05, (0.72 - p) / 0.12, 1), 0, 1));
       }
-      // Gradual gather and dissolve (~25% slower than before), brief hold in the middle,
-      // fully dissolved by ~p = 0.68, just before the next section scrolls in (~p = 0.71).
-      const k = clamp(Math.min(p / 0.375, (0.68 - p) / 0.2, 1), 0, 1);
+      // Gather, brief hold, dissolve. Fully dissolved by ~p = 0.74, just as the
+      // showcase scrolls in (~p = 0.75 with the 300vh anchor), so there is no
+      // dead scroll between the tree and the next section.
+      const k = clamp(Math.min(p / 0.34, (0.74 - p) / 0.18, 1), 0, 1);
       const ek = ease(k);
       // After the tree dissolves, calm the whole fixed layer down so the showcase
       // cards that follow sit on a quiet background instead of full-strength lines.
       if (layerRef.current) {
-        layerRef.current.style.opacity = (1 - 0.72 * ease(clamp((p - 0.68) / 0.2, 0, 1))).toFixed(3);
+        layerRef.current.style.opacity = (1 - 0.72 * ease(clamp((p - 0.74) / 0.16, 0, 1))).toFixed(3);
       }
       const amp = (1 - ek) * 4;
       const t = performance.now() / 1000;
@@ -597,7 +598,7 @@ export function ServicesReactiveBg() {
           <TreeHeading />
           <StaticList />
         </div>
-        <div className="hidden md:block h-[400vh]" aria-hidden />
+        <div className="hidden md:block h-[300vh]" aria-hidden />
       </div>
     </>
   );

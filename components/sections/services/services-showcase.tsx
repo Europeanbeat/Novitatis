@@ -18,7 +18,7 @@ export function ServicesShowcase() {
   return (
     <section className="relative z-10">
       {/* Section opener */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-12 lg:pb-16">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-10 lg:pt-14 pb-8 lg:pb-10">
         <span className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider block mb-5">
           What we offer
         </span>
@@ -140,7 +140,9 @@ function PracticeMoment({
       ref={sectionRef}
       className="relative overflow-hidden min-h-screen flex items-center"
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-24 w-full">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 lg:py-10 w-full">
+        {/* Solid white card so the copy never fights the background lines */}
+        <div className="rounded-[2rem] bg-white border border-foreground/10 shadow-[0_30px_80px_-50px_rgba(51,79,90,0.3)] overflow-hidden p-8 lg:p-14">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* COPY COLUMN */}
           <div
@@ -204,7 +206,7 @@ function PracticeMoment({
               href={`/services/${practice.slug}`}
               className="group mt-12 inline-flex items-center gap-3 rounded-full border border-[#334F5A]/20 bg-white pl-6 pr-2 py-2 font-mono text-sm text-[#334F5A] transition-all duration-300 hover:border-[#334F5A] hover:bg-[#334F5A] hover:text-white hover:shadow-[0_12px_32px_-12px_rgba(51,79,90,0.45)]"
             >
-              <span>Explore {practice.title.toLowerCase()}</span>
+              <span>Read more about {practice.title.toLowerCase()}</span>
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#AAD7E6]/20 text-[#AAD7E6] transition-all duration-300 group-hover:bg-[#AAD7E6] group-hover:text-[#334F5A]">
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">
                   &rarr;
@@ -258,6 +260,7 @@ function PracticeMoment({
             </a>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </article>
