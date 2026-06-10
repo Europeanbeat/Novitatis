@@ -255,6 +255,7 @@ const ease = (t: number) => {
 export function ServicesReactiveBg() {
   const reduce = useReducedMotion();
   const anchorRef = useRef<HTMLDivElement>(null);
+  const layerRef = useRef<HTMLDivElement>(null);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const folRefs = useRef<(SVGPathElement | null)[]>([]);
   const leafRefs = useRef<(SVGEllipseElement | null)[]>([]);
@@ -297,6 +298,11 @@ export function ServicesReactiveBg() {
       // fully dissolved by ~p = 0.68, just before the next section scrolls in (~p = 0.71).
       const k = clamp(Math.min(p / 0.375, (0.68 - p) / 0.2, 1), 0, 1);
       const ek = ease(k);
+      // After the tree dissolves, calm the whole fixed layer down so the showcase
+      // cards that follow sit on a quiet background instead of full-strength lines.
+      if (layerRef.current) {
+        layerRef.current.style.opacity = (1 - 0.72 * ease(clamp((p - 0.68) / 0.2, 0, 1))).toFixed(3);
+      }
       const amp = (1 - ek) * 4;
       const t = performance.now() / 1000;
       // Ground fades in/out with the tree.
@@ -309,14 +315,21 @@ export function ServicesReactiveBg() {
         const ki = ease(clamp((k - (i / BG.length) * 0.32) / 0.68, 0, 1));
         const og = BG[i].pts;
         const tr = STRUCT[i];
+        // Idle sway once formed: thin outer branches drift gently in the breeze,
+        // the trunk stays planted. Weighted toward each line's far end so branches
+        // bend from their base instead of floating whole.
+        const sway = ek * (i / BG.length) * 1.1;
         const P: Pt[] = [];
         for (let j = 0; j < 7; j++) {
           const ph = i * 0.5 + j;
           const ox = Math.sin(t * 0.4 + ph) * amp;
           const oy = Math.cos(t * 0.33 + ph * 1.3) * amp;
+          const sw = sway * (j / 6);
+          const tx = tr[j][0] + Math.sin(t * 0.5 + ph) * sw;
+          const ty = tr[j][1] + Math.cos(t * 0.42 + ph * 1.2) * sw * 0.6;
           const sx = og[j][0] + ox;
           const sy = og[j][1] + oy;
-          P.push([sx + (tr[j][0] - sx) * ki, sy + (tr[j][1] - sy) * ki]);
+          P.push([sx + (tx - sx) * ki, sy + (ty - sy) * ki]);
         }
         el.setAttribute(
           "d",
@@ -337,7 +350,9 @@ export function ServicesReactiveBg() {
       lastGrowK = growK;
       // Only touch foliage + leaves while the canopy is actually changing (i.e.
       // while scrolling). At rest the dense canopy costs nothing per frame.
-      if (growK > 0.005 && dG > 1e-6) {
+      // Keyed on the delta alone so a fast jump past the tree still writes the
+      // final growK = 0 state; otherwise the leaves freeze mid-air.
+      if (dG > 1e-6) {
         for (let i = 0; i < FOL.length; i++) {
           const el = folRefs.current[i];
           if (!el) continue;
@@ -407,7 +422,10 @@ export function ServicesReactiveBg() {
       </div>
 
       {/* Desktop: the fixed, reactive background that forms the tree */}
-      <div className="fixed inset-0 z-0 hidden md:block pointer-events-none overflow-hidden">
+      <div
+        ref={layerRef}
+        className="fixed inset-0 z-0 hidden md:block pointer-events-none overflow-hidden"
+      >
         <svg
           viewBox={`0 0 ${VB_W} ${VB_H}`}
           className="w-full h-full text-[#334F5A]"
@@ -430,19 +448,24 @@ export function ServicesReactiveBg() {
             />
           ))}
           {/* Foliage twigs that grow out of the branch tips on scroll */}
-          {FOL.map((fl, i) => (
+          {FOL.map((fl, i) => {
+            // Rounded for SSR: full-precision floats differ by 1 ULP between
+            // Node and the browser and trip React's hydration check.
+            const r = `${fl.root[0].toFixed(2)} ${fl.root[1].toFixed(2)}`;
+            return (
             <path
               key={`f${i}`}
               ref={(el) => {
                 folRefs.current[i] = el;
               }}
-              d={`M${fl.root[0]} ${fl.root[1]} C ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} C ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]} ${fl.root[0]} ${fl.root[1]}`}
+              d={`M${r} C ${r} ${r} ${r} C ${r} ${r} ${r}`}
               stroke="#6b4a32"
               strokeWidth={0.7}
               strokeOpacity={0}
               strokeLinecap="round"
             />
-          ))}
+            );
+          })}
           {/* Leaves at the canopy tips — grow in, then fall away on scroll-back */}
           {LEAVES.map((lf, i) => (
             <ellipse
@@ -452,21 +475,40 @@ export function ServicesReactiveBg() {
               }}
               cx={0}
               cy={0}
-              rx={lf.rx}
-              ry={lf.ry}
+              rx={Number(lf.rx.toFixed(2))}
+              ry={Number(lf.ry.toFixed(2))}
               fill={lf.color}
               fillOpacity={0}
-              transform={`translate(${lf.x} ${lf.y}) scale(0)`}
+              transform={`translate(${lf.x.toFixed(2)} ${lf.y.toFixed(2)}) scale(0)`}
             />
           ))}
-          {/* Green root node */}
-          <g style={{ opacity: formed ? 1 : 0, transition: "opacity 0.5s ease" }}>
+          {/* Green root node: appears first, then the service nodes radiate out */}
+          <g
+            style={{
+              opacity: formed ? 1 : 0,
+              transform: formed ? "scale(1)" : "scale(0.4)",
+              transformBox: "fill-box",
+              transformOrigin: "center",
+              transition: "opacity 0.5s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)",
+            }}
+          >
             <circle cx={ROOT[0]} cy={ROOT[1]} r={16} fill="#3FB27A" opacity={0.22} />
             <circle cx={ROOT[0]} cy={ROOT[1]} r={5} fill="#3FB27A" />
           </g>
-          {/* Service nodes */}
+          {/* Service nodes: staggered pop with a soft overshoot when forming,
+              instant retreat together when the tree dissolves */}
           {NODES.map((n, i) => (
-            <g key={i} style={{ opacity: formed ? 1 : 0, transition: "opacity 0.5s ease" }}>
+            <g
+              key={i}
+              style={{
+                opacity: formed ? 1 : 0,
+                transform: formed ? "scale(1)" : "scale(0.3)",
+                transformBox: "fill-box",
+                transformOrigin: "center",
+                transition: "opacity 0.5s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)",
+                transitionDelay: formed ? `${0.12 + i * 0.1}s` : "0s",
+              }}
+            >
               <circle cx={n.x} cy={n.y} r={9} fill="#AAD7E6" opacity={0.22} />
               <circle cx={n.x} cy={n.y} r={3.5} fill="#AAD7E6" />
             </g>
@@ -497,7 +539,9 @@ export function ServicesReactiveBg() {
                 left: tf.ox + ROOT[0] * tf.s,
                 top: tf.oy + ROOT[1] * tf.s,
                 opacity: formed ? 1 : 0,
-                transition: "opacity 0.5s ease",
+                transform: formed ? "translateY(0)" : "translateY(8px)",
+                transition: "opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)",
+                transitionDelay: formed ? "0.08s" : "0s",
               }}
             >
               Research-led method
@@ -514,20 +558,31 @@ export function ServicesReactiveBg() {
                     left: tf.ox + n.x * tf.s + (isLeft ? -56 : 56),
                     top: tf.oy + n.y * tf.s,
                     transform: isLeft ? "translate(-100%, -50%)" : "translate(0, -50%)",
-                    opacity: formed ? 1 : 0,
-                    transition: "opacity 0.5s ease",
                     pointerEvents: formed ? "auto" : "none",
                   }}
                 >
-                  <div className={`flex items-baseline gap-2 mb-1 ${isLeft ? "justify-end" : ""}`}>
-                    <span className="font-mono text-xs text-[#AAD7E6]">{p.number}</span>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/55">
-                      {p.tag}
-                    </span>
+                  {/* Inner wrapper carries the reveal: each label slides outward
+                      from its node, one after the other, after the nodes pop */}
+                  <div
+                    style={{
+                      opacity: formed ? 1 : 0,
+                      transform: formed
+                        ? "translateX(0)"
+                        : `translateX(${isLeft ? 16 : -16}px)`,
+                      transition: "opacity 0.55s ease, transform 0.55s cubic-bezier(0.22,1,0.36,1)",
+                      transitionDelay: formed ? `${0.22 + i * 0.1}s` : "0s",
+                    }}
+                  >
+                    <div className={`flex items-baseline gap-2 mb-1 ${isLeft ? "justify-end" : ""}`}>
+                      <span className="font-mono text-xs text-[#AAD7E6]">{p.number}</span>
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/55">
+                        {p.tag}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-3xl lg:text-4xl text-[#334F5A] leading-[1.05] transition-colors group-hover:text-[#5b94a8]">
+                      {p.title}
+                    </h3>
                   </div>
-                  <h3 className="font-display text-3xl lg:text-4xl text-[#334F5A] leading-[1.05] transition-colors group-hover:text-[#5b94a8]">
-                    {p.title}
-                  </h3>
                 </a>
               );
             })}
