@@ -9,7 +9,6 @@ import { MethodSpine } from "@/components/sections/services/method-spine";
 import { ClientSpectrum } from "@/components/sections/services/client-spectrum";
 import { PartnersMarquee } from "@/components/sections/services/partners-marquee";
 import { ServicesFaq } from "@/components/sections/services/services-faq";
-import { ClosingStatement } from "@/components/sections/services/closing-statement";
 import { ServicesCta } from "@/components/sections/services/services-cta";
 
 export const metadata: Metadata = {
@@ -47,8 +46,7 @@ export default function ServicesPage() {
       {/* 8 — FAQ */}
       <ServicesFaq />
 
-      {/* 9 — Closing statement + single-intent CTA */}
-      <ClosingStatement />
+      {/* 9 — Single-intent CTA */}
       <ServicesCta />
 
       <FooterSection />
