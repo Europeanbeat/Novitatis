@@ -202,11 +202,13 @@ function PracticeMoment({
             <a
               ref={ctaRef}
               href={`/services/${practice.slug}`}
-              className="mt-12 inline-flex items-center gap-3 font-mono text-sm text-[#334F5A] group"
+              className="group mt-12 inline-flex items-center gap-3 rounded-full border border-[#334F5A]/20 bg-white pl-6 pr-2 py-2 font-mono text-sm text-[#334F5A] transition-all duration-300 hover:border-[#334F5A] hover:bg-[#334F5A] hover:text-white hover:shadow-[0_12px_32px_-12px_rgba(51,79,90,0.45)]"
             >
               <span>Explore {practice.title.toLowerCase()}</span>
-              <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1.5">
-                &rarr;
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#AAD7E6]/20 text-[#AAD7E6] transition-all duration-300 group-hover:bg-[#AAD7E6] group-hover:text-[#334F5A]">
+                <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+                  &rarr;
+                </span>
               </span>
             </a>
           </div>
@@ -228,12 +230,14 @@ function PracticeMoment({
               {practice.number}
             </span>
 
-            {/* Flagship metric callout */}
-            <div
-              ref={flagshipRef}
-              className="relative -mt-12 lg:-mt-20 rounded-2xl bg-[#334F5A] overflow-hidden p-7 lg:p-9"
+            {/* Flagship metric callout: GSAP animates the wrapper, hover lift
+                lives on the link so the two transforms never fight */}
+            <div ref={flagshipRef} className="relative -mt-12 lg:-mt-20">
+            <a
+              href={`/services/${practice.slug}`}
+              className="group/card relative block rounded-2xl bg-[#334F5A] overflow-hidden p-7 lg:p-9 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_32px_64px_-24px_rgba(51,79,90,0.55)]"
             >
-              <div className="absolute -top-16 -right-12 w-64 h-64 rounded-full bg-[#AAD7E6]/15 blur-[80px] pointer-events-none" />
+              <div className="absolute -top-16 -right-12 w-64 h-64 rounded-full bg-[#AAD7E6]/15 blur-[80px] pointer-events-none transition-all duration-700 group-hover/card:bg-[#AAD7E6]/30 group-hover/card:scale-125" />
               <div className="relative">
                 <span className="font-mono text-[10px] text-[#AAD7E6]/80 uppercase tracking-wider">
                   Flagship engagement
@@ -247,7 +251,11 @@ function PracticeMoment({
                 <p className="mt-5 text-sm text-white/70 leading-relaxed">
                   {practice.flagship.outcome}
                 </p>
+                <span className="mt-6 inline-flex items-center gap-2 font-mono text-xs text-[#AAD7E6] opacity-0 -translate-x-2 transition-all duration-300 group-hover/card:opacity-100 group-hover/card:translate-x-0">
+                  See the work <span>&rarr;</span>
+                </span>
               </div>
+            </a>
             </div>
           </div>
         </div>

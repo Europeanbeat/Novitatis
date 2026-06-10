@@ -7,6 +7,8 @@ import { ServicesReactiveBg } from "@/components/sections/services/services-reac
 import { ServicesShowcase } from "@/components/sections/services/services-showcase";
 import { MethodSpine } from "@/components/sections/services/method-spine";
 import { ClientSpectrum } from "@/components/sections/services/client-spectrum";
+import { PartnersMarquee } from "@/components/sections/services/partners-marquee";
+import { ServicesFaq } from "@/components/sections/services/services-faq";
 import { ClosingStatement } from "@/components/sections/services/closing-statement";
 import { ServicesCta } from "@/components/sections/services/services-cta";
 
@@ -36,10 +38,16 @@ export default function ServicesPage() {
       {/* 5 — How an engagement runs: the method */}
       <MethodSpine />
 
-      {/* 5 — Who we work with */}
+      {/* 6 — Who we work with */}
       <ClientSpectrum />
 
-      {/* 6 — Closing statement + single-intent CTA */}
+      {/* 7 — Partner logos */}
+      <PartnersMarquee />
+
+      {/* 8 — FAQ */}
+      <ServicesFaq />
+
+      {/* 9 — Closing statement + single-intent CTA */}
       <ClosingStatement />
       <ServicesCta />
 
