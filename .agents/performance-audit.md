@@ -76,3 +76,50 @@ and builds, shrinks the Docker image, and cuts audit noise.
 5. Prune unused dependencies + unused components/ui files.
 6. Verify proxy compression on Dokploy; consider long-cache headers for
    /images via `headers()`.
+
+---
+
+# Audit #2 — Runtime / navigation (2026-06-11, after asset fixes)
+
+User report: still sluggish after load, "previously it was fine". Findings
+ranked by impact.
+
+## 1. SMOKING GUN: next/link is used 0 times in the entire site
+Every internal link is a plain `<a href>`. Every click is therefore a FULL
+page reload: ~900 KB of JS re-downloaded/re-parsed, React re-hydrates the
+whole page, fonts re-check, the page curtain replays, scroll position
+resets. Next.js client-side routing (instant, prefetched transitions) is
+completely unused. This compounds: as the facelift added sections and JS,
+every navigation got heavier, which is why it "was fine before".
+Affected: navigation.tsx (all menu items), footer, selected-work cards,
+discovery popup, services FAQ/CTA/related-projects, audience-section (1,
+protected), cta-section (protected), and the services subpages.
+Fix: swap internal `<a>` for `next/link` `<Link>` (same markup, instant
+navigation + automatic prefetch). Protected files need owner approval.
+
+## 2. Page curtain runs on every navigation
+Because of #1, the curtain (now 1s hold + 0.65s wipe) replays on every
+single click. With Link navigation it would only play on hard loads.
+Optionally also gate it with sessionStorage to once per session.
+
+## 3. Per-route JS is ~900 KB on every route
+index 964 KB / references 944 KB / brands 900 KB / services 884 KB /
+about 876 KB / contact 760 KB (uncompressed; ~280 KB gzipped). Cause:
+nearly every section is a client component, so the whole page hydrates.
+Acceptable once Link navigation means it's paid once, not per click.
+
+## 4. services.html is 365 KB of HTML
+~9x the other pages. Likely repeated inline SVG. Gzip mostly hides it,
+but worth a look inside services-showcase.
+
+## 5. references-content.ts (76 KB source) is bundled into the homepage
+selected-work imports the full references array for 3 cards. Minor;
+fixable by extracting the 3 needed entries at build time (server
+component already does this? No: selected-work is a client component).
+
+## Verified healthy
+ScrollReveal cleans up properly (gsap ctx.revert). DiscoveryPopup is
+cheap (one passive scroll listener, removed after fire). LightRays gated
+by IntersectionObserver. Spline/leaflet load only on /brands via
+next/dynamic. All routes statically prerendered. Background lines now
+settle still after intro (fixed in a752506).
