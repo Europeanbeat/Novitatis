@@ -37,11 +37,11 @@ export function RouteCurtain() {
     >
       <div className="route-curtain absolute inset-0 bg-[#334F5A] origin-top" />
       <img
-        src="/images/novi_logo_white.png"
+        src="/images/novi_logo_white_large.png"
         alt=""
-        width={150}
-        height={40}
-        className="route-curtain-logo absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-auto"
+        width={1600}
+        height={369}
+        className="route-curtain-logo absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(1280px,80vw)] h-auto"
       />
     </div>
   );
