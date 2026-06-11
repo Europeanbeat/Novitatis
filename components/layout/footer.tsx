@@ -52,7 +52,7 @@ export function FooterSection() {
             <img src="/images/novi_logo_white.png" alt="" loading="lazy" decoding="async" height={40} width={150} />
           </Link>
 
-              <p className="text-[#FFFFFF]/50 leading-relaxed mb-8 max-w-xs text-sm">
+              <p className="text-white/80 leading-relaxed mb-8 max-w-xs text-sm">
                 Innovation in tourism. Consulting, development, education and public speaking for the digital future.
               </p>
 
@@ -62,7 +62,7 @@ export function FooterSection() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-sm text-[#FFFFFF]/40 hover:text-[#FFFFFF] transition-colors flex items-center gap-1 group"
+                    className="text-sm font-medium text-white/85 hover:text-white transition-colors flex items-center gap-1 group"
                   >
                     {link.name}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -74,14 +74,14 @@ export function FooterSection() {
             {/* Link Columns */}
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
-                <h3 className="text-sm font-medium text-[#FFFFFF] mb-6">{title}</h3>
+                <h3 className="text-sm font-semibold text-white mb-6">{title}</h3>
                 <ul className="space-y-4">
                   {links.map((link) =>
                     link.href.startsWith("/") ? (
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="text-sm text-[#FFFFFF]/40 hover:text-[#FFFFFF] transition-colors inline-flex items-center gap-2"
+                          className="text-sm font-medium text-white/85 hover:text-white transition-colors inline-flex items-center gap-2"
                         >
                           {link.name}
                         </Link>
@@ -90,7 +90,7 @@ export function FooterSection() {
                       <li key={link.name}>
                         <a
                           href={link.href}
-                          className="text-sm text-[#FFFFFF]/40 hover:text-[#FFFFFF] transition-colors inline-flex items-center gap-2"
+                          className="text-sm font-medium text-white/85 hover:text-white transition-colors inline-flex items-center gap-2"
                         >
                           {link.name}
                         </a>
@@ -104,7 +104,7 @@ export function FooterSection() {
         </div>
 
         {/* Bottom Bar - compact */}
-        <div className="py-4 border-t border-[#FFFFFF]/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#FFFFFF]/30">
+        <div className="py-4 border-t border-[#FFFFFF]/15 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/70">
           <p className="text-sm">
             &copy; 2025 Novitatis. Minden jog fenntartva.
           </p>
