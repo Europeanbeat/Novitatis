@@ -36,26 +36,9 @@ export function FooterSection() {
       {/* Soft wash so text never depends on what part of the image it lands on */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#334F5A]/60 via-[#334F5A]/30 to-[#22363f]/80 pointer-events-none" />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 lg:pt-24 pb-8">
-        {/* Statement: one big serif invitation, the email is the headline */}
-        <div className="mb-14 lg:mb-20">
-          <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-wider text-[#AAD7E6] mb-6">
-            <span className="w-8 h-px bg-[#AAD7E6]/50" />
-            Start a conversation
-          </span>
-          <a
-            href="mailto:info@novitatis.hu"
-            className="group block font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] break-words transition-colors duration-300 hover:text-[#AAD7E6]"
-          >
-            info@novitatis.hu
-            <span className="inline-block ml-3 text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-2 group-hover:-translate-y-1">
-              &rarr;
-            </span>
-          </a>
-        </div>
-
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-14 lg:pt-16 pb-8">
         {/* Brand + link columns */}
-        <div className="grid md:grid-cols-12 gap-10 lg:gap-14 pt-12 border-t border-white/15">
+        <div className="grid md:grid-cols-12 gap-10 lg:gap-14">
           <div className="md:col-span-5">
             <Link href="/" className="inline-block mb-5">
               <img
@@ -67,10 +50,16 @@ export function FooterSection() {
                 width={150}
               />
             </Link>
-            <p className="text-white/75 leading-relaxed max-w-xs text-sm">
+            <p className="text-white/75 leading-relaxed max-w-xs text-sm mb-5">
               Innovation in tourism. Consulting, development, education and
               public speaking for the digital future.
             </p>
+            <a
+              href="mailto:info@novitatis.hu"
+              className="font-mono text-sm text-[#AAD7E6] hover:text-white transition-colors"
+            >
+              info@novitatis.hu
+            </a>
           </div>
 
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
@@ -111,7 +100,7 @@ export function FooterSection() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 lg:mt-20 py-5 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-3 font-mono text-xs text-white/60">
+        <div className="mt-12 lg:mt-14 py-5 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-3 font-mono text-xs text-white/60">
           <p>&copy; 2026 Novitatis. All rights reserved.</p>
           <p>Innovation in tourism</p>
         </div>
