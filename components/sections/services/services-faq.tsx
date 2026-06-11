@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -33,7 +34,7 @@ export function ServicesFaq() {
                 If yours is not here, send it through the contact page and we
                 will answer directly.
               </p>
-              <a
+              <Link
                 href="/contact-us"
                 className="group mt-8 inline-flex items-center gap-3 font-mono text-sm text-[#334F5A]"
               >
@@ -46,7 +47,7 @@ export function ServicesFaq() {
                   </span>
                 </span>
                 <span className="link-sweep">Ask us anything</span>
-              </a>
+              </Link>
             </div>
           </ScrollReveal>
         </div>

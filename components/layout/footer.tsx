@@ -1,13 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
   Services: [
-    { name: "Consulting", href: "#szolgaltatasok" },
-    { name: "Development", href: "#szolgaltatasok" },
-    { name: "Education", href: "#szolgaltatasok" },
-    { name: "Public Speaking", href: "#szolgaltatasok" },
+    { name: "Consulting", href: "/services/consulting" },
+    { name: "Development", href: "/services/development" },
+    { name: "Education", href: "/services/education" },
+    { name: "Public Speaking", href: "/services/public-speaking" },
   ],
   "Our Brands": [
     { name: "Visible Tourism", href: "https://visibletourism.com" },
@@ -15,8 +16,8 @@ const footerLinks = {
     { name: "AI4Tourism", href: "https://ai4tourism.com" },
   ],
   Company: [
-    { name: "About Us", href: "#" },
-    { name: "Contact", href: "#kapcsolat" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Contact", href: "/contact-us" },
     { name: "Publications", href: "#" },
   ],
   Legal: [
@@ -47,9 +48,9 @@ export function FooterSection() {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-6 lg:gap-6">
             {/* Brand Column */}
             <div className="col-span-2">
-               <a href="#" className="flex items-center gap-2 group">
+               <Link href="/" className="flex items-center gap-2 group">
             <img src="/images/novi_logo_white.png" alt="" loading="lazy" decoding="async" height={40} width={150} />
-          </a>
+          </Link>
 
               <p className="text-[#FFFFFF]/50 leading-relaxed mb-8 max-w-xs text-sm">
                 Innovation in tourism. Consulting, development, education and public speaking for the digital future.
@@ -75,16 +76,27 @@ export function FooterSection() {
               <div key={title}>
                 <h3 className="text-sm font-medium text-[#FFFFFF] mb-6">{title}</h3>
                 <ul className="space-y-4">
-                  {links.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="text-sm text-[#FFFFFF]/40 hover:text-[#FFFFFF] transition-colors inline-flex items-center gap-2"
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
+                  {links.map((link) =>
+                    link.href.startsWith("/") ? (
+                      <li key={link.name}>
+                        <Link
+                          href={link.href}
+                          className="text-sm text-[#FFFFFF]/40 hover:text-[#FFFFFF] transition-colors inline-flex items-center gap-2"
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    ) : (
+                      <li key={link.name}>
+                        <a
+                          href={link.href}
+                          className="text-sm text-[#FFFFFF]/40 hover:text-[#FFFFFF] transition-colors inline-flex items-center gap-2"
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ),
+                  )}
                 </ul>
               </div>
             ))}

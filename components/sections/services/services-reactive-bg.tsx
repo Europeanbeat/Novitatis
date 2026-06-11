@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useScroll, useReducedMotion } from "framer-motion";
 import { PageBackground } from "@/components/layout/page-background";
@@ -551,7 +552,7 @@ export function ServicesReactiveBg() {
               const p = practices[i];
               const isLeft = n.x < 348;
               return (
-                <a
+                <Link
                   key={p.slug}
                   href={`/services/${p.slug}`}
                   className={`group absolute w-[300px] ${isLeft ? "text-right" : "text-left"}`}
@@ -584,7 +585,7 @@ export function ServicesReactiveBg() {
                       {p.title}
                     </h3>
                   </div>
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -622,7 +623,7 @@ function StaticList() {
   return (
     <div className="relative pl-6 border-l border-foreground/20 space-y-9 mt-8">
       {practices.map((p) => (
-        <a key={p.slug} href={`/services/${p.slug}`} className="block relative">
+        <Link key={p.slug} href={`/services/${p.slug}`} className="block relative">
           <span className="absolute -left-[1.7rem] top-1.5 w-2.5 h-2.5 rounded-full bg-[#AAD7E6]" />
           <div className="flex items-baseline gap-2 mb-1">
             <span className="font-mono text-[11px] text-[#AAD7E6]">{p.number}</span>
@@ -632,7 +633,7 @@ function StaticList() {
           </div>
           <h3 className="font-display text-2xl text-[#334F5A] leading-tight">{p.title}</h3>
           <p className="text-sm text-[#334F5A]/75 leading-snug mt-1">{p.lead}</p>
-        </a>
+        </Link>
       ))}
     </div>
   );
