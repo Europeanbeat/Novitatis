@@ -183,6 +183,120 @@ export const engagements: Engagement[] = [
   },
 ];
 
+// ── Public speaking sub-page (/services/public-speaking) ───────────────────
+// Source: public_speaking_events_lista (Events EN). Every number below is taken
+// straight from the sheet, nothing invented.
+
+export type SpeakingTheme = {
+  number: string;
+  title: string;
+  body: string;
+};
+
+export const speakingThemes: SpeakingTheme[] = [
+  {
+    number: "01",
+    title: "Being found in the age of AI search",
+    body: "Search has changed: an AI now answers for the customer. In 2026, 45% of consumers use an AI tool to find a local business, up from 6% a year earlier. We explain GEO, not SEO, in plain language, and what it takes to stay visible.",
+  },
+  {
+    number: "02",
+    title: "Digital visibility and the Google ecosystem",
+    body: "94% of searches happen on Google platforms, and nearly half are zero-click. If the provider journey breaks, the guest is gone. We show where it breaks, backed by an analysis of over 1,300 Lake Balaton provider websites.",
+  },
+  {
+    number: "03",
+    title: "Data-driven destination management",
+    body: "How a destination runs on real data instead of guesswork. We take audiences inside Hungary's national tourism data system: daily automatic data from 95,000+ accommodations, presented internationally as a European best practice.",
+  },
+  {
+    number: "04",
+    title: "Sustainability you can measure",
+    body: "From 27 September 2026 the EU ECGT rules require measured evidence for green claims. We make the case simply: evidence is data, and data is digitalisation. Don't talk to the guest about sustainability, show them the numbers.",
+  },
+];
+
+export type SpeakingFormat = { title: string; blurb: string };
+
+export const speakingFormats: SpeakingFormat[] = [
+  { title: "Keynote talk", blurb: "A research-led talk for your conference or event." },
+  { title: "Panel & moderation", blurb: "We sit on the panel, or run it." },
+  { title: "Workshop & training", blurb: "Hands-on sessions that end with a plan, not just slides." },
+  { title: "Podcast & interview", blurb: "A returning guest voice on AI and digital tourism." },
+];
+
+export type SpeakingEvent = {
+  date: string;
+  title: string;
+  place: string;
+  blurb: string;
+  intl?: boolean;
+};
+
+// Newest-first. The strongest, featured appearances from the sheet.
+export const speakingEvents: SpeakingEvent[] = [
+  {
+    date: "May 2026",
+    title: "Data-driven tourism as a European best practice",
+    place: "Smart Tour (Interreg Europe), Brittany, France",
+    blurb: "Hungary's national real-time data system, presented to European DMOs as a model others can follow.",
+    intl: true,
+  },
+  {
+    date: "Apr 2026",
+    title: "AI-based solutions in tourism (Part 2)",
+    place: "DigiTurismo podcast, covered by turizmus.com",
+    blurb: "Why AI became the invisible infrastructure of tourism, and why GEO matters more than SEO.",
+  },
+  {
+    date: "Mar 2026",
+    title: "Launching AI4Tourism at ITB Berlin",
+    place: "ITB Berlin 2026, the world's largest tourism trade fair, Germany",
+    blurb: "Over 250 professional contacts in three days at the 60th-anniversary edition.",
+    intl: true,
+  },
+  {
+    date: "Mar 2026",
+    title: "Innovation opportunities in tourism",
+    place: "KULTKIKÖTŐ cultural tourism conference, Balatonföldvár",
+    blurb: "Panel with a Visit Hungary expert: the real barrier to innovation is decision logic, not technology.",
+  },
+  {
+    date: "Oct 2025",
+    title: "Visible Tourism at Tourism Summit 2025",
+    place: "Tourism Summit (Visit Hungary), Bálna, Budapest",
+    blurb: "Google visibility and GEO for tourism SMEs and destinations.",
+  },
+  {
+    date: "Sep 2025",
+    title: "VisitBalaton365's AI journey",
+    place: "AI Opener Bootcamp, University of Edinburgh, UK",
+    blurb: "A practical DMO AI story told on an international stage, to inspire other European destinations.",
+    intl: true,
+  },
+  {
+    date: "2025",
+    title: "Waiting for a click (peer-reviewed study)",
+    place: "Turizmus Bulletin, Corvinus University of Budapest",
+    blurb: "73 Lake Balaton gastro businesses: 92% have an advanced digital presence, only 5.5% sell online.",
+  },
+  {
+    date: "2023",
+    title: "Digital hospitality at Lake Balaton",
+    place: "Book chapter, Akadémiai Kiadó",
+    blurb: "An analysis of more than 1,300 provider websites, with University of Pannonia researchers.",
+  },
+];
+
+export type SpeakingStat = { value: string; label: string };
+
+export const speakingStats: SpeakingStat[] = [
+  { value: "20+", label: "talks, panels and appearances" },
+  { value: "3", label: "countries on the international circuit" },
+  { value: "1,300+", label: "provider websites behind the visibility talks" },
+  { value: "2", label: "peer-reviewed academic publications" },
+];
+
 export type Challenge = {
   title: string;
   body: string;
