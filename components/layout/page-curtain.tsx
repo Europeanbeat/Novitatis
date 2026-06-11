@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 
-// Page-load curtain: a dark teal panel covers the viewport and wipes upward
-// once the page is ready, so content is revealed composed instead of popping
-// in. Pure CSS animation (see globals.css .page-curtain), so it runs even
-// before React hydrates; the component only removes the node afterwards.
+// Page-load curtain: a dark teal panel covers the viewport with the white
+// Novitatis logo centred, holds for a beat, then wipes upward once the page
+// is ready. Pure CSS animations (see globals.css .page-curtain/.curtain-logo),
+// so they run even before React hydrates; the component only removes the node
+// afterwards. The logo fades out before the wipe starts so it is never
+// squashed by the panel's scaleY transform.
 export function PageCurtain() {
   const [done, setDone] = useState(false);
   if (done) return null;
@@ -13,8 +15,19 @@ export function PageCurtain() {
   return (
     <div
       aria-hidden
-      onAnimationEnd={() => setDone(true)}
-      className="page-curtain fixed inset-0 z-[200] bg-[#334F5A] origin-top pointer-events-none motion-reduce:hidden"
-    />
+      onAnimationEnd={(e) => {
+        if (e.animationName === "curtain-up") setDone(true);
+      }}
+      className="fixed inset-0 z-[200] pointer-events-none motion-reduce:hidden"
+    >
+      <div className="page-curtain absolute inset-0 bg-[#334F5A] origin-top" />
+      <img
+        src="/images/novi_logo_white.png"
+        alt=""
+        width={150}
+        height={40}
+        className="curtain-logo absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-auto"
+      />
+    </div>
   );
 }

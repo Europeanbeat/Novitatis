@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 
 // Brand line pattern. Static by default: the lines are a texture, not a show.
-// Pass `animated` only where the motion IS the feature (homepage hero); the
-// services page tree has its own animated copy. Everywhere else the lines
-// hold still so the content is the only thing that moves.
+// Pass `animated` for the homepage draw-in intro; the lines settle to still
+// after it. They must NOT animate forever: this layer is fixed full-viewport,
+// so an infinite loop here means per-frame SVG repaints under every
+// backdrop-blur halo on the page, which makes the whole site feel sluggish.
 function FloatingPaths({ position, animated }: { position: number; animated: boolean }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
     id: i,
@@ -35,16 +36,12 @@ function FloatingPaths({ position, animated }: { position: number; animated: boo
               stroke="currentColor"
               strokeWidth={path.width}
               strokeOpacity={0.1 + path.id * 0.03}
-              initial={{ pathLength: 0.3, opacity: 0.6 }}
-              animate={{
-                pathLength: 1,
-                opacity: [0.3, 0.6, 0.3],
-                pathOffset: [0, 1, 0],
-              }}
+              initial={{ pathLength: 0.3, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.45 }}
               transition={{
-                duration: 20 + Math.random() * 10,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
+                duration: 2.4,
+                delay: path.id * 0.04,
+                ease: "easeOut",
               }}
             />
           ) : (
