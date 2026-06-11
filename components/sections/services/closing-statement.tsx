@@ -14,6 +14,8 @@ export function ClosingStatement() {
           src="/images/abstract-shape.svg"
           aria-hidden
           alt=""
+          loading="lazy"
+          decoding="async"
           className="absolute bottom-0 left-0 right-0 w-full opacity-30 pointer-events-none [mask-image:linear-gradient(to_top,black_0%,transparent_80%)] [-webkit-mask-image:linear-gradient(to_top,black_0%,transparent_80%)]"
         />
         <ScrollReveal direction="up" duration={1}>

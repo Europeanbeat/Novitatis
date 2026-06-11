@@ -65,6 +65,8 @@ export function SelectedWork() {
                 <img
                   src={img}
                   alt={ref.imageAlt || ref.title}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 h-full w-full object-cover grayscale-[30%] transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.05]"
                 />
                 <div className="absolute inset-0 bg-[#334F5A]/25 mix-blend-multiply pointer-events-none" />

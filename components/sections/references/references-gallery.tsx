@@ -97,6 +97,8 @@ function YearTile({ year }: { year: string }) {
       <img
         src="/images/abstract-shape.svg"
         alt=""
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-[0.18] mix-blend-screen pointer-events-none"
       />
       <span className="absolute inset-0 flex items-center justify-center font-display text-white/20 leading-none [font-size:clamp(3rem,6vw,5rem)] select-none pointer-events-none">

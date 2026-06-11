@@ -194,6 +194,8 @@ export default function AboutUsPage() {
                   <img
                     src={member.photo}
                     alt={member.name}
+                    loading="lazy"
+                    decoding="async"
                     className={`object-cover ${member.pos ?? ""} w-full h-full`}
                   />
                 </div>

@@ -209,6 +209,8 @@ function PracticeMoment({
           <img
             src={practice.photo.src}
             alt={practice.photo.alt}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover grayscale-[30%] transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:scale-[1.04]"
           />
           {/* Brand wash so every photo reads as one family */}

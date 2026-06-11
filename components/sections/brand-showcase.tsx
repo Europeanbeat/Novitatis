@@ -145,6 +145,8 @@ function VisibleTourismPanel() {
           <div className="relative mb-6">
             <img
               src="/images/abstract-shape.svg"
+              loading="lazy"
+              decoding="async"
               className="absolute bottom-0 left-0 right-0 w-full opacity-40 pointer-events-none [mask-image:linear-gradient(to_top,black_0%,transparent_85%)] [-webkit-mask-image:linear-gradient(to_top,black_0%,transparent_85%)]"
               alt=""
             />
@@ -168,6 +170,8 @@ function VisibleTourismPanel() {
           <div className="relative mt-6 pt-6 border-t border-foreground/8 flex items-center justify-between overflow-hidden">
             <img
               src="/images/abstract-shape.svg"
+              loading="lazy"
+              decoding="async"
               className="absolute bottom-0 left-0 right-0 w-full opacity-40 pointer-events-none [mask-image:linear-gradient(to_top,black_0%,transparent_85%)] [-webkit-mask-image:linear-gradient(to_top,black_0%,transparent_85%)]"
               alt=""
             />
@@ -204,6 +208,8 @@ function VisibleTourismPanel() {
           <div className="relative mb-6">
             <img
               src="/images/abstract-shape.svg"
+              loading="lazy"
+              decoding="async"
               className="absolute bottom-0 left-0 right-0 w-full opacity-40 pointer-events-none [mask-image:linear-gradient(to_top,black_0%,transparent_85%)] [-webkit-mask-image:linear-gradient(to_top,black_0%,transparent_85%)]"
               alt=""
             />
@@ -310,6 +316,8 @@ function VisibleTourismPanel() {
               <img
                 src="https://d1yei2z3i6k35z.cloudfront.net/13808286/69c40e69eface4.85610943_Screenshot2026-03-25at17.32.51.png"
                 alt="Google Maps screenshot, audit sample"
+                loading="lazy"
+                decoding="async"
                 className="w-full object-cover max-h-64"
               />
             </div>
@@ -354,6 +362,8 @@ function VisibleTourismPanel() {
           <div className="relative mt-6 pt-6 border-t border-foreground/8 flex items-center justify-between overflow-hidden">
             <img
               src="/images/abstract-shape.svg"
+              loading="lazy"
+              decoding="async"
               className="absolute bottom-0 left-0 right-0 w-full opacity-40 pointer-events-none [mask-image:linear-gradient(to_top,black_0%,transparent_85%)] [-webkit-mask-image:linear-gradient(to_top,black_0%,transparent_85%)]"
               alt=""
             />

@@ -48,7 +48,7 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
                <a href="#" className="flex items-center gap-2 group">
-            <img src="/images/novi_logo_white.png" alt=""  height={40} width={150} />
+            <img src="/images/novi_logo_white.png" alt="" loading="lazy" decoding="async" height={40} width={150} />
           </a>
 
               <p className="text-[#FFFFFF]/50 leading-relaxed mb-8 max-w-xs text-sm">
