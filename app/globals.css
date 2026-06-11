@@ -140,6 +140,29 @@
     }
   }
 
+  /* Route-change curtain: same look, tighter timing. Covers instantly at the
+     route swap, brief logo blink, then wipes up. */
+  .route-curtain {
+    animation: route-curtain-up 0.55s cubic-bezier(0.65, 0.01, 0.05, 0.99) 0.35s forwards;
+  }
+  @keyframes route-curtain-up {
+    to {
+      transform: scaleY(0);
+    }
+  }
+  .route-curtain-logo {
+    opacity: 0;
+    animation: route-curtain-logo 0.35s ease-out forwards;
+  }
+  @keyframes route-curtain-logo {
+    40% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   /* Text link with a left-to-right underline sweep on hover */
   .link-sweep {
     position: relative;
