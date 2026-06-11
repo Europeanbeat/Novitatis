@@ -2,21 +2,26 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SmoothScroll } from '@/components/layout/smooth-scroll'
+import { PageCurtain } from '@/components/layout/page-curtain'
+import { DiscoveryPopup } from '@/components/layout/discovery-popup'
 import './globals.css'
 
-const instrumentSans = Instrument_Sans({ 
-  subsets: ["latin"],
+// "latin-ext" is needed for Hungarian characters like ő and ű
+// (Cserkeszőlő, KULTKIKÖTŐ); plain "latin" stops at é and ü.
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin", "latin-ext"],
   variable: '--font-instrument'
 });
 
-const instrumentSerif = Instrument_Serif({ 
-  subsets: ["latin"],
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin", "latin-ext"],
   weight: "400",
   variable: '--font-instrument-serif'
 });
 
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ["latin"],
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin", "latin-ext"],
   variable: '--font-jetbrains'
 });
 
@@ -33,12 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+        <PageCurtain />
+        <SmoothScroll />
         {children}
+        <DiscoveryPopup />
         <Analytics />
       </body>
     </html>
   )
 }
-
-
-// I see  here  i declare the actualy fonts  but i am not sure why i need to have array saying its lating  what is anal

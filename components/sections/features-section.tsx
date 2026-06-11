@@ -2,6 +2,52 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// Counts a stat up from zero when it scrolls into view. Handles values like
+// "10+", "100%", "3": the numeric part animates, the suffix stays.
+function CountUp({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const match = value.match(/^(\d+)(.*)$/);
+    if (!match) {
+      setDisplay(value);
+      return;
+    }
+    const target = parseInt(match[1], 10);
+    const suffix = match[2];
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplay(value);
+      return;
+    }
+    let raf = 0;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const start = performance.now();
+        const dur = 1400;
+        const tick = (now: number) => {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          setDisplay(`${Math.round(target * eased)}${suffix}`);
+          if (t < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      },
+      { threshold: 0.5 },
+    );
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [value]);
+
+  return <span ref={ref}>{display}</span>;
+}
 
 const features = [
   {
@@ -99,7 +145,9 @@ export function FeaturesSection() {
                   {features[0].description}
                 </p>
                 <div>
-                  <span className="text-5xl lg:text-6xl font-display">{features[0].stats.value}</span>
+                  <span className="text-5xl lg:text-6xl font-display">
+                    <CountUp value={features[0].stats.value} />
+                  </span>
                   <span className="block text-sm text-muted-foreground font-mono mt-2">{features[0].stats.label}</span>
                 </div>
               </div>
@@ -118,6 +166,31 @@ export function FeaturesSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent" />
             </div>
           </div>
+
+          {/* Three stat cards for the remaining features */}
+          {features.slice(1).map((feature, i) => (
+            <div
+              key={feature.number}
+              className={`lg:col-span-4 relative bg-white border border-foreground/10 p-8 lg:p-10 transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+              style={{ transitionDelay: isVisible ? `${150 + i * 100}ms` : "0ms" }}
+            >
+              <span className="font-mono text-sm text-muted-foreground">{feature.number}</span>
+              <h3 className="text-2xl font-display mt-3 mb-3">{feature.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                {feature.description}
+              </p>
+              <div>
+                <span className="text-4xl lg:text-5xl font-display text-[#334F5A]">
+                  <CountUp value={feature.stats.value} />
+                </span>
+                <span className="block text-xs text-muted-foreground font-mono mt-2">
+                  {feature.stats.label}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

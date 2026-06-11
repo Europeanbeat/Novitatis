@@ -12,6 +12,7 @@ export type Practice = {
   serves: string[];
   deliverables: string[];
   flagship: { metric: string; label: string; outcome: string };
+  photo: { src: string; alt: string };
 };
 
 export const practices: Practice[] = [
@@ -35,6 +36,10 @@ export const practices: Practice[] = [
       label: "Hospitality categorisation",
       outcome: "Our classification methodology was adopted into Hungarian national law.",
     },
+    photo: {
+      src: "/images/references/balaton365-balatonkenese-2026/balaton365-podiumbeszelgetes-panel-02.jpg",
+      alt: "Panel discussion at the Balaton365 conference in Balatonkenese",
+    },
   },
   {
     number: "02",
@@ -55,6 +60,10 @@ export const practices: Practice[] = [
       metric: "1,300",
       label: "Provider digital audit",
       outcome: "A custom scoring system applied across 1,300 providers to map digital readiness.",
+    },
+    photo: {
+      src: "/images/references/itb-berlin-2026/ai4tourism-itb-berlin-2026-bemutato-05.jpg",
+      alt: "AI4Tourism demonstration at the ITB Berlin 2026 stand",
     },
   },
   {
@@ -77,6 +86,10 @@ export const practices: Practice[] = [
       label: "National training programme",
       outcome: "A programme we built from the ground up, launched nationally and still running.",
     },
+    photo: {
+      src: "/images/references/ai-kepzes-visitbalaton365-dmo-2025/schmutz-adam-ai-kepzes-visitbalaton365-dmo-keszthely-2025-01.jpg",
+      alt: "AI training for the VisitBalaton365 DMO team in Keszthely",
+    },
   },
   {
     number: "04",
@@ -97,6 +110,10 @@ export const practices: Practice[] = [
       metric: "HU & EU",
       label: "Conference circuit",
       outcome: "Regular speakers at national and international tourism events.",
+    },
+    photo: {
+      src: "/images/references/foldnap-2026/schmutz-adam-eloadas-foldnapi-konferencia-balaton-2026-01.jpg",
+      alt: "Talk at the Earth Day conference at Lake Balaton",
     },
   },
 ];
