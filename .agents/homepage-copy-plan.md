@@ -7,63 +7,59 @@ pass, words only. British English, no em dashes in prose.*
 
 ---
 
-## 1. Hero
+## 1. Hero — DECIDED 2026-06-11
 
-**Slot:** the ROOF. Three seconds in, a visitor knows what you are, who you
-serve and why to believe you.
-
-**Current:**
-- Eyebrow: "Innovation in tourism"
-- H1: "The future of tourism, that [innovates / digitalises / inspires / develops]" (rotating word)
-- Stats: "4 service pillars" + similar self-referential numbers
-
-**Proposed:**
-- Eyebrow: `Research-first tourism consultancy`
-- H1, Option A (keeps your rotating-word animation, words become the message):
-  `Research-led strategy for tourism that` + rotating: `delivers / ships / lasts / pays off`
-- H1, Option B (static, maximum clarity):
-  `Research-led strategy for tourism. And the tools to deliver it.`
+- Eyebrow: **keep current** ("Innovation in tourism")
+- H1: **keep current** (rotating word stays; the new identity paragraph in
+  section 2 now carries the explanation, and "The future of tourism" becomes
+  the thesis that paragraph backs up)
 - Subline (new): `We help destinations, public bodies and tourism businesses
   decide what to do next, then build it: digital tools, AI capability and a
   team that can carry it on.`
-- Stats row (replaces all current): 
+- Stats row (replaces current self-referential numbers):
   `634/2020 · written into national law` ·
   `1,300 · providers researched` ·
   `2022 · national programme, still running`
 
-**Why:** the 3-second test. The current headline could belong to a magazine.
-The proof numbers are the strongest you own and currently invisible here.
+**Why:** the proof numbers are the strongest the company owns and were
+invisible here.
 
 ---
 
 ## 2. Why Novitatis (features bento)
 
-**Slot:** the THREE PILLARS, each with its proof nailed on.
+**Slot:** identity paragraph (the ROOF, spelled out) + the THREE PILLARS.
 
-**Current:** four self-traits: Strategic mindset / Technology & innovation /
-Knowledge sharing / Industry focus, with stats 10+, 3, 100+, 100%.
+**Identity paragraph — APPROVED 2026-06-11.** Goes in the empty right-hand
+column next to the "Why Novitatis?" heading:
 
-**Proposed:**
-- Big card (with Ádám's photo): `Direction you can defend`
+> Novitatis is an innovation consultancy focused exclusively on tourism,
+> hospitality and destination development, one of the last great industries
+> still waiting for its digital transformation. We research what works,
+> design the strategy, and build the digital foundations the next decade of
+> tourism will run on.
+
+**Card titles — BEING REWORKED.** First proposal ("Direction you can
+defend" etc.) rejected as too punchy; new sets under review. Card bodies and
+stats below stand, pending title decision:
+
+- Big card (with Ádám's photo) — title TBD
   Body: `Strategy built on field research and evidence, strong enough to take
   to a board, a ministry or a funder. Our hospitality categorisation
   methodology was adopted into Hungarian national law.`
   Stat: `634/2020` / label `adopted into national law`
-- Card 02: `Built, not just advised`
+- Card 02 — title TBD
   Body: `The plan becomes a working system: digital process design, AI
   adoption and pilots, delivered through our own brands where they fit.`
   Stat: `1,300` / label `providers researched and scored`
-- Card 03: `Capability that stays`
+- Card 03 — title TBD
   Body: `Training and mentoring designed so the knowledge remains in your
   team after the engagement ends, not on a consultant's laptop.`
   Stat: `100+` / label `workshops, trainings and talks`
-- Card 04: `Tourism only`
+- Card 04 — title TBD
   Body: `We work in tourism and hospitality, nothing else. We know the
   players, the rules and the opportunities.`
   Stat: `100%` / label `tourism focus` (unchanged)
-
-**Why:** every line now answers the client's "so what", and every claim
-carries its own evidence.
 
 ---
 
