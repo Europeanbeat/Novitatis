@@ -47,12 +47,8 @@ export function HowItWorksSection() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
+  // Motion diet: the active card no longer rotates by itself; it responds
+  // to clicks and hover only.
 
   return (
     <section
@@ -67,14 +63,14 @@ export function HowItWorksSection() {
         <div className="relative mb-0 lg:mb-0 grid lg:grid-cols-2 gap-4 lg:gap-12 items-end">
           {/* Titre colonne gauche */}
           <div className="pb-0 lg:pb-32">
-            <div className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
+            <div className={`transition-all duration-700 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
               <span className="inline-flex items-center gap-3 text-sm font-mono text-[#334F5A]/40 mb-8">
                 <span className="w-12 h-px bg-[#334F5A]/20" />
                 Our services
               </span>
             </div>
 
-            <h2 className={`relative text-6xl md:text-7xl lg:text-[125px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
+            <h2 className={`relative text-6xl md:text-7xl lg:text-[125px] font-display tracking-tight leading-[0.85] transition-all duration-700 delay-100 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
               <span className="block">Strategy</span>
@@ -84,7 +80,7 @@ export function HowItWorksSection() {
           </div>
 
           {/* Image cerisier — se colle en bas sur les blocs */}
-          <div className={`relative h-[320px] lg:h-[640px] overflow-hidden transition-all duration-1000 delay-200 ${
+          <div className={`relative h-[320px] lg:h-[640px] overflow-hidden transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <img
@@ -119,9 +115,7 @@ export function HowItWorksSection() {
                   {step.number}
                 </span>
                 <div className="flex-1 h-px bg-[#334F5A]/10 overflow-hidden">
-                  {activeStep === index && (
-                    <div className="h-full bg-[#AAD7E6]/50 animate-progress" />
-                  )}
+                  {activeStep === index && <div className="h-full bg-[#AAD7E6]/50" />}
                 </div>
               </div>
 

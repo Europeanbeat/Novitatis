@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
@@ -37,14 +38,14 @@ const team = [
   {
     name: "Bence Bukovec",
     role: "Partner · Project lead · Full-stack developer",
-    photo: "/images/bence.png",
+    photo: "/images/bence.webp",
     bio: "Bence leads the technical delivery behind Novitatis projects: digital systems, mapping and integrations. With an MA in tourism and a developer's background, he turns the real constraints destinations face into working systems.",
     pos: "object-[25%_1%]"
   },
   {
     name: "Vivi Szabó",
     role: "UX/UI researcher · Advisor",
-    photo: "/images/vivi.png",
+    photo: "/images/vivi.webp",
     bio: "Vivi studies how destinations are presented digitally and how travellers experience them in practice. She connects perception and experience through data-informed design.",
     pos: "object-[20%_50%]"
   },
@@ -194,6 +195,8 @@ export default function AboutUsPage() {
                   <img
                     src={member.photo}
                     alt={member.name}
+                    loading="lazy"
+                    decoding="async"
                     className={`object-cover ${member.pos ?? ""} w-full h-full`}
                   />
                 </div>
@@ -227,7 +230,7 @@ export default function AboutUsPage() {
                   Tell us about the project or question you are facing in tourism
                   development. We will tell you whether and how we can help.
                 </p>
-                <a
+                <Link
                   href="/contact-us"
                   className="group inline-flex items-center gap-3 rounded-full bg-[#AAD7E6] text-[#334F5A] font-mono text-sm px-6 py-3.5 transition-transform duration-300 hover:-translate-y-0.5"
                 >
@@ -235,7 +238,7 @@ export default function AboutUsPage() {
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

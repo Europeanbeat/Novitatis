@@ -29,6 +29,13 @@ export function ScrollReveal({
 }: ScrollRevealProps) {
   const elementRef = useRef<HTMLDivElement>(null);
 
+  // Motion diet: whatever the call site asks for, reveals stay short, small
+  // and nearly unstaggered. One clamp here calms every reveal on the site.
+  duration = Math.min(duration, 0.55);
+  distance = Math.min(distance, 14);
+  delay = Math.min(delay, 0.1);
+  scale = Math.max(scale, 0.99);
+
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;

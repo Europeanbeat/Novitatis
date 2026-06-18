@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { references } from "@/lib/references-content";
 
@@ -41,7 +42,7 @@ export function SelectedWork() {
               The work behind the words.
             </h2>
           </div>
-          <a
+          <Link
             href="/references"
             className="group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A] shrink-0"
           >
@@ -49,14 +50,14 @@ export function SelectedWork() {
             <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1.5">
               &rarr;
             </span>
-          </a>
+          </Link>
         </div>
       </ScrollReveal>
 
       <div className="grid md:grid-cols-3 gap-5">
         {items.map(({ slug, img, ref }, i) => (
           <ScrollReveal key={slug} direction="up" duration={0.8} delay={i * 0.08}>
-            <a
+            <Link
               href={`/references/${slug}`}
               className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white border border-foreground/10 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-28px_rgba(51,79,90,0.4)]"
             >
@@ -65,6 +66,8 @@ export function SelectedWork() {
                 <img
                   src={img}
                   alt={ref.imageAlt || ref.title}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 h-full w-full object-cover grayscale-[30%] transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.05]"
                 />
                 <div className="absolute inset-0 bg-[#334F5A]/25 mix-blend-multiply pointer-events-none" />
@@ -86,7 +89,7 @@ export function SelectedWork() {
                   </span>
                 </span>
               </div>
-            </a>
+            </Link>
           </ScrollReveal>
         ))}
       </div>

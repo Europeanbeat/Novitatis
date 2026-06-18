@@ -4,6 +4,7 @@ import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/goo
 import { Analytics } from '@vercel/analytics/next'
 import { SmoothScroll } from '@/components/layout/smooth-scroll'
 import { PageCurtain } from '@/components/layout/page-curtain'
+import { RouteCurtain } from '@/components/layout/route-curtain'
 import { DiscoveryPopup } from '@/components/layout/discovery-popup'
 import './globals.css'
 
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <PageCurtain />
+        <RouteCurtain />
         <SmoothScroll />
         {children}
         <DiscoveryPopup />

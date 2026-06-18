@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -45,21 +46,21 @@ export function Navigation() {
           }`}
         >
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <img src="/images/novi_logo.png" alt=""  height={40} width={150} />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-12">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className={`text-sm transition-colors duration-300 relative group ${isScrolled ? "text-foreground/70 hover:text-foreground" : "text-[#334F5A]/70 hover:text-[#334F5A]"}`}
               >
                 {link.name}
                 <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${isScrolled ? "bg-foreground" : "bg-[#334F5A]"}`} />
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -70,7 +71,7 @@ export function Navigation() {
               asChild
               className={`rounded-full transition-all duration-500 ${isScrolled ? "bg-foreground hover:bg-foreground/90 text-background px-4 h-8 text-xs" : "bg-[#334F5A] hover:bg-[#334F5A]/90 text-white px-6"}`}
             >
-              <a href="/contact-us">Get in touch</a>
+              <Link href="/contact-us">Get in touch</Link>
             </Button>
           </div>
 
@@ -103,7 +104,7 @@ export function Navigation() {
           {/* Navigation Links */}
           <div className="flex-1 flex flex-col justify-center gap-8">
             {navLinks.map((link, i) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -115,7 +116,7 @@ export function Navigation() {
                 style={{ transitionDelay: isMobileMenuOpen ? `${i * 75}ms` : "0ms" }}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
           
@@ -133,14 +134,14 @@ export function Navigation() {
               className="flex-1 rounded-full h-14 text-base"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <a href="/about-us">About</a>
+              <Link href="/about-us">About</Link>
             </Button>
             <Button
               asChild
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <a href="/contact-us">Contact</a>
+              <Link href="/contact-us">Contact</Link>
             </Button>
           </div>
         </div>

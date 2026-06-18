@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { references, type Reference } from "@/lib/references-content";
 
@@ -36,7 +37,7 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
               Projects behind this service.
             </h2>
           </div>
-          <a
+          <Link
             href="/references"
             className="group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A] shrink-0"
           >
@@ -44,14 +45,14 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
             <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1.5">
               &rarr;
             </span>
-          </a>
+          </Link>
         </div>
       </ScrollReveal>
 
       <div className="grid md:grid-cols-3 gap-5">
         {projects.map((r, i) => (
           <ScrollReveal key={r.slug} direction="up" duration={0.8} delay={i * 0.08}>
-            <a
+            <Link
               href={`/references/${r.slug}`}
               className="group flex h-full flex-col rounded-2xl bg-white border border-foreground/10 p-7 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-24px_rgba(51,79,90,0.35)]"
             >
@@ -73,7 +74,7 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
                   &rarr;
                 </span>
               </span>
-            </a>
+            </Link>
           </ScrollReveal>
         ))}
       </div>

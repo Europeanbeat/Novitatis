@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -209,6 +210,8 @@ function PracticeMoment({
           <img
             src={practice.photo.src}
             alt={practice.photo.alt}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover grayscale-[30%] transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:scale-[1.04]"
           />
           {/* Brand wash so every photo reads as one family */}
@@ -286,7 +289,7 @@ function PracticeMoment({
           </div>
 
           <div className="pm-item mt-9">
-            <a
+            <Link
               href={`/services/${practice.slug}`}
               className={`group inline-flex items-center gap-3 rounded-full border pl-6 pr-2 py-2 font-mono text-sm transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${
                 dark
@@ -309,7 +312,7 @@ function PracticeMoment({
                   &rarr;
                 </span>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

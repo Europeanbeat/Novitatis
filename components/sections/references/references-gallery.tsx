@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -7,6 +8,10 @@ import {
   referenceCategories,
   type Reference,
 } from "@/lib/references-content";
+
+// next/link with framer-motion's animation props, so the card keeps its
+// entrance animation but navigates client-side instead of full reloads.
+const MotionLink = motion.create(Link);
 
 export function ReferencesGallery() {
   const [active, setActive] = useState<string>("all");
@@ -51,7 +56,7 @@ export function ReferencesGallery() {
 
 function Card({ r, i, reduce }: { r: Reference; i: number; reduce: boolean }) {
   return (
-    <motion.a
+    <MotionLink
       href={`/references/${r.slug}`}
       initial={reduce ? false : { opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
@@ -84,7 +89,7 @@ function Card({ r, i, reduce }: { r: Reference; i: number; reduce: boolean }) {
           {r.location ? ` · ${r.location}` : ""}
         </p>
       </div>
-    </motion.a>
+    </MotionLink>
   );
 }
 
@@ -97,6 +102,8 @@ function YearTile({ year }: { year: string }) {
       <img
         src="/images/abstract-shape.svg"
         alt=""
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-[0.18] mix-blend-screen pointer-events-none"
       />
       <span className="absolute inset-0 flex items-center justify-center font-display text-white/20 leading-none [font-size:clamp(3rem,6vw,5rem)] select-none pointer-events-none">

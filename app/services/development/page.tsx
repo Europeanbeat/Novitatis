@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
@@ -19,12 +20,12 @@ export default function DevelopmentPage() {
       <Navigation />
 
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-28 pb-24">
-        <a
+        <Link
           href="/services"
           className="font-mono text-sm text-[#334F5A]/70 inline-flex items-center gap-2 mb-10"
         >
           <span className="text-[#AAD7E6]">&larr;</span> All services
-        </a>
+        </Link>
         <span className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-4">
           {practice.tag}
         </span>

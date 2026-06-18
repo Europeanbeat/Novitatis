@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -56,7 +57,7 @@ export function DiscoveryPopup() {
             Send a short note and we will tell you whether and how we can help.
             No deck, no pitch.
           </p>
-          <a
+          <Link
             href="/contact-us"
             className="group mt-5 inline-flex items-center gap-3 rounded-full bg-[#334F5A] pl-5 pr-2 py-2 font-mono text-sm text-white transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:shadow-[0_12px_32px_-12px_rgba(51,79,90,0.6)]"
           >
@@ -69,7 +70,7 @@ export function DiscoveryPopup() {
                 &rarr;
               </span>
             </span>
-          </a>
+          </Link>
         </motion.aside>
       )}
     </AnimatePresence>

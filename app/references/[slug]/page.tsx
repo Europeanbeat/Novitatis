@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
@@ -53,12 +54,12 @@ export default async function ReferencePage({
       <Navigation />
 
       <article className="relative z-10 max-w-[920px] mx-auto px-6 lg:px-10 pt-28 pb-24">
-        <a
+        <Link
           href="/references"
           className="font-mono text-sm text-[#334F5A]/70 inline-flex items-center gap-2 mb-10"
         >
           <span className="text-[#AAD7E6]">&larr;</span> All projects
-        </a>
+        </Link>
 
         {/* Header */}
         <div className="flex flex-wrap items-center gap-3 mb-5">
