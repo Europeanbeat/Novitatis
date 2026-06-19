@@ -120,7 +120,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-start overflow-hidden bg-white">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center items-start overflow-hidden bg-white">
       {/* Background video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -163,11 +163,11 @@ export function HeroSection() {
           />
         ))}
       </div>
-      
+
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
         <div className="lg:max-w-[55%]">
         {/* Eyebrow */}
-        <div 
+        <div
           className={`mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
@@ -177,10 +177,10 @@ export function HeroSection() {
             Innovation in tourism
           </span>
         </div>
-        
+
         {/* Main headline */}
-        <div className="mb-12">
-          <h1 
+        <div className="mb-6">
+          <h1
             className={`text-left text-[clamp(2rem,6vw,7rem)] font-display leading-[0.92] tracking-tight text-[#334F5A] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
@@ -194,33 +194,42 @@ export function HeroSection() {
             </span>
           </h1>
         </div>
+
+        {/* Explainer — what we do and who for (UX review: the hero should say
+            this in the first lines, not only in the footer). */}
+        <p
+          className={`max-w-[50ch] text-lg lg:text-xl text-[#334F5A]/80 leading-relaxed transition-all duration-1000 delay-200 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          We turn tourism research and innovation into digital reality: consulting,
+          development, education and public speaking for destinations, organisations
+          and tourism businesses.
+        </p>
         </div>
       </div>
-      
-      {/* Stats — 3 metrics static, no auto-scroll */}
-      <div 
+
+      {/* Stats — clickable, scroll to the matching section */}
+      <div
         className={`absolute bottom-12 left-0 right-0 px-6 lg:px-12 transition-all duration-700 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
         <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
           {[
-            { value: "4", label: "service pillars" },
-            { value: "3", label: "own brands" },
-            { value: "10+", label: "years' experience" },
+            { value: "4", label: "service pillars", href: "#szolgaltatasok" },
+            { value: "3", label: "own brands", href: "#markaink" },
+            { value: "10+", label: "years' experience", href: "#kiknek-dolgozunk" },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-2">
-              <span className="text-3xl lg:text-4xl font-display text-[#334F5A]">{stat.value}</span>
-              <span className="text-xs text-[#334F5A]/50 leading-tight">
+            <a key={stat.label} href={stat.href} className="group flex flex-col gap-2">
+              <span className="text-3xl lg:text-4xl font-display text-[#334F5A] transition-colors group-hover:text-[#334F5A]/70">{stat.value}</span>
+              <span className="text-xs text-[#334F5A]/60 leading-tight transition-colors group-hover:text-[#334F5A]">
                 {stat.label}
               </span>
-            </div>
+            </a>
           ))}
         </div>
       </div>
-
-      {/* Scroll indicator */}
-
     </section>
   );
 }

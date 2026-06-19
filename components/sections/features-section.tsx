@@ -66,13 +66,13 @@ const features = [
     number: "03",
     title: "Knowledge sharing",
     description: "We share what we know through workshops, mentoring programmes and talks, because lasting development is built on continuous learning.",
-    stats: { value: "100+", label: "workshops & talks" },
+    stats: { value: "20+", label: "talks, panels & workshops" },
   },
   {
     number: "04",
-    title: "Industry focus",
+    title: "Tourism specialists",
     description: "We work only in tourism and hospitality. We know the challenges, the players and the opportunities.",
-    stats: { value: "100%", label: "tourism focus" },
+    stats: { value: "60+", label: "projects across tourism" },
   },
 ];
 

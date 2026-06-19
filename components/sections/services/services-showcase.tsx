@@ -103,7 +103,7 @@ export function ServicesShowcase() {
     <section className="relative z-10">
       {/* Section opener */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-10 lg:pt-14 pb-8 lg:pb-10">
-        <span className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider block mb-5">
+        <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-5">
           What we offer
         </span>
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[#334F5A] leading-[1.02] max-w-[16ch]">
@@ -238,8 +238,8 @@ function PracticeMoment({
           <div className="pm-item flex items-baseline gap-3 mb-5">
             <span className="font-mono text-xs text-[#AAD7E6]">{practice.number}</span>
             <span
-              className={`font-mono text-[11px] uppercase tracking-wider ${
-                dark ? "text-white/55" : "text-[#334F5A]/55"
+              className={`font-mono text-[11px] font-medium uppercase tracking-wider ${
+                dark ? "text-white/75" : "text-[#334F5A]/75"
               }`}
             >
               {practice.tag}

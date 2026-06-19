@@ -35,7 +35,7 @@ export function SelectedWork() {
       <ScrollReveal direction="up" duration={0.8}>
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <span className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider block mb-4">
+            <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-4">
               Selected work
             </span>
             <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[16ch]">
@@ -77,7 +77,7 @@ export function SelectedWork() {
                   <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#334F5A]/[0.06] text-[#334F5A]/70">
                     {ref.typeLabel}
                   </span>
-                  <span className="font-mono text-xs text-[#334F5A]/50">{ref.year}</span>
+                  <span className="font-mono text-xs text-[#334F5A]/65">{ref.year}</span>
                 </div>
                 <h3 className="font-display text-xl text-[#334F5A] leading-snug mb-5 line-clamp-3">
                   {ref.title}

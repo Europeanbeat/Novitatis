@@ -1,36 +1,38 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+// Four services. NOT a 1-2-3-4 sequence (UX review) and each card links
+// through to its own sub-page.
 const steps = [
   {
-    number: "01",
     title: "Consulting",
     subtitle: "& strategy",
+    slug: "consulting",
     description: "We analyse the market, build destination strategy, and support the digital transition. From SMEs to municipalities.",
   },
   {
-    number: "02",
     title: "Development",
     subtitle: "& digitalisation",
+    slug: "development",
     description: "Custom web solutions, AI-based tools and digitalisation projects, from idea to delivery.",
   },
   {
-    number: "03",
     title: "Education",
     subtitle: "& mentoring",
+    slug: "education",
     description: "Workshops, mentoring programmes and training for tourism professionals, on Google, AI and Smart Destination topics.",
   },
   {
-    number: "04",
     title: "Public Speaking",
     subtitle: "& shaping the field",
+    slug: "public-speaking",
     description: "Conferences, professional events and talks, shaping the conversation about the digital future of tourism.",
   },
 ];
 
 export function HowItWorksSection() {
-  const [activeStep, setActiveStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -46,9 +48,6 @@ export function HowItWorksSection() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
-  // Motion diet: the active card no longer rotates by itself; it responds
-  // to clicks and hover only.
 
   return (
     <section
@@ -70,7 +69,7 @@ export function HowItWorksSection() {
               </span>
             </div>
 
-            <h2 className={`relative text-6xl md:text-7xl lg:text-[125px] font-display tracking-tight leading-[0.85] transition-all duration-700 delay-100 ${
+            <h2 className={`relative text-5xl md:text-6xl lg:text-[88px] font-display tracking-tight leading-[0.9] transition-all duration-700 delay-100 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
               <span className="block">Strategy</span>
@@ -80,7 +79,7 @@ export function HowItWorksSection() {
           </div>
 
           {/* Image cerisier — se colle en bas sur les blocs */}
-          <div className={`relative h-[320px] lg:h-[640px] overflow-hidden transition-all duration-700 delay-200 ${
+          <div className={`relative h-[280px] lg:h-[520px] overflow-hidden transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <img
@@ -94,67 +93,39 @@ export function HowItWorksSection() {
           </div>
         </div>
 
-        {/* Horizontal Steps Layout */}
+        {/* Four service cards — each links to its sub-page; no sequence implied */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((step, index) => (
-            <button
-              key={step.number}
-              type="button"
-              onClick={() => setActiveStep(index)}
-              className={`relative text-left p-8 lg:p-12 border transition-all duration-500 ${
-                activeStep === index 
-                  ? "bg-white border-[#334F5A]/60" 
-                  : "bg-white border-[#334F5A]/25 hover:border-[#334F5A]/50"
+            <Link
+              key={step.slug}
+              href={`/services/${step.slug}`}
+              className={`group relative flex flex-col text-left p-8 lg:p-10 border bg-white border-[#334F5A]/20 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_24px_56px_-28px_rgba(51,79,90,0.4)] ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
+              style={{ transitionDelay: isVisible ? `${index * 80}ms` : "0ms" }}
             >
-              {/* Step number with animated line */}
-              <div className="flex items-center gap-4 mb-8">
-                <span className={`text-4xl font-display transition-colors duration-300 ${
-                  activeStep === index ? "text-[#AAD7E6]" : "text-[#334F5A]/20"
-                }`}>
-                  {step.number}
-                </span>
-                <div className="flex-1 h-px bg-[#334F5A]/10 overflow-hidden">
-                  {activeStep === index && <div className="h-full bg-[#AAD7E6]/50" />}
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-3xl lg:text-4xl font-display mb-2">
+              <h3 className="text-3xl lg:text-4xl font-display mb-1">
                 {step.title}
               </h3>
-              <span className="text-xl text-[#334F5A]/40 font-display block mb-6">
+              <span className="text-xl text-[#334F5A]/45 font-display block mb-6">
                 {step.subtitle}
               </span>
 
-              {/* Description */}
-              <p className={`text-[#334F5A]/60 leading-relaxed transition-opacity duration-300 ${
-                activeStep === index ? "opacity-100" : "opacity-60"
-              }`}>
+              <p className="text-[#334F5A]/70 leading-relaxed mb-8">
                 {step.description}
               </p>
 
-              {/* Active indicator */}
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] transition-transform duration-500 origin-left ${
-                activeStep === index ? "scale-x-100" : "scale-x-0"
-              }`} />
-            </button>
+              <span className="mt-auto inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#334F5A]">
+                Explore
+                <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
+              </span>
+
+              {/* hover accent underline */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100" />
+            </Link>
           ))}
         </div>
-
-        {/* Code Preview - Large terminal */}
-        
       </div>
-
-      <style jsx>{`
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-        .animate-progress {
-          animation: progress 6s linear forwards;
-        }
-      `}</style>
     </section>
   );
 }

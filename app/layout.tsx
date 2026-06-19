@@ -27,7 +27,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Novitatis – Innovation in tourism',
+  metadataBase: new URL('https://www.novitatis.hu'),
+  title: {
+    default: 'Novitatis – Innovation in tourism',
+    template: '%s · Novitatis',
+  },
   description: 'Consulting, custom development, education and public speaking for the digital future of tourism. Our brands: Visible Tourism, Turizmus Tudástár, AI4Tourism.',
 }
 

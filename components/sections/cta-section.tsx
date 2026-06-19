@@ -78,13 +78,14 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95]">
-                  Let's talk about
+                  Ready to shape
                   <br />
-                  the next step.
+                  tourism's future?
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Whether it's strategy, development or training, get in touch and let's find the right solution together.
+                  Whether it's strategy, development, education or a talk, tell us what
+                  you're working on and let's find the right solution together.
                 </p>
 
                 <p className="text-sm text-muted-foreground font-mono">

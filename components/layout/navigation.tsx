@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Services",   href: "/services"   },
-  { name: "Our Brands", href: "/brands"     },
-  { name: "About Us",   href: "/about-us"   },
-  { name: "Our Projects", href: "/references" },
-
+  { name: "Services",     href: "/services"     },
+  { name: "Our Brands",   href: "/brands"       },
+  { name: "About Us",     href: "/about-us"     },
+  { name: "Our Projects", href: "/references"   },
+  { name: "Appearances",  href: "/appearances"  },
 ];
 
 export function Navigation() {
@@ -45,9 +45,23 @@ export function Navigation() {
             isScrolled ? "h-14" : "h-20"
           }`}
         >
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <img src="/images/novi_logo.png" alt=""  height={40} width={150} />
+          {/* Logo — recoloured to brand teal via CSS mask over the wordmark PNG,
+              so it stops grabbing the eye as strong black (UX review). */}
+          <Link href="/" aria-label="Novitatis home" className="flex items-center gap-2 group">
+            <span
+              aria-hidden
+              className="block h-9 w-[150px] bg-[#334F5A] transition-colors duration-500 group-hover:bg-[#334F5A]/80"
+              style={{
+                WebkitMaskImage: "url(/images/novi_logo.png)",
+                maskImage: "url(/images/novi_logo.png)",
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskPosition: "left center",
+                maskPosition: "left center",
+                WebkitMaskSize: "contain",
+                maskSize: "contain",
+              }}
+            />
           </Link>
 
           {/* Desktop Navigation */}

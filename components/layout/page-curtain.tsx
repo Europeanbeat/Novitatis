@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Page-load curtain: a dark teal panel covers the viewport with the white
 // Novitatis logo centred, holds for a beat, then wipes upward once the page
@@ -10,6 +10,14 @@ import { useState } from "react";
 // squashed by the panel's scaleY transform.
 export function PageCurtain() {
   const [done, setDone] = useState(false);
+
+  // Guaranteed removal, same reason as RouteCurtain: don't let a dropped
+  // animationend event leave the cover stuck. Logo (1.6s) + wipe (0.8s) = 2.4s.
+  useEffect(() => {
+    const t = setTimeout(() => setDone(true), 2800);
+    return () => clearTimeout(t);
+  }, []);
+
   if (done) return null;
 
   return (

@@ -87,6 +87,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Instrument Sans reads thin at 400 (UX review). 450 is a "semi-medium"
+       that lifts body readability without looking bold. */
+    font-weight: 450;
   }
   html {
     scroll-behavior: smooth;
@@ -96,6 +99,9 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+    /* Instrument Serif only ships 400; pin it so the heavier body weight
+       doesn't trigger faux-bold on headings. */
+    font-weight: 400;
   }
   
   .text-stroke {

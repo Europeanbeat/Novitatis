@@ -22,7 +22,7 @@ export function ServicesFaq() {
         <div className="lg:col-span-4">
           <ScrollReveal direction="up" duration={0.8}>
             <div className="lg:sticky lg:top-32">
-              <span className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider block mb-4">
+              <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-4">
                 FAQ
               </span>
               <h2 className="relative isolate text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">

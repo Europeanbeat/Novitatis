@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
+import { PhotoLightbox } from "@/components/sections/references/photo-lightbox";
 import { references } from "@/lib/references-content";
 
 export function generateStaticParams() {
@@ -132,20 +133,12 @@ export default async function ReferencePage({
           </blockquote>
         )}
 
-        {/* Photo gallery (extra photos beyond the cover) */}
-        {r.photos.length > 1 && (
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3">
-            {r.photos.slice(embed ? 0 : 1).map((src) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={src}
-                src={src}
-                alt={r.imageAlt || r.title}
-                loading="lazy"
-                className="w-full h-44 object-cover rounded-xl"
-              />
-            ))}
-          </div>
+        {/* Photo gallery (extra photos beyond the cover) — click to enlarge */}
+        {r.photos.slice(embed ? 0 : 1).length > 0 && (
+          <PhotoLightbox
+            photos={r.photos.slice(embed ? 0 : 1)}
+            alt={r.imageAlt || r.title}
+          />
         )}
 
         {/* Tags + press link */}

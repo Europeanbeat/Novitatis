@@ -10,7 +10,8 @@ export function ClientSpectrum() {
         <ScrollReveal direction="up" duration={0.8}>
           <div className="max-w-[60ch] mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[18ch]">
-              From ministries to family-run guesthouses.
+              From ministries to{" "}
+              <span className="whitespace-nowrap">family-run</span> guesthouses.
             </h2>
             <p className="mt-4 text-[#334F5A]/75 leading-relaxed max-w-[52ch]">
               We work at every level of the tourism economy, in Hungary and
@@ -19,7 +20,9 @@ export function ClientSpectrum() {
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
+        {/* Stacked top-to-bottom so the visual reads as levels of the tourism
+            system (policy → destination → operator), not equal columns. */}
+        <div className="space-y-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
           {clientTiers.map((tier, index) => (
             <ScrollReveal
               key={tier.tier}
@@ -27,21 +30,26 @@ export function ClientSpectrum() {
               duration={0.8}
               delay={index * 0.08}
             >
-              <div className="h-full bg-white p-8 lg:p-10">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-mono text-xs text-[#AAD7E6]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider">
-                    {tier.note}
-                  </span>
+              <div className="bg-white p-7 lg:p-9 grid md:grid-cols-[minmax(0,18rem)_1fr] gap-5 lg:gap-12 items-start">
+                <div>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="font-mono text-xs text-[#AAD7E6]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-mono text-[11px] text-[#334F5A]/60 uppercase tracking-wider">
+                      {tier.note}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl lg:text-3xl text-[#334F5A] leading-tight">
+                    {tier.tier}
+                  </h3>
                 </div>
-                <h3 className="font-display text-2xl text-[#334F5A] leading-tight mb-6">
-                  {tier.tier}
-                </h3>
-                <ul className="divide-y divide-foreground/8">
+                <ul className="flex flex-wrap gap-2.5 md:pt-1.5">
                   {tier.clients.map((client) => (
-                    <li key={client} className="py-3 text-[#334F5A]/80">
+                    <li
+                      key={client}
+                      className="rounded-full bg-[#f9fbff] border border-foreground/10 px-4 py-1.5 text-sm text-[#334F5A]/80"
+                    >
                       {client}
                     </li>
                   ))}

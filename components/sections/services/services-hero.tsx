@@ -32,7 +32,7 @@ export function ServicesHero() {
       </ScrollReveal>
 
       <ScrollReveal direction="up" duration={0.9} delay={0.25}>
-        <p className="relative isolate mt-8 font-mono text-[11px] lg:text-xs uppercase tracking-wider text-[#334F5A]/55 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 max-w-[60ch]">
+        <p className="relative isolate mt-8 font-mono text-[11px] lg:text-xs uppercase tracking-wider text-[#334F5A]/70 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 max-w-[60ch]">
           <Halo />
           <span>Adopted into national law</span>
           <span className="text-[#AAD7E6]">·</span>
