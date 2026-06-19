@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
-import { PageBackground } from "@/components/layout/page-background";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BrandShowcase } from "@/components/sections/brand-showcase";
 
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
 export default function BrandsPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <PageBackground />
       <Navigation />
 
       {/* ── Hero ─────────────────────────────────────────── */}
@@ -33,7 +31,7 @@ export default function BrandsPage() {
       <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <ScrollReveal direction="up" duration={1}>
-            <h2 className="relative text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight isolate">
+            <h1 className="relative text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight isolate">
               <span
                 aria-hidden
                 className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
@@ -41,7 +39,7 @@ export default function BrandsPage() {
               Shared purpose,
               <br />
               separate focus.
-            </h2>
+            </h1>
           </ScrollReveal>
           <ScrollReveal direction="up" duration={0.9} delay={0.1}>
             <div className="relative space-y-5 text-muted-foreground leading-relaxed isolate">
@@ -72,36 +70,6 @@ export default function BrandsPage() {
         <ScrollReveal direction="up" duration={0.7}>
           <BrandShowcase />
         </ScrollReveal>
-      </section>
-   <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-16">
-         <div className="grid lg:grid-cols-12 gap-8 items-end">
-          <div className="lg:col-span-7">
-            <ScrollReveal direction="up" duration={1} delay={0.05}>
-              <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95] mb-8 isolate">
-                <span
-                  aria-hidden
-                  className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
-                />
-                Three brands,
-                <br />
-                <span className="text-muted-foreground">one problem to solve.</span>
-              </h1>
-            </ScrollReveal>
-          </div>
-          <div className="lg:col-span-5 lg:pb-3">
-            <ScrollReveal direction="up" duration={0.9} delay={0.15}>
-              <p className="relative text-xl text-muted-foreground leading-relaxed isolate">
-                <span
-                  aria-hidden
-                  className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
-                />
-                Tourism&apos;s digital gap isn&apos;t one problem, it shows up differently
-                at destination, business, and sector level. Novitatis built a focused brand
-                for each.
-              </p>
-            </ScrollReveal>
-          </div>
-        </div>
       </section>
 
       <FooterSection />

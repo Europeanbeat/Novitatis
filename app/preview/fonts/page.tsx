@@ -19,13 +19,13 @@ const candidates = [
 export default function FontPreview() {
   return (
     <main className="min-h-screen bg-background px-6 lg:px-12 py-16 space-y-20 max-w-[1200px] mx-auto">
-      <p className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider">
+      <p className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider">
         Font specimen, temporary preview
       </p>
       {candidates.map((c) => (
         <section key={c.name} className="border-t border-foreground/10 pt-8">
           <p className="font-mono text-xs text-[#AAD7E6] mb-6">
-            {c.name} <span className="text-[#334F5A]/50">({c.note})</span>
+            {c.name} <span className="text-[#334F5A]/65">({c.note})</span>
           </p>
           <h1
             className={`${c.cls} text-6xl lg:text-[5.5rem] text-[#334F5A] tracking-[-0.03em] leading-[0.92] font-medium`}

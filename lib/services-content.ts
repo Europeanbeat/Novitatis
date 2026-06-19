@@ -33,8 +33,8 @@ export const practices: Practice[] = [
     ],
     flagship: {
       metric: "634/2020",
-      label: "Hospitality categorisation",
-      outcome: "Our classification methodology was adopted into Hungarian national law.",
+      label: "Government decree · hospitality",
+      outcome: "Our hospitality categorisation methodology was adopted into Hungarian national law as Government Decree 634/2020.",
     },
     photo: {
       src: "/images/references/balaton365-balatonkenese-2026/balaton365-podiumbeszelgetes-panel-02.jpg",

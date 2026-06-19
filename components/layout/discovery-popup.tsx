@@ -39,7 +39,7 @@ export function DiscoveryPopup() {
             type="button"
             aria-label="Close"
             onClick={() => setOpen(false)}
-            className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full text-[#334F5A]/50 transition-colors hover:bg-[#334F5A]/5 hover:text-[#334F5A]"
+            className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full border border-foreground/15 bg-white text-[#334F5A]/70 shadow-sm transition-colors hover:bg-[#334F5A] hover:text-white hover:border-[#334F5A]"
           >
             <span className="relative block h-3.5 w-3.5">
               <span className="absolute left-0 top-1/2 h-[1.5px] w-full -translate-y-1/2 rotate-45 bg-current" />

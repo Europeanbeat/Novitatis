@@ -6,6 +6,7 @@ type Brand = {
   id: string;
   name: string;
   url: string;
+  audience: string;
   description: string;
   logo?: string;
   logoClass?: string;
@@ -13,10 +14,11 @@ type Brand = {
   iconClass?: string;
 };
 
+// Tag = who each brand is for (UX review: more useful than "Independent brand").
 const brands: Brand[] = [
-  { id: "visible-tourism", name: "Visible Tourism", url: "visibletourism.com", description: "Digital visibility for destinations (TDM, DMO), on a Google-based infrastructure.", logo: "/images/visibletourism_logo.svg", logoClass: "h-11" },
-  { id: "turizmus-tudastar", name: "Turizmus Tudástár", url: "turizmustudastar.hu", description: "A knowledge platform and Google Business Profile mentoring for tourism SMEs.", icon: "/images/turizmus_tudastar.png", iconClass: "h-14" },
-  { id: "ai4tourism", name: "AI4Tourism", url: "ai4tourism.com", description: "An AI mentoring programme: practical AI for people working in tourism.", logo: "/images/ai4tourism-logo.png", logoClass: "h-8" },
+  { id: "visible-tourism", name: "Visible Tourism", url: "visibletourism.com", audience: "TDM · DMO · tourism businesses", description: "Digital visibility for destinations (TDM, DMO), on a Google-based infrastructure.", logo: "/images/visibletourism_logo.svg", logoClass: "h-10" },
+  { id: "turizmus-tudastar", name: "Turizmus Tudástár", url: "turizmustudastar.hu", audience: "Tourism SMEs", description: "A knowledge platform and Google Business Profile mentoring for tourism SMEs.", icon: "/images/turizmus_tudastar.png", iconClass: "h-11" },
+  { id: "ai4tourism", name: "AI4Tourism", url: "ai4tourism.com", audience: "Tourism players", description: "An AI mentoring programme: practical AI for people working in tourism.", logo: "/images/ai4tourism-logo.png", logoClass: "h-6" },
 ];
 
 export function BrandsSection() {
@@ -86,10 +88,10 @@ export function BrandsSection() {
               onMouseEnter={() => setActiveBrand(index)}
               onMouseLeave={() => setActiveBrand(-1)}
             >
-              <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-6">
-                Independent brand
+              <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-6">
+                {brand.audience}
               </span>
-              <div className="h-14 flex items-center gap-3 mb-4">
+              <div className="h-14 flex items-center gap-1.5 mb-4">
                 {brand.logo ? (
                   <img
                     src={brand.logo}
@@ -105,7 +107,7 @@ export function BrandsSection() {
                         className={`${brand.iconClass ?? "h-10"} w-auto object-contain shrink-0`}
                       />
                     )}
-                    <h3 className="text-2xl lg:text-3xl font-display text-[#334F5A] whitespace-nowrap">
+                    <h3 className="text-xl lg:text-2xl font-display text-[#334F5A] whitespace-nowrap tracking-tight">
                       {brand.name}
                     </h3>
                   </>
@@ -114,9 +116,15 @@ export function BrandsSection() {
               <p className="text-muted-foreground leading-relaxed mb-8">
                 {brand.description}
               </p>
-              <span className="text-sm font-mono text-[#334F5A]">
-                {brand.url}
-              </span>
+              <div className="flex items-center justify-between gap-2 text-sm font-mono text-[#334F5A]">
+                <span>{brand.url}</span>
+                <span className="inline-flex items-center gap-1.5 font-medium">
+                  Explore
+                  <span className="transition-transform duration-300 group-hover:translate-x-1.5">
+                    &rarr;
+                  </span>
+                </span>
+              </div>
               <div className={`absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] transition-transform duration-500 origin-left ${
                 activeBrand === index ? "scale-x-100" : "scale-x-0"
               }`} />

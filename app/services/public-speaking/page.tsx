@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
-import { PageBackground } from "@/components/layout/page-background";
 import { RelatedProjects } from "@/components/sections/services/related-projects";
 import {
   practices,
@@ -25,7 +24,6 @@ const halo =
 export default function PublicSpeakingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <PageBackground />
       <Navigation />
 
       {/* 1 — HERO */}
@@ -54,7 +52,7 @@ export default function PublicSpeakingPage() {
         </div>
 
         {/* Proof strip */}
-        <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/55">
+        <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/70">
           <span>ITB Berlin</span>
           <span className="text-[#AAD7E6]">·</span>
           <span>Edinburgh</span>
@@ -65,27 +63,33 @@ export default function PublicSpeakingPage() {
         </div>
       </section>
 
-      {/* 2 — THE OPENING PROBLEM */}
+      {/* 2 — THE OPENING PROBLEM (blur backing so text doesn't sit on the lines) */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
-        <div className="max-w-[64ch] space-y-6 text-lg text-[#334F5A]/80 leading-relaxed">
-          <p>
-            Every tourism conference now has an AI session. Most of them sell a
-            tool, or sell optimism, and leave the room exactly where it started.
-            The audience nods, and nobody changes anything on Monday.
-          </p>
-          <p>
-            We do the opposite. We bring numbers from the field: 73 Lake Balaton
-            businesses studied, more than 1,300 provider websites analysed, a
-            national real-time data system explained from the inside. The talk
-            gives your audience something they can act on, because it started as
-            research, not as a pitch.
-          </p>
+        <div className="relative isolate max-w-[68ch]">
+          <span
+            aria-hidden
+            className="absolute -inset-5 lg:-inset-7 -z-10 rounded-[2rem] bg-background/55 backdrop-blur-sm"
+          />
+          <div className="space-y-6 text-lg text-[#334F5A]/80 leading-relaxed">
+            <p>
+              Every tourism conference now has an AI session. Most of them sell a
+              tool, or sell optimism, and leave the room exactly where it started.
+              The audience nods, and nobody changes anything on Monday.
+            </p>
+            <p>
+              We do the opposite. We bring numbers from the field: 73 Lake Balaton
+              businesses studied, more than 1,300 provider websites analysed, a
+              national real-time data system explained from the inside. The talk
+              gives your audience something they can act on, because it started as
+              research, not as a pitch.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* 3 — WHAT WE SPEAK ABOUT */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
-        <h2 className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider mb-10">
+        <h2 className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider mb-10">
           What we speak about
         </h2>
         <div className="grid md:grid-cols-2 gap-5">
@@ -128,7 +132,7 @@ export default function PublicSpeakingPage() {
               message into the language of the average user. You found the common
               voice perfectly, so everyone could understand the information.&rdquo;
             </blockquote>
-            <figcaption className="mt-4 font-mono text-xs uppercase tracking-wider text-[#334F5A]/55">
+            <figcaption className="mt-4 font-mono text-xs uppercase tracking-wider text-[#334F5A]/70">
               Szilvia Mihály, VisitBalaton365
             </figcaption>
           </figure>
@@ -143,7 +147,7 @@ export default function PublicSpeakingPage() {
                 <p className="text-[15px] font-medium text-[#334F5A] leading-snug">
                   {title}
                 </p>
-                <p className="mt-1.5 font-mono text-[11px] text-[#334F5A]/55 leading-relaxed">
+                <p className="mt-1.5 font-mono text-[11px] text-[#334F5A]/70 leading-relaxed">
                   {sub}
                 </p>
               </div>
@@ -154,22 +158,25 @@ export default function PublicSpeakingPage() {
 
       {/* 5 — FORMATS */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-16 lg:py-20">
-        <h2 className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider mb-10">
+        <h2 className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider mb-10">
           What you can book
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {speakingFormats.map((f) => (
-            <div key={f.title}>
+            <div
+              key={f.title}
+              className="rounded-2xl bg-white border border-foreground/10 p-6"
+            >
               <h3 className="font-display text-xl text-[#334F5A] leading-tight">
                 {f.title}
               </h3>
-              <p className="mt-2 text-sm text-[#334F5A]/70 leading-relaxed">
+              <p className="mt-2 text-sm text-[#334F5A]/75 leading-relaxed">
                 {f.blurb}
               </p>
             </div>
           ))}
         </div>
-        <p className="mt-8 font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider">
+        <p className="mt-8 font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider">
           Available in Hungarian and English
         </p>
       </section>
@@ -213,7 +220,7 @@ export default function PublicSpeakingPage() {
                       </span>
                     )}
                   </div>
-                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/55">
+                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/70">
                     {e.place}
                   </p>
                   <p className="mt-3 text-[15px] text-[#334F5A]/75 leading-relaxed max-w-[70ch]">

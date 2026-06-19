@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
-import { PageBackground } from "@/components/layout/page-background";
 import { ContactForm } from "@/components/sections/contact-form";
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
 export default function ContactUsPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <PageBackground />
       <Navigation />
 
       <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-40 pb-24">

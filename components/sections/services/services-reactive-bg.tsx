@@ -577,7 +577,7 @@ export function ServicesReactiveBg() {
                   >
                     <div className={`flex items-baseline gap-2 mb-1 ${isLeft ? "justify-end" : ""}`}>
                       <span className="font-mono text-xs text-[#AAD7E6]">{p.number}</span>
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/55">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/75">
                         {p.tag}
                       </span>
                     </div>
@@ -590,6 +590,23 @@ export function ServicesReactiveBg() {
             })}
           </div>
         )}
+
+        {/* Scroll cue: tells visitors the section keeps going while the tree
+            forms, so they don't think the page has ended (UX review). Fades out
+            once the tree is formed and the service labels are in. */}
+        <div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[#334F5A]/70"
+          style={{
+            opacity: formed ? 0 : 1,
+            transition: "opacity 0.5s ease",
+            pointerEvents: "none",
+          }}
+        >
+          <span className="font-mono text-[10px] uppercase tracking-wider">Keep scrolling</span>
+          <svg className="h-4 w-4 animate-bounce" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M4 6l4 4 4-4" />
+          </svg>
+        </div>
       </div>
 
       {/* In-flow anchor: drives the scroll. Desktop is empty space (the fixed tree +
@@ -599,7 +616,7 @@ export function ServicesReactiveBg() {
           <TreeHeading />
           <StaticList />
         </div>
-        <div className="hidden md:block h-[300vh]" aria-hidden />
+        <div className="hidden md:block h-[260vh]" aria-hidden />
       </div>
     </>
   );
@@ -627,7 +644,7 @@ function StaticList() {
           <span className="absolute -left-[1.7rem] top-1.5 w-2.5 h-2.5 rounded-full bg-[#AAD7E6]" />
           <div className="flex items-baseline gap-2 mb-1">
             <span className="font-mono text-[11px] text-[#AAD7E6]">{p.number}</span>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-[#334F5A]/55">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-[#334F5A]/70">
               {p.tag}
             </span>
           </div>

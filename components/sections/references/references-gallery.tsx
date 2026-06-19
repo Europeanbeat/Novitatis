@@ -73,18 +73,18 @@ function Card({ r, i, reduce }: { r: Reference; i: number; reduce: boolean }) {
           className="block w-full h-auto"
         />
       ) : (
-        <YearTile year={r.year} />
+        <TypeTile type={r.typeLabel} year={r.year} />
       )}
 
       {/* Caption on its own white panel below the image */}
       <div className="p-4 lg:p-5">
-        <span className="inline-block font-mono text-[10px] uppercase tracking-wider text-[#334F5A]/60 bg-[#334F5A]/[0.06] px-2.5 py-1 rounded-full mb-3">
+        <span className="inline-block font-mono text-[10px] font-medium uppercase tracking-wider text-[#334F5A]/85 bg-[#334F5A]/[0.08] px-2.5 py-1 rounded-full mb-3">
           {r.typeLabel}
         </span>
         <h3 className="font-display text-lg lg:text-xl text-[#334F5A] leading-[1.18] line-clamp-2">
           {r.title}
         </h3>
-        <p className="mt-1.5 font-mono text-[11px] text-[#334F5A]/55 line-clamp-1">
+        <p className="mt-1.5 font-mono text-[11px] text-[#334F5A]/65 line-clamp-1">
           {r.year}
           {r.location ? ` · ${r.location}` : ""}
         </p>
@@ -93,11 +93,12 @@ function Card({ r, i, reduce }: { r: Reference; i: number; reduce: boolean }) {
   );
 }
 
-// Year tile for references with no photo: a teal panel textured with the brand
-// line pattern, the year as a faint watermark. Fixed ratio so it has height.
-function YearTile({ year }: { year: string }) {
+// Tile for references with no photo: a teal panel textured with the brand line
+// pattern, leading with the TYPE (a category template) rather than a bare year,
+// which reads as a stronger message (UX review).
+function TypeTile({ type, year }: { type: string; year: string }) {
   return (
-    <div className="relative aspect-[4/3] bg-gradient-to-br from-[#3b5a66] to-[#22363f]">
+    <div className="relative aspect-[4/3] bg-gradient-to-br from-[#3b5a66] to-[#22363f] flex flex-col items-center justify-center text-center px-6">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/abstract-shape.svg"
@@ -106,7 +107,10 @@ function YearTile({ year }: { year: string }) {
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-[0.18] mix-blend-screen pointer-events-none"
       />
-      <span className="absolute inset-0 flex items-center justify-center font-display text-white/20 leading-none [font-size:clamp(3rem,6vw,5rem)] select-none pointer-events-none">
+      <span className="relative font-display text-white/90 leading-none [font-size:clamp(1.5rem,3.5vw,2.5rem)]">
+        {type}
+      </span>
+      <span className="relative mt-2 font-mono text-[11px] text-[#AAD7E6] uppercase tracking-wider">
         {year}
       </span>
     </div>

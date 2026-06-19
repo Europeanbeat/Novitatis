@@ -21,7 +21,7 @@ export function PartnersMarquee() {
         <ScrollReveal direction="up" duration={0.8}>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12">
             <div>
-              <span className="font-mono text-xs text-[#334F5A]/55 uppercase tracking-wider block mb-4">
+              <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-4">
                 Partners
               </span>
               <h2 className="text-3xl lg:text-4xl font-display text-[#334F5A] leading-[1.05] max-w-[20ch]">
@@ -44,7 +44,7 @@ export function PartnersMarquee() {
                 {partners.map((p) => (
                   <div
                     key={`${copy}-${p.name}`}
-                    className="group mx-3 flex h-28 w-48 lg:h-32 lg:w-56 shrink-0 items-center justify-center rounded-2xl bg-white border border-foreground/10 p-6 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:shadow-[0_12px_32px_-16px_rgba(51,79,90,0.25)]"
+                    className="group mx-3 flex h-28 w-48 lg:h-32 lg:w-56 shrink-0 items-center justify-center rounded-2xl bg-white border border-foreground/10 p-5 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:shadow-[0_12px_32px_-16px_rgba(51,79,90,0.25)]"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -52,7 +52,7 @@ export function PartnersMarquee() {
                       alt={p.name}
                       loading="lazy"
                       decoding="async"
-                      className="max-h-full max-w-full object-contain grayscale opacity-60 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                      className="max-h-full max-w-full object-contain grayscale opacity-85 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
                     />
                   </div>
                 ))}

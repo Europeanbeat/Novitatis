@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
-import { PageBackground } from "@/components/layout/page-background";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Halo } from "@/components/sections/services/_halo";
 
@@ -27,30 +26,31 @@ const values = [
   },
 ];
 
+// First names only: more international, easier to address (UX review).
 const team = [
   {
-    name: "Adam Schmutz",
-    role: "Founder · Consultant · PhD candidate",
+    name: "Adam",
+    role: "Founder & tourism strategy consultant · PhD candidate",
     photo: "/images/adam_schmutz_card.jpg",
     bio: "Adam works at the intersection of tourism, technology and entrepreneurship. His doctoral research feeds directly into Novitatis's consulting across Europe, keeping recommendations grounded in evidence.",
     pos: "object-[25%_1%]"
   },
   {
-    name: "Bence Bukovec",
+    name: "Bence",
     role: "Partner · Project lead · Full-stack developer",
     photo: "/images/bence.webp",
     bio: "Bence leads the technical delivery behind Novitatis projects: digital systems, mapping and integrations. With an MA in tourism and a developer's background, he turns the real constraints destinations face into working systems.",
     pos: "object-[25%_1%]"
   },
   {
-    name: "Vivi Szabó",
+    name: "Vivi",
     role: "UX/UI researcher · Advisor",
-    photo: "/images/vivi.webp",
-    bio: "Vivi studies how destinations are presented digitally and how travellers experience them in practice. She connects perception and experience through data-informed design.",
+    photo: "/images/vivi.jpeg",
+    bio: "Vivi studies how destinations are presented digitally and how travellers experience them in practice. Her MA applied design-thinking methodology to the visitor-centred development of tourism SMEs, and she connects perception and experience through data-informed design.",
     pos: "object-[20%_50%]"
   },
   {
-    name: "Eszter Schmutz",
+    name: "Eszter",
     role: "UX/UI researcher · Data analyst · PhD candidate",
     photo: "/images/eszter.jpeg",
     bio: "Eszter turns destination data into structured, scalable strategy. Her PhD research focuses on digital experience systems in the public sector.",
@@ -60,13 +60,12 @@ const team = [
 const stats = [
   { value: "10+", label: "years of experience" },
   { value: "60+", label: "strategy & development projects" },
-  { value: "HU & EU", label: "national and regional reach" },
+  { value: "4", label: "countries with projects & talks" },
 ];
 
 export default function AboutUsPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <PageBackground />
       <Navigation />
 
       {/* Hero */}
@@ -93,65 +92,12 @@ export default function AboutUsPage() {
         </ScrollReveal>
       </section>
 
-      {/* Our story */}
+      {/* What sets us apart — promoted above the story (UX review: one of the
+          strongest messages, so lead with it). */}
       <section className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8 py-10 lg:py-14">
-        <div className="bg-white rounded-[2rem] border border-foreground/10 shadow-[0_30px_80px_-50px_rgba(51,79,90,0.3)] p-8 lg:p-14">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-            <div className="lg:col-span-4">
-              <span className="font-mono text-xs text-[#334F5A]/50 uppercase tracking-wider block mb-4">
-                Our story
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-display text-[#334F5A] leading-tight">
-                Built to cut through the complexity.
-              </h2>
-            </div>
-            <div className="lg:col-span-8 space-y-5 text-[#334F5A]/70 leading-relaxed lg:text-lg">
-              <p>
-                Novitatis began from a simple observation: tourism development too
-                often runs on intuition and generic advice, when the sector
-                deserves decisions built on evidence. We set out to combine
-                rigorous research with creative, practical development for the
-                people who shape destinations.
-              </p>
-              <p>
-                We work with destination management organisations, tourism boards,
-                municipalities and public institutions, alongside the tourism
-                businesses that operate within them. Our team brings together
-                strategic consultants, UX researchers, tourism professionals and
-                full-stack developers, so high-level planning and on-the-ground
-                delivery sit in the same room.
-              </p>
-              <p>
-                We also build bridges between academia and practice. Several of us
-                are PhD candidates and published researchers in tourism and digital
-                transformation, which keeps our work evidence-based,
-                policy-aligned and built to last. The result is a pragmatic partner
-                that understands public-sector realities: clear deliverables, honest
-                communication, and solutions that work in the field.
-              </p>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-12 lg:mt-16 pt-10 border-t border-foreground/10 flex flex-wrap gap-10 lg:gap-16">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex items-baseline gap-3">
-                <span className="text-4xl lg:text-5xl font-display text-[#334F5A]">
-                  {stat.value}
-                </span>
-                <span className="text-sm text-muted-foreground max-w-[16ch]">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What sets us apart */}
-      <section className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8 py-10 lg:py-14">
-        <div className="px-2 lg:px-4 mb-8">
-          <span className="font-mono text-xs text-[#334F5A]/50 uppercase tracking-wider block mb-4">
+        <div className="relative isolate px-2 lg:px-4 mb-8">
+          <Halo className="-inset-x-6 -inset-y-4" />
+          <span className="font-mono text-xs text-[#334F5A]/65 uppercase tracking-wider block mb-4">
             What sets us apart
           </span>
           <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight max-w-[20ch]">
@@ -175,10 +121,58 @@ export default function AboutUsPage() {
         </div>
       </section>
 
+      {/* Our story */}
+      <section className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8 py-10 lg:py-14">
+        <div className="bg-white rounded-[2rem] border border-foreground/10 shadow-[0_30px_80px_-50px_rgba(51,79,90,0.3)] p-8 lg:p-14">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <div className="lg:col-span-4">
+              <span className="font-mono text-xs text-[#334F5A]/65 uppercase tracking-wider block mb-4">
+                Our story
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-display text-[#334F5A] leading-tight">
+                Built to cut through the complexity.
+              </h2>
+            </div>
+            <div className="lg:col-span-8 space-y-5 text-[#334F5A]/70 leading-relaxed lg:text-lg">
+              <p>
+                Novitatis began from a simple observation: tourism development too
+                often runs on intuition and generic advice, when the sector
+                deserves decisions built on evidence. We set out to combine
+                rigorous research with creative, practical development for the
+                people who shape destinations.
+              </p>
+              <p>
+                We work with destination management organisations, tourism boards,
+                municipalities and public institutions, alongside the tourism
+                businesses that operate within them. Several of us are PhD candidates
+                and published researchers, so high-level planning, evidence and
+                on-the-ground delivery sit in the same room: clear deliverables,
+                honest communication, and solutions that work in the field.
+              </p>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-12 lg:mt-16 pt-10 border-t border-foreground/10 flex flex-wrap gap-10 lg:gap-16">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex items-baseline gap-3">
+                <span className="text-4xl lg:text-5xl font-display text-[#334F5A]">
+                  {stat.value}
+                </span>
+                <span className="text-sm text-muted-foreground max-w-[16ch]">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Meet the team */}
       <section className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8 py-10 lg:py-16">
-        <div className="px-2 lg:px-4 mb-10 lg:mb-12">
-          <span className="font-mono text-xs text-[#334F5A]/50 uppercase tracking-wider block mb-4">
+        <div className="relative isolate px-2 lg:px-4 mb-10 lg:mb-12">
+          <Halo className="-inset-x-6 -inset-y-4" />
+          <span className="font-mono text-xs text-[#334F5A]/65 uppercase tracking-wider block mb-4">
             Meet the team
           </span>
           <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight max-w-[20ch]">
@@ -204,7 +198,7 @@ export default function AboutUsPage() {
                   <h3 className="font-display text-xl text-[#334F5A] leading-tight">
                     {member.name}
                   </h3>
-                  <p className="font-mono text-[11px] text-[#5b94a8] mt-1.5 mb-4">
+                  <p className="font-mono text-[11px] font-medium text-[#334F5A]/85 mt-1.5 mb-4">
                     {member.role}
                   </p>
                   <p className="text-sm text-[#334F5A]/65 leading-relaxed">{member.bio}</p>

@@ -34,7 +34,7 @@ const brands = [
     name: "Turizmus Tudástár",
     logo: null,
     icon: "/images/turizmus_tudastar.png",
-    iconClass: "h-20",
+    iconClass: "h-25",
     url: "turizmustudastar.hu",
     tagline: "Knowledge platform & GBP mentoring",
     audience: "Tourism SMEs",
@@ -44,7 +44,7 @@ const brands = [
     index: "03",
     name: "AI4Tourism",
     logo: "/images/ai4tourism-logo.png",
-    logoClass: "h-10",
+    logoClass: "h-8",
     url: "ai4tourism.com",
     tagline: "AI Mentoring Program",
     audience: "Tourism players",
@@ -561,11 +561,12 @@ function AI4TourismPanel() {
 /* ── Main component ─────────────────────────────── */
 
 export function BrandShowcase() {
-  const [activeBrand, setActiveBrand] = useState<BrandId | null>(null);
+  // ONE brand is always open (UX review). Default is Visible Tourism, unless the
+  // visitor arrived from a homepage brand card (/brands?brand=<id>), handled in
+  // the effect below. Selecting another brand switches; it never collapses to none.
+  const [activeBrand, setActiveBrand] = useState<BrandId>("visible-tourism");
 
-  const toggle = (id: BrandId) => {
-    setActiveBrand((prev) => (prev === id ? null : id));
-  };
+  const select = (id: BrandId) => setActiveBrand(id);
 
   // If arriving from a homepage brand card (/brands?brand=<id>), open that brand.
   useEffect(() => {
@@ -591,7 +592,7 @@ export function BrandShowcase() {
           return (
             <button
               key={brand.id}
-              onClick={() => toggle(brand.id)}
+              onClick={() => select(brand.id)}
               className={`group relative flex flex-col text-left p-8 lg:p-10 rounded-2xl border bg-white transition-all duration-400 overflow-hidden ${
                 isActive
                   ? "border-[#AAD7E6] ring-2 ring-[#AAD7E6]/50 shadow-[0_4px_24px_-8px_rgba(170,215,230,0.4)]"
@@ -607,7 +608,7 @@ export function BrandShowcase() {
                 </span>
               </div>
 
-              <div className="h-16 flex items-center gap-3 mb-5">
+              <div className="h-16 flex items-center gap-0 mb-5">
                 {brand.logo ? (
                   <img
                     src={brand.logo}
@@ -620,7 +621,7 @@ export function BrandShowcase() {
                       <img
                         src={brand.icon}
                         alt=""
-                        className={`${brand.iconClass ?? "h-10"} w-auto object-contain shrink-0 -ml-2`}
+                        className={`${brand.iconClass ?? "h-10"} w-auto object-contain shrink-0 -ml-2 -mr-3`}
                       />
                     )}
                     <h3 className="text-2xl lg:text-3xl font-display text-[#334F5A] whitespace-nowrap">
@@ -633,10 +634,10 @@ export function BrandShowcase() {
                 {brand.tagline}
               </p>
 
-              <span className={`inline-flex items-center justify-between gap-2 text-sm font-mono transition-colors duration-300 ${isActive ? "text-[#334F5A]" : "text-[#334F5A]"}`}>
-                {isActive ? "Close" : brand.url}
+              <span className="inline-flex items-center justify-between gap-2 text-sm font-mono text-[#334F5A]">
+                {isActive ? "Viewing" : brand.url}
                 <span
-                  className={`text-[#AAD7E6] transition-transform duration-300 ${
+                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#AAD7E6] text-[#334F5A] transition-transform duration-300 ${
                     isActive ? "rotate-180" : "group-hover:translate-x-1"
                   }`}
                 >
