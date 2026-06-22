@@ -11,7 +11,7 @@ export type Practice = {
   description: string;
   serves: string[];
   deliverables: string[];
-  flagship: { metric: string; label: string; outcome: string };
+  flagship?: { metric: string; label: string; outcome: string };
   photo: { src: string; alt: string };
 };
 
@@ -21,21 +21,17 @@ export const practices: Practice[] = [
     slug: "consulting",
     tag: "Strategy",
     title: "Consulting & strategy",
-    lead: "Where it starts: research and strategy.",
+    lead: "The questions a strategy depends on, answered with research and data.",
     description:
-      "We produce the destination strategies, feasibility studies and development plans that ministries, destinations and municipalities act on. Grounded in research and field knowledge, the result is a direction you can defend, with the funding or grant case to support it.",
+      "From how residents feel about tourism to a destination's online presence, we research the questions strategy depends on, then turn the answers into strategy, development and policy, for destinations, national tourism organisations and the businesses in their ecosystem.",
     serves: ["Ministries & NTOs", "DMO & TDM organisations", "Municipalities", "Tourism SMEs"],
     deliverables: [
-      "Destination strategies & development plans",
-      "Feasibility studies & cost-benefit analysis",
-      "Market & digital-presence research",
-      "Regulatory methodology & legislative input",
+      "Research & analysis",
+      "Digital maturity & visibility",
+      "Strategy & development",
+      "Feasibility & cost-benefit",
+      "Policy & methodology",
     ],
-    flagship: {
-      metric: "634/2020",
-      label: "Government decree · hospitality",
-      outcome: "Our hospitality categorisation methodology was adopted into Hungarian national law as Government Decree 634/2020.",
-    },
     photo: {
       src: "/images/references/balaton365-balatonkenese-2026/balaton365-podiumbeszelgetes-panel-02.jpg",
       alt: "Panel discussion at the Balaton365 conference in Balatonkenese",
@@ -71,21 +67,16 @@ export const practices: Practice[] = [
     slug: "education",
     tag: "Mentoring",
     title: "Education & mentoring",
-    lead: "Where the capability stays in your team.",
+    lead: "The digital and AI skills a tourism team needs, from prompting to Google visibility.",
     description:
-      "We design education that holds, from national training programmes with full curricula to one-to-one Google-profile and AI mentoring, so the capability stays inside your team rather than leaving with the consultant. Our mentoring runs under Turizmus Tudástár.",
+      "Workshops, courses and one-to-one mentoring that build digital and AI capability inside a tourism team, from a DMO learning to use AI to a single provider getting found on Google. We deliver it under Turizmus Tudástár, Visible Tourism and ai4tourism.",
     serves: ["Tourism SMEs", "DMO & TDM organisations", "Public institutions"],
     deliverables: [
-      "National training programme design",
-      "Turizmus Tudástár mentoring",
-      "AI mentoring",
-      "Organisational development",
+      "AI & digital workshops",
+      "Courses & national curricula",
+      "One-to-one Google & AI mentoring",
+      "Online visibility, with Visible Tourism",
     ],
-    flagship: {
-      metric: "2022",
-      label: "National training programme",
-      outcome: "A programme we built from the ground up, launched nationally and still running.",
-    },
     photo: {
       src: "/images/references/ai-kepzes-visitbalaton365-dmo-2025/schmutz-adam-ai-kepzes-visitbalaton365-dmo-keszthely-2025-01.jpg",
       alt: "AI training for the VisitBalaton365 DMO team in Keszthely",
@@ -96,21 +87,16 @@ export const practices: Practice[] = [
     slug: "public-speaking",
     tag: "Speaking",
     title: "Public speaking",
-    lead: "We set the agenda, not just attend it.",
+    lead: "Research-led talks on AI and the digital shift in tourism.",
     description:
-      "Through keynotes, panels and our own podcast we make digital and AI trends usable for the sector, translating where tourism is heading into something organisations can act on, on Hungarian and international stages.",
+      "Adam Schmutz speaks on AI search visibility, online presence and data-driven destination management, in Hungarian and English, from conference keynotes to closed-door workshops. Every talk is built on our own primary research.",
     serves: ["Conferences & sector events", "Public institutions", "Industry programmes"],
     deliverables: [
-      "Digital & innovation keynotes",
-      "Research & best-practice sessions",
-      "Panel moderation",
-      "Professional programme design",
+      "AI search visibility",
+      "Online presence that sells",
+      "Data-driven destination management",
+      "Measurable sustainability",
     ],
-    flagship: {
-      metric: "HU & EU",
-      label: "Conference circuit",
-      outcome: "Regular speakers at national and international tourism events.",
-    },
     photo: {
       src: "/images/references/foldnap-2026/schmutz-adam-eloadas-foldnapi-konferencia-balaton-2026-01.jpg",
       alt: "Talk at the Earth Day conference at Lake Balaton",
@@ -214,22 +200,22 @@ export const speakingThemes: SpeakingTheme[] = [
   {
     number: "01",
     title: "Being found in the age of AI search",
-    body: "Search has changed: an AI now answers for the customer. In 2026, 45% of consumers use an AI tool to find a local business, up from 6% a year earlier. We explain GEO, not SEO, in plain language, and what it takes to stay visible.",
+    body: "How destinations and providers get found, or get skipped, as search shifts from results pages to AI answers. We cover GEO and AEO, and why they are not the old SEO.",
   },
   {
     number: "02",
-    title: "Digital visibility and the Google ecosystem",
-    body: "94% of searches happen on Google platforms, and nearly half are zero-click. If the provider journey breaks, the guest is gone. We show where it breaks, backed by an analysis of over 1,300 Lake Balaton provider websites.",
+    title: "Online presence that sells",
+    body: "Why so many tourism businesses are technically online yet commercially invisible, and what closes that gap, from the Google ecosystem to the online visitor journey.",
   },
   {
     number: "03",
     title: "Data-driven destination management",
-    body: "How a destination runs on real data instead of guesswork. We take audiences inside Hungary's national tourism data system: daily automatic data from 95,000+ accommodations, presented internationally as a European best practice.",
+    body: "Running a destination on live evidence, drawing on Hungary's national real-time tourism data system and the AI forecasting built on it.",
   },
   {
     number: "04",
-    title: "Sustainability you can measure",
-    body: "From 27 September 2026 the EU ECGT rules require measured evidence for green claims. We make the case simply: evidence is data, and data is digitalisation. Don't talk to the guest about sustainability, show them the numbers.",
+    title: "Measurable sustainability",
+    body: "Turning digitalisation and the EU's green-claims rules into sustainability a destination can prove.",
   },
 ];
 
@@ -238,7 +224,7 @@ export type SpeakingFormat = { title: string; blurb: string };
 export const speakingFormats: SpeakingFormat[] = [
   { title: "Keynote talk", blurb: "A research-led talk for your conference or event." },
   { title: "Panel & moderation", blurb: "We sit on the panel, or run it." },
-  { title: "Workshop & training", blurb: "Hands-on sessions that end with a plan, not just slides." },
+  { title: "Workshop & training", blurb: "Sessions that end with a plan your team can use." },
   { title: "Podcast & interview", blurb: "A returning guest voice on AI and digital tourism." },
 ];
 

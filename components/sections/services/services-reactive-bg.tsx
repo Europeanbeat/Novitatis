@@ -524,11 +524,11 @@ export function ServicesReactiveBg() {
           style={{ opacity: 0 }}
         >
           <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
-            Four services. One method.
+            Four services. Four ways in.
           </h2>
-          <p className="mt-4 text-lg text-[#334F5A]/80 leading-relaxed mx-auto max-w-[44ch]">
-            Research and strategy, development, education and public speaking. Each
-            one feeds the next.
+          <p className="mt-4 text-lg text-[#334F5A]/80 leading-relaxed mx-auto max-w-[46ch]">
+            Consulting, development, education and public speaking. Take any one on
+            its own; what they share is a research-led way of working.
           </p>
         </div>
 
@@ -626,11 +626,11 @@ function TreeHeading() {
   return (
     <div className="max-w-[60ch]">
       <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
-        Four areas we excel in
+        Four services. Four ways in.
       </h2>
       <p className="mt-5 text-lg text-[#334F5A]/80 leading-relaxed">
-        Consulting, development, education and public speaking, our four main
-        services, all run on the same research-first method.
+        Consulting, development, education and public speaking. Take any one on its
+        own; what they share is a research-led way of working.
       </p>
     </div>
   );

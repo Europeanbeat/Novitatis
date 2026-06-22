@@ -11,13 +11,12 @@ export function MethodSpine() {
       <div className="bg-white rounded-[2rem] border border-foreground/10 shadow-[0_30px_80px_-50px_rgba(51,79,90,0.3)] p-8 lg:p-14">
         <div className="mb-12 lg:mb-16 max-w-[60ch]">
           <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight">
-            How a project runs.
+            How we work on a challenge.
           </h2>
-          {/* CONFIRM with Bence: real starting point of a project. */}
           <p className="mt-5 text-[#334F5A]/80 leading-relaxed">
-            Where a project starts depends on what you already have. From there, most
-            move through the same stages, from agreeing the real question to a
-            measured result.
+            Whichever of the four services you take, we work the same disciplined
+            way. Not every project needs every step, we start where your challenge
+            is and stop at a result you can measure.
           </p>
         </div>
 

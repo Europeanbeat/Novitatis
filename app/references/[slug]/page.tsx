@@ -4,10 +4,12 @@ import { notFound } from "next/navigation";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
 import { PhotoLightbox } from "@/components/sections/references/photo-lightbox";
+import { ProjectDetail } from "@/components/sections/projects/project-detail";
 import { references } from "@/lib/references-content";
+import { projects } from "@/lib/projects-content";
 
 export function generateStaticParams() {
-  return references.map((r) => ({ slug: r.slug }));
+  return [...projects, ...references].map((x) => ({ slug: x.slug }));
 }
 
 export async function generateMetadata({
@@ -16,6 +18,18 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const proj = projects.find((x) => x.slug === slug);
+  if (proj) {
+    return {
+      title: proj.seoTitle,
+      description: proj.seoDescription,
+      openGraph: {
+        title: proj.seoTitle,
+        description: proj.seoDescription,
+        images: proj.cover ? [proj.cover] : undefined,
+      },
+    };
+  }
   const r = references.find((x) => x.slug === slug);
   if (!r) return {};
   return {
@@ -43,6 +57,19 @@ export default async function ReferencePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  // Projects (case studies) and events share this route; resolve projects first.
+  const proj = projects.find((x) => x.slug === slug);
+  if (proj) {
+    return (
+      <main className="relative min-h-screen bg-white overflow-x-hidden">
+        <Navigation />
+        <ProjectDetail project={proj} />
+        <FooterSection />
+      </main>
+    );
+  }
+
   const r = references.find((x) => x.slug === slug);
   if (!r) notFound();
 

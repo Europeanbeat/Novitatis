@@ -9,9 +9,9 @@ export function ServicesCta() {
         <div className="relative overflow-hidden rounded-3xl bg-[#334F5A] px-8 lg:px-16 py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <h2 className="text-4xl lg:text-6xl font-display text-white leading-[1.02]">
-              Tell us what
+              Let&apos;s work
               <br />
-              <span className="text-white/55">you are working on.</span>
+              <span className="text-white/55">together.</span>
             </h2>
             <div className="lg:pl-8">
               <p className="text-white/65 leading-relaxed mb-8 max-w-[46ch]">

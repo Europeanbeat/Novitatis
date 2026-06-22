@@ -1,70 +1,134 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Navigation } from "@/components/layout/navigation";
 import { FooterSection } from "@/components/layout/footer";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { speakingThemes, speakingFormats } from "@/lib/services-content";
+import { ReferencesGallery } from "@/components/sections/references/references-gallery";
 
 export const metadata: Metadata = {
   title: "Appearances",
   description:
-    "Where Novitatis shows up in public, across stages, panels, podcasts and the press.",
+    "Where Novitatis shows up: keynotes, panels, podcasts and exhibitions on AI and digital tourism, plus what we speak about and how to book a talk.",
 };
 
-// Scaffold. New section, content to be provided. Built on the standard page
-// chrome so dropping in the real content later is straightforward.
+const halo =
+  "absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)]";
+
 export default function AppearancesPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
 
-      <section className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-12 pt-32 pb-20 lg:pb-28">
-        {/* Hero */}
-        <ScrollReveal direction="up" duration={0.8}>
-          <div className="max-w-[60ch] mb-12 lg:mb-16">
-            <span className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-5">
-              Appearances
-            </span>
-            <h1 className="text-5xl md:text-7xl font-display text-[#334F5A] leading-[0.98]">
-              Where we show up.
-            </h1>
-            <p className="mt-6 text-lg text-[#334F5A]/80 leading-relaxed">
-              Stages, panels, podcasts and the press. This section is being put
-              together, the content is on its way.
-            </p>
+      {/* 1 — HERO (the pitch) */}
+      <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-28 pb-8 lg:pt-32 lg:pb-10">
+        <div className="relative isolate">
+          <span aria-hidden className={halo} />
+          <span className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-5">
+            Appearances
+          </span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-[#334F5A] leading-[1.04] max-w-[18ch]">
+            Talks built on our own research.
+          </h1>
+          <p className="mt-7 text-lg lg:text-xl text-[#334F5A]/80 leading-relaxed max-w-[64ch]">
+            Novitatis is a research-led voice on AI and the digital future of
+            tourism. We speak in Hungarian and English, from conference keynotes to
+            closed-door workshops with destination teams, and the talks now travel
+            internationally. Every one is built on our own primary data, the same
+            work that runs through our consulting, our peer-reviewed publishing and
+            an active PhD on the team.
+          </p>
+          <div className="mt-9">
+            <a
+              href="mailto:info@novitatis.hu"
+              className="inline-flex items-center gap-3 rounded-full bg-[#334F5A] text-white font-mono text-sm px-7 py-3.5 group transition-colors hover:bg-[#283d46]"
+            >
+              <span>Invite us to speak</span>
+              <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1.5">
+                &rarr;
+              </span>
+            </a>
           </div>
-        </ScrollReveal>
+        </div>
+      </section>
 
-        {/* Placeholder state until the content is in */}
-        <ScrollReveal direction="up" duration={0.8} delay={0.1}>
-          <div className="rounded-3xl border border-foreground/10 bg-white p-10 lg:p-16 text-center">
-            <p className="font-mono text-xs text-[#334F5A]/65 uppercase tracking-wider mb-4">
-              In preparation
-            </p>
-            <h2 className="font-display text-2xl lg:text-3xl text-[#334F5A] leading-tight max-w-[28ch] mx-auto">
-              We are putting this section together.
-            </h2>
-            <p className="mt-5 text-[#334F5A]/70 leading-relaxed max-w-[52ch] mx-auto">
-              In the meantime, see the full record of our work, or tell us what you
-              are working on.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/references"
-                className="inline-flex items-center gap-2 rounded-full bg-[#334F5A] text-white font-mono text-sm px-6 py-3.5 transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                See Our Projects
-                <span className="text-[#AAD7E6]">&rarr;</span>
-              </Link>
-              <Link
-                href="/contact-us"
-                className="inline-flex items-center gap-2 font-mono text-sm text-[#334F5A]/80 hover:text-[#334F5A] transition-colors px-2"
-              >
-                Get in touch
-                <span className="text-[#AAD7E6]">&rarr;</span>
-              </Link>
+      {/* 2 — WHAT WE SPEAK ABOUT */}
+      <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
+        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-10 lg:mb-12">
+          What we speak about
+        </h2>
+        <div className="border-t border-foreground/10">
+          {speakingThemes.map((t) => (
+            <div
+              key={t.number}
+              className="grid md:grid-cols-12 gap-y-4 gap-x-8 lg:gap-x-12 py-10 lg:py-14 border-b border-foreground/10"
+            >
+              <div className="md:col-span-5 flex items-start gap-5">
+                <span className="font-mono text-sm text-[#AAD7E6] pt-1.5 shrink-0">
+                  {t.number}
+                </span>
+                <h3 className="font-display text-3xl lg:text-[2.5rem] leading-[1.05] text-[#334F5A]">
+                  {t.title}
+                </h3>
+              </div>
+              <div className="md:col-span-7 md:pt-1.5">
+                <p className="text-lg lg:text-xl text-[#334F5A]/80 leading-relaxed max-w-[56ch]">
+                  {t.body}
+                </p>
+              </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3 — WHERE WE'VE SHOWN UP (full filterable record) */}
+      <section className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
+        <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] mb-8 lg:mb-10">
+          Where we&apos;ve shown up.
+        </h2>
+        <ReferencesGallery />
+      </section>
+
+      {/* 4 — FORMATS */}
+      <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
+        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-8">
+          Formats
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {speakingFormats.map((f) => (
+            <div
+              key={f.title}
+              className="rounded-2xl bg-white border border-foreground/10 p-6"
+            >
+              <p className="font-display text-xl text-[#334F5A] leading-snug mb-2">
+                {f.title}
+              </p>
+              <p className="text-sm text-[#334F5A]/70 leading-relaxed">{f.blurb}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5 — CTA */}
+      <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-16 lg:py-24">
+        <div className="relative isolate">
+          <span aria-hidden className={halo} />
+          <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[20ch]">
+            Planning an event or a team session?
+          </h2>
+          <p className="mt-6 text-lg text-[#334F5A]/80 leading-relaxed max-w-[56ch]">
+            Tell us the audience and the date, and we will propose a talk.
+          </p>
+          <div className="mt-9">
+            <a
+              href="mailto:info@novitatis.hu"
+              className="inline-flex items-center gap-3 rounded-full bg-[#334F5A] text-white font-mono text-sm px-7 py-3.5 group transition-colors hover:bg-[#283d46]"
+            >
+              <span>Invite us to speak</span>
+              <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1.5">
+                &rarr;
+              </span>
+            </a>
           </div>
-        </ScrollReveal>
+        </div>
       </section>
 
       <FooterSection />

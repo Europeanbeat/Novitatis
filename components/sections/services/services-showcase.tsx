@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { practices, type Practice } from "@/lib/services-content";
+import { Halo } from "@/components/sections/services/_halo";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -102,20 +103,25 @@ export function ServicesShowcase() {
   return (
     <section className="relative z-10">
       {/* Section opener */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-10 lg:pt-14 pb-8 lg:pb-10">
-        <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-5">
-          What we offer
-        </span>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[#334F5A] leading-[1.02] max-w-[16ch]">
-          Four services.
-          <br />
-          <span className="text-[#334F5A]/45">In depth.</span>
-        </h2>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-3 lg:pt-5 pb-8 lg:pb-10">
+        <div className="relative isolate max-w-[54ch]">
+          <Halo className="-inset-x-6 -inset-y-8 lg:-inset-x-10" />
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[#334F5A] leading-[1.02] max-w-[16ch]">
+            Accepting all
+            <br />
+            <span className="text-[#334F5A]/45">challenges.</span>
+          </h2>
+          <p className="mt-5 text-lg lg:text-xl text-[#334F5A]/70 leading-relaxed max-w-[50ch]">
+            At our core we are problem solvers, and because no two challenges are
+            the same, neither is the way we respond. Four services, each its own,
+            combined only when your challenge needs it.
+          </p>
+        </div>
       </div>
 
       <div
         ref={stackRef}
-        className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-8 lg:space-y-12 pb-8 lg:pb-12"
+        className="max-w-[1400px] mx-auto px-6 lg:px-12 space-y-16 lg:space-y-24 pb-8 lg:pb-12"
       >
         {practices.map((p, i) => (
           <PracticeMoment
@@ -202,7 +208,7 @@ function PracticeMoment({
       <div className="grid lg:grid-cols-12 gap-0 items-stretch">
         {/* PHOTO COLUMN */}
         <div
-          className={`pm-photo relative lg:col-span-5 min-h-[300px] lg:min-h-[560px] overflow-hidden ${
+          className={`pm-photo relative lg:col-span-5 min-h-[220px] lg:min-h-[400px] overflow-hidden ${
             reversed ? "lg:order-2" : ""
           }`}
         >
@@ -219,19 +225,21 @@ function PracticeMoment({
           <div className="absolute inset-0 bg-gradient-to-t from-[#334F5A]/55 via-transparent to-transparent pointer-events-none" />
 
           {/* Flagship metric chip over the photo */}
-          <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#334F5A]/80 backdrop-blur-md p-4 lg:p-5">
-            <span className="font-mono text-[10px] text-[#AAD7E6]/90 uppercase tracking-wider">
-              Flagship: {practice.flagship.label}
-            </span>
-            <p className="mt-1.5 font-display text-3xl lg:text-4xl text-white leading-none">
-              {practice.flagship.metric}
-            </p>
-          </div>
+          {practice.flagship && (
+            <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#334F5A]/80 backdrop-blur-md p-4 lg:p-5">
+              <span className="font-mono text-[10px] text-[#AAD7E6]/90 uppercase tracking-wider">
+                Flagship: {practice.flagship.label}
+              </span>
+              <p className="mt-1.5 font-display text-2xl lg:text-3xl text-white leading-none">
+                {practice.flagship.metric}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* COPY COLUMN */}
         <div
-          className={`lg:col-span-7 p-8 lg:p-14 flex flex-col justify-center ${
+          className={`lg:col-span-7 p-6 lg:p-10 flex flex-col justify-center ${
             reversed ? "lg:order-1" : ""
           }`}
         >
@@ -248,29 +256,31 @@ function PracticeMoment({
 
           <h3
             ref={titleRef}
-            className={`font-display text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight overflow-hidden ${ink}`}
+            className={`font-display text-3xl md:text-4xl lg:text-5xl leading-[0.98] tracking-tight overflow-hidden ${ink}`}
           >
             {practice.title}
           </h3>
 
           <p
-            className={`pm-item mt-5 font-display italic text-xl lg:text-2xl leading-[1.15] max-w-[30ch] ${
+            className={`pm-item mt-4 font-display italic text-lg lg:text-xl leading-[1.15] max-w-[30ch] ${
               dark ? "text-[#AAD7E6]" : "text-[#334F5A]/65"
             }`}
           >
             {practice.lead}
           </p>
 
-          <p className={`pm-item mt-6 text-base lg:text-lg leading-relaxed max-w-[58ch] ${inkSoft}`}>
+          <p className={`pm-item mt-5 text-[15px] lg:text-base leading-relaxed max-w-[58ch] ${inkSoft}`}>
             {practice.description}
           </p>
 
-          <p className={`pm-item mt-4 text-sm leading-snug max-w-[58ch] ${inkSoft}`}>
-            <span className="font-mono text-[11px] uppercase tracking-wider text-[#AAD7E6] mr-2">
-              Proof
-            </span>
-            {practice.flagship.outcome}
-          </p>
+          {practice.flagship && (
+            <p className={`pm-item mt-4 text-sm leading-snug max-w-[58ch] ${inkSoft}`}>
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#AAD7E6] mr-2">
+                Proof
+              </span>
+              {practice.flagship.outcome}
+            </p>
+          )}
 
           <div className="pm-item mt-8 max-w-[58ch]">
             <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
@@ -288,29 +298,22 @@ function PracticeMoment({
             </ul>
           </div>
 
-          <div className="pm-item mt-9">
+          <div className="pm-item mt-7">
             <Link
               href={`/services/${practice.slug}`}
-              className={`group inline-flex items-center gap-3 rounded-full border pl-6 pr-2 py-2 font-mono text-sm transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+              className={`group inline-flex items-center gap-3 rounded-full pl-6 pr-2.5 py-2.5 font-mono text-sm font-medium cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 ${
                 dark
-                  ? "border-white/25 text-white hover:border-[#AAD7E6] hover:bg-[#AAD7E6] hover:text-[#334F5A]"
-                  : "border-[#334F5A]/20 bg-white text-[#334F5A] hover:border-[#334F5A] hover:bg-[#334F5A] hover:text-white hover:shadow-[0_12px_32px_-12px_rgba(51,79,90,0.45)]"
+                  ? "bg-[#AAD7E6] text-[#334F5A] shadow-[0_12px_30px_-10px_rgba(170,215,230,0.55)] hover:bg-white"
+                  : "bg-[#334F5A] text-white shadow-[0_14px_34px_-12px_rgba(51,79,90,0.6)] hover:bg-[#283d46]"
               }`}
             >
-              <span>Read more about {practice.title.toLowerCase()}</span>
+              <span>Explore {practice.title.toLowerCase()}</span>
               <span
-                className={`relative h-8 w-8 overflow-hidden rounded-full transition-all duration-500 ease-[cubic-bezier(0.32,1.51,0.36,0.97)] group-hover:scale-110 ${
-                  dark
-                    ? "bg-white/10 text-[#AAD7E6] group-hover:bg-[#334F5A] group-hover:text-white"
-                    : "bg-[#AAD7E6]/20 text-[#AAD7E6] group-hover:bg-[#AAD7E6] group-hover:text-[#334F5A]"
+                className={`grid h-7 w-7 place-items-center rounded-full transition-transform duration-300 group-hover:translate-x-0.5 ${
+                  dark ? "bg-[#334F5A]/15 text-[#334F5A]" : "bg-white/20 text-white"
                 }`}
               >
-                <span className="absolute inset-0 grid place-items-center transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-full">
-                  &rarr;
-                </span>
-                <span className="absolute inset-0 grid place-items-center -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-0">
-                  &rarr;
-                </span>
+                &rarr;
               </span>
             </Link>
           </div>
