@@ -177,19 +177,6 @@ export function AudienceSection() {
         <div className={`flex flex-wrap items-center justify-between gap-6 pt-6 border-t border-white/10 transition-all duration-1000 delay-500 pb-12 lg:pb-16 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          <div className="flex flex-wrap gap-8">
-            {[
-              { value: "60+", label: "projects delivered" },
-              { value: "3",   label: "client tiers" },
-              { value: "HU & EU", label: "reach" },
-            ].map((stat) => (
-              <div key={stat.label} className="flex items-baseline gap-2">
-                <span className="text-2xl font-display text-white">{stat.value}</span>
-                <span className="text-xs text-white/60">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-
           <a href="/contact-us" className="group inline-flex items-center gap-2 text-sm font-mono text-white/60 hover:text-white transition-colors">
             Let&apos;s talk about your project
             <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>

@@ -1,122 +1,12 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-
-const words = ["innovates", "digitalises", "inspires", "develops"];
-
-function BlurWord({ word, trigger }: { word: string; trigger: number }) {
-  const letters = word.split("");
-  const STAGGER = 45;      // ms between each letter
-  const DURATION = 500;    // blur+opacity fade duration per letter
-  const GRADIENT_HOLD = STAGGER * letters.length + DURATION + 200;
-
-  const [letterStates, setLetterStates] = useState<{ opacity: number; blur: number }[]>(
-    letters.map(() => ({ opacity: 0, blur: 20 }))
-  );
-  const [showGradient, setShowGradient] = useState(true);
-  const framesRef = useRef<number[]>([]);
-  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
-
-  useEffect(() => {
-    // reset
-    framesRef.current.forEach(cancelAnimationFrame);
-    timersRef.current.forEach(clearTimeout);
-    framesRef.current = [];
-    timersRef.current = [];
-
-    setLetterStates(letters.map(() => ({ opacity: 0, blur: 20 })));
-    setShowGradient(true);
-
-    // stagger each letter
-    letters.forEach((_, i) => {
-      const t = setTimeout(() => {
-        const start = performance.now();
-        const tick = (now: number) => {
-          const progress = Math.min((now - start) / DURATION, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          setLetterStates(prev => {
-            const next = [...prev];
-            next[i] = { opacity: eased, blur: 20 * (1 - eased) };
-            return next;
-          });
-          if (progress < 1) {
-            const id = requestAnimationFrame(tick);
-            framesRef.current.push(id);
-          }
-        };
-        const id = requestAnimationFrame(tick);
-        framesRef.current.push(id);
-      }, i * STAGGER);
-      timersRef.current.push(t);
-    });
-
-    // remove gradient once all letters are settled
-    const gt = setTimeout(() => setShowGradient(false), GRADIENT_HOLD);
-    timersRef.current.push(gt);
-
-    return () => {
-      framesRef.current.forEach(cancelAnimationFrame);
-      timersRef.current.forEach(clearTimeout);
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trigger]);
-
-  // gradient colours cycling across letter positions
-  const gradientColors = ["#334F5A", "#5A7A85", "#AAD7E6", "#6B9DAD", "#334F5A"];
-
-  return (
-    <>
-      {letters.map((char, i) => {
-        const colorIndex = (i / Math.max(letters.length - 1, 1)) * (gradientColors.length - 1);
-        const lower = Math.floor(colorIndex);
-        const upper = Math.min(lower + 1, gradientColors.length - 1);
-        const t = colorIndex - lower;
-
-        // lerp hex colours
-        const hex2rgb = (hex: string) => {
-          const r = parseInt(hex.slice(1, 3), 16);
-          const g = parseInt(hex.slice(3, 5), 16);
-          const b = parseInt(hex.slice(5, 7), 16);
-          return [r, g, b];
-        };
-        const [r1, g1, b1] = hex2rgb(gradientColors[lower]);
-        const [r2, g2, b2] = hex2rgb(gradientColors[upper]);
-        const r = Math.round(r1 + (r2 - r1) * t);
-        const g = Math.round(g1 + (g2 - g1) * t);
-        const b = Math.round(b1 + (b2 - b1) * t);
-
-        return (
-          <span
-            key={i}
-            style={{
-              display: "inline-block",
-              opacity: letterStates[i]?.opacity ?? 0,
-              filter: `blur(${letterStates[i]?.blur ?? 20}px)`,
-              color: showGradient ? `rgb(${r},${g},${b})` : "#334F5A",
-              transition: "color 0.4s ease",
-            }}
-          >
-            {char}
-          </span>
-        );
-      })}
-    </>
-  );
-}
+import { useEffect, useState } from "react";
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -165,7 +55,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
-        <div className="lg:max-w-[55%]">
+        <div className="lg:max-w-[60%]">
         {/* Eyebrow */}
         <div
           className={`mb-8 transition-all duration-700 ${
@@ -178,53 +68,47 @@ export function HeroSection() {
           </span>
         </div>
 
-        {/* Main headline */}
-        <div className="mb-6">
-          <h1
-            className={`text-left text-[clamp(2rem,6vw,7rem)] font-display leading-[0.92] tracking-tight text-[#334F5A] transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <span className="block whitespace-nowrap">The future of tourism,</span>
-            <span className="block whitespace-nowrap">
-              that{" "}
-              <span className="relative inline-block">
-                <BlurWord word={words[wordIndex]} trigger={wordIndex} />
-              </span>
-            </span>
-          </h1>
-        </div>
+        {/* Main headline — the hook (UX review: must say what we do, not a slogan) */}
+        <h1
+          className={`mb-6 text-left text-[clamp(1.875rem,4vw,4rem)] font-display leading-[1.02] tracking-tight text-[#334F5A] transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          We answer the questions tourism is asking.
+        </h1>
 
-        {/* Explainer — what we do and who for (UX review: the hero should say
-            this in the first lines, not only in the footer). */}
+        {/* Explainer — what we do and who for, in the first lines (UX review) */}
         <p
-          className={`max-w-[50ch] text-lg lg:text-xl text-[#334F5A]/80 leading-relaxed transition-all duration-1000 delay-200 ${
+          className={`max-w-[48ch] text-lg lg:text-xl text-[#334F5A]/80 leading-relaxed transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          We turn tourism research and innovation into digital reality: consulting,
-          development, education and public speaking for destinations, organisations
-          and tourism businesses.
+          Research, strategy, development and training, for destinations,
+          institutions and tourism businesses.
         </p>
         </div>
       </div>
 
-      {/* Stats — clickable, scroll to the matching section */}
+      {/* Quick links — clickable nav into the page (UX review: no filler numbers) */}
       <div
         className={`absolute bottom-12 left-0 right-0 px-6 lg:px-12 transition-all duration-700 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
+        <div className="max-w-[1400px] mx-auto flex flex-wrap items-center gap-x-8 gap-y-3">
           {[
-            { value: "4", label: "service pillars", href: "#szolgaltatasok" },
-            { value: "3", label: "own brands", href: "#markaink" },
-            { value: "10+", label: "years' experience", href: "#kiknek-dolgozunk" },
-          ].map((stat) => (
-            <a key={stat.label} href={stat.href} className="group flex flex-col gap-2">
-              <span className="text-3xl lg:text-4xl font-display text-[#334F5A] transition-colors group-hover:text-[#334F5A]/70">{stat.value}</span>
-              <span className="text-xs text-[#334F5A]/60 leading-tight transition-colors group-hover:text-[#334F5A]">
-                {stat.label}
+            { label: "What we do", href: "#szolgaltatasok" },
+            { label: "Our brands", href: "#markaink" },
+            { label: "Our projects", href: "/references" },
+          ].map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A]"
+            >
+              <span className="transition-colors group-hover:text-[#334F5A]/70">{link.label}</span>
+              <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1">
+                &rarr;
               </span>
             </a>
           ))}
