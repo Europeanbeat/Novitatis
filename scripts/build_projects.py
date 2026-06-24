@@ -89,6 +89,26 @@ def find_cover(slug):
     return ""
 
 
+def find_gallery(slug):
+    # Extra photos beyond the cover, shown as a click-to-enlarge gallery.
+    # Lives in public/images/projects/<slug>/gallery/.
+    d = os.path.join(IMG_DIR_ABS, slug, "gallery")
+    if not os.path.isdir(d):
+        return []
+    return [
+        f"/images/projects/{slug}/gallery/{name}"
+        for name in sorted(os.listdir(d))
+        if name.lower().endswith(IMG_EXTS)
+    ]
+
+
+# Live public website/app links for shipped projects (not in the source xlsx).
+LIVE_URLS = {
+    "balatonfenyves-brand-website": "https://www.balatonfenyves.hu",
+    "magyar-energia-centrum-corporate-website": "https://mec.co.hu",
+}
+
+
 def main():
     wb = openpyxl.load_workbook(XLSX, data_only=True)
     ws = wb["References_Projects (EN)"]
@@ -152,6 +172,8 @@ def main():
             "pdfs": pdfs,
             "cover": find_cover(slug),
             "imageAlt": title,
+            "gallery": find_gallery(slug),
+            "liveUrl": LIVE_URLS.get(slug, ""),
             "seoTitle": col(row, "SEO meta title") or title,
             "seoDescription": col(row, "SEO meta description") or card,
             "featured": col(row, "Featured? (yes/no)").lower().startswith("y"),
@@ -184,7 +206,8 @@ def main():
         ("year", "string"), ("location", "string"), ("scope", "string"),
         ("results", "string"), ("methods", "string"), ("tags", "string[]"),
         ("quote", "string"), ("pdfs", "ProjectPdf[]"), ("cover", "string"),
-        ("imageAlt", "string"), ("seoTitle", "string"), ("seoDescription", "string"),
+        ("imageAlt", "string"), ("gallery", "string[]"), ("liveUrl", "string"),
+        ("seoTitle", "string"), ("seoDescription", "string"),
         ("featured", "boolean"), ("order", "number"),
     ]:
         ts.append(f"  {f}: {t};")

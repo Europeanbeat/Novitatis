@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Navigation } from "@/components/layout/navigation";
+import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { RelatedProjects } from "@/components/sections/services/related-projects";
 import { BrandCards } from "@/components/sections/services/brand-cards";
@@ -43,6 +44,7 @@ export default function EducationPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
+      <PageBackground />
 
       {/* 1 — HERO */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-28 pb-8 lg:pt-32 lg:pb-10">
@@ -71,7 +73,8 @@ export default function EducationPage() {
           </p>
         </div>
 
-        <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/70">
+        <div className="relative isolate w-fit mt-9 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-[#334F5A]/70">
+          <span aria-hidden className={halo} />
           <a href="#what" className="hover:text-[#334F5A] transition-colors">
             What we do
           </a>
@@ -87,14 +90,15 @@ export default function EducationPage() {
         id="what"
         className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16 scroll-mt-28"
       >
-        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-10 lg:mb-12">
+        <h2 className="relative isolate w-fit font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-10 lg:mb-12">
+          <span aria-hidden className={halo} />
           What we do
         </h2>
-        <div className="border-t border-foreground/10">
+        <div className="grid gap-4">
           {services.map((s, i) => (
             <div
               key={s.title}
-              className="grid md:grid-cols-12 gap-y-4 gap-x-8 lg:gap-x-12 py-10 lg:py-14 border-b border-foreground/10"
+              className="grid md:grid-cols-12 gap-y-4 gap-x-8 lg:gap-x-12 rounded-2xl bg-white border border-foreground/10 p-6 lg:p-8"
             >
               <div className="md:col-span-5 flex items-start gap-5">
                 <span className="font-mono text-sm text-[#AAD7E6] pt-1.5 shrink-0">
@@ -119,7 +123,8 @@ export default function EducationPage() {
         id="brands"
         className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16 scroll-mt-28"
       >
-        <span className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-8">
+        <span className="relative isolate w-fit font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-8">
+          <span aria-hidden className={halo} />
           Our brands
         </span>
         <BrandCards />

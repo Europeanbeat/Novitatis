@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SplineScene } from "@/components/ui/splite";
+import { Halo } from "@/components/sections/services/_halo";
 
 // Leaflet requires browser — load with no SSR
 const DestinationMap = dynamic(
@@ -581,7 +582,8 @@ export function BrandShowcase() {
 
   return (
     <div id="brand-showcase" className="scroll-mt-28">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-8">
+      <span className="relative isolate font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-8 w-fit">
+        <Halo />
         Visit the brands
       </span>
 

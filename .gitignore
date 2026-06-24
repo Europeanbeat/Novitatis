@@ -23,3 +23,7 @@ tsconfig.tsbuildinfo
 # temp screenshots / scratch source images
 _*.png
 public/images/Gemini_Generated_Image_*
+
+# Unoptimised source photos (site uses optimised public/images/projects/*.webp)
+public/images/projektfotok/
+docs/

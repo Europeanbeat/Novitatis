@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
+import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Halo } from "@/components/sections/services/_halo";
@@ -67,11 +68,13 @@ export default function AboutUsPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
+      <PageBackground />
 
       {/* Hero */}
       <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-12 lg:pb-16">
         <ScrollReveal direction="up" duration={0.7}>
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
+          <span className="relative isolate inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
+            <Halo className="-inset-x-6 -inset-y-4" />
             <span className="w-12 h-px bg-foreground/30" />
             About us
           </span>

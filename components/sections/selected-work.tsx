@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Halo } from "@/components/sections/services/_halo";
 import { references } from "@/lib/references-content";
 
 // Three flagship moments from the references library, with photographs, as
@@ -34,7 +35,8 @@ export function SelectedWork() {
     <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-28">
       <ScrollReveal direction="up" duration={0.8}>
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-          <div>
+          <div className="relative isolate">
+            <Halo />
             <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-4">
               Selected work
             </span>

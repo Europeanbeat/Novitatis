@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
+import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BrandShowcase } from "@/components/sections/brand-showcase";
+import { Halo } from "@/components/sections/services/_halo";
 
 export const metadata: Metadata = {
   title: "Our Brands",
@@ -15,11 +17,13 @@ export default function BrandsPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
+      <PageBackground />
 
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-40 pb-16">
         <ScrollReveal direction="up" duration={0.7}>
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
+          <span className="relative isolate inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
+            <Halo />
             <span className="w-12 h-px bg-foreground/30" />
             Brand portfolio
           </span>
@@ -49,7 +53,7 @@ export default function BrandsPage() {
               />
               <p>
                 A DMO&apos;s visibility problem is not the same as a hotel&apos;s
-                conversion problem, and neither is the same as an organisation that
+                 conversion problem, and neither is the same as an organisation that
                 doesn&apos;t know where AI fits into its workflow. One service trying to
                 serve all three would serve none of them well.
               </p>

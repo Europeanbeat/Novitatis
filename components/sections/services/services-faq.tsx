@@ -22,7 +22,8 @@ export function ServicesFaq() {
         <div className="lg:col-span-4">
           <ScrollReveal direction="up" duration={0.8}>
             <div className="lg:sticky lg:top-32">
-              <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-4">
+              <span className="relative isolate inline-block font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider mb-4">
+                <Halo className="-inset-x-4 -inset-y-3" />
                 FAQ
               </span>
               <h2 className="relative isolate text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
@@ -36,8 +37,9 @@ export function ServicesFaq() {
               </p>
               <Link
                 href="/contact-us"
-                className="group mt-8 inline-flex items-center gap-3 font-mono text-sm text-[#334F5A]"
+                className="group relative isolate mt-8 inline-flex items-center gap-3 font-mono text-sm text-[#334F5A]"
               >
+                <Halo className="-inset-x-4 -inset-y-3" />
                 <span className="relative h-9 w-9 overflow-hidden rounded-full border border-[#334F5A]/20 text-[#AAD7E6] transition-all duration-500 ease-[cubic-bezier(0.32,1.51,0.36,0.97)] group-hover:scale-110 group-hover:bg-[#334F5A] group-hover:border-[#334F5A]">
                   <span className="absolute inset-0 grid place-items-center transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-full">
                     &rarr;

@@ -37,7 +37,7 @@ export function ContactForm() {
     "h-12 px-4 rounded-lg border border-foreground/15 bg-white text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors";
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-[#f9fbff] border border-foreground/10 rounded-2xl p-6 lg:p-8">
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className="text-sm font-mono text-muted-foreground">
           Name

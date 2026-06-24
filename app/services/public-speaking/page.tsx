@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Navigation } from "@/components/layout/navigation";
+import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { speakingThemes, speakingFormats } from "@/lib/services-content";
 
@@ -17,6 +18,7 @@ export default function PublicSpeakingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
+      <PageBackground />
 
       {/* 1 — HERO (summary pitch; specifics live on Appearances) */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-28 pb-8 lg:pt-32 lg:pb-10">
@@ -54,14 +56,15 @@ export default function PublicSpeakingPage() {
 
       {/* 2 — WHAT WE SPEAK ABOUT */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
-        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-10 lg:mb-12">
+        <h2 className="relative isolate w-fit font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-10 lg:mb-12">
+          <span aria-hidden className={halo} />
           What we speak about
         </h2>
-        <div className="border-t border-foreground/10">
+        <div className="grid gap-4">
           {speakingThemes.map((t) => (
             <div
               key={t.number}
-              className="grid md:grid-cols-12 gap-y-4 gap-x-8 lg:gap-x-12 py-10 lg:py-14 border-b border-foreground/10"
+              className="grid md:grid-cols-12 gap-y-4 gap-x-8 lg:gap-x-12 rounded-2xl bg-white border border-foreground/10 p-6 lg:p-8"
             >
               <div className="md:col-span-5 flex items-start gap-5">
                 <span className="font-mono text-sm text-[#AAD7E6] pt-1.5 shrink-0">
@@ -83,7 +86,8 @@ export default function PublicSpeakingPage() {
 
       {/* 3 — FORMATS */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
-        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-8">
+        <h2 className="relative isolate w-fit font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-8">
+          <span aria-hidden className={halo} />
           Formats
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">

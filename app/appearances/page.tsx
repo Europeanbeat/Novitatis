@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
+import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { speakingThemes, speakingFormats } from "@/lib/services-content";
 import { ReferencesGallery } from "@/components/sections/references/references-gallery";
@@ -17,6 +18,7 @@ export default function AppearancesPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
+      <PageBackground />
 
       {/* 1 — HERO (the pitch) */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-28 pb-8 lg:pt-32 lg:pb-10">
@@ -52,14 +54,17 @@ export default function AppearancesPage() {
 
       {/* 2 — WHAT WE SPEAK ABOUT */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
-        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-10 lg:mb-12">
-          What we speak about
-        </h2>
-        <div className="border-t border-foreground/10">
+        <div className="relative isolate inline-block mb-10 lg:mb-12">
+          <span aria-hidden className={halo} />
+          <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block">
+            What we speak about
+          </h2>
+        </div>
+        <div className="grid gap-4">
           {speakingThemes.map((t) => (
             <div
               key={t.number}
-              className="grid md:grid-cols-12 gap-y-4 gap-x-8 lg:gap-x-12 py-10 lg:py-14 border-b border-foreground/10"
+              className="grid md:grid-cols-12 gap-y-4 gap-x-8 lg:gap-x-12 p-6 lg:p-8 rounded-2xl bg-white border border-foreground/10"
             >
               <div className="md:col-span-5 flex items-start gap-5">
                 <span className="font-mono text-sm text-[#AAD7E6] pt-1.5 shrink-0">
@@ -81,17 +86,23 @@ export default function AppearancesPage() {
 
       {/* 3 — WHERE WE'VE SHOWN UP (full filterable record) */}
       <section className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
-        <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] mb-8 lg:mb-10">
-          Where we&apos;ve shown up.
-        </h2>
+        <div className="relative isolate inline-block mb-8 lg:mb-10">
+          <span aria-hidden className={halo} />
+          <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
+            Where we&apos;ve shown up.
+          </h2>
+        </div>
         <ReferencesGallery />
       </section>
 
       {/* 4 — FORMATS */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
-        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-8">
-          Formats
-        </h2>
+        <div className="relative isolate inline-block mb-8">
+          <span aria-hidden className={halo} />
+          <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block">
+            Formats
+          </h2>
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {speakingFormats.map((f) => (
             <div

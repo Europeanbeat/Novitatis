@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Halo } from "@/components/sections/services/_halo";
 
 // Counts a stat up from zero when it scrolls into view. Handles values like
 // "10+", "100%", "3": the numeric part animates, the suffix stays.
@@ -106,7 +107,8 @@ export function FeaturesSection() {
         {/* Header - Full width with diagonal layout */}
         <div className="relative mb-12 lg:mb-16">
           <div className="grid lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-7">
+            <div className="relative isolate lg:col-span-7">
+              <Halo />
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-12 h-px bg-foreground/30" />
                 Why us?

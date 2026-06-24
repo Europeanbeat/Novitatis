@@ -7,13 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "projects": "python3 scripts/build_projects.py"
+    "projects": "python3 scripts/build_projects.py",
+    "refs": "python3 scripts/build_references.py"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.1.1",
     "@splinetool/react-spline": "^4.1.0",
     "@types/leaflet": "^1.9.21",
-    "@vercel/analytics": "1.3.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",

@@ -2,19 +2,29 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-// Click-to-enlarge gallery for reference photos (UX review: the photos couldn't
-// be opened). Thumbnails open a full-screen overlay; Esc / arrows / click close
-// and navigate.
-export function PhotoLightbox({ photos, alt }: { photos: string[]; alt: string }) {
+// Click-to-enlarge gallery for reference and project photos (UX review: the
+// photos couldn't be opened). An optional `cover` renders as a large clickable
+// hero; `photos` render as a thumbnail grid. Both open a full-screen overlay
+// spanning [cover, ...photos]; Esc / arrows / click close and navigate.
+export function PhotoLightbox({
+  cover,
+  photos,
+  alt,
+}: {
+  cover?: string;
+  photos: string[];
+  alt: string;
+}) {
+  const all = cover ? [cover, ...photos] : photos;
   const [index, setIndex] = useState<number | null>(null);
   const close = useCallback(() => setIndex(null), []);
   const prev = useCallback(
-    () => setIndex((i) => (i === null ? i : (i - 1 + photos.length) % photos.length)),
-    [photos.length],
+    () => setIndex((i) => (i === null ? i : (i - 1 + all.length) % all.length)),
+    [all.length],
   );
   const next = useCallback(
-    () => setIndex((i) => (i === null ? i : (i + 1) % photos.length)),
-    [photos.length],
+    () => setIndex((i) => (i === null ? i : (i + 1) % all.length)),
+    [all.length],
   );
 
   useEffect(() => {
@@ -34,26 +44,48 @@ export function PhotoLightbox({ photos, alt }: { photos: string[]; alt: string }
 
   return (
     <>
-      <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3">
-        {photos.map((src, i) => (
-          <button
-            key={src}
-            type="button"
-            onClick={() => setIndex(i)}
-            aria-label="Open photo"
-            className="group relative block overflow-hidden rounded-xl"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={src}
-              alt={alt}
-              loading="lazy"
-              className="w-full h-44 object-cover transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
-            />
-            <span className="absolute inset-0 bg-[#334F5A]/0 transition-colors duration-300 group-hover:bg-[#334F5A]/15" />
-          </button>
-        ))}
-      </div>
+      {cover && (
+        <button
+          type="button"
+          onClick={() => setIndex(0)}
+          aria-label="Enlarge photo"
+          className="group relative mt-10 block w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_-50px_rgba(51,79,90,0.5)] cursor-zoom-in"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={cover}
+            alt={alt}
+            className="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.02]"
+          />
+          <span className="absolute inset-0 bg-[#334F5A]/0 transition-colors duration-300 group-hover:bg-[#334F5A]/10" />
+          <span className="absolute bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-[#334F5A] text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            ⤢
+          </span>
+        </button>
+      )}
+
+      {photos.length > 0 && (
+        <div className={`${cover ? "mt-4" : "mt-12"} grid grid-cols-2 md:grid-cols-3 gap-3`}>
+          {photos.map((src, i) => (
+            <button
+              key={src}
+              type="button"
+              onClick={() => setIndex(cover ? i + 1 : i)}
+              aria-label="Open photo"
+              className="group relative block overflow-hidden rounded-xl cursor-zoom-in"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={alt}
+                loading="lazy"
+                className="w-full h-44 object-cover transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
+              />
+              <span className="absolute inset-0 bg-[#334F5A]/0 transition-colors duration-300 group-hover:bg-[#334F5A]/15" />
+            </button>
+          ))}
+        </div>
+      )}
 
       {index !== null && (
         <div
@@ -71,7 +103,7 @@ export function PhotoLightbox({ photos, alt }: { photos: string[]; alt: string }
             ✕
           </button>
 
-          {photos.length > 1 && (
+          {all.length > 1 && (
             <>
               <button
                 type="button"
@@ -94,7 +126,7 @@ export function PhotoLightbox({ photos, alt }: { photos: string[]; alt: string }
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={photos[index]}
+            src={all[index]}
             alt={alt}
             onClick={(e) => e.stopPropagation()}
             className="max-h-[90vh] max-w-[92vw] object-contain rounded-lg shadow-2xl"

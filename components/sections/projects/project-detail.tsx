@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects, type Project } from "@/lib/projects-content";
+import { PhotoLightbox } from "@/components/sections/references/photo-lightbox";
 
 export function ProjectDetail({ project: p }: { project: Project }) {
   const detailParas = p.detail.split(/\n+/).filter(Boolean);
@@ -46,15 +47,29 @@ export function ProjectDetail({ project: p }: { project: Project }) {
           {p.overview}
         </p>
 
-        {/* Cover photo when available */}
-        {p.cover && (
-          <div className="mt-10 overflow-hidden rounded-2xl shadow-[0_30px_80px_-50px_rgba(51,79,90,0.5)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={p.cover}
-              alt={p.imageAlt || p.title}
-              className="w-full object-cover"
-            />
+        {/* Cover + gallery photos, click to enlarge (UX review: photos couldn't be zoomed) */}
+        {(p.cover || p.gallery.length > 0) && (
+          <PhotoLightbox
+            cover={p.cover || undefined}
+            photos={p.gallery}
+            alt={p.imageAlt || p.title}
+          />
+        )}
+
+        {/* Live site link (UX review: development projects had no link to the result) */}
+        {p.liveUrl && (
+          <div className="mt-8">
+            <a
+              href={p.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 rounded-full bg-[#334F5A] text-white font-mono text-sm px-6 py-3 group transition-colors hover:bg-[#283d46]"
+            >
+              <span>Visit the website</span>
+              <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1">
+                &#8599;
+              </span>
+            </a>
           </div>
         )}
 

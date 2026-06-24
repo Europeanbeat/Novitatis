@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Users, Wine, BarChart3, Scale, Bike, FileText, type LucideIcon } from "lucide-react";
 import { Navigation } from "@/components/layout/navigation";
+import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { Halo } from "@/components/sections/services/_halo";
 import { RelatedProjects } from "@/components/sections/services/related-projects";
@@ -168,6 +169,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
+      <PageBackground />
 
       {/* 1 — HERO */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-28 pb-14 lg:pt-32 lg:pb-16">
@@ -213,7 +215,8 @@ export function ServiceDetail({ slug }: { slug: string }) {
 
       {/* 3 — WHAT'S INCLUDED */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
-        <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider mb-10">
+        <h2 className="relative isolate font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider mb-10 w-fit">
+          <Halo />
           What&apos;s included
         </h2>
         <div className="grid sm:grid-cols-2 gap-5">
@@ -234,7 +237,8 @@ export function ServiceDetail({ slug }: { slug: string }) {
           resident-sentiment angle, and a stacked list of our research on the right. */}
       {extra.research && (
         <section className="relative z-10 max-w-[1200px] mx-auto px-6 py-14 lg:py-20">
-          <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-display text-[#334F5A] leading-[0.98] mb-10 lg:mb-14">
+          <h2 className="relative isolate w-fit text-4xl md:text-6xl lg:text-[5rem] font-display text-[#334F5A] leading-[0.98] mb-10 lg:mb-14">
+            <Halo />
             Research &amp; analysis.
           </h2>
 
@@ -265,7 +269,8 @@ export function ServiceDetail({ slug }: { slug: string }) {
             </div>
 
             {/* Right: stacked research list */}
-            <div className="divide-y divide-foreground/10">
+            <div className="relative isolate divide-y divide-foreground/10">
+              <Halo className="-inset-x-4 -inset-y-4" />
               {extra.research.map((r) => {
                 const Icon = r.icon;
                 const inner = (

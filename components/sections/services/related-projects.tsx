@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Halo } from "@/components/sections/services/_halo";
 import { references, type Reference } from "@/lib/references-content";
 
 // Projects behind each service, pulled from the references library. Each
@@ -28,7 +29,8 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
   return (
     <section className="relative z-10 max-w-[1100px] mx-auto px-6 pb-24">
       <ScrollReveal direction="up" duration={0.8}>
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+        <div className="relative isolate flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+          <Halo className="-inset-x-4 -inset-y-4" />
           <div>
             <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-3">
               Proof
