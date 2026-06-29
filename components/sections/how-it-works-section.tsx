@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/locale-link";
 import { useEffect, useRef, useState } from "react";
 
 type HowItWorksCopy = {
@@ -85,7 +85,7 @@ export function HowItWorksSection({ t }: { t: HowItWorksCopy }) {
         {/* Four service cards — each links to its sub-page; no sequence implied */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((step, index) => (
-            <Link
+            <LocaleLink
               key={step.slug}
               href={`/services/${step.slug}`}
               className={`group relative flex flex-col text-left p-8 lg:p-10 border bg-white border-[#334F5A]/20 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_24px_56px_-28px_rgba(51,79,90,0.4)] ${
@@ -111,7 +111,7 @@ export function HowItWorksSection({ t }: { t: HowItWorksCopy }) {
 
               {/* hover accent underline */}
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#AAD7E6] transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100" />
-            </Link>
+            </LocaleLink>
           ))}
         </div>
       </div>

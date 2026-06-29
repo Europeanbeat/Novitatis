@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { LocaleLink } from "@/components/i18n/locale-link";
 
 type Brand = {
   id: string;
@@ -86,7 +87,7 @@ export function BrandsSection({ t }: { t: BrandsCopy }) {
         {/* Brand cards — same design as the /brands page selector cards */}
         <div className="grid lg:grid-cols-3 gap-6">
           {brands.map((brand, index) => (
-            <a
+            <LocaleLink
               key={brand.name}
               href={`/brands?brand=${brand.id}`}
               className={`group relative flex flex-col text-left p-8 lg:p-10 rounded-2xl border border-foreground/10 bg-white overflow-hidden transition-all duration-400 hover:border-foreground/30 hover:shadow-[0_8px_40px_-12px_rgba(51,79,90,0.12)] ${
@@ -138,7 +139,7 @@ export function BrandsSection({ t }: { t: BrandsCopy }) {
               </span>
 
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#AAD7E6] transition-transform duration-500 origin-left scale-x-0 group-hover:scale-x-100" />
-            </a>
+            </LocaleLink>
           ))}
         </div>
       </div>
