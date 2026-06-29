@@ -1,6 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useLocale } from "@/lib/i18n/use-locale";
+
+const ARIA = {
+  en: { enlarge: "Enlarge photo", open: "Open photo", close: "Close", prev: "Previous photo", next: "Next photo" },
+  hu: { enlarge: "Fénykép nagyítása", open: "Fénykép megnyitása", close: "Bezárás", prev: "Előző fénykép", next: "Következő fénykép" },
+} as const;
 
 // Click-to-enlarge gallery for reference and project photos (UX review: the
 // photos couldn't be opened). An optional `cover` renders as a large clickable
@@ -15,6 +21,7 @@ export function PhotoLightbox({
   photos: string[];
   alt: string;
 }) {
+  const a = ARIA[useLocale()] ?? ARIA.en;
   const all = cover ? [cover, ...photos] : photos;
   const [index, setIndex] = useState<number | null>(null);
   const close = useCallback(() => setIndex(null), []);
@@ -48,7 +55,7 @@ export function PhotoLightbox({
         <button
           type="button"
           onClick={() => setIndex(0)}
-          aria-label="Enlarge photo"
+          aria-label={a.enlarge}
           className="group relative mt-10 block w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_-50px_rgba(51,79,90,0.5)] cursor-zoom-in"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -71,7 +78,7 @@ export function PhotoLightbox({
               key={src}
               type="button"
               onClick={() => setIndex(cover ? i + 1 : i)}
-              aria-label="Open photo"
+              aria-label={a.open}
               className="group relative block overflow-hidden rounded-xl cursor-zoom-in"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -96,7 +103,7 @@ export function PhotoLightbox({
         >
           <button
             type="button"
-            aria-label="Close"
+            aria-label={a.close}
             onClick={close}
             className="absolute top-5 right-5 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white text-lg transition-colors hover:bg-white/20"
           >
@@ -107,7 +114,7 @@ export function PhotoLightbox({
             <>
               <button
                 type="button"
-                aria-label="Previous photo"
+                aria-label={a.prev}
                 onClick={(e) => { e.stopPropagation(); prev(); }}
                 className="absolute left-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white text-2xl transition-colors hover:bg-white/20"
               >
@@ -115,7 +122,7 @@ export function PhotoLightbox({
               </button>
               <button
                 type="button"
-                aria-label="Next photo"
+                aria-label={a.next}
                 onClick={(e) => { e.stopPropagation(); next(); }}
                 className="absolute right-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white text-2xl transition-colors hover:bg-white/20"
               >
