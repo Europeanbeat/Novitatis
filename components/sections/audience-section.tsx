@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import LightRays from "@/components/ui/light-rays";
+import { LocaleLink } from "@/components/i18n/locale-link";
 
 type AudienceCopy = {
   eyebrow: string;
@@ -168,10 +169,10 @@ export function AudienceSection({ t }: { t: AudienceCopy }) {
         <div className={`flex flex-wrap items-center justify-between gap-6 pt-6 border-t border-white/10 transition-all duration-1000 delay-500 pb-12 lg:pb-16 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          <a href="/contact-us" className="group inline-flex items-center gap-2 text-sm font-mono text-white/60 hover:text-white transition-colors">
+          <LocaleLink href="/contact-us" className="group inline-flex items-center gap-2 text-sm font-mono text-white/60 hover:text-white transition-colors">
             {t.cta}
             <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-          </a>
+          </LocaleLink>
         </div>
       </div>
 

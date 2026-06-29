@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LocaleLink } from "@/components/i18n/locale-link";
 
 type HeroCopy = {
   eyebrow: string;
@@ -110,18 +111,29 @@ export function HeroSection({ t }: { t: HeroCopy }) {
             { label: t.quickLinks.whatWeDo, href: "#szolgaltatasok" },
             { label: t.quickLinks.ourBrands, href: "#markaink" },
             { label: t.quickLinks.ourProjects, href: "/references" },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A]"
-            >
-              <span className="transition-colors group-hover:text-[#334F5A]/70">{link.label}</span>
-              <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </a>
-          ))}
+          ].map((link) => {
+            const cls =
+              "group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A]";
+            const inner = (
+              <>
+                <span className="transition-colors group-hover:text-[#334F5A]/70">{link.label}</span>
+                <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </>
+            );
+            // In-page anchors stay raw; route links go through LocaleLink so they
+            // keep the active language (e.g. /hu/references, not /references).
+            return link.href.startsWith("#") ? (
+              <a key={link.label} href={link.href} className={cls}>
+                {inner}
+              </a>
+            ) : (
+              <LocaleLink key={link.label} href={link.href} className={cls}>
+                {inner}
+              </LocaleLink>
+            );
+          })}
         </div>
       </div>
     </section>

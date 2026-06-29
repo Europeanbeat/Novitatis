@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/locale-link";
 import type { Metadata } from "next";
 import { Navigation } from "@/components/layout/navigation";
 import { PageBackground } from "@/components/layout/page-background";
@@ -185,7 +185,7 @@ export default async function AboutUsPage({
                 <p className="text-white/65 leading-relaxed mb-8 max-w-[46ch]">
                   {t.cta.body}
                 </p>
-                <Link
+                <LocaleLink
                   href="/contact-us"
                   className="group inline-flex items-center gap-3 rounded-full bg-[#AAD7E6] text-[#334F5A] font-mono text-sm px-6 py-3.5 transition-transform duration-300 hover:-translate-y-0.5"
                 >
@@ -193,7 +193,7 @@ export default async function AboutUsPage({
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
-                </Link>
+                </LocaleLink>
               </div>
             </div>
           </div>
