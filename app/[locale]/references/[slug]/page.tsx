@@ -221,7 +221,7 @@ export default async function ReferencePage({
           </span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[24ch]">
+        <h1 className="text-3xl md:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[24ch] break-words hyphens-auto">
           {r.title}
         </h1>
         <p className="mt-5 text-lg text-[#334F5A]/80 leading-relaxed max-w-[62ch]">

@@ -117,11 +117,11 @@ export default async function AboutUsPage({
           {/* Stats */}
           <div className="mt-12 lg:mt-16 pt-10 border-t border-foreground/10 flex flex-wrap gap-10 lg:gap-16">
             {t.stats.map((stat) => (
-              <div key={stat.label} className="flex items-baseline gap-3">
-                <span className="text-4xl lg:text-5xl font-display text-[#334F5A]">
+              <div key={stat.label} className="flex flex-col gap-1.5 max-w-[24ch]">
+                <span className="text-2xl lg:text-3xl font-display text-[#334F5A] leading-tight break-words hyphens-auto">
                   {stat.value}
                 </span>
-                <span className="text-sm text-muted-foreground max-w-[16ch]">
+                <span className="text-sm text-muted-foreground leading-snug">
                   {stat.label}
                 </span>
               </div>

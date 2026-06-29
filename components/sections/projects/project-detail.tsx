@@ -56,7 +56,7 @@ export function ProjectDetail({ project: p, locale }: { project: Project; locale
           )}
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[24ch]">
+        <h1 className="text-3xl md:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[24ch] break-words hyphens-auto">
           {p.title}
         </h1>
 

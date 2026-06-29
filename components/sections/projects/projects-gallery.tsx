@@ -81,7 +81,7 @@ function Card({ p, i, reduce, locale }: { p: Project; i: number; reduce: boolean
         <span className="inline-block font-mono text-[10px] font-medium uppercase tracking-wider text-[#334F5A]/85 bg-[#334F5A]/[0.08] px-2.5 py-1 rounded-full mb-3">
           {p.pillar}
         </span>
-        <h3 className="font-display text-lg lg:text-xl text-[#334F5A] leading-[1.18] line-clamp-2">
+        <h3 className="font-display text-lg lg:text-xl text-[#334F5A] leading-[1.18] line-clamp-2 break-words hyphens-auto">
           {p.title}
         </h3>
         <p className="mt-2 text-sm text-[#334F5A]/70 leading-relaxed line-clamp-2">

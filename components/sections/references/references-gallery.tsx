@@ -82,7 +82,7 @@ function Card({ r, i, reduce, locale }: { r: Reference; i: number; reduce: boole
         <span className="inline-block font-mono text-[10px] font-medium uppercase tracking-wider text-[#334F5A]/85 bg-[#334F5A]/[0.08] px-2.5 py-1 rounded-full mb-3">
           {r.typeLabel}
         </span>
-        <h3 className="font-display text-lg lg:text-xl text-[#334F5A] leading-[1.18] line-clamp-2">
+        <h3 className="font-display text-lg lg:text-xl text-[#334F5A] leading-[1.18] line-clamp-2 break-words hyphens-auto">
           {r.title}
         </h3>
         <p className="mt-1.5 font-mono text-[11px] text-[#334F5A]/65 line-clamp-1">
