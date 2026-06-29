@@ -77,21 +77,21 @@ export function PhotoLightbox({
       )}
 
       {photos.length > 0 && (
-        <div className={`${cover ? "mt-4" : "mt-12"} grid grid-cols-2 md:grid-cols-3 gap-3`}>
+        <div className={`${cover ? "mt-4" : "mt-12"} columns-2 md:columns-3 gap-3`}>
           {photos.map((src, i) => (
             <button
               key={src}
               type="button"
               onClick={() => setIndex(cover ? i + 1 : i)}
               aria-label={a.open}
-              className="group relative block overflow-hidden rounded-xl cursor-zoom-in"
+              className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-xl cursor-zoom-in"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
                 alt={alt}
                 loading="lazy"
-                className="w-full h-44 object-cover transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
+                className="block w-full h-auto transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.03]"
               />
               <span className="absolute inset-0 bg-[#334F5A]/0 transition-colors duration-300 group-hover:bg-[#334F5A]/15" />
             </button>
