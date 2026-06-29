@@ -96,11 +96,10 @@
   },
   "audience": {
     "eyebrow": "Who we work with",
-    "headingLead": "One firm,",
-    "headingAccent": "ministry to front desk.",
-    "intro": "Most consultancies pick a level. We carry the same research and methodology through all three, from national policy to the people checking guests in.",
+    "headingLead": "Every level",
+    "headingAccent": "of tourism.",
+    "intro": "From national tourism organisations to individual restaurants, Novitatis works across the full ecosystem, at every scale.",
     "cta": "Let's talk about your project",
-    "rail": "One method, end to end",
     "tiers": [
       {
         "note": "Policy and system level",
@@ -112,7 +111,7 @@
         ]
       },
       {
-        "note": "Destination level",
+        "note": "Place level",
         "tier": "Destination management",
         "clients": [
           "DMOs & TDM organisations",

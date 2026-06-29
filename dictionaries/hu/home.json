@@ -96,11 +96,10 @@
   },
   "audience": {
     "eyebrow": "Kikkel dolgozunk",
-    "headingLead": "Egy csapat,",
-    "headingAccent": "a minisztériumtól a recepcióig.",
-    "intro": "A legtöbb tanácsadó egyetlen szintet választ. Mi ugyanazt a kutatást és módszertant visszük végig mind a hármon, a nemzeti szakpolitikától a vendégeket fogadó kollégákig.",
+    "headingLead": "A turizmus",
+    "headingAccent": "minden szintjén.",
+    "intro": "A nemzeti turisztikai szervezetektől az egyes éttermekig a Novitatis a teljes ökoszisztémában dolgozik, minden léptéken.",
     "cta": "Beszéljünk a projektjéről",
-    "rail": "Egy módszer, végig",
     "tiers": [
       {
         "note": "Szakpolitikai és rendszerszint",
@@ -112,7 +111,7 @@
         ]
       },
       {
-        "note": "Desztinációs szint",
+        "note": "Helyi szint",
         "tier": "Desztinációmenedzsment",
         "clients": [
           "DMO- és TDM-szervezetek",
