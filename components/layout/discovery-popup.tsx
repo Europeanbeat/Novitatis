@@ -1,15 +1,34 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { LocaleLink } from "@/components/i18n/locale-link";
+import { useLocale } from "@/lib/i18n/use-locale";
 
 // Soft conversion popup, SVZ-style but politer: slides up from the bottom
 // right after the visitor has scrolled a real distance, shows once per
 // session, and never comes back once dismissed.
 const KEY = "novi-popup-shown";
 
+const strings = {
+  en: {
+    eyebrow: "Free first conversation",
+    heading: "Working on something for your destination?",
+    body: "Send a short note and we will tell you whether and how we can help. No deck, no pitch.",
+    cta: "Get in touch",
+    close: "Close",
+  },
+  hu: {
+    eyebrow: "Ingyenes első beszélgetés",
+    heading: "Dolgozik valamin a desztinációjáért?",
+    body: "Írjon pár sort, és őszintén megmondjuk, tudunk-e segíteni, és hogyan. Prezentáció és értékesítési duma nélkül.",
+    cta: "Kapcsolatfelvétel",
+    close: "Bezárás",
+  },
+} as const;
+
 export function DiscoveryPopup() {
+  const t = strings[useLocale()] ?? strings.en;
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -37,7 +56,7 @@ export function DiscoveryPopup() {
         >
           <button
             type="button"
-            aria-label="Close"
+            aria-label={t.close}
             onClick={() => setOpen(false)}
             className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full border border-foreground/15 bg-white text-[#334F5A]/70 shadow-sm transition-colors hover:bg-[#334F5A] hover:text-white hover:border-[#334F5A]"
           >
@@ -48,20 +67,19 @@ export function DiscoveryPopup() {
           </button>
 
           <span className="font-mono text-[10px] text-[#AAD7E6] uppercase tracking-wider">
-            Free first conversation
+            {t.eyebrow}
           </span>
           <p className="mt-2 font-display text-2xl text-[#334F5A] leading-tight">
-            Working on something for your destination?
+            {t.heading}
           </p>
           <p className="mt-2 text-sm text-[#334F5A]/70 leading-relaxed">
-            Send a short note and we will tell you whether and how we can help.
-            No deck, no pitch.
+            {t.body}
           </p>
-          <Link
+          <LocaleLink
             href="/contact-us"
             className="group mt-5 inline-flex items-center gap-3 rounded-full bg-[#334F5A] pl-5 pr-2 py-2 font-mono text-sm text-white transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:shadow-[0_12px_32px_-12px_rgba(51,79,90,0.6)]"
           >
-            Get in touch
+            {t.cta}
             <span className="relative h-7 w-7 overflow-hidden rounded-full bg-[#AAD7E6] text-[#334F5A] transition-transform duration-500 ease-[cubic-bezier(0.32,1.51,0.36,0.97)] group-hover:scale-110">
               <span className="absolute inset-0 grid place-items-center transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-full">
                 &rarr;
@@ -70,7 +88,7 @@ export function DiscoveryPopup() {
                 &rarr;
               </span>
             </span>
-          </Link>
+          </LocaleLink>
         </motion.aside>
       )}
     </AnimatePresence>
