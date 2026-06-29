@@ -9,18 +9,18 @@ import type { Locale } from "@/lib/i18n/config";
 // `url` is the organisation's website the logo links to. Verify each before
 // going live; correct any that point to the wrong page.
 const partners = [
-  { src: "/images/references/partners/visithungary.jpeg", name: "Visit Hungary", url: "https://visithungary.com" },
-  { src: "/images/references/partners/mtu.png", name: "Magyar Turisztikai Ügynökség", url: "https://mtu.gov.hu" },
-  { src: "/images/references/partners/mtsz.png", name: "Magyar Turisztikai Szövetség", url: "https://turisztikaiszovetseg.hu" },
-  { src: "/images/references/partners/visit-balaton.png", name: "VisitBalaton365", url: "https://visitbalaton365.hu" },
-  { src: "/images/references/partners/pannon-egyetem.png", name: "Pannon Egyetem", url: "https://uni-pannon.hu" },
-  { src: "/images/references/partners/sze.png", name: "Széchenyi István Egyetem", url: "https://uni-sze.hu" },
-  { src: "/images/references/partners/gellenhaza.png", name: "Gellénháza", url: "https://gellenhaza.hu" },
-  { src: "/images/references/partners/fenyves.png", name: "Balatonfenyves", url: "https://balatonfenyves.hu" },
-  { src: "/images/references/interreg.png", name: "Interreg Europe Smart Tour", url: "https://www.interregeurope.eu/smart-tour" },
-  { src: "/images/references/veszprem_varmegye_vallalkozasfejlesztesi_alapitvany.png", name: "Veszprém Vármegyei Vállalkozásfejlesztési Alapítvány", url: "https://www.vmva.hu" },
-  { src: "/images/references/balaton_integracio_kozhasznu_nonprofit_kft.png", name: "Balatoni Integrációs Közhasznú Nonprofit Kft", url: "https://www.balatonregion.hu" },
-  { src: "/images/references/winesofcrete.png", name: "Wines of Crete", url: "https://www.winesofcrete.gr" },
+  { src: "/images/partners/visithungary.jpeg", name: "Visit Hungary", url: "https://visithungary.com" },
+  { src: "/images/partners/mtu.png", name: "Magyar Turisztikai Ügynökség", url: "https://mtu.gov.hu" },
+  { src: "/images/partners/mtsz.png", name: "Magyar Turisztikai Szövetség", url: "https://turisztikaiszovetseg.hu" },
+  { src: "/images/partners/visit-balaton.png", name: "VisitBalaton365", url: "https://visitbalaton365.hu" },
+  { src: "/images/partners/pannon-egyetem.png", name: "Pannon Egyetem", url: "https://uni-pannon.hu" },
+  { src: "/images/partners/sze.png", name: "Széchenyi István Egyetem", url: "https://uni-sze.hu" },
+  { src: "/images/partners/gellenhaza.png", name: "Gellénháza", url: "https://gellenhaza.hu" },
+  { src: "/images/partners/fenyves.png", name: "Balatonfenyves", url: "https://balatonfenyves.hu" },
+  { src: "/images/partners/interreg.png", name: "Interreg Europe Smart Tour", url: "https://www.interregeurope.eu/smart-tour" },
+  { src: "/images/partners/veszprem_varmegye_vallalkozasfejlesztesi_alapitvany.png", name: "Veszprém Vármegyei Vállalkozásfejlesztési Alapítvány", url: "https://www.vmva.hu" },
+  { src: "/images/partners/balaton_integracio_kozhasznu_nonprofit_kft.png", name: "Balatoni Integrációs Közhasznú Nonprofit Kft", url: "https://www.balatonregion.hu" },
+  { src: "/images/partners/winesofcrete.png", name: "Wines of Crete", url: "https://www.winesofcrete.gr" },
 ];
 
 export function PartnersMarquee({ locale }: { locale: Locale }) {

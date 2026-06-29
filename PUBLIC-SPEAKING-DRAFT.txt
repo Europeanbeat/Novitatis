@@ -1,0 +1,200 @@
+================================================================================
+PUBLIC SPEAKING — sub-page content draft
+Route: /services/public-speaking
+Source: public_speaking_events_lista copy.xlsx (Events EN tab, 22 entries)
+Voice: British English, no em-dashes, confident (3/5). Brand = "we"; lead speaker
+named where it earns trust (Adam Schmutz).
+The story: not "we give talks" but "every talk comes with our own research behind
+it." Proof blocks link out to Our Projects (/references).
+================================================================================
+
+
+--------------------------------------------------------------------------------
+1. HERO  (the hook — what this is, in 3 seconds)
+--------------------------------------------------------------------------------
+
+EYEBROW (mono):      Public speaking
+
+HEADLINE:            We speak from our own research,
+                     not borrowed slides.
+
+SUBLINE:             Keynotes, panels and workshops on AI, digital visibility and
+                     data-driven tourism. Every talk is built on primary research
+                     we ran ourselves, so your audience leaves with evidence, not
+                     hype.
+
+PROOF STRIP (mono, under hero):
+                     ITB Berlin  ·  Edinburgh  ·  Interreg Europe, France  ·  20+ stages
+
+
+--------------------------------------------------------------------------------
+2. THE OPENING BEAT  (the problem — why most tourism talks fall flat)
+--------------------------------------------------------------------------------
+
+Short lead paragraph, sets the tension:
+
+   Every tourism conference now has an AI session. Most of them sell a tool, or
+   sell optimism, and leave the room exactly where it started. The audience nods,
+   nobody changes anything on Monday.
+
+   We do the opposite. We bring numbers from the field: 73 Lake Balaton businesses
+   studied, more than 1,300 provider websites analysed, a national real-time data
+   system explained from the inside. The talk gives your audience something they
+   can act on, because it started as research, not as a pitch.
+
+
+--------------------------------------------------------------------------------
+3. WHAT WE SPEAK ABOUT  (4 themes — the topics, grounded in real talks)
+--------------------------------------------------------------------------------
+
+THEME 01 — Being found in the age of AI search
+   Search has changed. The customer no longer scrolls ten Google results, an AI
+   answers for them. In 2026, 45% of consumers already use an AI tool to find a
+   local business, up from 6% a year earlier. We explain GEO (Generative Engine
+   Optimization, not SEO) in plain language, and what a destination or business
+   has to do to stay visible.
+   [talks: "Stay visible in the age of AI", DigiTurismo podcast, ITB Berlin]
+
+THEME 02 — Digital visibility and the Google ecosystem
+   94% of searches happen on Google platforms and nearly half are zero-click. If
+   your provider journey breaks somewhere, the guest is gone. We show where it
+   breaks, backed by an analysis of over 1,300 Lake Balaton provider websites.
+   [talks: Tourism Summit 2025, National Tourinform Meeting, METU x CheckINN]
+
+THEME 03 — Data-driven destination management
+   How a destination runs on real data instead of guesswork. We take audiences
+   inside Hungary's national tourism data system (NTAK/NTDSC): daily, automatic
+   data from 95,000+ accommodations and AI forecasting, presented internationally
+   as a European best practice.
+   [talks: Smart Tour, Brittany (France); AI Opener, Edinburgh]
+
+THEME 04 — Sustainability you can measure
+   From 27 September 2026 the EU ECGT regulation requires measured evidence for
+   "green" claims. We make the case simply: evidence is data, and data is
+   digitalisation. Don't talk to the guest about sustainability, show them the
+   numbers.
+   [talks: Earth Day Conference, Smart Tour opening, Lake Balaton]
+
+
+--------------------------------------------------------------------------------
+4. WHY IT IS DIFFERENT  (the guide beat — the research promise)
+--------------------------------------------------------------------------------
+
+SECTION HEADING:     The data is ours. So is the plain language.
+
+BODY:
+   Two things set our talks apart. First, the evidence is original: peer-reviewed
+   studies in Turizmus Bulletin and Akademiai Kiado, primary surveys of Lake
+   Balaton businesses, our own destination work. Second, we translate it. The
+   message lands with a county enterprise foundation and with an international DMO
+   audience alike.
+
+PULL QUOTE (real, from feedback):
+   "Many similar trainings don't translate the professional message into the
+   language of the average user. You found the common voice perfectly, so everyone
+   could understand the information."
+   — Szilvia Mihaly, VisitBalaton365
+
+THREE CREDENTIAL LINES (mono row):
+   — Peer-reviewed research  (Turizmus Bulletin, 2025 · Akademiai Kiado, 2023)
+   — Spoken in English on international stages  (UK · France · Germany)
+   — Representing real destinations  (VisitBalaton365 DMO, Interreg Europe projects)
+
+
+--------------------------------------------------------------------------------
+5. FORMATS  (what you can book — short list)
+--------------------------------------------------------------------------------
+
+   — Keynote talk          A research-led talk for your conference or event.
+   — Panel & moderation    We sit on the panel, or run it (MTPA, VIMOSZ, CheckINN).
+   — Workshop / training    Hands-on sessions that end with a plan, not just slides.
+   — Podcast & interview    Returning guest voice on AI and digital tourism.
+
+(Available in Hungarian and English.)
+
+
+--------------------------------------------------------------------------------
+6. SELECTED APPEARANCES  (PROOF blocks — each links to Our Projects)
+--------------------------------------------------------------------------------
+
+Display newest-first. Each block: date · title · place / organiser · one line.
+"View all appearances ->" links to /references.
+
+[2026-05]  Data-driven tourism as a European best practice
+           Smart Tour (Interreg Europe), Perros-Guirec, Brittany, France · EN
+           Hungary's national real-time data system (NTAK), presented to European
+           DMOs as a model others can follow.
+
+[2026-04]  AI-based solutions in tourism (Part 2)
+           DigiTurismo podcast · returning guest, covered by turizmus.com
+           Why AI became the "invisible infrastructure" of tourism, and why GEO
+           matters more than SEO.
+
+[2026-04]  Digitalisation meets sustainability
+           Earth Day Conference, Smart Tour opening, Lake Balaton region
+           Making the case that "green" claims now need measured, digital evidence.
+
+[2026-03]  AI4tourism launch at ITB Berlin
+           ITB Berlin 2026, the world's largest tourism trade fair · Germany · EN
+           Over 250 professional contacts in three days, launching the AI4tourism
+           brand at the 60th-anniversary edition.
+
+[2026-03]  Innovation opportunities in tourism (panel)
+           KULTKIKOTO cultural tourism conference, Balatonfoldvar
+           Panel with a Visit Hungary expert: the real barrier to innovation is
+           decision logic, not technology (73 businesses, a 17:1 gap).
+
+[2025-10]  Visible Tourism at Tourism Summit 2025
+           Tourism Summit 2025 (Visit Hungary), Balna, Budapest · HU/EN
+           Exhibiting the Visible Tourism brand: Google visibility and GEO/AEO for
+           tourism SMEs and destinations.
+
+[2025-09]  VisitBalaton365's AI journey
+           AI Opener Bootcamp, University of Edinburgh, UK · EN
+           A practical DMO AI story told on an international stage, to inspire other
+           European destinations.
+
+[2025]     Waiting for a click (peer-reviewed study)
+           Turizmus Bulletin, Corvinus University of Budapest
+           73 Lake Balaton gastro businesses: 92% have an advanced digital presence,
+           only 5.5% sell online. The research foundation of our online-sales work.
+
+(Older talks available behind "View all appearances": Tourinform Meeting 2023,
+METU x CheckINN 2023, BalatonBike365 season-opening 2023, the 1,300-website book
+chapter 2023, and the Digital Balaton audio series.)
+
+
+--------------------------------------------------------------------------------
+7. STAT STRIP  (credibility numbers — optional band before CTA)
+--------------------------------------------------------------------------------
+
+   20+        talks, panels and appearances
+   3          countries on the international circuit (UK, France, Germany)
+   1,300+     provider websites behind the visibility talks
+   2          peer-reviewed academic publications
+
+
+--------------------------------------------------------------------------------
+8. CLOSING / CTA  (the invitation beat)
+--------------------------------------------------------------------------------
+
+HEADING:     Looking for a speaker who brings the evidence?
+
+BODY:        Tell us your audience and the question you want answered. We will
+             bring a talk built on real research, in Hungarian or English.
+
+PRIMARY CTA:   Invite us to speak  ->   (mailto / contact)
+SECONDARY CTA: See all our projects ->  /references
+
+
+================================================================================
+NOTES
+- All American spellings from the sheet converted to British in the copy above
+  (digitalisation, analysed, optimisation). Accents dropped where the existing
+  site does (Akademiai Kiado, Balatonfoldvar, KULTKIKOTO) — confirm preference.
+- "Adam Schmutz" is the lead speaker on most entries; named only in the pull-quote
+  context here. Say the word if you want him credited by name in the hero/intro.
+- Numbers used are all taken straight from the sheet (45% AI search, 94% Google,
+  17:1 gap, 95,000+ accommodations, 250 contacts, 1,300 websites). No invented stats.
+- Proof blocks are wired to link to /references (Our Projects) per your spec.
+================================================================================
