@@ -1,1 +1,9 @@
-{}
+{
+  "meta": {
+    "title": "Projektjeink",
+    "description": "Elvégzett turisztikai munkák a tanácsadás, az oktatás és a fejlesztés területén: kutatások, stratégiák, képzések és digitális fejlesztések. Szűrjön szolgáltatás szerint, és nyissa meg a vezetői összefoglalókat."
+  },
+  "eyebrow": "Projektjeink",
+  "heading": "A módszertan mögötti munka.",
+  "intro": "Elvégzett munkák a tanácsadás, az oktatás és a fejlesztés területén: kutatások, desztinációs stratégiák, képzések és digitális fejlesztések. Bármelyik projektet megnyitva rövid összefoglalót kap, és ahol van, egy kattintással elérhető a teljes vezetői összefoglaló is."
+}

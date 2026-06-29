@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Halo } from "@/components/sections/services/_halo";
 import { ProjectsGallery } from "@/components/sections/projects/projects-gallery";
 import { isLocale, type Locale } from "@/lib/i18n/config";
+import { getDict } from "@/lib/i18n/dictionaries";
 import { alternatesFor } from "@/lib/i18n/seo";
 
 export async function generateMetadata({
@@ -15,15 +16,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const lang: Locale = isLocale(locale) ? locale : "en";
+  const t = await getDict(lang, "references");
   return {
-    title: "Our Projects",
-    description:
-      "Delivered tourism work across consulting, education and development: research studies, strategies, training and digital builds. Filter by service and open the executive summaries.",
+    title: t.meta.title,
+    description: t.meta.description,
     alternates: alternatesFor(lang, "/references"),
   };
 }
 
-export default function OurProjectsPage() {
+export default async function OurProjectsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const lang: Locale = isLocale(locale) ? locale : "en";
+  const t = await getDict(lang, "references");
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
@@ -35,16 +43,13 @@ export default function OurProjectsPage() {
           <div className="relative isolate max-w-[60ch] mb-10 lg:mb-14">
             <Halo />
             <span className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider block mb-5">
-              Our Projects
+              {t.eyebrow}
             </span>
             <h1 className="text-5xl md:text-7xl font-display text-[#334F5A] leading-[0.98]">
-              The work behind the method.
+              {t.heading}
             </h1>
             <p className="mt-6 text-lg text-[#334F5A]/80 leading-relaxed">
-              A record of delivered work across consulting, education and
-              development: research studies, destination strategies, training and
-              digital builds. Open any project for a short summary, with the full
-              executive report a click away where one exists.
+              {t.intro}
             </p>
           </div>
         </ScrollReveal>
