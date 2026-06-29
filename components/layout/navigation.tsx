@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { LocaleLink } from "@/components/i18n/locale-link";
@@ -76,8 +75,8 @@ export function Navigation() {
             />
           </LocaleLink>
 
-          {/* Desktop Navigation — active item gets a "tubelight" lamp (brand #AAD7E6) */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-12">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -85,30 +84,24 @@ export function Navigation() {
                   key={link.name}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`relative text-sm px-4 py-2 rounded-full transition-colors duration-300 ${
+                  className={`text-sm transition-colors duration-300 relative group ${
                     active
-                      ? "text-[#334F5A] font-medium"
+                      ? isScrolled
+                        ? "text-foreground"
+                        : "text-[#334F5A]"
                       : isScrolled
                         ? "text-foreground/70 hover:text-foreground"
                         : "text-[#334F5A]/70 hover:text-[#334F5A]"
                   }`}
                 >
                   {link.name}
-                  {active && (
-                    <motion.span
-                      layoutId="navlamp"
-                      aria-hidden
-                      className="absolute inset-0 -z-10 rounded-full bg-[#AAD7E6]/15"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    >
-                      {/* the lamp bar + soft glow above the active item */}
-                      <span className="absolute -top-[7px] left-1/2 -translate-x-1/2 h-1 w-8 rounded-t-full bg-[#AAD7E6]">
-                        <span className="absolute -left-2 -top-2 h-6 w-12 rounded-full bg-[#AAD7E6]/40 blur-md" />
-                        <span className="absolute -top-1 h-6 w-8 rounded-full bg-[#AAD7E6]/40 blur-md" />
-                        <span className="absolute left-2 top-0 h-4 w-4 rounded-full bg-[#AAD7E6]/40 blur-sm" />
-                      </span>
-                    </motion.span>
-                  )}
+                  <span
+                    className={`absolute -bottom-1 left-0 transition-all duration-300 ${
+                      active
+                        ? "w-full h-0.5 bg-[#AAD7E6]"
+                        : `w-0 h-px group-hover:w-full ${isScrolled ? "bg-foreground" : "bg-[#334F5A]"}`
+                    }`}
+                  />
                 </LocaleLink>
               );
             })}
