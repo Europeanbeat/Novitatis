@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "overview": {
+      "title": "Services",
+      "description": "A specialist network for the tourism sector. Consulting and strategy, development and digitalisation, education and mentoring, and public speaking, run on one research-first method."
+    },
+    "consulting": {
+      "title": "Consulting & strategy",
+      "description": "Research-led consulting and strategy for tourism: destination strategy and development, feasibility studies, research and analysis, and policy and methodology."
+    },
+    "education": {
+      "title": "Education & mentoring",
+      "description": "AI and digital training, courses and one-to-one mentoring that build capability inside tourism teams and SMEs, under ai4tourism, Turizmus Tudástár and Visible Tourism."
+    },
+    "publicSpeaking": {
+      "title": "Public speaking",
+      "description": "Research-led talks on AI and digital tourism: AI search visibility, online presence, data-driven destination management and measurable sustainability. In Hungarian and English."
+    }
+  },
+  "common": {
+    "allServices": "All services",
+    "letsWorkTogether": "Let's work together",
+    "seeOurProjects": "See Our Projects",
+    "inviteToSpeak": "Invite us to speak",
+    "whoWeWorkWith": "Who we work with",
+    "whatWeDo": "What we do",
+    "whatWeSpeakAbout": "What we speak about",
+    "formats": "Formats"
+  },
+  "consulting": {
+    "eyebrow": "Consulting & strategy",
+    "heroTitle": "We turn research and data into tourism strategy.",
+    "heroLead1": "Destinations, national tourism organisations and the tourism businesses in their ecosystem, down to individual SMEs, come to us to understand how they really perform, online and on the ground, and to turn that into strategy, development and policy. As search and AI reshape how travellers decide, reading the digital picture is now central to all of it.",
+    "heroLead2": "We work as a network of specialists, and on most projects our fee is tied to results. Most of that work is at destination and national level, and it reaches down to the individual providers and SMEs as well, the players for whom good data and digital expertise are usually out of reach.",
+    "services": [
+      {
+        "title": "Research & analysis",
+        "body": "How do residents feel about tourism? How do providers actually perform online? We study the questions a strategy depends on, resident sentiment, provider performance, market and digital maturity, and turn them into evidence leaders can act on."
+      },
+      {
+        "title": "Digital maturity & visibility",
+        "body": "How visible is a destination when someone searches, or asks an AI? We audit how it and its providers show up across search results and AI answers, score the gaps with systems we have built, and map where the visitor journey breaks."
+      },
+      {
+        "title": "Strategy & development",
+        "body": "What should a destination do next, and why? We build the destination strategies and development plans that answer that, grounded in research and shaped with the people who have to deliver them."
+      },
+      {
+        "title": "Feasibility & cost-benefit",
+        "body": "Will a development actually be used once it is built, and can it pay its way? We run the feasibility studies and cost-benefit analysis that answer that, weighing demand against supply, the audience it serves and the cost of running it for years, work that has backed EU-funded and national developments."
+      },
+      {
+        "title": "Policy & methodology",
+        "body": "How does a sector agree on what counts as a restaurant, or a quality standard? We build the methodologies and definitions that answer that, like the hospitality categorisation we wrote into Government Decree 634/2020, and reusable frameworks such as a destination-strategy methodology and a guest-satisfaction index."
+      }
+    ],
+    "howWeWork": {
+      "label": "How we work",
+      "lead": "Whatever the brief, the method is consistent: we read a destination through research and data, build the strategy from what it shows, and shape it with the people who have to deliver it.",
+      "method": [
+        {
+          "step": "01",
+          "title": "Research & data",
+          "body": "We combine field research and interviews with the data a destination already holds, from national statistics to provider performance online, and score it with models we have built."
+        },
+        {
+          "step": "02",
+          "title": "Strategy",
+          "body": "We develop the strategy with you, moving from the evidence through prototypes to a costed plan."
+        },
+        {
+          "step": "03",
+          "title": "Deliver & measure",
+          "body": "You get a plan ready to implement, often with the funding case behind it, and a clear way to measure whether it worked."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Planning a strategy, study or funding case?",
+      "body": "Tell us the decision you are facing. We will tell you what the evidence says and how we would approach it."
+    }
+  },
+  "education": {
+    "eyebrow": "Education & mentoring",
+    "heroTitle": "We teach tourism teams to work with AI and run their own online presence.",
+    "heroLead": "Destinations, national tourism organisations and the providers in their ecosystem, down to individual SMEs, come to us to build the skills their work now demands. We train teams to put AI to use in their real tasks, and we show smaller businesses how to own their visibility in search, on Google Maps and in AI answers.",
+    "navWhatWeDo": "What we do",
+    "navOurBrands": "Our brands",
+    "ourBrands": "Our brands",
+    "services": [
+      {
+        "title": "AI training for tourism teams",
+        "body": "What changes when a team can actually use AI in its daily work? We run training that takes a tourism team through prompting, content, data and reporting, and image generation, applied to the real tasks a destination faces. People leave able to fold these tools into the work they already do."
+      },
+      {
+        "title": "Google Business Profile courses",
+        "body": "Most travellers meet a tourism business on Google long before they reach its website. Through our Turizmus Tudástár courses, providers learn to set up and optimise their Google Business Profile, manage reviews and online reputation, read their performance, and stay findable as AI reshapes search. Built for owners and small teams who run their own listing."
+      },
+      {
+        "title": "One-to-one mentoring",
+        "body": "What does this business need to fix first? In personal mentoring sessions we work through an organisation's Google presence with the people who manage it, and close with a scored report that rates where it stands and sets out the fixes in priority order. Each session is shaped around the business in front of us."
+      },
+      {
+        "title": "Online visibility",
+        "body": "How visible is a destination or provider when someone searches, or asks an AI? Under Visible Tourism we teach the practice behind it: GEO and AEO, Google Maps presence, and appearing in AI-driven search, alongside audits that show where you currently stand. The focus is skills a team can apply to its own listings and content."
+      },
+      {
+        "title": "Workshops & product development",
+        "body": "Where do providers most often lose ground? Our workshops cover product and package development, online presence and the digital skills providers need day to day. Designed for groups of tourism businesses, they turn shared challenges into skills a team can put to work at once."
+      }
+    ],
+    "cta": {
+      "heading": "Want to build capability in your team?"
+    }
+  },
+  "publicSpeaking": {
+    "eyebrow": "Public speaking",
+    "heroTitle": "Talks built on our own research.",
+    "heroLead1": "Adam Schmutz speaks on the digital future of tourism in Hungarian and English, from conference keynotes to closed-door workshops with destination teams. Every talk is research-led: the arguments come from our own primary data on how destinations and providers behave online, the same work that runs through our peer-reviewed publishing and an active PhD at the University of Pannonia.",
+    "heroLead2": "Around a decade of consulting sits underneath it, so the room hears where the field is going and what a destination can do next. We are a national reference point for AI search visibility and the digital presence of destinations, and the talks now travel internationally.",
+    "trackRecordLabel": "Track record",
+    "trackRecordText": "See the full record of keynotes, panels, podcasts and exhibitions.",
+    "trackRecordLink": "Appearances",
+    "cta": {
+      "heading": "Planning an event or a team session?",
+      "body": "Tell us the audience and the date, and we will propose a talk."
+    }
+  },
+  "serviceDetail": {
+    "whatsIncluded": "What's included",
+    "researchHeading": "Research & analysis.",
+    "featureLabel": "Resident sentiment & policy insight",
+    "featureHeading": "How do residents feel about tourism?",
+    "featureBody": "Destinations that want long-term success need to understand tourism's impact on quality of life at home. We study resident sentiment, provider performance and the policy context, then turn the evidence into decisions leaders can defend.",
+    "readStudy": "Read the study",
+    "proofLabel": "Proof",
+    "proofHeading": "Where this has held up.",
+    "whoWeWorkWith": "Who we work with"
+  }
+}

@@ -1,5 +1,7 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Halo } from "@/components/sections/services/_halo";
+import { getServicesContent } from "@/lib/services-content";
+import type { Locale } from "@/lib/i18n/config";
 
 // Partner logos in a continuous marquee. The track holds the logo set twice and
 // the .marquee keyframes translate it -50%, so the loop is seamless. Pauses on
@@ -21,7 +23,8 @@ const partners = [
   { src: "/images/references/winesofcrete.png", name: "Wines of Crete", url: "https://www.winesofcrete.gr" },
 ];
 
-export function PartnersMarquee() {
+export function PartnersMarquee({ locale }: { locale: Locale }) {
+  const { ui } = getServicesContent(locale);
   return (
     <section className="relative z-10 py-20 lg:py-24 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -30,16 +33,15 @@ export function PartnersMarquee() {
             <div className="relative isolate">
               <Halo className="-inset-x-5 -inset-y-4" />
               <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-4">
-                Partners
+                {ui.partners.eyebrow}
               </span>
               <h2 className="text-3xl lg:text-4xl font-display text-[#334F5A] leading-[1.05] max-w-[20ch]">
-                Organisations we work with.
+                {ui.partners.heading}
               </h2>
             </div>
             <p className="relative isolate text-[#334F5A]/70 leading-relaxed max-w-[38ch] lg:text-right">
               <Halo className="-inset-x-5 -inset-y-4" />
-              National bodies, destinations, universities and municipalities
-              across Hungarian tourism.
+              {ui.partners.lead}
             </p>
           </div>
         </ScrollReveal>
@@ -57,7 +59,7 @@ export function PartnersMarquee() {
                     target="_blank"
                     rel="noopener noreferrer"
                     tabIndex={copy === 1 ? -1 : undefined}
-                    aria-label={`Visit ${p.name}`}
+                    aria-label={`${ui.partners.visit} ${p.name}`}
                     className="group mx-3 flex h-[134px] w-[230px] lg:h-[154px] lg:w-[269px] shrink-0 items-center justify-center rounded-2xl bg-white border border-foreground/10 p-5 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:shadow-[0_12px_32px_-16px_rgba(51,79,90,0.25)]"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}

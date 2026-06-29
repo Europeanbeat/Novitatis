@@ -6,7 +6,26 @@ import { ArrowRight } from "lucide-react";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
-export function CtaSection() {
+type CtaCopy = {
+  headingLine1: string;
+  headingLine2: string;
+  intro: string;
+  email: string;
+  form: {
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    send: string;
+    sending: string;
+    success: string;
+    error: string;
+  };
+};
+
+export function CtaSection({ t }: { t: CtaCopy }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -78,18 +97,17 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95]">
-                  Ready to shape
+                  {t.headingLine1}
                   <br />
-                  tourism's future?
+                  {t.headingLine2}
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Whether it's strategy, development, education or a talk, tell us what
-                  you're working on and let's find the right solution together.
+                  {t.intro}
                 </p>
 
                 <p className="text-sm text-muted-foreground font-mono">
-                  info@novitatis.hu
+                  {t.email}
                 </p>
               </div>
 
@@ -98,42 +116,42 @@ export function CtaSection() {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
                     <label htmlFor="name" className="text-sm font-mono text-muted-foreground">
-                      Name
+                      {t.form.name}
                     </label>
                     <input
                       id="name"
                       type="text"
                       name="name"
                       required
-                      placeholder="Your name"
+                      placeholder={t.form.namePlaceholder}
                       className="h-12 px-4 rounded-lg border border-foreground/15 bg-white/80 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label htmlFor="email" className="text-sm font-mono text-muted-foreground">
-                      E-mail
+                      {t.form.email}
                     </label>
                     <input
                       id="email"
                       type="email"
                       name="email"
                       required
-                      placeholder="you@email.com"
+                      placeholder={t.form.emailPlaceholder}
                       className="h-12 px-4 rounded-lg border border-foreground/15 bg-white/80 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label htmlFor="message" className="text-sm font-mono text-muted-foreground">
-                      Message
+                      {t.form.message}
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       required
                       rows={4}
-                      placeholder="How can we help?"
+                      placeholder={t.form.messagePlaceholder}
                       className="px-4 py-3 rounded-lg border border-foreground/15 bg-white/80 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors resize-none"
                     />
                   </div>
@@ -144,19 +162,19 @@ export function CtaSection() {
                     disabled={status === "sending"}
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group mt-2 disabled:opacity-60"
                   >
-                    {status === "sending" ? "Sending..." : "Send message"}
+                    {status === "sending" ? t.form.sending : t.form.send}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
 
                   {/* Status messages */}
                   {status === "success" && (
                     <p className="text-sm text-[#334F5A] font-mono">
-                      Thank you. We'll be in touch soon.
+                      {t.form.success}
                     </p>
                   )}
                   {status === "error" && (
                     <p className="text-sm text-red-600 font-mono">
-                      Something went wrong. Please try again, or email info@novitatis.hu.
+                      {t.form.error}
                     </p>
                   )}
                 </form>

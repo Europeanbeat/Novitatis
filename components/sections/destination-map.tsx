@@ -6,198 +6,130 @@ import { useEffect, useRef, useState } from "react";
 
 type IssueType = "missing-trails" | "unclaimed" | "wrong-data" | "street-view" | "success";
 
+// Per-destination display copy lives in dictionaries/{locale}/brands.json under
+// visibleTourism.map. Proper place names, coordinates and colours stay in code.
+type DestinationCopy = {
+  country: string;
+  issueBadge: string;
+  details: string;
+  statLabel: string;
+  subItems: string[];
+};
+
+export type MapCopy = {
+  statsBar: { line1: string; line2: string };
+  viz: {
+    notOnGoogleMaps: string;
+    unclaimedLabel: string;
+    unclaimedDescLine1: string;
+    unclaimedDescLine2: string;
+    noStreetView: string;
+    coverageMissing: string;
+    incorrectData: string;
+    incorrectDataDesc: string;
+  };
+  panel: { close: string; keyMetrics: string; issuesFound: string };
+  default: { count: string; intro: string };
+  destinations: Record<string, DestinationCopy>;
+};
+
 interface DestinationData {
   id: string;
   name: string;
-  country: string;
   flag: string;
   coords: [number, number];
   issueType: IssueType;
-  issueBadge: string;
-  details: string;
   stat: string;
-  statLabel: string;
   color: string;
-  subItems: string[];
 }
 
 const destinations: DestinationData[] = [
   {
     id: "lofoten",
     name: "Lofoten Islands",
-    country: "Norway",
     flag: "🇳🇴",
     coords: [68.15, 13.60],
     issueType: "missing-trails",
-    issueBadge: "Missing trails",
-    details:
-      "Reinebringen, one of the world's most photographed viewpoints, along with Alligator Mountain and the route to Kvalvika Beach are completely absent from Google Maps, causing routing failures for thousands of visitors every year.",
     stat: "3+",
-    statLabel: "iconic trails not on Google Maps",
     color: "#ef4444",
-    subItems: [
-      "Reinebringen viewpoint trail",
-      "Alligator Mountain network",
-      "Kvalvika Beach route",
-    ],
   },
   {
     id: "sodankyla",
     name: "Sodankylä",
-    country: "Finland",
     flag: "🇫🇮",
     coords: [67.42, 26.60],
     issueType: "unclaimed",
-    issueBadge: "44% unclaimed",
-    details:
-      "Sodankylä Old Church (197 reviews), Ahvenlampi Campfire Place (121 reviews), and key resort facilities have no profile owner. Unmapped hiking trails around the Luosto Resort further reduce discoverability.",
     stat: "44%",
-    statLabel: "of 68 profiles unclaimed",
     color: "#f59e0b",
-    subItems: [
-      "Sodankylä Old Church · 197 reviews",
-      "Ahvenlampi Campfire Place · 121 reviews",
-      "Unmapped trails at Luosto Resort",
-    ],
   },
   {
     id: "siauliai",
     name: "Šiauliai",
-    country: "Lithuania",
     flag: "🇱🇹",
     coords: [55.93, 23.32],
     issueType: "unclaimed",
-    issueBadge: "63% unclaimed",
-    details:
-      "Lake Rėkyva, the city's main leisure area, is entirely missing from Google Maps: no roads, no walking paths, no pond. A Beach Pavilion is shown in the wrong location. Salduvės Mound (1,014 reviews) has missing trail access.",
     stat: "63%",
-    statLabel: "of 96 profiles unclaimed, the highest of all",
     color: "#ef4444",
-    subItems: [
-      "Lake Rėkyva entirely missing",
-      "Salduvės Mound trails absent",
-      "Beach Pavilion in wrong location",
-    ],
   },
   {
     id: "panevezys",
     name: "Panevėžys",
-    country: "Lithuania",
     flag: "🇱🇹",
     coords: [55.73, 24.36],
     issueType: "missing-trails",
-    issueBadge: "9 map data gaps",
-    details:
-      "A bridge over the Lėvenis River is absent. Paliūniškis Forest trails are missing. The football stadium has no field contours. A cultural landmark is misplaced by hundreds of metres. No Street View at the Culture & Leisure Park.",
     stat: "82 / 152",
-    statLabel: "profiles unclaimed (54%)",
     color: "#8b5cf6",
-    subItems: [
-      "Bridge over Lėvenis River missing",
-      "Paliūniškis Forest trails absent",
-      "Stadium contours not mapped",
-    ],
   },
   {
     id: "bled",
     name: "Bled",
-    country: "Slovenia",
     flag: "🇸🇮",
     coords: [46.37, 14.11],
     issueType: "wrong-data",
-    issueBadge: "Missing + wrong data",
-    details:
-      "The main walking path to Bled Castle is missing from Google Maps. Zaka Valley and Hom Hill trails absent. Summer Tobogganing has incorrect Business Profile data. No 360° coverage for cave trips, zip lines, or the Sava River.",
     stat: "54 / 165",
-    statLabel: "profiles unclaimed (33%)",
     color: "#f59e0b",
-    subItems: [
-      "Castle walking path missing",
-      "Zaka Valley & Hom Hill trails absent",
-      "Wrong GBP data for key attraction",
-    ],
   },
   {
     id: "fonyod",
     name: "Fonyód",
-    country: "Hungary",
     flag: "🇭🇺",
     coords: [46.74, 17.55],
     issueType: "success",
-    issueBadge: "Proven result",
-    details:
-      "A multi-year Street View project covered Fonyód's entire road network, beaches, active tourism areas, city market, sport center, healthcare, educational and cultural institutions, and points of interest, updating existing imagery and recording new coverage where none existed.",
     stat: "206 km",
-    statLabel: "of Street View coverage added",
     color: "#10b981",
-    subItems: [
-      "Full road network documented",
-      "Beaches, trails & active tourism areas",
-      "Cultural, sport & civic institutions",
-    ],
   },
   {
     id: "subotica",
     name: "Subotica",
-    country: "Serbia",
     flag: "🇷🇸",
     coords: [46.10, 19.68],
     issueType: "street-view",
-    issueBadge: "Missing Street View",
-    details:
-      "Only 10 of 68 city attractions are actively managed online. Large Street View coverage gaps across the historic centre. Building outlines are missing. Satellite imagery of the city zoo is outdated.",
     stat: "10 / 68",
-    statLabel: "attractions actively managed",
     color: "#3b82f6",
-    subItems: [
-      "Street View gaps in historic centre",
-      "Missing building outlines",
-      "Outdated zoo satellite imagery",
-    ],
   },
   {
     id: "tiszazug",
     name: "Tiszazug",
-    country: "Hungary",
     flag: "🇭🇺",
     coords: [46.97, 20.48],
     issueType: "unclaimed",
-    issueBadge: "79.5% unclaimed",
-    details:
-      "The most comprehensive audit in our portfolio: 395 tourism units across 13 settlements. Tourist attractions have only a 20.5% profile claim rate. Several arboreta and nature trails are completely absent from Google Maps.",
     stat: "395",
-    statLabel: "units audited, 13 settlements",
     color: "#f59e0b",
-    subItems: [
-      "Only 20.5% of attractions claimed",
-      "Szarvasi Arborétum trails missing",
-      "Tiszakürti nature trail absent",
-    ],
   },
   {
     id: "azores",
     name: "Azores",
-    country: "Portugal",
     flag: "🇵🇹",
     coords: [38.5, -28.1],
     issueType: "missing-trails",
-    issueBadge: "Missing trails & routing",
-    details:
-      "Lagoa do Fogo, one of São Miguel's most iconic crater lakes, has unmapped hiking trails despite attracting thousands of visitors. São Jorge island has misleading routing errors and missing trails around Norte Pequeno with no Street View coverage.",
     stat: "3",
-    statLabel: "islands with confirmed map data gaps",
     color: "#0891b2",
-    subItems: [
-      "Lagoa do Fogo trails unmapped (São Miguel)",
-      "Misleading routing on São Jorge",
-      "Missing trails and Street View at Norte Pequeno",
-    ],
   },
 ];
 
 /* ── Issue panel visuals ─────────────────────────── */
 
-function MissingTrailsViz({ color }: { color: string }) {
+function MissingTrailsViz({ color, label }: { color: string; label: string }) {
   return (
     <svg viewBox="0 0 220 70" className="w-full h-16 rounded-lg overflow-hidden">
       <rect width="220" height="70" fill="#f0f2ee" rx="8" />
@@ -209,17 +141,22 @@ function MissingTrailsViz({ color }: { color: string }) {
       {/* Destination dot */}
       <circle cx="210" cy="35" r="7" fill={color} fillOpacity="0.25" stroke={color} strokeWidth="1.5" />
       <text x="112" y="22" fill={color} fontSize="9" textAnchor="middle"
-            fontFamily="monospace" fontWeight="bold">NOT ON GOOGLE MAPS</text>
+            fontFamily="monospace" fontWeight="bold">{label}</text>
       <line x1="112" y1="25" x2="112" y2="33" stroke={color} strokeWidth="1" strokeDasharray="2,2" />
     </svg>
   );
 }
 
-function UnclaimedViz({ stat, color }: { stat: string; color: string }) {
+function UnclaimedViz({ stat, color, label, descLine1, descLine2 }: {
+  stat: string;
+  color: string;
+  label: string;
+  descLine1: string;
+  descLine2: string;
+}) {
   const pct = parseFloat(stat.replace("%", "").replace(/\s.+/, ""));
   const r = 28;
   const circ = 2 * Math.PI * r;
-  const claimed = circ - (pct / 100) * circ;
   return (
     <div className="flex items-center gap-5">
       <svg viewBox="0 0 72 72" className="w-16 h-16 shrink-0">
@@ -236,9 +173,9 @@ function UnclaimedViz({ stat, color }: { stat: string; color: string }) {
         </text>
       </svg>
       <div>
-        <p className="text-xs font-bold text-slate-700">Unclaimed</p>
+        <p className="text-xs font-bold text-slate-700">{label}</p>
         <p className="text-[10px] text-slate-400 leading-tight mt-0.5">
-          No owner → visitors can&apos;t be<br />directed, reviews go unanswered
+          {descLine1}<br />{descLine2}
         </p>
       </div>
     </div>
@@ -269,7 +206,7 @@ function SuccessViz({ stat, statLabel, subItems, color }: {
   );
 }
 
-function StreetViewViz() {
+function StreetViewViz({ label, sublabel }: { label: string; sublabel: string }) {
   return (
     <svg viewBox="0 0 220 70" className="w-full h-16 rounded-lg overflow-hidden">
       <rect width="220" height="70" fill="#e8f4fd" rx="8" />
@@ -281,15 +218,15 @@ function StreetViewViz() {
       <rect x="90" y="0" width="6" height="28" fill="#3b82f6" fillOpacity="0.5" rx="2" />
       {/* Gap label */}
       <text x="145" y="40" fill="#3b82f6" fontSize="8" textAnchor="middle"
-            fontFamily="monospace" fontWeight="bold">NO STREET VIEW</text>
+            fontFamily="monospace" fontWeight="bold">{label}</text>
       <text x="145" y="50" fill="#9ca3af" fontSize="7" textAnchor="middle" fontFamily="monospace">
-        coverage missing
+        {sublabel}
       </text>
     </svg>
   );
 }
 
-function WrongDataViz({ color }: { color: string }) {
+function WrongDataViz({ color, title, desc }: { color: string; title: string; desc: string }) {
   return (
     <div className="rounded-xl border-2 bg-amber-50 p-3 flex items-start gap-3" style={{ borderColor: color }}>
       <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
@@ -297,16 +234,21 @@ function WrongDataViz({ color }: { color: string }) {
         <span className="text-white text-sm font-bold">!</span>
       </div>
       <div>
-        <p className="text-xs font-bold text-slate-800">Incorrect profile data</p>
+        <p className="text-xs font-bold text-slate-800">{title}</p>
         <p className="text-[10px] text-slate-500 leading-tight mt-0.5">
-          Wrong hours, photos, or location. Visitors arrive to find something different from what Google shows.
+          {desc}
         </p>
       </div>
     </div>
   );
 }
 
-function IssuePanel({ dest, onClose }: { dest: DestinationData; onClose: () => void }) {
+function IssuePanel({ dest, copy, t, onClose }: {
+  dest: DestinationData;
+  copy: DestinationCopy;
+  t: MapCopy;
+  onClose: () => void;
+}) {
   return (
     <div className="h-full flex flex-col overflow-y-auto">
       {/* Header */}
@@ -315,7 +257,7 @@ function IssuePanel({ dest, onClose }: { dest: DestinationData; onClose: () => v
           <div className="flex items-center gap-2 mb-1.5">
             <span className="text-lg">{dest.flag}</span>
             <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">
-              {dest.country}
+              {copy.country}
             </span>
           </div>
           <h4 className="font-display text-[#334F5A] text-lg leading-tight">{dest.name}</h4>
@@ -323,13 +265,13 @@ function IssuePanel({ dest, onClose }: { dest: DestinationData; onClose: () => v
             className="inline-block mt-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold text-white"
             style={{ background: dest.color }}
           >
-            {dest.issueBadge}
+            {copy.issueBadge}
           </span>
         </div>
         <button
           onClick={onClose}
           className="text-muted-foreground hover:text-foreground transition-colors shrink-0 mt-1"
-          aria-label="Close"
+          aria-label={t.panel.close}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -339,34 +281,46 @@ function IssuePanel({ dest, onClose }: { dest: DestinationData; onClose: () => v
 
       {/* Visual */}
       <div className="p-5 border-b border-foreground/8">
-        {dest.issueType === "missing-trails" && <MissingTrailsViz color={dest.color} />}
+        {dest.issueType === "missing-trails" && (
+          <MissingTrailsViz color={dest.color} label={t.viz.notOnGoogleMaps} />
+        )}
         {dest.issueType === "unclaimed" && (
-          <UnclaimedViz stat={dest.stat} color={dest.color} />
+          <UnclaimedViz
+            stat={dest.stat}
+            color={dest.color}
+            label={t.viz.unclaimedLabel}
+            descLine1={t.viz.unclaimedDescLine1}
+            descLine2={t.viz.unclaimedDescLine2}
+          />
         )}
         {dest.issueType === "success" && (
           <SuccessViz
             stat={dest.stat}
-            statLabel={dest.statLabel}
-            subItems={dest.subItems}
+            statLabel={copy.statLabel}
+            subItems={copy.subItems}
             color={dest.color}
           />
         )}
-        {dest.issueType === "street-view" && <StreetViewViz />}
-        {dest.issueType === "wrong-data" && <WrongDataViz color={dest.color} />}
+        {dest.issueType === "street-view" && (
+          <StreetViewViz label={t.viz.noStreetView} sublabel={t.viz.coverageMissing} />
+        )}
+        {dest.issueType === "wrong-data" && (
+          <WrongDataViz color={dest.color} title={t.viz.incorrectData} desc={t.viz.incorrectDataDesc} />
+        )}
       </div>
 
       {/* Details */}
       <div className="p-5 border-b border-foreground/8">
-        <p className="text-xs text-muted-foreground leading-relaxed">{dest.details}</p>
+        <p className="text-xs text-muted-foreground leading-relaxed">{copy.details}</p>
       </div>
 
       {/* Sub-items */}
       <div className="p-5 border-b border-foreground/8">
         <p className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground mb-3">
-          {dest.issueType === "success" ? "Key metrics" : "Issues found"}
+          {dest.issueType === "success" ? t.panel.keyMetrics : t.panel.issuesFound}
         </p>
         <ul className="space-y-2">
-          {dest.subItems.map((item, i) => (
+          {copy.subItems.map((item, i) => (
             <li key={i} className="flex items-start gap-2 text-[11px] text-slate-700">
               <span
                 className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 text-white"
@@ -383,20 +337,20 @@ function IssuePanel({ dest, onClose }: { dest: DestinationData; onClose: () => v
       {/* Stat */}
       <div className="p-5">
         <p className="font-display text-2xl" style={{ color: dest.color }}>{dest.stat}</p>
-        <p className="font-mono text-[10px] text-muted-foreground mt-0.5">{dest.statLabel}</p>
+        <p className="font-mono text-[10px] text-muted-foreground mt-0.5">{copy.statLabel}</p>
       </div>
     </div>
   );
 }
 
-function DefaultPanel({ destinations }: { destinations: DestinationData[] }) {
+function DefaultPanel({ destinations, t }: { destinations: DestinationData[]; t: MapCopy }) {
   return (
     <div className="h-full flex flex-col p-5 overflow-y-auto">
       <p className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground mb-4">
-        8 destinations audited
+        {t.default.count}
       </p>
       <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-        Click any pin on the map to see the specific Google Maps issues Visible Tourism found and fixed.
+        {t.default.intro}
       </p>
       <div className="space-y-2 mb-6">
         {destinations.map((d) => (
@@ -404,7 +358,7 @@ function DefaultPanel({ destinations }: { destinations: DestinationData[] }) {
             <span className="text-base shrink-0">{d.flag}</span>
             <div className="min-w-0">
               <p className="text-xs font-medium text-[#334F5A] truncate">{d.name}</p>
-              <p className="text-[10px] font-mono text-muted-foreground truncate">{d.issueBadge}</p>
+              <p className="text-[10px] font-mono text-muted-foreground truncate">{t.destinations[d.id].issueBadge}</p>
             </div>
             <span
               className="w-2 h-2 rounded-full shrink-0 ml-auto"
@@ -430,7 +384,7 @@ function DefaultPanel({ destinations }: { destinations: DestinationData[] }) {
 
 /* ── Main map component ──────────────────────────── */
 
-export function DestinationMap() {
+export function DestinationMap({ t }: { t: MapCopy }) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const leafletMapRef = useRef<any>(null);
@@ -544,13 +498,13 @@ export function DestinationMap() {
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#334F5A] shrink-0" />
           <span className="font-mono text-[11px] text-muted-foreground">
-            9 destinations audited, visibility gaps identified on Google Maps
+            {t.statsBar.line1}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#AAD7E6] shrink-0" />
           <span className="font-mono text-[11px] text-muted-foreground">
-            Gaps affect discovery before arrival and navigation once on the ground
+            {t.statsBar.line2}
           </span>
         </div>
       </div>
@@ -573,9 +527,9 @@ export function DestinationMap() {
           style={{ minHeight: "200px" }}
         >
           {selected ? (
-            <IssuePanel dest={selected} onClose={() => setSelected(null)} />
+            <IssuePanel dest={selected} copy={t.destinations[selected.id]} t={t} onClose={() => setSelected(null)} />
           ) : (
-            <DefaultPanel destinations={destinations} />
+            <DefaultPanel destinations={destinations} t={t} />
           )}
         </div>
       </div>

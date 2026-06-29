@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "About Us",
+    "description": "Novitatis is a specialist advisory network for the tourism sector. We combine academic research, data and digital development to help destinations, public institutions and operators decide on solid evidence and put it into practice."
+  },
+  "hero": {
+    "eyebrow": "About us",
+    "heading": "Tourism development, built on research.",
+    "intro": "Novitatis is a specialist advisory network for tourism. We combine academic research, data and digital development to help destinations, public institutions and operators make well-founded decisions and put them into practice. Our work runs from national tourism policy to the individual provider, and reaches across Europe."
+  },
+  "whatSetsApart": {
+    "eyebrow": "What sets us apart",
+    "heading": "How we are different from a classic consultancy.",
+    "values": [
+      {
+        "title": "An advisory network, not a fixed firm",
+        "body": "We bring the right specialists to every project: researchers, developers, economists, designers and tourism professionals. The person best suited to a task is the one who does it, not whoever happens to be free."
+      },
+      {
+        "title": "Research first, hands-on in delivery",
+        "body": "We start from peer-reviewed evidence and stay involved through implementation. We build, test and refine until there is a result the team can use."
+      },
+      {
+        "title": "International perspective, local fit",
+        "body": "We track international research and practice, and present our own work at events such as ITB Berlin, then adapt it to the realities of each destination."
+      }
+    ]
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "heading": "Why we started Novitatis.",
+    "paragraphs": [
+      "Novitatis began from a simple observation: tourism development too often runs on intuition and generic advice, when the sector deserves decisions built on evidence. We set out to combine rigorous research with practical, hands-on development for the organisations responsible for destinations.",
+      "We work with destination management organisations, tourism boards, municipalities and public institutions, alongside the businesses that operate within them. Several of us are PhD candidates and published researchers, and our founder authored the methodology behind a Hungarian national tourism decree, so high-level planning, evidence and on-the-ground delivery sit in the same room: clear deliverables, honest communication, and solutions that hold up in the field."
+    ]
+  },
+  "stats": [
+    {
+      "value": "Peer-reviewed",
+      "label": "research, published in the Turizmus Bulletin"
+    },
+    {
+      "value": "National to local",
+      "label": "from tourism policy to individual operators"
+    },
+    {
+      "value": "European reach",
+      "label": "work and appearances across Europe, including ITB Berlin"
+    }
+  ],
+  "team": {
+    "eyebrow": "Meet the team",
+    "heading": "Strategy and delivery, in the same team.",
+    "members": [
+      {
+        "name": "Adam",
+        "role": "Founder & tourism strategy consultant · PhD candidate",
+        "bio": "Adam leads Novitatis's tourism strategy work. His doctoral research at the University of Pannonia feeds directly into the firm's consulting, and he authored the methodology behind a Hungarian national tourism decree."
+      },
+      {
+        "name": "Bence",
+        "role": "Partner · Project lead · Full-stack developer",
+        "bio": "Bence leads the technical delivery behind Novitatis projects: digital systems, mapping and integrations. With an MA in tourism and a developer's background, he turns the real constraints destinations face into working systems."
+      },
+      {
+        "name": "Vivi",
+        "role": "UX/UI researcher · Advisor",
+        "bio": "Vivi studies how destinations are presented digitally and how travellers experience them in practice. Her MA applied design-thinking methodology to the visitor-centred development of tourism SMEs, and she connects perception and experience through data-informed design."
+      },
+      {
+        "name": "Eszter",
+        "role": "UX/UI researcher · Data analyst · PhD candidate",
+        "bio": "Eszter turns destination data into clear, usable strategy. Her PhD research focuses on digital experience systems in the public sector."
+      }
+    ]
+  },
+  "cta": {
+    "headingLead": "Work with",
+    "headingBrand": "Novitatis.",
+    "body": "Tell us about the project or question you are facing. We will tell you honestly whether and how we can help, and what the first step looks like.",
+    "button": "Get in touch"
+  }
+}

@@ -3,26 +3,17 @@
 import { useEffect, useState, useRef } from "react";
 import LightRays from "@/components/ui/light-rays";
 
+type AudienceCopy = {
+  eyebrow: string;
+  headingLead: string;
+  headingAccent: string;
+  intro: string;
+  cta: string;
+  tiers: { note: string; tier: string; clients: string[] }[];
+};
 
-const tiers = [
-  {
-    note: "Policy and system level",
-    tier: "Public & national",
-    clients: ["Ministries", "National tourism organisations", "Regional development agencies"],
-  },
-  {
-    note: "Place level",
-    tier: "Destination management",
-    clients: ["DMO organisations", "TDM organisations", "Municipalities"],
-  },
-  {
-    note: "Operator level",
-    tier: "Businesses & providers",
-    clients: ["Tourism SMEs", "Accommodation", "Restaurants & hospitality"],
-  },
-];
-
-export function AudienceSection() {
+export function AudienceSection({ t }: { t: AudienceCopy }) {
+  const tiers = t.tiers;
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
@@ -76,7 +67,7 @@ export function AudienceSection() {
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <span className="w-12 h-px bg-white/20" />
-          Who we work with
+          {t.eyebrow}
           <span className="w-12 h-px bg-white/20" />
         </span>
 
@@ -88,15 +79,15 @@ export function AudienceSection() {
             textShadow: "0 0 40px rgba(170, 215, 230, 0.4), 0 0 80px rgba(170, 215, 230, 0.2)",
           }}
         >
-          Every level
+          {t.headingLead}
           <br />
-          <span className="text-white/60">of tourism.</span>
+          <span className="text-white/60">{t.headingAccent}</span>
         </h2>
 
         <p className={`mt-4 text-base lg:text-lg text-white/70 leading-relaxed max-w-xl mx-auto transition-all duration-1000 delay-100 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          From national tourism organisations to individual restaurants — Novitatis works across the full ecosystem, at every scale.
+          {t.intro}
         </p>
       </div>
 
@@ -178,7 +169,7 @@ export function AudienceSection() {
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <a href="/contact-us" className="group inline-flex items-center gap-2 text-sm font-mono text-white/60 hover:text-white transition-colors">
-            Let&apos;s talk about your project
+            {t.cta}
             <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </a>
         </div>

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Rólunk",
+    "description": "A Novitatis a turisztikai szektor specializált tanácsadói hálózata. Tudományos kutatást, adatokat és digitális fejlesztést ötvözünk, hogy a desztinációk, a közintézmények és a szolgáltatók szilárd, tényeken alapuló döntéseket hozzanak, és meg is valósítsák azokat."
+  },
+  "hero": {
+    "eyebrow": "Rólunk",
+    "heading": "Turizmusfejlesztés kutatásra építve.",
+    "intro": "A Novitatis a turizmus specializált tanácsadói hálózata. Tudományos kutatást, adatokat és digitális fejlesztést ötvözünk, hogy a desztinációk, a közintézmények és a szolgáltatók megalapozott döntéseket hozzanak, és meg is valósítsák azokat. Munkánk a nemzeti turizmuspolitikától az egyes szolgáltatókig ível, és Európa-szerte jelen van."
+  },
+  "whatSetsApart": {
+    "eyebrow": "Ami megkülönböztet",
+    "heading": "Miben különbözünk a klasszikus tanácsadótól.",
+    "values": [
+      {
+        "title": "Tanácsadói hálózat, nem merev cég",
+        "body": "Minden projektre a megfelelő szakembereket hozzuk: kutatókat, fejlesztőket, közgazdászokat, designereket és turisztikai szakembereket. Egy feladatot az végez, aki a legalkalmasabb rá, nem az, akinek éppen van ideje."
+      },
+      {
+        "title": "Kutatás az alap, gyakorlat a megvalósításban",
+        "body": "Lektorált, tényekre épülő alapokból indulunk, és végig jelen vagyunk a megvalósításig. Építünk, tesztelünk és finomítunk, amíg a csapat számára is használható eredmény nem születik."
+      },
+      {
+        "title": "Nemzetközi szemlélet, helyi illeszkedés",
+        "body": "Figyeljük a nemzetközi kutatásokat és gyakorlatot, saját munkánkat olyan eseményeken mutatjuk be, mint az ITB Berlin, majd hozzáigazítjuk az egyes desztinációk valóságához."
+      }
+    ]
+  },
+  "story": {
+    "eyebrow": "Történetünk",
+    "heading": "Miért hoztuk létre a Novitatist.",
+    "paragraphs": [
+      "A Novitatis egy egyszerű felismerésből indult: a turizmusfejlesztés túl gyakran megérzésekre és általános tanácsokra épül, miközben a szektor megérdemli a tényeken alapuló döntéseket. Azzal a céllal indultunk, hogy a szigorú kutatást gyakorlatias, kézzelfogható fejlesztéssel ötvözzük a desztinációkért felelős szervezetek számára.",
+      "Desztinációmenedzsment-szervezetekkel, turisztikai szervezetekkel, önkormányzatokkal és közintézményekkel dolgozunk, valamint az ezekben működő vállalkozásokkal. Többen közülünk doktoranduszok és publikáló kutatók vagyunk, alapítónk pedig egy magyar nemzeti turisztikai rendelet módszertanát dolgozta ki, így a stratégiai szintű tervezés, a tényalapúság és a terepen történő megvalósítás egy helyen találkozik: világos eredménytermékek, őszinte kommunikáció és a gyakorlatban is helytálló megoldások."
+    ]
+  },
+  "stats": [
+    {
+      "value": "Lektorált",
+      "label": "kutatás, a Turizmus Bulletinben publikálva"
+    },
+    {
+      "value": "Országostól a helyiig",
+      "label": "a turizmuspolitikától az egyes szolgáltatókig"
+    },
+    {
+      "value": "Európai jelenlét",
+      "label": "munka és előadások Európa-szerte, köztük az ITB Berlinen"
+    }
+  ],
+  "team": {
+    "eyebrow": "Ismerd meg a csapatot",
+    "heading": "Stratégia és megvalósítás, egy csapatban.",
+    "members": [
+      {
+        "name": "Adam",
+        "role": "Alapító és turisztikai stratégiai tanácsadó · doktorandusz",
+        "bio": "Adam vezeti a Novitatis turisztikai stratégiai munkáját. A Pannon Egyetemen folytatott doktori kutatása közvetlenül beépül a cég tanácsadásába, és ő dolgozta ki egy magyar nemzeti turisztikai rendelet módszertanát."
+      },
+      {
+        "name": "Bence",
+        "role": "Partner · projektvezető · full-stack fejlesztő",
+        "bio": "Bence vezeti a Novitatis projektek mögötti technikai megvalósítást: a digitális rendszereket, a térképi megoldásokat és az integrációkat. Turisztikai mesterdiplomával és fejlesztői háttérrel a desztinációk valós korlátait alakítja működő rendszerekké."
+      },
+      {
+        "name": "Vivi",
+        "role": "UX/UI-kutató · tanácsadó",
+        "bio": "Vivi azt vizsgálja, hogyan jelennek meg a desztinációk digitálisan, és hogyan élik meg azokat az utazók a gyakorlatban. Mesterdiplomájában a design-thinking módszertant alkalmazta a turisztikai kkv-k látogatóközpontú fejlesztésére, és adatvezérelt designnal köti össze az észlelést és az élményt."
+      },
+      {
+        "name": "Eszter",
+        "role": "UX/UI-kutató · adatelemző · doktorandusz",
+        "bio": "Eszter a desztinációk adatait világos, használható stratégiává alakítja. Doktori kutatása a közszféra digitális élményrendszereire összpontosít."
+      }
+    ]
+  },
+  "cta": {
+    "headingLead": "Dolgozzon együtt a",
+    "headingBrand": "Novitatisszal.",
+    "body": "Mesélje el, milyen projekt vagy kérdés foglalkoztatja. Őszintén megmondjuk, hogy tudunk-e segíteni és miként, valamint mi lehet az első lépés.",
+    "button": "Lépjen kapcsolatba"
+  }
+}

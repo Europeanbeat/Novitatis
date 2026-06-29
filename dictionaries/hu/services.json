@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "overview": {
+      "title": "Szolgáltatások",
+      "description": "Szakértői hálózat a turisztikai ágazat számára. Tanácsadás és stratégia, fejlesztés és digitalizáció, oktatás és mentorálás, valamint előadások, egyetlen kutatásalapú módszerre építve."
+    },
+    "consulting": {
+      "title": "Tanácsadás és stratégia",
+      "description": "Kutatásalapú tanácsadás és stratégia a turizmusban: desztinációs stratégia és fejlesztés, megvalósíthatósági tanulmányok, kutatás és elemzés, valamint szakpolitika és módszertan."
+    },
+    "education": {
+      "title": "Oktatás és mentorálás",
+      "description": "AI- és digitális képzés, kurzusok és személyes mentorálás, amelyek turisztikai csapatokon és kkv-kon belül építik a képességet, az AI4Tourism, a Turizmus Tudástár és a Visible Tourism keretében."
+    },
+    "publicSpeaking": {
+      "title": "Előadások",
+      "description": "Kutatásalapú előadások az AI-ről és a digitális turizmusról: AI-alapú keresési láthatóság, online jelenlét, adatvezérelt desztinációmenedzsment és mérhető fenntarthatóság. Magyarul és angolul."
+    }
+  },
+  "common": {
+    "allServices": "Összes szolgáltatás",
+    "letsWorkTogether": "Dolgozzunk együtt",
+    "seeOurProjects": "Projektjeink megtekintése",
+    "inviteToSpeak": "Hívjon meg előadni",
+    "whoWeWorkWith": "Kikkel dolgozunk",
+    "whatWeDo": "Mit csinálunk",
+    "whatWeSpeakAbout": "Miről beszélünk",
+    "formats": "Formátumok"
+  },
+  "consulting": {
+    "eyebrow": "Tanácsadás és stratégia",
+    "heroTitle": "Kutatásból és adatból turisztikai stratégiát alkotunk.",
+    "heroLead1": "Desztinációk, nemzeti turisztikai szervezetek és az ökoszisztémájukban működő turisztikai vállalkozások, egészen az egyéni kkv-kig, azért fordulnak hozzánk, hogy megértsék, valójában hogyan teljesítenek, online és a terepen egyaránt, és hogy ezt stratégiává, fejlesztéssé és szakpolitikává alakítsák. Ahogy a keresés és az AI átformálja, miként döntenek az utazók, a digitális kép olvasata mindennek a középpontjába került.",
+    "heroLead2": "Szakértői hálózatként dolgozunk, és a legtöbb projektnél a díjazásunk az eredményhez kötött. Ennek a munkának a java desztinációs és nemzeti szinten zajlik, de eljut az egyéni szolgáltatókig és kkv-kig is, azokig a szereplőkig, akiknek a jó adat és a digitális szaktudás általában elérhetetlen.",
+    "services": [
+      {
+        "title": "Kutatás és elemzés",
+        "body": "Hogyan viszonyulnak a helyiek a turizmushoz? Valójában hogyan teljesítenek a szolgáltatók online? Megvizsgáljuk azokat a kérdéseket, amelyeken egy stratégia múlik, a helyiek hozzáállását, a szolgáltatók teljesítményét, a piaci és digitális érettséget, és olyan bizonyítékká alakítjuk őket, amelyre a vezetők támaszkodhatnak."
+      },
+      {
+        "title": "Digitális érettség és láthatóság",
+        "body": "Mennyire látható egy desztináció, amikor valaki rákeres, vagy egy AI-t kérdez? Auditáljuk, hogyan jelenik meg a desztináció és szolgáltatói a találati oldalakon és az AI-válaszokban, az általunk épített rendszerekkel pontozzuk a hiányosságokat, és feltérképezzük, hol szakad meg a vendégút."
+      },
+      {
+        "title": "Stratégia és fejlesztés",
+        "body": "Mit tegyen egy desztináció ezután, és miért? Megépítjük az erre választ adó desztinációs stratégiákat és fejlesztési terveket, kutatásra alapozva, és azokkal együtt formálva, akiknek meg kell valósítaniuk."
+      },
+      {
+        "title": "Megvalósíthatóság és költség-haszon",
+        "body": "Vajon használni fogják-e egy fejlesztést, ha megépül, és kitermeli-e a saját költségét? Megvalósíthatósági tanulmányokat és költség-haszon elemzést készítünk, amelyek erre válaszolnak, a keresletet a kínálattal, a kiszolgált közönséggel és az évekig tartó üzemeltetés költségével vetve össze, olyan munka, amely uniós forrású és nemzeti fejlesztéseket alapozott meg."
+      },
+      {
+        "title": "Szakpolitika és módszertan",
+        "body": "Hogyan állapodik meg egy ágazat abban, mi számít étteremnek vagy minőségi szabványnak? Megalkotjuk az erre választ adó módszertanokat és definíciókat, mint a vendéglátóhely-kategorizáció, amelyet a 634/2020. (XII. 22.) Korm. rendeletbe írtunk, és újrahasznosítható kereteket, például egy desztinációs stratégiai módszertant és egy vendégelégedettségi indexet."
+      }
+    ],
+    "howWeWork": {
+      "label": "Hogyan dolgozunk",
+      "lead": "Bármi is a feladat, a módszer következetes: kutatáson és adatokon keresztül olvassuk a desztinációt, abból építjük a stratégiát, amit megmutat, és azokkal formáljuk, akiknek meg kell valósítaniuk.",
+      "method": [
+        {
+          "step": "01",
+          "title": "Kutatás és adat",
+          "body": "A terepkutatást és az interjúkat összekapcsoljuk azokkal az adatokkal, amelyekkel egy desztináció már rendelkezik, a nemzeti statisztikáktól a szolgáltatók online teljesítményéig, és az általunk épített modellekkel pontozzuk."
+        },
+        {
+          "step": "02",
+          "title": "Stratégia",
+          "body": "A stratégiát Önnel együtt dolgozzuk ki, a bizonyítékoktól a prototípusokon át a beárazott tervig."
+        },
+        {
+          "step": "03",
+          "title": "Átadás és mérés",
+          "body": "Megvalósításra kész tervet kap, gyakran a hozzá tartozó forrásigény-indoklással, és egy világos módot arra, hogy megmérje, működött-e."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Stratégiát, tanulmányt vagy forrásigény-indoklást tervez?",
+      "body": "Mondja el, milyen döntés előtt áll. Megmondjuk, mit mutatnak a bizonyítékok, és hogyan közelítenénk meg."
+    }
+  },
+  "education": {
+    "eyebrow": "Oktatás és mentorálás",
+    "heroTitle": "Megtanítjuk a turisztikai csapatokat az AI használatára és a saját online jelenlétük kézben tartására.",
+    "heroLead": "Desztinációk, nemzeti turisztikai szervezetek és az ökoszisztémájukban működő szolgáltatók, egészen az egyéni kkv-kig, azért fordulnak hozzánk, hogy felépítsék azokat a készségeket, amelyeket a munkájuk ma megkövetel. Csapatokat tanítunk be arra, hogy az AI-t a valós feladataikban hasznosítsák, a kisebb vállalkozásoknak pedig megmutatjuk, hogyan tartsák kézben a láthatóságukat a keresésben, a Google Térképen és az AI-válaszokban.",
+    "navWhatWeDo": "Mit csinálunk",
+    "navOurBrands": "Márkáink",
+    "ourBrands": "Márkáink",
+    "services": [
+      {
+        "title": "AI-képzés turisztikai csapatoknak",
+        "body": "Mi változik, amikor egy csapat valóban használni tudja az AI-t a napi munkájában? Olyan képzést tartunk, amely végigvezeti a turisztikai csapatot a promptoláson, a tartalmon, az adatokon és a riportoláson, valamint a képgeneráláson, mindezt egy desztináció valós feladataira alkalmazva. A résztvevők úgy távoznak, hogy ezeket az eszközöket be tudják építeni a már meglévő munkájukba."
+      },
+      {
+        "title": "Google Cégprofil-kurzusok",
+        "body": "A legtöbb utazó már jóval a weboldal előtt a Google-ön találkozik egy turisztikai vállalkozással. Turizmus Tudástár kurzusainkon a szolgáltatók megtanulják beállítani és optimalizálni a Google Cégprofiljukat, kezelni az értékeléseket és az online hírnevet, kiolvasni a teljesítményüket, és láthatónak maradni, ahogy az AI átformálja a keresést. Azoknak a tulajdonosoknak és kis csapatoknak készült, akik maguk kezelik a profiljukat."
+      },
+      {
+        "title": "Személyes mentorálás",
+        "body": "Mit kell ennek a vállalkozásnak elsőként rendbe tennie? A személyes mentorálási alkalmakon végigvesszük egy szervezet Google-jelenlétét azokkal, akik kezelik, és egy pontozott jelentéssel zárunk, amely értékeli, hol tart, és prioritási sorrendben felvázolja a teendőket. Minden alkalom az adott vállalkozásra van szabva."
+      },
+      {
+        "title": "Online láthatóság",
+        "body": "Mennyire látható egy desztináció vagy szolgáltató, amikor valaki rákeres, vagy egy AI-t kérdez? A Visible Tourism keretében az emögött álló gyakorlatot tanítjuk: GEO és AEO, Google Térkép-jelenlét, és megjelenés az AI-vezérelt keresésben, az aktuális helyzetet feltáró auditokkal együtt. A hangsúly azon a tudáson van, amelyet egy csapat a saját profiljaira és tartalmaira alkalmazhat."
+      },
+      {
+        "title": "Workshopok és termékfejlesztés",
+        "body": "Hol veszítenek a leggyakrabban teret a szolgáltatók? Workshopjaink a termék- és csomagfejlesztést, az online jelenlétet és a szolgáltatók napi munkájához szükséges digitális készségeket ölelik fel. Turisztikai vállalkozások csoportjainak készültek, és a közös kihívásokat olyan készségekké alakítják, amelyeket egy csapat azonnal munkába állíthat."
+      }
+    ],
+    "cta": {
+      "heading": "Szeretné fejleszteni a csapata képességeit?"
+    }
+  },
+  "publicSpeaking": {
+    "eyebrow": "Előadások",
+    "heroTitle": "A saját kutatásunkra épülő előadások.",
+    "heroLead1": "Schmutz Ádám a turizmus digitális jövőjéről beszél magyarul és angolul, a konferencia-előadásoktól a desztinációs csapatokkal tartott zártkörű workshopokig. Minden előadás kutatásalapú: az érvek a saját elsődleges adatainkból származnak arról, hogyan viselkednek a desztinációk és a szolgáltatók online, ugyanabból a munkából, amely a lektorált publikációinkon és egy folyamatban lévő, a Pannon Egyetemen készülő doktori kutatáson is végigvonul.",
+    "heroLead2": "Mindezt mintegy egy évtizednyi tanácsadói tapasztalat alapozza meg, így a terem azt hallja, merre tart a szakterület, és mit tehet egy desztináció ezután. Nemzeti viszonyítási pont vagyunk az AI-alapú keresési láthatóság és a desztinációk digitális jelenléte terén, az előadások pedig mára nemzetközi színtérre is eljutnak.",
+    "trackRecordLabel": "Eredmények",
+    "trackRecordText": "Tekintse meg a vezérelőadások, panelek, podcastok és kiállítások teljes archívumát.",
+    "trackRecordLink": "Megjelenések",
+    "cta": {
+      "heading": "Eseményt vagy csapatos alkalmat tervez?",
+      "body": "Mondja el a közönséget és az időpontot, és javaslatot teszünk egy előadásra."
+    }
+  },
+  "serviceDetail": {
+    "whatsIncluded": "Mit tartalmaz",
+    "researchHeading": "Kutatás és elemzés.",
+    "featureLabel": "Lakossági hozzáállás és szakpolitikai betekintés",
+    "featureHeading": "Hogyan viszonyulnak a helyiek a turizmushoz?",
+    "featureBody": "A hosszú távú sikerre törekvő desztinációknak meg kell érteniük, milyen hatással van a turizmus az otthoni életminőségre. Vizsgáljuk a helyiek hozzáállását, a szolgáltatók teljesítményét és a szakpolitikai környezetet, majd a bizonyítékot olyan döntésekké alakítjuk, amelyeket a vezetők meg tudnak védeni.",
+    "readStudy": "Tanulmány elolvasása",
+    "proofLabel": "Bizonyíték",
+    "proofHeading": "Ahol mindez megállta a helyét.",
+    "whoWeWorkWith": "Kikkel dolgozunk"
+  }
+}

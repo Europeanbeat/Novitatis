@@ -1,19 +1,23 @@
 import { Landmark, MapPin, Store, type LucideIcon } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { clientTiers } from "@/lib/services-content";
+import { getServicesContent } from "@/lib/services-content";
+import type { Locale } from "@/lib/i18n/config";
 
 // Staircase of the tourism system: foundation (policy) at the base building up
 // to the operators who serve the guest. Cards stay white and teal (teal is the
 // primary colour); gold is a warm ACCENT only, the number disc + a left rule,
 // deepening as you go up so each level reads distinctly. Each level keeps its
 // full client list (the previous content).
-const META: Record<string, { icon: LucideIcon; gold: string }> = {
-  "Public & national": { icon: Landmark, gold: "#E6C871" }, // foundation, palest
-  "Destination management": { icon: MapPin, gold: "#D9B254" },
-  "Businesses & providers": { icon: Store, gold: "#C99A3A" }, // top, deepest
-};
+// Indexed by the clientTiers order (0 = policy foundation … 2 = operators), so
+// it stays correct whatever language the tier labels are in.
+const META: { icon: LucideIcon; gold: string }[] = [
+  { icon: Landmark, gold: "#E6C871" }, // foundation, palest
+  { icon: MapPin, gold: "#D9B254" },
+  { icon: Store, gold: "#C99A3A" }, // top, deepest
+];
 
-export function ClientSpectrum() {
+export function ClientSpectrum({ locale }: { locale: Locale }) {
+  const { clientTiers, ui } = getServicesContent(locale);
   // Operators at the top, policy foundation at the bottom.
   const levels = [...clientTiers].reverse();
 
@@ -23,12 +27,12 @@ export function ClientSpectrum() {
         <ScrollReveal direction="up" duration={0.8}>
           <div className="max-w-[60ch] mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[18ch]">
-              From ministries to{" "}
-              <span className="whitespace-nowrap">family-run</span> guesthouses.
+              {ui.clients.headingBefore}
+              <span className="whitespace-nowrap">{ui.clients.headingNoWrap}</span>
+              {ui.clients.headingAfter}
             </h2>
             <p className="mt-4 text-[#334F5A]/75 leading-relaxed max-w-[52ch]">
-              We work at every level of the tourism economy, in Hungary and
-              internationally, and translate between them.
+              {ui.clients.lead}
             </p>
           </div>
         </ScrollReveal>
@@ -36,7 +40,7 @@ export function ClientSpectrum() {
         {/* Staircase: each level up steps in from the left, foundation widest */}
         <div className="space-y-3 lg:space-y-4">
           {levels.map((tier, i) => {
-            const m = META[tier.tier];
+            const m = META[levels.length - 1 - i]; // original tier order
             const Icon = m.icon;
             const number = levels.length - i; // 3 (top) … 1 (foundation)
             return (

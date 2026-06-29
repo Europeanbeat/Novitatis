@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Novitatis | Innováció a turizmusban",
+    "description": "Kutatás, stratégia, fejlesztés és képzés desztinációknak, intézményeknek és turisztikai vállalkozásoknak."
+  },
+  "hero": {
+    "eyebrow": "Innováció a turizmusban",
+    "heading": "Megválaszoljuk a turizmus kérdéseit.",
+    "intro": "Kutatás, stratégia, fejlesztés és képzés desztinációk, intézmények és turisztikai vállalkozások számára.",
+    "quickLinks": {
+      "whatWeDo": "Amivel foglalkozunk",
+      "ourBrands": "Márkáink",
+      "ourProjects": "Projektjeink"
+    }
+  },
+  "features": {
+    "eyebrow": "Miért minket?",
+    "headingLead": "Miért a",
+    "headingAccent": "Novitatis?",
+    "attribution": "Adam Schmutz, alapító",
+    "items": [
+      {
+        "title": "A zero-effort korszak",
+        "quote": "A zero-effort korszak lényege, hogy a felhasználónak elég egyetlen, pontos utasítást adnia, a többi lépést pedig az AI elvégzi helyette. Ez alapjaiban értelmezi újra, mit jelent ma egyáltalán láthatónak lenni."
+      },
+      {
+        "title": "Digitális jelenlét, amely megállja a helyét",
+        "quote": "Egyre inkább az AI dönti el, mely szolgáltatókat ajánlja, és ehhez a strukturált adatokat olvassa, nem a brosúra szövegét. A digitális jelenlétet ezért folyamatos üzemeltetési feladatnak tekintem, nem hajszolandó divatnak: ez tartja a desztinációt azok között a lehetőségek között, amelyeket az utazók valóban látnak."
+      },
+      {
+        "title": "Mentorálás, amely kiállja a valóság próbáját",
+        "quote": "A digitális jelenlét megléte és tényleges használata közötti szakadék ritkán a tudás hiányából ered. Sokkal inkább abból, amivel egy kis szolgáltatónak nap mint nap számolnia kell: a szezonalitásból, a személyes kapcsolat fontosságából, a digitális megoldásokkal szembeni jogos kételyekből. Olyan workshopokat és mentorálást tartunk, amelyek ebből a valóságból indulnak ki, így amit átadunk, az a mindennapi munkában is használható marad."
+      },
+      {
+        "title": "Turizmus, és semmi más",
+        "quote": "Kizárólag a turizmussal foglalkozom. Minden javaslatunk magából a szakterületből nő ki, nem egy kívülről ráhúzott, általános tanácsadói sablonból. Éppen ez a fókusz teszi a tanácsainkat a gyakorlatban is helytállóvá."
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "Szolgáltatásaink",
+    "headingLines": [
+      "Stratégia",
+      "Technológia",
+      "Tudás"
+    ],
+    "explore": "Tovább",
+    "steps": [
+      {
+        "title": "Tanácsadás",
+        "subtitle": "és stratégia",
+        "description": "Elemezzük a piacot, desztinációs stratégiát építünk, és támogatjuk a digitális átállást. Kkv-któl az önkormányzatokig."
+      },
+      {
+        "title": "Fejlesztés",
+        "subtitle": "és digitalizáció",
+        "description": "Egyedi webes megoldások, AI-alapú eszközök és digitalizációs projektek, az ötlettől a megvalósításig."
+      },
+      {
+        "title": "Oktatás",
+        "subtitle": "és mentorálás",
+        "description": "Workshopok, mentorprogramok és képzések turisztikai szakembereknek, Google, AI és Smart Destination témákban."
+      },
+      {
+        "title": "Előadások",
+        "subtitle": "és szakmai jelenlét",
+        "description": "Konferenciák, szakmai események és előadások, amelyek formálják a turizmus digitális jövőjéről szóló párbeszédet."
+      }
+    ]
+  },
+  "brands": {
+    "eyebrow": "Márkaportfólió",
+    "headingLead": "Márkáink",
+    "headingAccent": "a turizmusért.",
+    "intro": "Három önálló márka, amely a turizmus különböző szegmenseit szolgálja, a digitális láthatóságtól az AI-alapú megoldásokig.",
+    "items": [
+      {
+        "audience": "TDM · DMO · turisztikai vállalkozások",
+        "description": "Digitális láthatóság desztinációknak (TDM, DMO), Google-alapú infrastruktúrán."
+      },
+      {
+        "audience": "Turisztikai kkv-k",
+        "description": "Tudásplatform és Google Cégprofil mentorálás turisztikai kkv-knak."
+      },
+      {
+        "audience": "Turisztikai szereplők",
+        "description": "AI mentorprogram: gyakorlati AI a turizmusban dolgozóknak."
+      }
+    ]
+  },
+  "selectedWork": {
+    "eyebrow": "Válogatott munkáink",
+    "heading": "Legutóbbi munkáink.",
+    "allProjects": "Összes projekt",
+    "readStory": "Történet elolvasása"
+  },
+  "audience": {
+    "eyebrow": "Kikkel dolgozunk",
+    "headingLead": "A turizmus",
+    "headingAccent": "minden szintjén.",
+    "intro": "A nemzeti turisztikai szervezetektől az egyes éttermekig a Novitatis a teljes ökoszisztémában dolgozik, minden léptéken.",
+    "cta": "Beszéljünk a projektjéről",
+    "tiers": [
+      {
+        "note": "Szakpolitikai és rendszerszint",
+        "tier": "Közszféra és nemzeti szint",
+        "clients": [
+          "Minisztériumok",
+          "Nemzeti turisztikai szervezetek",
+          "Regionális fejlesztési ügynökségek"
+        ]
+      },
+      {
+        "note": "Helyi szint",
+        "tier": "Desztinációmenedzsment",
+        "clients": [
+          "DMO- és TDM-szervezetek",
+          "Önkormányzatok",
+          "Turisztikai klaszterek és egyesületek"
+        ]
+      },
+      {
+        "note": "Szolgáltatói szint",
+        "tier": "Vállalkozások és szolgáltatók",
+        "clients": [
+          "Turisztikai kkv-k",
+          "Szálláshelyek",
+          "Éttermek és vendéglátás"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Készen áll, hogy formálja",
+    "headingLine2": "a turizmus jövőjét?",
+    "intro": "Legyen szó stratégiáról, fejlesztésről, oktatásról vagy előadásról, mondja el, min dolgozik, és találjuk meg együtt a megfelelő megoldást.",
+    "email": "info@novitatis.hu",
+    "form": {
+      "name": "Név",
+      "namePlaceholder": "Az Ön neve",
+      "email": "E-mail",
+      "emailPlaceholder": "nev@email.com",
+      "message": "Üzenet",
+      "messagePlaceholder": "Miben segíthetünk?",
+      "send": "Üzenet küldése",
+      "sending": "Küldés...",
+      "success": "Köszönjük. Hamarosan jelentkezünk.",
+      "error": "Valami hiba történt. Kérjük, próbálja újra, vagy írjon az info@novitatis.hu címre."
+    }
+  }
+}

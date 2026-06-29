@@ -88,14 +88,14 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "",
     "quote": "“The question used to be who appears first among Google's 10 results. Now it's: does AI mention you at all when someone asks?” In 2026, 45% of consumers already use an AI tool to find a local business – up from just 6% a year ago.",
-    "cover": "",
+    "cover": "/images/manual-covers/stay-visible.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "Stay visible in the age of AI – talk | Adam Schmutz",
     "seoDescription": "Adam Schmutz's talk: how do customers find you in the age of AI search? 45% already use AI to find a local business – what to do so AI mentions you too.",
     "featured": true,
     "order": 3,
-    "size": "sm"
+    "size": "lg"
   },
   {
     "id": "9",
@@ -119,7 +119,7 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "",
     "quote": "“The technology is available and not complicated — the hardest parts are sector-wide common will and a legal mandate.” In Hungary, 95,000+ accommodations supply daily, automatic data to the NTAK/NTDSC system – providers don't have to lift a finger.",
-    "cover": "",
+    "cover": "/images/manual-covers/smart-tour.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "Hungary's data-driven tourism (NTAK) – international talk | Adam Schmutz",
@@ -150,7 +150,7 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "",
     "quote": "“The region is a sleeping giant: 92–94% of the district's guest nights go to a single attraction, while the value of the other 12 settlements stays invisible.” 80% of the 166 tourism attractions have an unmanaged Google profile.",
-    "cover": "",
+    "cover": "/images/manual-covers/tiszazug.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "Tiszazug 2035 – regional tourism strategy | Adam Schmutz",
@@ -192,7 +192,7 @@ export const references: Reference[] = [
     "seoDescription": "Adam Schmutz at the Earth Day Conference: how digitalization reduces environmental footprint, and what the EU ECGT requires from Lake Balaton accommodations from 2026.",
     "featured": true,
     "order": 9,
-    "size": "lg"
+    "size": "wide"
   },
   {
     "id": "1",
@@ -302,7 +302,7 @@ export const references: Reference[] = [
     "seoDescription": "Adam Schmutz moderated the Balaton365 workshop panel on tourism competitiveness and the everyday application of digitalization (Balatonkenese, 2026).",
     "featured": true,
     "order": 15,
-    "size": "wide"
+    "size": "lg"
   },
   {
     "id": "10",
@@ -399,14 +399,14 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "https://journals.lib.uni-corvinus.hu/index.php/turizmusbulletin/article/view/2324, https://turizmus.com/cikk/business-travel/corvinus-egyetem-turizmus-bulletin-online-ter-balaton-gasztroturizmus",
     "quote": "“Of 73 Lake Balaton gastro-tourism businesses, 92% have an advanced digital presence yet only 5.5% sell online (a 17:1 ratio) – the barrier to digital adoption is not a lack of competence, but decision logic.”",
-    "cover": "",
+    "cover": "/images/manual-covers/turizmus-bulletin-2025.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "Lake Balaton gastro-tourism and online sales – academic study | Adam Schmutz",
     "seoDescription": "Adam Schmutz's Turizmus Bulletin study: digital maturity and online sales of 73 Lake Balaton gastro businesses – the 92% vs. 5.5% paradox.",
     "featured": true,
     "order": 1,
-    "size": "sm"
+    "size": "wide"
   },
   {
     "id": "11",
@@ -443,7 +443,7 @@ export const references: Reference[] = [
     "seoDescription": "A full-day, hands-on AI training for the VisitBalaton365 DMO team: prompting, AI copywriting, data processing, image generation and “Google Maps for DMOs”.",
     "featured": true,
     "order": 13,
-    "size": "lg"
+    "size": "sm"
   },
   {
     "id": "13",
@@ -504,14 +504,14 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "",
     "quote": "“Sharing practical experiences and ongoing initiatives to inspire fellow Destination Marketing Organizations.” VisitBalaton365 makes the destination visible to AI search engines and visitors through internal AI capability-building and concrete work in the Google ecosystem.",
-    "cover": "",
+    "cover": "/images/manual-covers/ai-opener.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "AI Opener – VisitBalaton365's AI journey | Adam Schmutz",
     "seoDescription": "Adam Schmutz's talk at the AI Opener Bootcamp: how VisitBalaton365 DMO builds AI into its teams and digital visibility – to inspire other DMOs.",
     "featured": true,
     "order": 7,
-    "size": "sm"
+    "size": "lg"
   },
   {
     "id": "15",
@@ -591,7 +591,7 @@ export const references: Reference[] = [
     "seoDescription": "A two-day package offer and product development workshop in Keszthely with 20 Lake Balaton providers; Adam Schmutz facilitated – a real, bookable experience package was the result.",
     "featured": true,
     "order": 11,
-    "size": "wide"
+    "size": "sm"
   },
   {
     "id": "16",
@@ -631,7 +631,7 @@ export const references: Reference[] = [
     "seoDescription": "A one-day hands-on online presence and online sales workshop for 8 Lake Balaton tourism providers at the Dobosi Estate – strategy, booking system, measurable revenue.",
     "featured": true,
     "order": 12,
-    "size": "sm"
+    "size": "wide"
   },
   {
     "id": "5",
@@ -655,7 +655,7 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "https://mersz.hu/miskolczi-valtozo-perspektivak-napjaink-turizmusaban/",
     "quote": "“The analysis of more than 1,300 Lake Balaton service provider websites shows that many market players' sites no longer meet 21st-century consumer expectations.”",
-    "cover": "",
+    "cover": "/images/manual-covers/book-chapter-2023.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "Digital hospitality at Lake Balaton – analysis of 1,300+ websites | book chapter",
@@ -686,7 +686,7 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "https://turizmus.com/cikk/archiv/felkeszulten-varjak-a-foszezont-a-tourinformok-az-orszag-kozel-szaz-pontjan ; https://sumeginfo.hu/hirek-sumeg/orszagos-tourinform-talalkozo-ii-nap",
     "quote": "“Of the 25 Tourinform offices examined, the access path met modern expectations only 73% of the time, information content 56%, and functionality just 19% – this is where the Visible Tourism concept leads from.” (Adam Schmutz)",
-    "cover": "",
+    "cover": "/images/manual-covers/tourinform.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "The digital presence of Tourinform offices – talk | Adam Schmutz (National Tourinform Meeting)",
@@ -732,7 +732,7 @@ export const references: Reference[] = [
     "seoDescription": "Adam Schmutz's talk at the METU and CheckINN Digital Tourism Workshop: the digital presence of Lake Balaton providers and the customer-journey blocking points from the guest-experience perspective.",
     "featured": true,
     "order": 18,
-    "size": "sm"
+    "size": "lg"
   },
   {
     "id": "18",
@@ -756,7 +756,7 @@ export const references: Reference[] = [
     "videoUrl": "",
     "pressUrl": "",
     "quote": "“For 92% of the 1,318 Lake Balaton provider websites examined, the visitor journey gets stuck at some point – one of the biggest barriers to the destination's online visibility.” (Adam Schmutz)",
-    "cover": "",
+    "cover": "/images/manual-covers/balaton365-season-opening.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "The digital visibility of Lake Balaton providers – keynote talk | Adam Schmutz",
@@ -787,7 +787,7 @@ export const references: Reference[] = [
     "videoUrl": "https://soundcloud.com/novitatis-consulting/smart-balaton",
     "pressUrl": "",
     "quote": "Q: What does the SMART Balaton look like? – The audio is about the vision of a digital, data-driven and more visible Lake Balaton destination.",
-    "cover": "",
+    "cover": "/images/manual-covers/smart-balaton.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "SMART Balaton – audio | Lake Balaton's smart, digital future",
@@ -818,13 +818,13 @@ export const references: Reference[] = [
     "videoUrl": "https://soundcloud.com/novitatis-consulting/analog-meg-a-balaton",
     "pressUrl": "",
     "quote": "Q: How “analog” is Lake Balaton still in the digital space? – The audio explores the gaps in Lake Balaton providers' online presence and the direction of digital progress.",
-    "cover": "",
+    "cover": "/images/manual-covers/analog-balaton.jpg",
     "photos": [],
     "imageAlt": "",
     "seoTitle": "Is Lake Balaton still analog? – audio | digital presence at Lake Balaton",
     "seoDescription": "An audio piece on the digital presence of Lake Balaton tourism providers – how “analog” is Lake Balaton still in the online space?",
     "featured": false,
     "order": 22,
-    "size": "sm"
+    "size": "wide"
   }
 ];

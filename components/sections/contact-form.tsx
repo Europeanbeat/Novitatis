@@ -6,7 +6,22 @@ import { ArrowRight } from "lucide-react";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
-export function ContactForm() {
+type FormCopy = {
+  name: string;
+  namePlaceholder: string;
+  email: string;
+  emailPlaceholder: string;
+  organization: string;
+  organizationPlaceholder: string;
+  message: string;
+  messagePlaceholder: string;
+  send: string;
+  sending: string;
+  success: string;
+  error: string;
+};
+
+export function ContactForm({ t }: { t: FormCopy }) {
   const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,35 +55,35 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-[#f9fbff] border border-foreground/10 rounded-2xl p-6 lg:p-8">
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className="text-sm font-mono text-muted-foreground">
-          Name
+          {t.name}
         </label>
-        <input id="name" type="text" name="name" required placeholder="Your name" className={inputClass} />
+        <input id="name" type="text" name="name" required placeholder={t.namePlaceholder} className={inputClass} />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="text-sm font-mono text-muted-foreground">
-          Email
+          {t.email}
         </label>
-        <input id="email" type="email" name="email" required placeholder="you@email.com" className={inputClass} />
+        <input id="email" type="email" name="email" required placeholder={t.emailPlaceholder} className={inputClass} />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="organization" className="text-sm font-mono text-muted-foreground">
-          Organization
+          {t.organization}
         </label>
-        <input id="organization" type="text" name="organization" placeholder="Company / organization" className={inputClass} />
+        <input id="organization" type="text" name="organization" placeholder={t.organizationPlaceholder} className={inputClass} />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className="text-sm font-mono text-muted-foreground">
-          Message
+          {t.message}
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows={5}
-          placeholder="How can we help?"
+          placeholder={t.messagePlaceholder}
           className="px-4 py-3 rounded-lg border border-foreground/15 bg-white text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 transition-colors resize-none"
         />
       </div>
@@ -79,18 +94,18 @@ export function ContactForm() {
         disabled={status === "sending"}
         className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group mt-2 disabled:opacity-60"
       >
-        {status === "sending" ? "Sending..." : "Send message"}
+        {status === "sending" ? t.sending : t.send}
         <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
       </Button>
 
       {status === "success" && (
         <p className="text-sm text-[#334F5A] font-mono">
-          Thank you! We&apos;ll get back to you soon.
+          {t.success}
         </p>
       )}
       {status === "error" && (
         <p className="text-sm text-red-600 font-mono">
-          Something went wrong. Please try again, or email info@novitatis.hu.
+          {t.error}
         </p>
       )}
     </form>

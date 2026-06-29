@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Novitatis | Innovation in tourism",
+    "description": "Research, strategy, development and training for destinations, institutions and tourism businesses."
+  },
+  "hero": {
+    "eyebrow": "Innovation in tourism",
+    "heading": "We answer the questions tourism is asking.",
+    "intro": "Research, strategy, development and training, for destinations, institutions and tourism businesses.",
+    "quickLinks": {
+      "whatWeDo": "What we do",
+      "ourBrands": "Our brands",
+      "ourProjects": "Our projects"
+    }
+  },
+  "features": {
+    "eyebrow": "Why us?",
+    "headingLead": "Why",
+    "headingAccent": "Novitatis?",
+    "attribution": "Adam Schmutz, Founder",
+    "items": [
+      {
+        "title": "The zero-effort era",
+        "quote": "We are entering a zero-effort era: a traveller gives one precise instruction and the AI carries out every step, from finding the options to booking. That changes what being visible even means."
+      },
+      {
+        "title": "Digital that earns its place",
+        "quote": "AI is starting to decide which providers get recommended at all, and it reads your structured data, not your brochure copy. I treat digital presence as ongoing operational work that keeps a destination in the set of options travellers are actually shown, not as a trend to chase."
+      },
+      {
+        "title": "Mentoring that survives the real business",
+        "quote": "The distance between having a digital presence and actually using it rarely comes from a lack of skill. It comes from how a small operator is forced to weigh things: seasonality, the pull of personal contact, a fair scepticism about digital. We run workshops and mentoring that start from that reality, so what we cover still holds once people are back at work."
+      },
+      {
+        "title": "Tourism, and nothing else",
+        "quote": "I work in tourism and nowhere else. Everything we recommend comes from inside the field, not from a general consulting playbook applied to it. That focus is why the advice holds."
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "Our services",
+    "headingLines": [
+      "Strategy",
+      "Technology",
+      "Knowledge"
+    ],
+    "explore": "Explore",
+    "steps": [
+      {
+        "title": "Consulting",
+        "subtitle": "& strategy",
+        "description": "We analyse the market, build destination strategy, and support the digital transition. From SMEs to municipalities."
+      },
+      {
+        "title": "Development",
+        "subtitle": "& digitalisation",
+        "description": "Custom web solutions, AI-based tools and digitalisation projects, from idea to delivery."
+      },
+      {
+        "title": "Education",
+        "subtitle": "& mentoring",
+        "description": "Workshops, mentoring programmes and training for tourism professionals, on Google, AI and Smart Destination topics."
+      },
+      {
+        "title": "Public Speaking",
+        "subtitle": "& shaping the field",
+        "description": "Conferences, professional events and talks, shaping the conversation about the digital future of tourism."
+      }
+    ]
+  },
+  "brands": {
+    "eyebrow": "Brand portfolio",
+    "headingLead": "Our brands",
+    "headingAccent": "for tourism.",
+    "intro": "Three independent brands serving different segments of tourism, from digital visibility to AI-based solutions.",
+    "items": [
+      {
+        "audience": "TDM · DMO · tourism businesses",
+        "description": "Digital visibility for destinations (TDM, DMO), on a Google-based infrastructure."
+      },
+      {
+        "audience": "Tourism SMEs",
+        "description": "A knowledge platform and Google Business Profile mentoring for tourism SMEs."
+      },
+      {
+        "audience": "Tourism players",
+        "description": "An AI mentoring programme: practical AI for people working in tourism."
+      }
+    ]
+  },
+  "selectedWork": {
+    "eyebrow": "Selected work",
+    "heading": "Our most recent work.",
+    "allProjects": "All projects",
+    "readStory": "Read the story"
+  },
+  "audience": {
+    "eyebrow": "Who we work with",
+    "headingLead": "Every level",
+    "headingAccent": "of tourism.",
+    "intro": "From national tourism organisations to individual restaurants, Novitatis works across the full ecosystem, at every scale.",
+    "cta": "Let's talk about your project",
+    "tiers": [
+      {
+        "note": "Policy and system level",
+        "tier": "Public & national",
+        "clients": [
+          "Ministries",
+          "National tourism organisations",
+          "Regional development agencies"
+        ]
+      },
+      {
+        "note": "Place level",
+        "tier": "Destination management",
+        "clients": [
+          "DMOs & TDM organisations",
+          "Municipalities",
+          "Tourism clusters & associations"
+        ]
+      },
+      {
+        "note": "Operator level",
+        "tier": "Businesses & providers",
+        "clients": [
+          "Tourism SMEs",
+          "Accommodation",
+          "Restaurants & hospitality"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Ready to shape",
+    "headingLine2": "tourism's future?",
+    "intro": "Whether it's strategy, development, education or a talk, tell us what you're working on and let's find the right solution together.",
+    "email": "info@novitatis.hu",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "E-mail",
+      "emailPlaceholder": "you@email.com",
+      "message": "Message",
+      "messagePlaceholder": "How can we help?",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Thank you. We'll be in touch soon.",
+      "error": "Something went wrong. Please try again, or email info@novitatis.hu."
+    }
+  }
+}

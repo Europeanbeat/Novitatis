@@ -1,34 +1,21 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-
-const principles = [
-  {
-    title: "Research & strategy",
-    body: "We work out what your destination or business should actually do, and back it with evidence.",
-  },
-  {
-    title: "Build & digitalise",
-    body: "We turn the strategy into working digital and AI tools, through our own products.",
-  },
-  {
-    title: "Embed",
-    body: "We train your team so the capability stays with you, not on a consultant's laptop.",
-  },
-];
+import { getServicesContent } from "@/lib/services-content";
+import type { Locale } from "@/lib/i18n/config";
 
 // Factual framework section: how the firm is organised. No sales claims.
-export function OurApproach() {
+export function OurApproach({ locale }: { locale: Locale }) {
+  const { ui } = getServicesContent(locale);
+  const principles = ui.approach.principles;
   return (
     <section className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8 py-10 lg:py-14">
       <div className="bg-white rounded-[2rem] border border-foreground/10 shadow-[0_30px_80px_-50px_rgba(51,79,90,0.3)] p-8 lg:p-14">
         <ScrollReveal direction="up" duration={0.8}>
           <div className="max-w-[60ch] mb-10 lg:mb-12">
             <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-tight">
-              We don&apos;t just advise. We build what we recommend.
+              {ui.approach.heading}
             </h2>
             <p className="mt-5 text-[#334F5A]/80 leading-relaxed">
-              Most tourism consultancies hand over a report and leave. We do the
-              research and the strategy, then build the digital and AI that makes it
-              real, and train your team so it lasts.
+              {ui.approach.lead}
             </p>
           </div>
         </ScrollReveal>

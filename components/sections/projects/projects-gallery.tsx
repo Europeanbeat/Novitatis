@@ -3,16 +3,17 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import {
-  projects,
-  projectCategories,
-  type Project,
-} from "@/lib/projects-content";
+import { type Project } from "@/lib/projects-content";
+import { getProjects, getProjectCategories } from "@/lib/projects-i18n";
+import { useLocale } from "@/lib/i18n/use-locale";
 
 // next/link with framer-motion props, so cards animate in but navigate client-side.
 const MotionLink = motion.create(Link);
 
 export function ProjectsGallery() {
+  const locale = useLocale();
+  const projects = getProjects(locale);
+  const projectCategories = getProjectCategories(locale);
   const [active, setActive] = useState<string>("all");
   const reduce = useReducedMotion();
 
@@ -46,17 +47,17 @@ export function ProjectsGallery() {
       {/* Masonry — card height follows each image, so nothing is cropped */}
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
         {shown.map((p, i) => (
-          <Card key={`${active}-${p.slug}`} p={p} i={i} reduce={!!reduce} />
+          <Card key={`${active}-${p.slug}`} p={p} i={i} reduce={!!reduce} locale={locale} />
         ))}
       </div>
     </div>
   );
 }
 
-function Card({ p, i, reduce }: { p: Project; i: number; reduce: boolean }) {
+function Card({ p, i, reduce, locale }: { p: Project; i: number; reduce: boolean; locale: string }) {
   return (
     <MotionLink
-      href={`/references/${p.slug}`}
+      href={`/${locale}/references/${p.slug}`}
       initial={reduce ? false : { opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.4), ease: [0.16, 1, 0.3, 1] }}

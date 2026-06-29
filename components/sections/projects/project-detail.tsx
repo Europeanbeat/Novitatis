@@ -1,30 +1,48 @@
-import Link from "next/link";
-import { projects, type Project } from "@/lib/projects-content";
+import { LocaleLink } from "@/components/i18n/locale-link";
+import { type Project } from "@/lib/projects-content";
+import { getProjects } from "@/lib/projects-i18n";
+import type { Locale } from "@/lib/i18n/config";
 import { PhotoLightbox } from "@/components/sections/references/photo-lightbox";
 
-export function ProjectDetail({ project: p }: { project: Project }) {
+const UI = {
+  en: {
+    allProjects: "All projects", service: "Service", year: "Year",
+    location: "Location", scope: "Scope", methods: "Methods",
+    projectDetail: "Project detail", readSummary: "Read the full summary",
+    related: "Related projects", viewProject: "View project", visitSite: "Visit the website",
+  },
+  hu: {
+    allProjects: "Összes projekt", service: "Szolgáltatás", year: "Év",
+    location: "Helyszín", scope: "Hatókör", methods: "Módszerek",
+    projectDetail: "A projekt részletei", readSummary: "A teljes összefoglaló elolvasása",
+    related: "Kapcsolódó projektek", viewProject: "Projekt megtekintése", visitSite: "Weboldal megtekintése",
+  },
+} as const;
+
+export function ProjectDetail({ project: p, locale }: { project: Project; locale: Locale }) {
+  const u = UI[locale] ?? UI.en;
   const detailParas = p.detail.split(/\n+/).filter(Boolean);
   const meta = [
-    { label: "Service", value: p.pillar },
-    { label: "Year", value: p.year },
-    { label: "Location", value: p.location },
-    { label: "Scope", value: p.scope },
-    { label: "Methods", value: p.methods },
+    { label: u.service, value: p.pillar },
+    { label: u.year, value: p.year },
+    { label: u.location, value: p.location },
+    { label: u.scope, value: p.scope },
+    { label: u.methods, value: p.methods },
   ].filter((m) => m.value);
 
-  const related = projects
+  const related = getProjects(locale)
     .filter((x) => x.slug !== p.slug && x.pillarSlug === p.pillarSlug)
     .slice(0, 3);
 
   return (
     <>
       <article className="relative z-10 max-w-[920px] mx-auto px-6 lg:px-10 pt-28 pb-24">
-        <Link
+        <LocaleLink
           href="/references"
           className="font-mono text-sm text-[#334F5A]/70 inline-flex items-center gap-2 mb-10"
         >
-          <span className="text-[#AAD7E6]">&larr;</span> All projects
-        </Link>
+          <span className="text-[#AAD7E6]">&larr;</span> {u.allProjects}
+        </LocaleLink>
 
         {/* Header */}
         <div className="flex flex-wrap items-center gap-3 mb-5">
@@ -65,7 +83,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full bg-[#334F5A] text-white font-mono text-sm px-6 py-3 group transition-colors hover:bg-[#283d46]"
             >
-              <span>Visit the website</span>
+              <span>{u.visitSite}</span>
               <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1">
                 &#8599;
               </span>
@@ -84,7 +102,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
         {detailParas.length > 0 && (
           <div className="mt-12">
             <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider mb-5">
-              Project detail
+              {u.projectDetail}
             </h2>
             <div className="space-y-5 text-[#334F5A]/85 leading-relaxed text-[17px] max-w-[64ch]">
               {detailParas.map((para, i) => (
@@ -126,7 +144,7 @@ export function ProjectDetail({ project: p }: { project: Project }) {
         {p.pdfs.length > 0 && (
           <div className="mt-12 pt-8 border-t border-foreground/10">
             <p className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider mb-4">
-              Read the full summary
+              {u.readSummary}
             </p>
             <div className="flex flex-wrap gap-3">
               {p.pdfs.map((pdf) => (
@@ -152,11 +170,11 @@ export function ProjectDetail({ project: p }: { project: Project }) {
       {related.length > 0 && (
         <section className="relative z-10 max-w-[1100px] mx-auto px-6 lg:px-10 pb-20">
           <h2 className="font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider mb-6">
-            Related projects
+            {u.related}
           </h2>
           <div className="grid sm:grid-cols-3 gap-5">
             {related.map((r) => (
-              <Link
+              <LocaleLink
                 key={r.slug}
                 href={`/references/${r.slug}`}
                 className="group flex flex-col rounded-2xl bg-white border border-foreground/10 p-6 transition-all duration-300 hover:border-[#AAD7E6] hover:-translate-y-1"
@@ -168,12 +186,12 @@ export function ProjectDetail({ project: p }: { project: Project }) {
                   {r.title}
                 </h3>
                 <span className="mt-auto inline-flex items-center gap-2 font-mono text-xs text-[#334F5A]">
-                  View project
+                  {u.viewProject}
                   <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
                 </span>
-              </Link>
+              </LocaleLink>
             ))}
           </div>
         </section>

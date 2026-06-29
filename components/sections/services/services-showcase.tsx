@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { practices, type Practice } from "@/lib/services-content";
+import { useServicesContent, type Practice } from "@/lib/services-content";
+import { LocaleLink } from "@/components/i18n/locale-link";
 import { Halo } from "@/components/sections/services/_halo";
 
 if (typeof window !== "undefined") {
@@ -18,6 +18,7 @@ if (typeof window !== "undefined") {
 // second scene runs dark for tonal rhythm, photo sides alternate.
 
 export function ServicesShowcase() {
+  const { practices, ui } = useServicesContent();
   const stackRef = useRef<HTMLDivElement>(null);
 
   // Stacking cards: each card pins below the nav while the next one slides up
@@ -107,14 +108,12 @@ export function ServicesShowcase() {
         <div className="relative isolate max-w-[54ch]">
           <Halo className="-inset-x-6 -inset-y-8 lg:-inset-x-10" />
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-display text-[#334F5A] leading-[1.02] max-w-[16ch]">
-            Accepting all
+            {ui.showcase.titleLead}
             <br />
-            <span className="text-[#334F5A]/45">challenges.</span>
+            <span className="text-[#334F5A]/45">{ui.showcase.titleAccent}</span>
           </h2>
           <p className="mt-5 text-lg lg:text-xl text-[#334F5A]/70 leading-relaxed max-w-[50ch]">
-            At our core we are problem solvers, and because no two challenges are
-            the same, neither is the way we respond. Four services, each its own,
-            combined only when your challenge needs it.
+            {ui.showcase.lead}
           </p>
         </div>
       </div>
@@ -148,6 +147,7 @@ function PracticeMoment({
   dark: boolean;
   zIndex: number;
 }) {
+  const { ui } = useServicesContent();
   const cardRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
@@ -228,7 +228,7 @@ function PracticeMoment({
           {practice.flagship && (
             <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[#334F5A]/80 backdrop-blur-md p-4 lg:p-5">
               <span className="font-mono text-[10px] text-[#AAD7E6]/90 uppercase tracking-wider">
-                Flagship: {practice.flagship.label}
+                {practice.flagship.label}
               </span>
               <p className="mt-1.5 font-display text-2xl lg:text-3xl text-white leading-none">
                 {practice.flagship.metric}
@@ -276,7 +276,7 @@ function PracticeMoment({
           {practice.flagship && (
             <p className={`pm-item mt-4 text-sm leading-snug max-w-[58ch] ${inkSoft}`}>
               <span className="font-mono text-[11px] uppercase tracking-wider text-[#AAD7E6] mr-2">
-                Proof
+                {ui.common.proof}
               </span>
               {practice.flagship.outcome}
             </p>
@@ -299,7 +299,7 @@ function PracticeMoment({
           </div>
 
           <div className="pm-item mt-7">
-            <Link
+            <LocaleLink
               href={`/services/${practice.slug}`}
               className={`group inline-flex items-center gap-3 rounded-full pl-6 pr-2.5 py-2.5 font-mono text-sm font-medium cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 ${
                 dark
@@ -307,7 +307,7 @@ function PracticeMoment({
                   : "bg-[#334F5A] text-white shadow-[0_14px_34px_-12px_rgba(51,79,90,0.6)] hover:bg-[#283d46]"
               }`}
             >
-              <span>Explore {practice.title.toLowerCase()}</span>
+              <span>{ui.showcase.explore} {practice.title.toLowerCase()}</span>
               <span
                 className={`grid h-7 w-7 place-items-center rounded-full transition-transform duration-300 group-hover:translate-x-0.5 ${
                   dark ? "bg-[#334F5A]/15 text-[#334F5A]" : "bg-white/20 text-white"
@@ -315,7 +315,7 @@ function PracticeMoment({
               >
                 &rarr;
               </span>
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </div>

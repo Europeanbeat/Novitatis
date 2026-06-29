@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useScroll, useReducedMotion } from "framer-motion";
 import { PageBackground } from "@/components/layout/page-background";
-import { practices } from "@/lib/services-content";
+import { LocaleLink } from "@/components/i18n/locale-link";
+import { useServicesContent } from "@/lib/services-content";
 
 // The page background IS the tree. The same 72 lines float at rest and, as the
 // anchor scrolls through the services zone, their control points interpolate
@@ -254,6 +254,7 @@ const ease = (t: number) => {
 };
 
 export function ServicesReactiveBg() {
+  const { practices, ui } = useServicesContent();
   const reduce = useReducedMotion();
   const anchorRef = useRef<HTMLDivElement>(null);
   const layerRef = useRef<HTMLDivElement>(null);
@@ -524,11 +525,10 @@ export function ServicesReactiveBg() {
           style={{ opacity: 0 }}
         >
           <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
-            Four services. Four ways in.
+            {ui.tree.fixedHeading}
           </h2>
           <p className="mt-4 text-lg text-[#334F5A]/80 leading-relaxed mx-auto max-w-[46ch]">
-            Consulting, development, education and public speaking. Take any one on
-            its own; what they share is a research-led way of working.
+            {ui.tree.fixedLead}
           </p>
         </div>
 
@@ -546,13 +546,13 @@ export function ServicesReactiveBg() {
                 transitionDelay: formed ? "0.08s" : "0s",
               }}
             >
-              Research-led method
+              {ui.tree.appliedResearch}
             </span>
             {NODES.map((n, i) => {
               const p = practices[i];
               const isLeft = n.x < 348;
               return (
-                <Link
+                <LocaleLink
                   key={p.slug}
                   href={`/services/${p.slug}`}
                   className={`group absolute w-[300px] ${isLeft ? "text-right" : "text-left"}`}
@@ -585,7 +585,7 @@ export function ServicesReactiveBg() {
                       {p.title}
                     </h3>
                   </div>
-                </Link>
+                </LocaleLink>
               );
             })}
           </div>
@@ -602,7 +602,7 @@ export function ServicesReactiveBg() {
             pointerEvents: "none",
           }}
         >
-          <span className="font-mono text-[10px] uppercase tracking-wider">Keep scrolling</span>
+          <span className="font-mono text-[10px] uppercase tracking-wider">{ui.tree.keepScrolling}</span>
           <svg className="h-4 w-4 animate-bounce" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <path d="M4 6l4 4 4-4" />
           </svg>
@@ -623,24 +623,25 @@ export function ServicesReactiveBg() {
 }
 
 function TreeHeading() {
+  const { ui } = useServicesContent();
   return (
     <div className="max-w-[60ch]">
       <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
-        Four services. Four ways in.
+        {ui.tree.staticHeading}
       </h2>
       <p className="mt-5 text-lg text-[#334F5A]/80 leading-relaxed">
-        Consulting, development, education and public speaking. Take any one on its
-        own; what they share is a research-led way of working.
+        {ui.tree.staticLead}
       </p>
     </div>
   );
 }
 
 function StaticList() {
+  const { practices } = useServicesContent();
   return (
     <div className="relative pl-6 border-l border-foreground/20 space-y-9 mt-8">
       {practices.map((p) => (
-        <Link key={p.slug} href={`/services/${p.slug}`} className="block relative">
+        <LocaleLink key={p.slug} href={`/services/${p.slug}`} className="block relative">
           <span className="absolute -left-[1.7rem] top-1.5 w-2.5 h-2.5 rounded-full bg-[#AAD7E6]" />
           <div className="flex items-baseline gap-2 mb-1">
             <span className="font-mono text-[11px] text-[#AAD7E6]">{p.number}</span>
@@ -650,7 +651,7 @@ function StaticList() {
           </div>
           <h3 className="font-display text-2xl text-[#334F5A] leading-tight">{p.title}</h3>
           <p className="text-sm text-[#334F5A]/75 leading-snug mt-1">{p.lead}</p>
-        </Link>
+        </LocaleLink>
       ))}
     </div>
   );

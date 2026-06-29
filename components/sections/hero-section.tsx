@@ -2,7 +2,18 @@
 
 import { useEffect, useState } from "react";
 
-export function HeroSection() {
+type HeroCopy = {
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  quickLinks: {
+    whatWeDo: string;
+    ourBrands: string;
+    ourProjects: string;
+  };
+};
+
+export function HeroSection({ t }: { t: HeroCopy }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -64,7 +75,7 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-[#334F5A]/60">
             <span className="w-8 h-px bg-[#334F5A]/30" />
-            Innovation in tourism
+            {t.eyebrow}
           </span>
         </div>
 
@@ -74,7 +85,7 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          We answer the questions tourism is asking.
+          {t.heading}
         </h1>
 
         {/* Explainer — what we do and who for, in the first lines (UX review) */}
@@ -83,8 +94,7 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Research, strategy, development and training, for destinations,
-          institutions and tourism businesses.
+          {t.intro}
         </p>
         </div>
       </div>
@@ -97,9 +107,9 @@ export function HeroSection() {
       >
         <div className="max-w-[1400px] mx-auto flex flex-wrap items-center gap-x-8 gap-y-3">
           {[
-            { label: "What we do", href: "#szolgaltatasok" },
-            { label: "Our brands", href: "#markaink" },
-            { label: "Our projects", href: "/references" },
+            { label: t.quickLinks.whatWeDo, href: "#szolgaltatasok" },
+            { label: t.quickLinks.ourBrands, href: "#markaink" },
+            { label: t.quickLinks.ourProjects, href: "/references" },
           ].map((link) => (
             <a
               key={link.label}

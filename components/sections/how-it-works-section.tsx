@@ -3,38 +3,27 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-// Four services. NOT a 1-2-3-4 sequence (UX review) and each card links
-// through to its own sub-page.
-const steps = [
-  {
-    title: "Consulting",
-    subtitle: "& strategy",
-    slug: "consulting",
-    description: "We analyse the market, build destination strategy, and support the digital transition. From SMEs to municipalities.",
-  },
-  {
-    title: "Development",
-    subtitle: "& digitalisation",
-    slug: "development",
-    description: "Custom web solutions, AI-based tools and digitalisation projects, from idea to delivery.",
-  },
-  {
-    title: "Education",
-    subtitle: "& mentoring",
-    slug: "education",
-    description: "Workshops, mentoring programmes and training for tourism professionals, on Google, AI and Smart Destination topics.",
-  },
-  {
-    title: "Public Speaking",
-    subtitle: "& shaping the field",
-    slug: "public-speaking",
-    description: "Conferences, professional events and talks, shaping the conversation about the digital future of tourism.",
-  },
-];
+type HowItWorksCopy = {
+  eyebrow: string;
+  headingLines: string[];
+  explore: string;
+  steps: { title: string; subtitle: string; description: string }[];
+};
 
-export function HowItWorksSection() {
+// Slugs are static; each card links through to its own sub-page. NOT a
+// 1-2-3-4 sequence (UX review).
+const slugs = ["consulting", "development", "education", "public-speaking"];
+
+export function HowItWorksSection({ t }: { t: HowItWorksCopy }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const steps = t.steps.map((step, i) => ({
+    title: step.title,
+    subtitle: step.subtitle,
+    slug: slugs[i],
+    description: step.description,
+  }));
 
 
   useEffect(() => {
@@ -65,16 +54,16 @@ export function HowItWorksSection() {
             <div className={`transition-all duration-700 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
               <span className="inline-flex items-center gap-3 text-sm font-mono text-[#334F5A]/40 mb-8">
                 <span className="w-12 h-px bg-[#334F5A]/20" />
-                Our services
+                {t.eyebrow}
               </span>
             </div>
 
             <h2 className={`relative text-5xl md:text-6xl lg:text-[88px] font-display tracking-tight leading-[0.9] transition-all duration-700 delay-100 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
-              <span className="block">Strategy</span>
-              <span className="block text-[#334F5A]/30">Technology</span>
-              <span className="block text-[#AAD7E6]">Knowledge</span>
+              <span className="block">{t.headingLines[0]}</span>
+              <span className="block text-[#334F5A]/30">{t.headingLines[1]}</span>
+              <span className="block text-[#AAD7E6]">{t.headingLines[2]}</span>
             </h2>
           </div>
 
@@ -116,7 +105,7 @@ export function HowItWorksSection() {
               </p>
 
               <span className="mt-auto inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#334F5A]">
-                Explore
+                {t.explore}
                 <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
               </span>
 

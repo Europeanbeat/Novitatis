@@ -1,7 +1,10 @@
-import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { LocaleLink } from "@/components/i18n/locale-link";
 import { Halo } from "@/components/sections/services/_halo";
-import { references, type Reference } from "@/lib/references-content";
+import { type Reference } from "@/lib/references-content";
+import { getReferences } from "@/lib/references-i18n";
+import { getServicesContent } from "@/lib/services-content";
+import type { Locale } from "@/lib/i18n/config";
 
 // Projects behind each service, pulled from the references library. Each
 // service filters the shared pool its own way; the same project may rightly
@@ -17,10 +20,17 @@ const filters: Record<string, (r: Reference) => boolean> = {
   "public-speaking": (r) => ["talk", "panel", "podcast"].includes(r.type),
 };
 
-export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
+export function RelatedProjects({
+  practiceSlug,
+  locale,
+}: {
+  practiceSlug: string;
+  locale: Locale;
+}) {
+  const { ui } = getServicesContent(locale);
   const match = filters[practiceSlug];
   if (!match) return null;
-  const projects = references
+  const projects = getReferences(locale)
     .filter(match)
     .sort((a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order)
     .slice(0, 3);
@@ -33,28 +43,28 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
           <Halo className="-inset-x-4 -inset-y-4" />
           <div>
             <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-3">
-              Proof
+              {ui.common.proof}
             </span>
             <h2 className="text-2xl lg:text-4xl font-display text-[#334F5A] leading-[1.05]">
-              Projects behind this service.
+              {ui.common.projectsBehind}
             </h2>
           </div>
-          <Link
+          <LocaleLink
             href="/references"
             className="group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A] shrink-0"
           >
-            <span className="link-sweep">All projects</span>
+            <span className="link-sweep">{ui.common.allProjects}</span>
             <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1.5">
               &rarr;
             </span>
-          </Link>
+          </LocaleLink>
         </div>
       </ScrollReveal>
 
       <div className="grid md:grid-cols-3 gap-5">
         {projects.map((r, i) => (
           <ScrollReveal key={r.slug} direction="up" duration={0.8} delay={i * 0.08}>
-            <Link
+            <LocaleLink
               href={`/references/${r.slug}`}
               className="group flex h-full flex-col rounded-2xl bg-white border border-foreground/10 p-7 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-24px_rgba(51,79,90,0.35)]"
             >
@@ -71,12 +81,12 @@ export function RelatedProjects({ practiceSlug }: { practiceSlug: string }) {
                 {r.summary}
               </p>
               <span className="mt-auto inline-flex items-center gap-2 font-mono text-xs text-[#334F5A]">
-                <span className="link-sweep">Read the story</span>
+                <span className="link-sweep">{ui.common.readStory}</span>
                 <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1">
                   &rarr;
                 </span>
               </span>
-            </Link>
+            </LocaleLink>
           </ScrollReveal>
         ))}
       </div>

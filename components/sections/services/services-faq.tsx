@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { LocaleLink } from "@/components/i18n/locale-link";
 import { Halo } from "@/components/sections/services/_halo";
-import { servicesFaq } from "@/lib/faq-content";
+import { useServicesFaq } from "@/lib/faq-content";
+import { useServicesContent } from "@/lib/services-content";
 import { FaqJsonLd } from "@/components/sections/faq/faq-schema";
 
 // Visible FAQ accordion. One item open at a time; the answer animates open with
@@ -13,10 +14,12 @@ import { FaqJsonLd } from "@/components/sections/faq/faq-schema";
 // and AI engines read the same content the visitor sees.
 export function ServicesFaq() {
   const [open, setOpen] = useState<number | null>(0);
+  const faqs = useServicesFaq();
+  const { ui } = useServicesContent();
 
   return (
     <section className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-28">
-      <FaqJsonLd />
+      <FaqJsonLd items={faqs} />
 
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
         <div className="lg:col-span-4">
@@ -24,18 +27,17 @@ export function ServicesFaq() {
             <div className="lg:sticky lg:top-32">
               <span className="relative isolate inline-block font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider mb-4">
                 <Halo className="-inset-x-4 -inset-y-3" />
-                FAQ
+                {ui.faq.eyebrow}
               </span>
               <h2 className="relative isolate text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05]">
                 <Halo />
-                Questions we hear most.
+                {ui.faq.heading}
               </h2>
               <p className="relative isolate mt-5 text-[#334F5A]/75 leading-relaxed max-w-[36ch]">
                 <Halo />
-                If yours is not here, send it through the contact page and we
-                will answer directly.
+                {ui.faq.lead}
               </p>
-              <Link
+              <LocaleLink
                 href="/contact-us"
                 className="group relative isolate mt-8 inline-flex items-center gap-3 font-mono text-sm text-[#334F5A]"
               >
@@ -48,15 +50,15 @@ export function ServicesFaq() {
                     &rarr;
                   </span>
                 </span>
-                <span className="link-sweep">Ask us anything</span>
-              </Link>
+                <span className="link-sweep">{ui.faq.ask}</span>
+              </LocaleLink>
             </div>
           </ScrollReveal>
         </div>
 
         <div className="lg:col-span-8">
           <div className="rounded-[1.75rem] bg-white border border-foreground/10 shadow-[0_30px_80px_-50px_rgba(51,79,90,0.3)] px-6 lg:px-10">
-            {servicesFaq.map((item, i) => {
+            {faqs.map((item, i) => {
               const isOpen = open === i;
               return (
                 <ScrollReveal key={item.q} direction="up" duration={0.7} delay={i * 0.04}>

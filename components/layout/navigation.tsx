@@ -1,19 +1,22 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { name: "Services",     href: "/services"     },
-  { name: "Our Brands",   href: "/brands"       },
-  { name: "About Us",     href: "/about-us"     },
-  { name: "Our Projects", href: "/references"   },
-  { name: "Appearances",  href: "/appearances"  },
-];
+import { LocaleLink } from "@/components/i18n/locale-link";
+import { LanguageToggle } from "@/components/i18n/language-toggle";
+import { useChrome } from "@/lib/i18n/chrome";
 
 export function Navigation() {
+  const t = useChrome().nav;
+  const navLinks = [
+    { name: t.services,     href: "/services"     },
+    { name: t.brands,       href: "/brands"       },
+    { name: t.about,        href: "/about-us"     },
+    { name: t.projects,     href: "/references"   },
+    { name: t.appearances,  href: "/appearances"  },
+  ];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -47,7 +50,7 @@ export function Navigation() {
         >
           {/* Logo — recoloured to brand teal via CSS mask over the wordmark PNG,
               so it stops grabbing the eye as strong black (UX review). */}
-          <Link href="/" aria-label="Novitatis home" className="flex items-center gap-2 group">
+          <LocaleLink href="/" aria-label={t.homeAria} className="flex items-center gap-2 group">
             <span
               aria-hidden
               className="block h-9 w-[150px] bg-[#334F5A] transition-colors duration-500 group-hover:bg-[#334F5A]/80"
@@ -62,30 +65,31 @@ export function Navigation() {
                 maskSize: "contain",
               }}
             />
-          </Link>
+          </LocaleLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-12">
             {navLinks.map((link) => (
-              <Link
+              <LocaleLink
                 key={link.name}
                 href={link.href}
                 className={`text-sm transition-colors duration-300 relative group ${isScrolled ? "text-foreground/70 hover:text-foreground" : "text-[#334F5A]/70 hover:text-[#334F5A]"}`}
               >
                 {link.name}
                 <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${isScrolled ? "bg-foreground" : "bg-[#334F5A]"}`} />
-              </Link>
+              </LocaleLink>
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA + language switch */}
           <div className="hidden md:flex items-center gap-4">
+            <LanguageToggle />
             <Button
               size="sm"
               asChild
               className={`rounded-full transition-all duration-500 ${isScrolled ? "bg-foreground hover:bg-foreground/90 text-background px-4 h-8 text-xs" : "bg-[#334F5A] hover:bg-[#334F5A]/90 text-white px-6"}`}
             >
-              <Link href="/contact-us">Get in touch</Link>
+              <LocaleLink href="/contact-us">{t.getInTouch}</LocaleLink>
             </Button>
           </div>
 
@@ -93,7 +97,7 @@ export function Navigation() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden p-2 transition-colors duration-500 ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"}`}
-            aria-label="Toggle menu"
+            aria-label={t.toggleMenu}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -118,45 +122,50 @@ export function Navigation() {
           {/* Navigation Links */}
           <div className="flex-1 flex flex-col justify-center gap-8">
             {navLinks.map((link, i) => (
-              <Link
+              <LocaleLink
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-5xl font-display text-foreground hover:text-muted-foreground transition-all duration-500 ${
-                  isMobileMenuOpen 
-                    ? "opacity-100 translate-y-0" 
+                  isMobileMenuOpen
+                    ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: isMobileMenuOpen ? `${i * 75}ms` : "0ms" }}
               >
                 {link.name}
-              </Link>
+              </LocaleLink>
             ))}
           </div>
           
           {/* Bottom CTAs */}
-          <div className={`flex gap-4 pt-8 border-t border-foreground/10 transition-all duration-500 ${
-            isMobileMenuOpen 
-              ? "opacity-100 translate-y-0" 
+          <div className={`flex flex-col gap-5 pt-8 border-t border-foreground/10 transition-all duration-500 ${
+            isMobileMenuOpen
+              ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-4"
           }`}
           style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
-            <Button
-              asChild
-              variant="outline"
-              className="flex-1 rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <Link href="/about-us">About</Link>
-            </Button>
-            <Button
-              asChild
-              className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <Link href="/contact-us">Contact</Link>
-            </Button>
+            <div className="flex justify-center">
+              <LanguageToggle size="lg" />
+            </div>
+            <div className="flex gap-4">
+              <Button
+                asChild
+                variant="outline"
+                className="flex-1 rounded-full h-14 text-base"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <LocaleLink href="/about-us">{t.about}</LocaleLink>
+              </Button>
+              <Button
+                asChild
+                className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <LocaleLink href="/contact-us">{t.contact}</LocaleLink>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

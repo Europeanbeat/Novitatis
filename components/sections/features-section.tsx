@@ -3,38 +3,28 @@
 import { useEffect, useRef, useState } from "react";
 import { Halo } from "@/components/sections/services/_halo";
 
-// The principles, in Adam's voice (UX review: present these as quotes, not as
-// filler stat numbers).
-const features = [
-  {
-    number: "01",
-    title: "Strategic mindset",
-    quote:
-      "We don't just deliver a service, we think alongside you. Every project is planned and executed around long-term goals, not short-term outputs.",
-  },
-  {
-    number: "02",
-    title: "Technology & innovation",
-    quote:
-      "We apply AI, digitisation and the latest technology to help clients gain a real competitive edge in tourism, not as a trend, but as a practical tool.",
-  },
-  {
-    number: "03",
-    title: "Knowledge sharing",
-    quote:
-      "We share what we know through workshops, mentoring programmes and talks, because lasting development is built on continuous learning.",
-  },
-  {
-    number: "04",
-    title: "Tourism specialists",
-    quote:
-      "We work only in tourism and hospitality. We know the challenges, the players and the opportunities.",
-  },
-];
+type FeaturesCopy = {
+  eyebrow: string;
+  headingLead: string;
+  headingAccent: string;
+  attribution: string;
+  items: { title: string; quote: string }[];
+};
 
-export function FeaturesSection() {
+// Sequence numbers are static; the titles and quotes come from the dictionary.
+const numbers = ["01", "02", "03", "04"];
+
+export function FeaturesSection({ t }: { t: FeaturesCopy }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  // The principles, in Adam's voice (UX review: present these as quotes, not as
+  // filler stat numbers).
+  const features = t.items.map((item, i) => ({
+    number: numbers[i],
+    title: item.title,
+    quote: item.quote,
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,14 +52,14 @@ export function FeaturesSection() {
               <Halo />
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-12 h-px bg-foreground/30" />
-                Why us?
+                {t.eyebrow}
               </span>
               <h2
                 className={`text-6xl md:text-7xl lg:text-8xl font-display tracking-tight leading-[0.9] transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                Why <span className="text-muted-foreground">Novitatis?</span>
+                {t.headingLead} <span className="text-muted-foreground">{t.headingAccent}</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-4" />
@@ -98,7 +88,7 @@ export function FeaturesSection() {
               </blockquote>
               <div className="mt-8 inline-flex items-center gap-3 font-mono text-sm text-muted-foreground">
                 <span className="w-8 h-px bg-foreground/30" />
-                Adam Schmutz, Founder
+                {t.attribution}
               </div>
             </div>
 

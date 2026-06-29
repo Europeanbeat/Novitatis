@@ -128,8 +128,8 @@ export function PhotoLightbox({
           <img
             src={all[index]}
             alt={alt}
-            onClick={(e) => e.stopPropagation()}
-            className="max-h-[90vh] max-w-[92vw] object-contain rounded-lg shadow-2xl"
+            onClick={close}
+            className="max-h-[90vh] max-w-[92vw] object-contain rounded-lg shadow-2xl cursor-zoom-out"
           />
         </div>
       )}

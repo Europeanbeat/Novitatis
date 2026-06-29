@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Megjelenések",
+    "description": "Ahol a Novitatis feltűnik: vezérelőadások, panelek, podcastok és kiállítások az AI-ről és a digitális turizmusról, valamint hogy miről beszélünk, és hogyan foglalható előadás."
+  },
+  "eyebrow": "Megjelenések",
+  "heroTitle": "A saját kutatásunkra épülő előadások.",
+  "heroLead": "A Novitatis kutatásalapú hang az AI-ről és a turizmus digitális jövőjéről. Magyarul és angolul adunk elő, a konferencia-előadásoktól a desztinációs csapatokkal tartott zártkörű workshopokig, az előadások pedig mára nemzetközi színtérre is eljutnak. Mindegyik a saját elsődleges adatainkra épül, ugyanarra a munkára, amely a tanácsadásunkon, a lektorált publikációinkon és a csapatban zajló doktori kutatáson is végigvonul.",
+  "inviteToSpeak": "Hívjon meg előadni",
+  "whatWeSpeakAbout": "Miről beszélünk",
+  "whereShownUp": "Ahol megjelentünk.",
+  "formats": "Formátumok",
+  "cta": {
+    "heading": "Eseményt vagy csapatos alkalmat tervez?",
+    "body": "Mondja el a közönséget és az időpontot, és javaslatot teszünk egy előadásra."
+  }
+}

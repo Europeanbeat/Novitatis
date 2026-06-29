@@ -1,11 +1,12 @@
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/locale-link";
 import { Users, Wine, BarChart3, Scale, Bike, FileText, type LucideIcon } from "lucide-react";
 import { Navigation } from "@/components/layout/navigation";
 import { PageBackground } from "@/components/layout/page-background";
 import { FooterSection } from "@/components/layout/footer";
 import { Halo } from "@/components/sections/services/_halo";
 import { RelatedProjects } from "@/components/sections/services/related-projects";
-import { practices } from "@/lib/services-content";
+import { getServicesContent } from "@/lib/services-content";
+import type { Locale } from "@/lib/i18n/config";
 
 // Per-service prose that isn't in the structured data: the opening problem beat,
 // real proof points (from the Message House, .agents/messaging.md), and a
@@ -29,7 +30,7 @@ type Extra = {
   ctaLine: string;
 };
 
-const extras: Record<string, Extra> = {
+const extrasEn: Record<string, Extra> = {
   consulting: {
     problem:
       "Tourism development too often runs on intuition and borrowed templates. A strategy that cannot be defended in front of a board, a ministry or a funder, or that ignores how a destination actually works, reads well and then stalls on the first practical obstacle.",
@@ -112,12 +113,12 @@ const extras: Record<string, Extra> = {
     problem:
       "Tourism's digital transition is data-driven, green and practical. It happens in working systems, not one big leap. The hard part is knowing what is working, what is not, and where the real opportunities are.",
     approach:
-      "We start from what your organisation actually needs, then build: digital strategy and benchmarking, websites and digital products, and practical AI that saves time rather than adding noise. No two builds are the same, so we design each to fit how you operate and deliver it through our own brands, Visible Tourism and ai4tourism.",
+      "We start from what your organisation actually needs, then build: digital strategy and benchmarking, websites and digital products, and practical AI that saves time rather than adding noise. No two builds are the same, so we design each to fit how you operate and deliver it through our own brands, Visible Tourism and AI4Tourism.",
     proofPoints: [
       {
         label: "Research at scale",
         detail:
-          "We scored 1,300 tourism providers on a custom system mapping the full online visitor journey, the first study of its kind in Hungary.",
+          "We built a custom scoring system to map the full online visitor journey across tourism providers, the first study of its kind in Hungary.",
       },
       {
         label: "AI adoption with a real DMO",
@@ -127,7 +128,7 @@ const extras: Record<string, Extra> = {
       {
         label: "Our own brands, shipping",
         detail:
-          "We run live products of our own: Visible Tourism, ai4tourism (exhibited at ITB Berlin) and Turizmus Tudástár.",
+          "We run live products of our own: Visible Tourism, AI4Tourism (exhibited at ITB Berlin) and Turizmus Tudástár.",
       },
     ],
     ctaHeading: "Have a system, website or tool to build?",
@@ -162,9 +163,64 @@ const extras: Record<string, Extra> = {
   },
 };
 
-export function ServiceDetail({ slug }: { slug: string }) {
-  const practice = practices.find((p) => p.slug === slug)!;
-  const extra = extras[slug];
+// Hungarian copy for the services that render through this component (development).
+// Consulting and education have their own bilingual pages, so only development is
+// needed here; missing keys fall back to English.
+const extrasHu: Record<string, Extra> = {
+  development: {
+    problem:
+      "A turizmus digitális átállása adatvezérelt, fenntartható és gyakorlatias. Működő rendszerekben valósul meg, nem egyetlen nagy ugrással. A nehézséget annak felismerése jelenti, mi működik, mi nem, és hol vannak a valódi lehetőségek.",
+    approach:
+      "Abból indulunk ki, amire a szervezetének valóban szüksége van, majd építünk: digitális stratégia és benchmarking, weboldalak és digitális termékek, valamint olyan gyakorlati AI, amely időt takarít meg, nem pedig zajt kelt. Nincs két egyforma fejlesztés, ezért mindegyiket az Ön működéséhez igazítjuk, és saját márkáinkon, a Visible Tourismon és az AI4Tourismon keresztül valósítjuk meg.",
+    proofPoints: [
+      {
+        label: "Kutatás méretarányosan",
+        detail:
+          "Saját pontozórendszert építettünk a teljes online vendégút feltérképezésére, turisztikai szolgáltatók széles körében, ez volt az első ilyen kutatás Magyarországon.",
+      },
+      {
+        label: "AI-bevezetés valódi DMO-val",
+        detail:
+          "2025-ben gyakorlati AI-bevezetést és -képzést valósítottunk meg a VisitBalaton365 DMO csapatával, így az AI a hívószóból napi munkagyakorlattá vált.",
+      },
+      {
+        label: "Saját, élő márkáink",
+        detail:
+          "Saját, élő termékeket működtetünk: Visible Tourism, AI4Tourism (az ITB Berlinen bemutatva) és Turizmus Tudástár.",
+      },
+    ],
+    ctaHeading: "Van rendszer, weboldal vagy eszköz, amit meg kell építeni?",
+    ctaLine:
+      "A pilottól a teljes digitális munkafolyamatig: mondja el, mit szeretne megvalósítani, és felmérjük a fejlesztést.",
+  },
+};
+
+// Section labels and link text, by locale.
+const ui = {
+  en: {
+    allServices: "All services",
+    whatsIncluded: "What's included",
+    proof: "Proof",
+    whereHeld: "Where this has held up.",
+    whoWeWork: "Who we work with",
+    letsWork: "Let's work together",
+    seeProjects: "See Our Projects",
+  },
+  hu: {
+    allServices: "Összes szolgáltatás",
+    whatsIncluded: "Mit tartalmaz",
+    proof: "Bizonyíték",
+    whereHeld: "Ahol ez bevált.",
+    whoWeWork: "Akikkel dolgozunk",
+    letsWork: "Dolgozzunk együtt",
+    seeProjects: "Projektjeink megtekintése",
+  },
+} as const;
+
+export function ServiceDetail({ slug, locale }: { slug: string; locale: Locale }) {
+  const practice = getServicesContent(locale).practices.find((p) => p.slug === slug)!;
+  const extra = (locale === "hu" ? extrasHu[slug] : undefined) ?? extrasEn[slug];
+  const u = ui[locale] ?? ui.en;
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
@@ -173,12 +229,12 @@ export function ServiceDetail({ slug }: { slug: string }) {
 
       {/* 1 — HERO */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-28 pb-14 lg:pt-32 lg:pb-16">
-        <Link
+        <LocaleLink
           href="/services"
           className="font-mono text-sm text-[#334F5A]/70 inline-flex items-center gap-2 mb-10 hover:text-[#334F5A] transition-colors"
         >
-          <span className="text-[#AAD7E6]">&larr;</span> All services
-        </Link>
+          <span className="text-[#AAD7E6]">&larr;</span> {u.allServices}
+        </LocaleLink>
 
         <div className="relative isolate">
           <Halo className="-inset-x-10 -inset-y-8" />
@@ -217,7 +273,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 py-12 lg:py-16">
         <h2 className="relative isolate font-mono text-xs text-[#334F5A]/60 uppercase tracking-wider mb-10 w-fit">
           <Halo />
-          What&apos;s included
+          {u.whatsIncluded}
         </h2>
         <div className="grid sm:grid-cols-2 gap-5">
           {practice.deliverables.map((d) => (
@@ -257,7 +313,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
                 sentiment, provider performance and the policy context, then turn
                 the evidence into decisions leaders can defend.
               </p>
-              <Link
+              <LocaleLink
                 href="/contact-us"
                 className="group inline-flex items-center gap-3 rounded-full bg-[#AAD7E6] text-[#334F5A] font-mono text-sm px-6 py-3.5 transition-transform duration-300 hover:-translate-y-0.5"
               >
@@ -265,7 +321,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   &rarr;
                 </span>
-              </Link>
+              </LocaleLink>
             </div>
 
             {/* Right: stacked research list */}
@@ -312,9 +368,9 @@ export function ServiceDetail({ slug }: { slug: string }) {
                   </div>
                 );
                 return r.href ? (
-                  <Link key={r.title} href={r.href} className="block">
+                  <LocaleLink key={r.title} href={r.href} className="block">
                     {inner}
-                  </Link>
+                  </LocaleLink>
                 ) : (
                   <div key={r.title}>{inner}</div>
                 );
@@ -328,10 +384,10 @@ export function ServiceDetail({ slug }: { slug: string }) {
       <section className="relative z-10 bg-[#f9fbff] border-y border-foreground/8 py-16 lg:py-24 mt-6">
         <div className="max-w-[1100px] mx-auto px-6">
           <span className="font-mono text-xs text-[#334F5A]/65 uppercase tracking-wider block mb-3">
-            Proof
+            {u.proof}
           </span>
           <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[20ch] mb-10">
-            Where this has held up.
+            {u.whereHeld}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-px bg-foreground/10 rounded-2xl overflow-hidden border border-foreground/10">
@@ -350,7 +406,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
           {/* Who we work with */}
           <div className="mt-12">
             <span className="font-mono text-xs text-[#334F5A]/65 uppercase tracking-wider block mb-4">
-              Who we work with
+              {u.whoWeWork}
             </span>
             <ul className="flex flex-wrap gap-2.5">
               {practice.serves.map((s) => (
@@ -368,7 +424,7 @@ export function ServiceDetail({ slug }: { slug: string }) {
 
       {/* 5 — PROOF: case studies from the projects library */}
       <div className="relative z-10 pt-16 lg:pt-24">
-        <RelatedProjects practiceSlug={slug} />
+        <RelatedProjects practiceSlug={slug} locale={locale} />
       </div>
 
       {/* 6 — CONTEXTUAL CTA */}
@@ -382,22 +438,22 @@ export function ServiceDetail({ slug }: { slug: string }) {
             {extra.ctaLine}
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Link
+            <LocaleLink
               href="/contact-us"
               className="inline-flex items-center gap-3 rounded-full bg-[#334F5A] text-white font-mono text-sm px-7 py-3.5 group"
             >
-              <span>Let&apos;s work together</span>
+              <span>{u.letsWork}</span>
               <span className="text-[#AAD7E6] transition-transform duration-300 group-hover:translate-x-1.5">
                 &rarr;
               </span>
-            </Link>
-            <Link
+            </LocaleLink>
+            <LocaleLink
               href="/references"
               className="inline-flex items-center gap-2 font-mono text-sm text-[#334F5A]/80 hover:text-[#334F5A] transition-colors px-2"
             >
-              <span>See Our Projects</span>
+              <span>{u.seeProjects}</span>
               <span className="text-[#AAD7E6]">&rarr;</span>
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </section>

@@ -1,0 +1,295 @@
+{
+  "meta": {
+    "title": "Márkáink",
+    "description": "A Novitatis három fókuszált márkát működtet, a Visible Tourismot, a Turizmus Tudástárat és az AI4Tourismot, amelyek mindegyike más-más léptékben hidalja át a turizmus digitális szakadékát."
+  },
+  "hero": {
+    "eyebrow": "Márkaportfólió"
+  },
+  "intro": {
+    "headingLine1": "Közös cél,",
+    "headingLine2": "külön fókusz.",
+    "paragraphs": [
+      "Egy DMO láthatósági problémája nem ugyanaz, mint egy szálloda konverziós kihívása, és egyik sem azonos egy olyan szervezet helyzetével, amely nem tudja, hol van helye az AI-nak a munkafolyamataiban. Egyetlen szolgáltatás, amely mindhármat ki akarná szolgálni, egyiket sem szolgálná ki igazán jól.",
+      "Ezért a Novitatis fókuszált márkák hálózataként működik. Mindegyik egy adott célközönségre épül, az adott léptékhez illő módszereket alkalmaz, és olyan eredményeket szállít, amelyek azon a szinten mérhetők. A mögöttük álló stratégia közös. A megvalósítás precíz."
+    ]
+  },
+  "showcase": {
+    "eyebrow": "Fedezze fel a márkákat",
+    "viewing": "Megtekintés alatt",
+    "brands": [
+      {
+        "tagline": "Google-infrastruktúra desztinációknak",
+        "audience": "TDM · DMO · Turisztikai vállalkozások"
+      },
+      {
+        "tagline": "Tudásplatform és GBP-mentorálás",
+        "audience": "Turisztikai kkv-k"
+      },
+      {
+        "tagline": "AI mentorprogram",
+        "audience": "Turisztikai szereplők"
+      }
+    ]
+  },
+  "visibleTourism": {
+    "tabBusinesses": "Vállalkozásoknak",
+    "tabDestinations": "Desztinációknak",
+    "visit": "Visible Tourism megtekintése",
+    "destinations": {
+      "heading": "Ami nincs a Google Térképen, az nem létezik.",
+      "intro": "A Google Térkép az utazók elsődleges navigációs eszköze. Csapatunk közvetlenül a Google Térképen dolgozik, hogy javítsa a desztináció adatainak pontosságát és minőségét: hiányzó látnivalókat, utcákat, túraútvonalakat, kilátópontokat és 360°-os Street View-felvételeket adunk hozzá. A legtöbb desztináció láthatósági hiányosságokkal küzd, amelyek befolyásolják, hogyan fedezik fel és tervezik meg az utazók az útjukat az érkezés előtt, és hogyan tájékozódnak a helyszínen.",
+      "deliverables": [
+        {
+          "label": "Útvonalak és túraútvonalak feltérképezése",
+          "desc": "Minden ösvény és látnivaló feltérképezve és ellenőrizve a Google Térképen."
+        },
+        {
+          "label": "Adatjavítások",
+          "desc": "Cégnevek, címek, kategóriák és nyitvatartás javítása nagy léptékben."
+        },
+        {
+          "label": "360°-os tartalom",
+          "desc": "Street View és virtuális túrák publikálása desztinációkhoz és helyszínekhez."
+        },
+        {
+          "label": "Strukturált megjelenések",
+          "desc": "Google Cégprofilok kiépítése és optimalizálása minden kulcsfontosságú látnivalóhoz."
+        },
+        {
+          "label": "Jelenlét az AI-keresésben",
+          "desc": "Strukturált adatok, amelyek biztosítják, hogy a desztináció megjelenjen az AI-alapú utazástervezésben."
+        }
+      ]
+    },
+    "business": {
+      "eyebrow": "Vállalkozói szint · GBP-audit és mentorálás",
+      "headingLine1": "Google-profil audit",
+      "headingLine2": "turisztikai vállalkozásoknak.",
+      "intro": "Az utazási keresések 60%-a kattintás nélkül zárul. A döntés közvetlenül a Google-on születik meg, mielőtt a látogató eljutna a weboldalára vagy a foglalási oldalára. Azok a szállodák, éttermek és látványosságok, amelyek ezt a pillanatot hiányos profilokra bízzák, a jobban optimalizált versenytársaikkal szemben veszítenek vendégeket. Auditáljuk a profilt, részletes jelentést készítünk, és Zoomon végigvesszük az összes javítanivalót.",
+      "valueCards": [
+        {
+          "title": "Pontszámok kategóriánként",
+          "desc": "Átlátható pontozás az alapadatok, fotók, értékelések és a térképi jelenlét mentén."
+        },
+        {
+          "title": "Részletes hibalista",
+          "desc": "Teljes lista képernyőképekkel minden feltárt problémáról (pl. árszint, 360°-os fotó, névkonzisztencia)."
+        },
+        {
+          "title": "Fejlesztési javaslatok",
+          "desc": "Világos lépések: fotófrissítés, bejegyzések, kérdések és válaszok, attribútumok kitöltése, versenytárs-összehasonlítás."
+        }
+      ],
+      "audit": {
+        "label": "Auditjelentés: mintarészlet",
+        "title": "Google Cégprofil-audit: minta butikhotel és étterem",
+        "metaLine1": "Cím: Tokaj-Hegyalja régió · Place ID: test_8f3a21e9",
+        "metaLine2": "AI-modell: Gemini · Lefedettségi sugár: 50 km",
+        "overallScore": "Összpontszám",
+        "scoresTitle": "Pontszámok kategóriánként",
+        "scoreLabels": [
+          "Alapinformációk",
+          "Fotók és média",
+          "Értékelések és reputáció",
+          "Térképi jelenlét"
+        ],
+        "fixTitle": "Gyors javítások prioritási listája",
+        "fixList": [
+          "Egységesítse a NAP-adatokat minden platformon",
+          "Azonnal adja meg az árszintet, a telefonszámot és a weboldal linkjét",
+          "Töltsön fel egy 360°-os virtuális túrát",
+          "Vezessen be értékeléskezelési folyamatot (válasz 24 órán belül)",
+          "Töltse ki teljes körűen az összes attribútumot",
+          "Rendszeresen frissítse a fotó- és videótartalmat"
+        ],
+        "screenshotTitle": "Mintaképernyőkép (Google Térkép nézet)",
+        "screenshotAlt": "Google Térkép képernyőkép, auditminta",
+        "pdfTitle": "Mit tartalmaz a PDF-jelentés?",
+        "pdfItems": [
+          ["Pontszámok", " kategóriánként lebontva (adatok, fotók, értékelések, térkép)"],
+          ["Hibalista", " képernyőképekkel minden problémáról"],
+          ["Erősségek és gyengeségek", " összefoglalása"],
+          ["Ár- és versenytárs-összehasonlítás", " a régióban"],
+          ["Fejlesztési javaslatok", " a profil optimalizálásához"],
+          ["További betekintések", " a versenyelőny megszerzéséhez"]
+        ],
+        "noteBefore": "Elküldjük a jelentést, majd ",
+        "noteStrong": "közösen végigvesszük Zoomon",
+        "noteAfter": ", hogy minden lépés világos legyen."
+      }
+    },
+    "map": {
+      "statsBar": {
+        "line1": "9 desztináció auditálva, láthatósági hiányosságok azonosítva a Google Térképen",
+        "line2": "A hiányosságok befolyásolják a felfedezést az érkezés előtt és a tájékozódást a helyszínen"
+      },
+      "viz": {
+        "notOnGoogleMaps": "NINCS A GOOGLE TÉRKÉPEN",
+        "unclaimedLabel": "Igényeletlen",
+        "unclaimedDescLine1": "Nincs tulajdonos → a látogatókat nem",
+        "unclaimedDescLine2": "lehet irányítani, az értékelések megválaszolatlanok",
+        "noStreetView": "NINCS STREET VIEW",
+        "coverageMissing": "hiányzó lefedettség",
+        "incorrectData": "Hibás profiladatok",
+        "incorrectDataDesc": "Hibás nyitvatartás, fotók vagy helyszín. A látogatók mást találnak a helyszínen, mint amit a Google mutat."
+      },
+      "panel": {
+        "close": "Bezárás",
+        "keyMetrics": "Fő mutatók",
+        "issuesFound": "Talált problémák"
+      },
+      "default": {
+        "count": "8 desztináció auditálva",
+        "intro": "Kattintson a térkép bármelyik tűjére, hogy lássa, milyen konkrét Google Térkép-problémákat talált és javított a Visible Tourism."
+      },
+      "destinations": {
+        "lofoten": {
+          "country": "Norvégia",
+          "issueBadge": "Hiányzó túraútvonalak",
+          "details": "A Reinebringen, a világ egyik legtöbbet fotózott kilátópontja, az Alligator Mountainnel és a Kvalvika Beachhez vezető útvonallal együtt teljesen hiányzik a Google Térképről, ami évente több ezer látogatónál okoz útvonaltervezési hibákat.",
+          "statLabel": "ikonikus túraútvonal hiányzik a Google Térképről",
+          "subItems": [
+            "Reinebringen kilátóhoz vezető túraútvonal",
+            "Alligator Mountain útvonalhálózat",
+            "Kvalvika Beach útvonal"
+          ]
+        },
+        "sodankyla": {
+          "country": "Finnország",
+          "issueBadge": "44% igényeletlen",
+          "details": "A Sodankylä Old Church (197 értékelés), az Ahvenlampi Campfire Place (121 értékelés) és a fontos üdülőlétesítmények profiljának nincs tulajdonosa. A Luosto Resort körüli feltérképezetlen túraútvonalak tovább rontják a láthatóságot.",
+          "statLabel": "a 68 profilból igényeletlen",
+          "subItems": [
+            "Sodankylä Old Church · 197 értékelés",
+            "Ahvenlampi Campfire Place · 121 értékelés",
+            "Feltérképezetlen útvonalak a Luosto Resortnál"
+          ]
+        },
+        "siauliai": {
+          "country": "Litvánia",
+          "issueBadge": "63% igényeletlen",
+          "details": "A Rėkyva-tó, a város fő szabadidős területe, teljesen hiányzik a Google Térképről: nincsenek utak, gyalogutak, sem maga a tó. Egy strandpavilon rossz helyen jelenik meg. A Salduvės-domb (1014 értékelés) megközelítő útvonalai hiányoznak.",
+          "statLabel": "a 96 profilból igényeletlen, az összes közül a legtöbb",
+          "subItems": [
+            "A Rėkyva-tó teljesen hiányzik",
+            "A Salduvės-domb útvonalai hiányoznak",
+            "A strandpavilon rossz helyen"
+          ]
+        },
+        "panevezys": {
+          "country": "Litvánia",
+          "issueBadge": "9 térképadat-hiányosság",
+          "details": "Hiányzik egy híd a Lėvenis folyó felett. A Paliūniškis-erdő útvonalai hiányoznak. A futballstadionnak nincsenek pályakontúrjai. Egy kulturális nevezetesség több száz méterrel rossz helyen szerepel. Nincs Street View a Kulturális és Szabadidőparknál.",
+          "statLabel": "igényeletlen profil (54%)",
+          "subItems": [
+            "Hiányzó híd a Lėvenis folyó felett",
+            "A Paliūniškis-erdő útvonalai hiányoznak",
+            "A stadion kontúrjai nincsenek feltérképezve"
+          ]
+        },
+        "bled": {
+          "country": "Szlovénia",
+          "issueBadge": "Hiányzó és hibás adatok",
+          "details": "A Bledi várhoz vezető fő sétaútvonal hiányzik a Google Térképről. A Zaka-völgy és a Hom-domb útvonalai hiányoznak. A nyári bobpályának hibásak a Cégprofil-adatai. Nincs 360°-os lefedettség a barlangtúrákhoz, a kötélpályákhoz és a Száva folyóhoz.",
+          "statLabel": "igényeletlen profil (33%)",
+          "subItems": [
+            "A várhoz vezető sétaútvonal hiányzik",
+            "A Zaka-völgy és a Hom-domb útvonalai hiányoznak",
+            "Hibás GBP-adatok egy fő látványosságnál"
+          ]
+        },
+        "fonyod": {
+          "country": "Magyarország",
+          "issueBadge": "Bizonyított eredmény",
+          "details": "Egy többéves Street View-projekt lefedte Fonyód teljes úthálózatát, strandjait, aktív turisztikai területeit, a városi piacot, a sportközpontot, az egészségügyi, oktatási és kulturális intézményeket, valamint a látnivalókat, frissítve a meglévő felvételeket és új felvételeket készítve ott, ahol korábban nem volt.",
+          "statLabel": "Street View-lefedettséget adtunk hozzá",
+          "subItems": [
+            "Teljes úthálózat dokumentálva",
+            "Strandok, útvonalak és aktív turisztikai területek",
+            "Kulturális, sport- és közintézmények"
+          ]
+        },
+        "subotica": {
+          "country": "Szerbia",
+          "issueBadge": "Hiányzó Street View",
+          "details": "A város 68 látványosságából csak 10-et kezelnek aktívan online. Nagy Street View-lefedettségi hiányosságok a történelmi belvárosban. Hiányoznak az épületkontúrok. A városi állatkert műholdképei elavultak.",
+          "statLabel": "látványosságot kezelnek aktívan",
+          "subItems": [
+            "Street View-hiányok a történelmi belvárosban",
+            "Hiányzó épületkontúrok",
+            "Elavult állatkerti műholdképek"
+          ]
+        },
+        "tiszazug": {
+          "country": "Magyarország",
+          "issueBadge": "79,5% igényeletlen",
+          "details": "A portfóliónk legátfogóbb auditja: 395 turisztikai egység 13 településen. A turisztikai látványosságok profiligénylési aránya mindössze 20,5%. Több arborétum és tanösvény teljesen hiányzik a Google Térképről.",
+          "statLabel": "auditált egység, 13 település",
+          "subItems": [
+            "A látványosságoknak csak 20,5%-a igényelt",
+            "A Szarvasi Arborétum útvonalai hiányoznak",
+            "A tiszakürti tanösvény hiányzik"
+          ]
+        },
+        "azores": {
+          "country": "Portugália",
+          "issueBadge": "Hiányzó útvonalak és útvonaltervezés",
+          "details": "A Lagoa do Fogo, São Miguel egyik legikonikusabb kráter-tava, feltérképezetlen túraútvonalakkal rendelkezik, pedig több ezer látogatót vonz. São Jorge szigetén félrevezető útvonaltervezési hibák és hiányzó útvonalak vannak Norte Pequeno környékén, Street View-lefedettség nélkül.",
+          "statLabel": "sziget igazolt térképadat-hiányossággal",
+          "subItems": [
+            "A Lagoa do Fogo útvonalai feltérképezetlenek (São Miguel)",
+            "Félrevezető útvonaltervezés São Jorgén",
+            "Hiányzó útvonalak és Street View Norte Pequenónál"
+          ]
+        }
+      }
+    }
+  },
+  "turizmusTudastar": {
+    "eyebrow": "Vállalkozói szint · Magyarország",
+    "headingLine1": "Tudás és mentorálás",
+    "headingLine2": "turisztikai kkv-knak.",
+    "intro": "A szállodák, éttermek és látványosságok azért veszítenek közvetlen foglalásokat a platformokkal szemben, mert nem tudják, hogyan kezeljék a Google-jelenlétüket. A Turizmus Tudástár megoldja ezt: strukturált kurzus és személyes, egyéni mentorálás.",
+    "courseLabel": "01 / Online kurzus",
+    "courseTitle": "Google Cégprofil: a nulláról az optimalizáltig",
+    "course": [
+      "Teljes profilbeállítás és hitelesítés",
+      "Fotóstratégia és médiakezelés",
+      "Értékeléskezelési rendszer",
+      "Helyi SEO és versenytárselemzés",
+      "Bejegyzések, kérdések és válaszok, valamint attribútumok optimalizálása"
+    ],
+    "mentoringLabel": "02 / Egyéni mentorálás",
+    "mentoringTitle": "Személyes profil-audit és Zoom-konzultáció",
+    "mentoring": [
+      "Teljes GBP-audit pontozással",
+      "Részletes hibajelentés képernyőképekkel",
+      "Erősségek és gyengeségek összefoglalása",
+      "Prioritási javítási lista",
+      "Zoom-konzultáció az eredmények áttekintésére"
+    ],
+    "visit": "Turizmus Tudástár megtekintése"
+  },
+  "ai4tourism": {
+    "eyebrow": "Ágazati szint · AI a turisztikai vállalkozásoknak",
+    "headingLine1": "A megfelelő AI-eszköz",
+    "headingLine2": "a megfelelő problémához.",
+    "intro": "Több száz AI-eszköz létezik. A legtöbb turisztikai vállalkozás nem tudja, melyik oldja meg ténylegesen a problémáit. Az AI4Tourism híd a technológiai szolgáltatók és a turisztikai vállalkozások között: feltérképezi az igényeit, megtalálja a megfelelő eszközt, és közvetlenül összeköti Önt azokkal, akik fejlesztik.",
+    "pillars": [
+      {
+        "title": "Eszközfeltárás",
+        "items": ["Üzleti igények feltérképezése", "Párosítás a megfelelő AI-eszközökkel", "Eligazodás a piaci zajban"]
+      },
+      {
+        "title": "Oktatás",
+        "items": ["Az egyes eszközök működésének megértése", "Gyakorlati útmutatás a csapatának", "Magabiztos napi használat kialakítása"]
+      },
+      {
+        "title": "Piactér",
+        "items": ["Ellenőrzött technológiai szolgáltatók", "Közvetlen kapcsolat a fejlesztőkkel", "Turizmusra szabott eszközök"]
+      }
+    ],
+    "visit": "ai4tourism.com megtekintése"
+  }
+}

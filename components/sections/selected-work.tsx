@@ -1,7 +1,15 @@
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/locale-link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Halo } from "@/components/sections/services/_halo";
-import { references } from "@/lib/references-content";
+import { getReferences } from "@/lib/references-i18n";
+import type { Locale } from "@/lib/i18n/config";
+
+type SelectedWorkCopy = {
+  eyebrow: string;
+  heading: string;
+  allProjects: string;
+  readStory: string;
+};
 
 // Three flagship moments from the references library, with photographs, as
 // proof on the homepage. Titles and metadata come from the library; only the
@@ -21,10 +29,10 @@ const picks: { slug: string; img: string }[] = [
   },
 ];
 
-export function SelectedWork() {
+export function SelectedWork({ t, locale }: { t: SelectedWorkCopy; locale: Locale }) {
   const items = picks
     .map((p) => {
-      const ref = references.find((r) => r.slug === p.slug);
+      const ref = getReferences(locale).find((r) => r.slug === p.slug);
       return ref ? { ...p, ref } : null;
     })
     .filter((x): x is NonNullable<typeof x> => x !== null);
@@ -38,28 +46,28 @@ export function SelectedWork() {
           <div className="relative isolate">
             <Halo />
             <span className="font-mono text-xs text-[#334F5A]/70 uppercase tracking-wider block mb-4">
-              Selected work
+              {t.eyebrow}
             </span>
             <h2 className="text-3xl lg:text-5xl font-display text-[#334F5A] leading-[1.05] max-w-[16ch]">
-              The work behind the words.
+              {t.heading}
             </h2>
           </div>
-          <Link
+          <LocaleLink
             href="/references"
             className="group inline-flex items-center gap-2 font-mono text-sm text-[#334F5A] shrink-0"
           >
-            <span className="link-sweep">All projects</span>
+            <span className="link-sweep">{t.allProjects}</span>
             <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1.5">
               &rarr;
             </span>
-          </Link>
+          </LocaleLink>
         </div>
       </ScrollReveal>
 
       <div className="grid md:grid-cols-3 gap-5">
         {items.map(({ slug, img, ref }, i) => (
           <ScrollReveal key={slug} direction="up" duration={0.8} delay={i * 0.08}>
-            <Link
+            <LocaleLink
               href={`/references/${slug}`}
               className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white border border-foreground/10 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:border-[#AAD7E6] hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-28px_rgba(51,79,90,0.4)]"
             >
@@ -85,13 +93,13 @@ export function SelectedWork() {
                   {ref.title}
                 </h3>
                 <span className="mt-auto inline-flex items-center gap-2 font-mono text-xs text-[#334F5A]">
-                  <span className="link-sweep">Read the story</span>
+                  <span className="link-sweep">{t.readStory}</span>
                   <span className="text-[#AAD7E6] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1">
                     &rarr;
                   </span>
                 </span>
               </div>
-            </Link>
+            </LocaleLink>
           </ScrollReveal>
         ))}
       </div>

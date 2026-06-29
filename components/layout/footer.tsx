@@ -1,29 +1,41 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
-const footerLinks = {
-  Services: [
-    { name: "Consulting", href: "/services/consulting" },
-    { name: "Development", href: "/services/development" },
-    { name: "Education", href: "/services/education" },
-    { name: "Public Speaking", href: "/services/public-speaking" },
-  ],
-  "Our Brands": [
-    { name: "Visible Tourism", href: "https://visibletourism.com" },
-    { name: "Turizmus Tudástár", href: "https://turizmustudastar.hu" },
-    { name: "AI4Tourism", href: "https://ai4tourism.com" },
-  ],
-  Company: [
-    { name: "About Us", href: "/about-us" },
-    { name: "Contact", href: "/contact-us" },
-    { name: "Our Projects", href: "/references" },
-    { name: "Appearances", href: "/appearances" },
-  ],
-};
+import { LocaleLink } from "@/components/i18n/locale-link";
+import { useChrome } from "@/lib/i18n/chrome";
 
 export function FooterSection() {
+  const t = useChrome().footer;
+
+  const footerLinks = [
+    {
+      title: t.groups.services,
+      links: [
+        { name: t.links.consulting, href: "/services/consulting" },
+        { name: t.links.development, href: "/services/development" },
+        { name: t.links.education, href: "/services/education" },
+        { name: t.links.publicSpeaking, href: "/services/public-speaking" },
+      ],
+    },
+    {
+      title: t.groups.brands,
+      links: [
+        { name: "Visible Tourism", href: "https://visibletourism.com" },
+        { name: "Turizmus Tudástár", href: "https://turizmustudastar.hu" },
+        { name: "AI4Tourism", href: "https://ai4tourism.com" },
+      ],
+    },
+    {
+      title: t.groups.company,
+      links: [
+        { name: t.links.about, href: "/about-us" },
+        { name: t.links.contact, href: "/contact-us" },
+        { name: t.links.projects, href: "/references" },
+        { name: t.links.appearances, href: "/appearances" },
+      ],
+    },
+  ];
+
   return (
     <footer
       className="relative bg-[#334F5A] overflow-hidden"
@@ -41,7 +53,7 @@ export function FooterSection() {
         {/* Brand + link columns */}
         <div className="grid md:grid-cols-12 gap-10 lg:gap-14">
           <div className="md:col-span-5">
-            <Link href="/" className="inline-block mb-5">
+            <LocaleLink href="/" className="inline-block mb-5">
               <img
                 src="/images/novi_logo_white.png"
                 alt="Novitatis"
@@ -50,10 +62,9 @@ export function FooterSection() {
                 height={40}
                 width={150}
               />
-            </Link>
+            </LocaleLink>
             <p className="text-white/75 leading-relaxed max-w-xs text-sm mb-5">
-              Innovation in tourism. Consulting, development, education and
-              public speaking for the digital future.
+              {t.tagline}
             </p>
             <a
               href="mailto:info@novitatis.hu"
@@ -64,7 +75,7 @@ export function FooterSection() {
           </div>
 
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {Object.entries(footerLinks).map(([title, links]) => (
+            {footerLinks.map(({ title, links }) => (
               <div key={title}>
                 <h3 className="font-mono text-xs uppercase tracking-wider text-[#AAD7E6] mb-6">
                   {title}
@@ -73,12 +84,12 @@ export function FooterSection() {
                   {links.map((link) =>
                     link.href.startsWith("/") ? (
                       <li key={link.name}>
-                        <Link
+                        <LocaleLink
                           href={link.href}
                           className="text-sm font-medium text-white/85 hover:text-white transition-colors"
                         >
                           {link.name}
-                        </Link>
+                        </LocaleLink>
                       </li>
                     ) : (
                       <li key={link.name}>
@@ -102,8 +113,8 @@ export function FooterSection() {
 
         {/* Bottom bar */}
         <div className="mt-12 lg:mt-14 py-5 border-t border-white/15 flex flex-col md:flex-row items-center justify-between gap-3 font-mono text-xs text-white/60">
-          <p>&copy; 2026 Novitatis. All rights reserved.</p>
-          <p>Innovation in tourism</p>
+          <p>{t.rights}</p>
+          <p>{t.strapline}</p>
         </div>
       </div>
     </footer>

@@ -1031,7 +1031,7 @@ export const projects: Project[] =
     ],
     "quote": "",
     "pdfs": [],
-    "cover": "",
+    "cover": "/images/projects/lake-balaton-bike-rental-supply-analysis/cover.jpg",
     "imageAlt": "Supply analysis of Lake Balaton bike rentals",
     "gallery": [],
     "liveUrl": "",

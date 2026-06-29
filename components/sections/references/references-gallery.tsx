@@ -3,17 +3,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import {
-  references,
-  referenceCategories,
-  type Reference,
-} from "@/lib/references-content";
+import { type Reference } from "@/lib/references-content";
+import { getReferences, getReferenceCategories } from "@/lib/references-i18n";
+import { useLocale } from "@/lib/i18n/use-locale";
 
 // next/link with framer-motion's animation props, so the card keeps its
 // entrance animation but navigates client-side instead of full reloads.
 const MotionLink = motion.create(Link);
 
 export function ReferencesGallery() {
+  const locale = useLocale();
+  const references = getReferences(locale);
+  const referenceCategories = getReferenceCategories(locale);
   const [active, setActive] = useState<string>("all");
   const reduce = useReducedMotion();
 
@@ -47,17 +48,17 @@ export function ReferencesGallery() {
       {/* Masonry — card height follows each image, so nothing is cropped */}
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
         {shown.map((r, i) => (
-          <Card key={`${active}-${r.slug}`} r={r} i={i} reduce={!!reduce} />
+          <Card key={`${active}-${r.slug}`} r={r} i={i} reduce={!!reduce} locale={locale} />
         ))}
       </div>
     </div>
   );
 }
 
-function Card({ r, i, reduce }: { r: Reference; i: number; reduce: boolean }) {
+function Card({ r, i, reduce, locale }: { r: Reference; i: number; reduce: boolean; locale: string }) {
   return (
     <MotionLink
-      href={`/references/${r.slug}`}
+      href={`/${locale}/references/${r.slug}`}
       initial={reduce ? false : { opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.4), ease: [0.16, 1, 0.3, 1] }}

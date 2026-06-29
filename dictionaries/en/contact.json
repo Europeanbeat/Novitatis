@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Contact",
+    "description": "Get in touch with Novitatis. Let's talk about how we can support your tourism strategy, development or education goals."
+  },
+  "eyebrow": "Contact",
+  "heading": "Let's talk.",
+  "intro": "Get in touch and let's discuss how we can help, whether it's strategy, development or education.",
+  "form": {
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "organization": "Organisation",
+    "organizationPlaceholder": "Company / organisation",
+    "message": "Message",
+    "messagePlaceholder": "How can we help?",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Thank you! We'll get back to you soon.",
+    "error": "Something went wrong. Please try again, or email info@novitatis.hu."
+  }
+}

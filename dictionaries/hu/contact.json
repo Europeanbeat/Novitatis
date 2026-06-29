@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Kapcsolat",
+    "description": "Vegye fel a kapcsolatot a Novitatisszal. Beszéljük meg, hogyan támogathatjuk a turisztikai stratégiai, fejlesztési vagy oktatási céljait."
+  },
+  "eyebrow": "Kapcsolat",
+  "heading": "Beszéljünk.",
+  "intro": "Vegye fel velünk a kapcsolatot, és beszéljük meg, miben segíthetünk, legyen szó stratégiáról, fejlesztésről vagy oktatásról.",
+  "form": {
+    "name": "Név",
+    "namePlaceholder": "Az Ön neve",
+    "email": "E-mail",
+    "emailPlaceholder": "on@email.hu",
+    "organization": "Szervezet",
+    "organizationPlaceholder": "Cég / szervezet",
+    "message": "Üzenet",
+    "messagePlaceholder": "Miben segíthetünk?",
+    "send": "Üzenet küldése",
+    "sending": "Küldés...",
+    "success": "Köszönjük! Hamarosan jelentkezünk.",
+    "error": "Valami hiba történt. Kérjük, próbálja újra, vagy írjon az info@novitatis.hu címre."
+  }
+}

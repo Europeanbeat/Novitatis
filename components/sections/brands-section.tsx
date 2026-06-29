@@ -6,22 +6,29 @@ type Brand = {
   id: string;
   name: string;
   url: string;
-  audience: string;
-  description: string;
   logo?: string;
   logoClass?: string;
   icon?: string;
   iconClass?: string;
 };
 
-// Tag = who each brand is for (UX review: more useful than "Independent brand").
+type BrandsCopy = {
+  eyebrow: string;
+  headingLead: string;
+  headingAccent: string;
+  intro: string;
+  items: { audience: string; description: string }[];
+};
+
+// Structural brand data (logos, urls). The audience tag and description copy
+// come from the dictionary, by index.
 const brands: Brand[] = [
-  { id: "visible-tourism", name: "Visible Tourism", url: "visibletourism.com", audience: "TDM · DMO · tourism businesses", description: "Digital visibility for destinations (TDM, DMO), on a Google-based infrastructure.", logo: "/images/visibletourism_logo.svg", logoClass: "h-10" },
-  { id: "turizmus-tudastar", name: "Turizmus Tudástár", url: "turizmustudastar.hu", audience: "Tourism SMEs", description: "A knowledge platform and Google Business Profile mentoring for tourism SMEs.", icon: "/images/turizmus_tudastar.png", iconClass: "h-11" },
-  { id: "ai4tourism", name: "AI4Tourism", url: "ai4tourism.com", audience: "Tourism players", description: "An AI mentoring programme: practical AI for people working in tourism.", logo: "/images/ai4tourism-logo.png", logoClass: "h-6" },
+  { id: "visible-tourism", name: "Visible Tourism", url: "visibletourism.com", logo: "/images/visibletourism_logo.svg", logoClass: "h-10" },
+  { id: "turizmus-tudastar", name: "Turizmus Tudástár", url: "turizmustudastar.hu", icon: "/images/turizmus_tudastar.png", iconClass: "h-11" },
+  { id: "ai4tourism", name: "AI4Tourism", url: "ai4tourism.com", logo: "/images/ai4tourism-logo.png", logoClass: "h-6" },
 ];
 
-export function BrandsSection() {
+export function BrandsSection({ t }: { t: BrandsCopy }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -50,7 +57,7 @@ export function BrandsSection() {
               className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
             />
             <span className="w-12 h-px bg-foreground/20" />
-            Brand portfolio
+            {t.eyebrow}
           </span>
 
           <h2 className={`relative text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] isolate transition-all duration-1000 ${
@@ -60,9 +67,9 @@ export function BrandsSection() {
               aria-hidden
               className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
             />
-            Our brands
+            {t.headingLead}
             <br />
-            <span className="text-muted-foreground">for tourism.</span>
+            <span className="text-muted-foreground">{t.headingAccent}</span>
           </h2>
 
           <p className={`relative mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg isolate transition-all duration-1000 delay-100 ${
@@ -72,7 +79,7 @@ export function BrandsSection() {
               aria-hidden
               className="absolute -inset-x-8 -inset-y-6 -z-10 backdrop-blur-sm bg-background/60 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
             />
-            Three independent brands serving different segments of tourism, from digital visibility to AI-based solutions.
+            {t.intro}
           </p>
         </div>
 
@@ -92,7 +99,7 @@ export function BrandsSection() {
                   {String(index + 1).padStart(2, "0")} / 03
                 </span>
                 <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-foreground/5 text-muted-foreground">
-                  {brand.audience}
+                  {t.items[index].audience}
                 </span>
               </div>
 
@@ -120,7 +127,7 @@ export function BrandsSection() {
               </div>
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-8 flex-1">
-                {brand.description}
+                {t.items[index].description}
               </p>
 
               <span className="inline-flex items-center justify-between gap-2 text-sm font-mono text-[#334F5A]">

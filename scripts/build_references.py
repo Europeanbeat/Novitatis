@@ -123,6 +123,25 @@ def date_key(date):
     return f"{m.group(1)}-{(m.group(3) or '12').zfill(2)}-{(m.group(4) or '31').zfill(2)}"
 
 
+# Manual cover images for entries that have no event photo in the sheet (e.g.
+# podcasts and publications). Keyed by slug; used only when `photos` is empty.
+# Sourced from the entry's own public artwork (own SoundCloud art, the journal
+# issue cover, the book cover).
+# Files live in public/images/manual-covers/ (NOT wiped by the rmtree below).
+COVER_OVERRIDE = {
+    "smart-balaton-podcast": "/images/manual-covers/smart-balaton.jpg",
+    "is-lake-balaton-still-analog-podcast": "/images/manual-covers/analog-balaton.jpg",
+    "lake-balaton-gastro-tourism-online-sales-turizmus-bulletin-2025": "/images/manual-covers/turizmus-bulletin-2025.jpg",
+    "digital-hospitality-balaton-website-analysis-book-chapter": "/images/manual-covers/book-chapter-2023.jpg",
+    "stay-visible-in-the-age-of-ai-talk": "/images/manual-covers/stay-visible.jpg",
+    "hungary-data-driven-tourism-ntak-smart-tour-cotes-darmor": "/images/manual-covers/smart-tour.jpg",
+    "tiszazug-2035-cserkeszolo-tourism-strategy-talk": "/images/manual-covers/tiszazug.jpg",
+    "ai-opener-visitbalaton365-ai-journey": "/images/manual-covers/ai-opener.jpg",
+    "digital-presence-tourinform-offices-national-tourinform-meeting-2023": "/images/manual-covers/tourinform.jpg",
+    "balaton365-season-opening-workshop-digital-visibility-2023": "/images/manual-covers/balaton365-season-opening.jpg",
+}
+
+
 def main():
     if not os.path.exists(XLSX):
         sys.exit(f"Excel not found: {XLSX}")
@@ -193,7 +212,7 @@ def main():
             "videoUrl": col(17),
             "pressUrl": col(21),
             "quote": col(22),
-            "cover": photos[0] if photos else "",
+            "cover": photos[0] if photos else COVER_OVERRIDE.get(slug, ""),
             "photos": photos,
             "imageAlt": col(19),
             "seoTitle": col(23) or title,
