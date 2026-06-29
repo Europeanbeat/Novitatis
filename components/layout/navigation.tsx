@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { LocaleLink } from "@/components/i18n/locale-link";
@@ -16,6 +17,13 @@ export function Navigation() {
     { name: t.projects,     href: "/references"   },
     { name: t.appearances,  href: "/appearances"  },
   ];
+
+  // Current page for the active-link indicator. usePathname keeps the locale
+  // prefix (/hu/services), so strip it before matching the locale-less hrefs.
+  // A sub-path (e.g. /services/consulting) keeps its parent nav item active.
+  const pathname = usePathname();
+  const here = pathname.replace(/^\/(en|hu)(?=\/|$)/, "") || "/";
+  const isActive = (href: string) => here === href || here.startsWith(href + "/");
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -69,16 +77,34 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-12">
-            {navLinks.map((link) => (
-              <LocaleLink
-                key={link.name}
-                href={link.href}
-                className={`text-sm transition-colors duration-300 relative group ${isScrolled ? "text-foreground/70 hover:text-foreground" : "text-[#334F5A]/70 hover:text-[#334F5A]"}`}
-              >
-                {link.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${isScrolled ? "bg-foreground" : "bg-[#334F5A]"}`} />
-              </LocaleLink>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <LocaleLink
+                  key={link.name}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`text-sm transition-colors duration-300 relative group ${
+                    active
+                      ? isScrolled
+                        ? "text-foreground"
+                        : "text-[#334F5A]"
+                      : isScrolled
+                        ? "text-foreground/70 hover:text-foreground"
+                        : "text-[#334F5A]/70 hover:text-[#334F5A]"
+                  }`}
+                >
+                  {link.name}
+                  <span
+                    className={`absolute -bottom-1 left-0 transition-all duration-300 ${
+                      active
+                        ? "w-full h-0.5 bg-[#AAD7E6]"
+                        : `w-0 h-px group-hover:w-full ${isScrolled ? "bg-foreground" : "bg-[#334F5A]"}`
+                    }`}
+                  />
+                </LocaleLink>
+              );
+            })}
           </div>
 
           {/* Desktop CTA + language switch */}
@@ -126,7 +152,12 @@ export function Navigation() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-5xl font-display text-foreground hover:text-muted-foreground transition-all duration-500 ${
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`text-5xl font-display transition-all duration-500 ${
+                  isActive(link.href)
+                    ? "text-foreground underline decoration-[#AAD7E6] decoration-2 underline-offset-8"
+                    : "text-foreground hover:text-muted-foreground"
+                } ${
                   isMobileMenuOpen
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
