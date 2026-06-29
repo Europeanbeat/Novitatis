@@ -100,7 +100,7 @@ export const references: Reference[] = [
   {
     "id": "9",
     "slug": "hungary-data-driven-tourism-ntak-smart-tour-cotes-darmor",
-    "title": "A European Best Practice in Data-Driven Tourism: Hungary's National Real-Time Analytics and AI Ecosystem – international talk (Smart Tour, France)",
+    "title": "Hungary's real-time tourism analytics and AI",
     "summary": "English-language international talk at the 3rd meeting of the Smart Tour (Interreg Europe) project in Brittany, France: Hungary's real-time, data-driven tourism system (NTAK/NTDSC) as a European best practice – daily automatic data from 95,000+ accommodations and AI forecasting, representing the Visit Balaton 365 DMO.",
     "description": "Adam Schmutz's (Digital Tourism Expert, Visit Balaton 365 DMO) English-language talk at the 3rd Steering Group meeting and thematic workshop of the Smart Tour (Interreg Europe) project in Côtes d'Armor (Perros-Guirec, France). Delivered in the pitch block of the “Tourism statistics and indicators” workshop, as one of five international speakers (representing the Lake Balaton Development Coordination Agency; other pitchers: Heraklion, Côtes d'Armor, Jesolo, Tuzla). It presents Hungary's real-time, data-driven tourism ecosystem as a European best practice. Starting point: most destinations don't know how many guests will arrive next week. The National Tourism Data Supply Center (NTDSC / NTAK) solves this: providers must register, and data flows in automatically, daily, without manual reporting, directly from their software (via free NTO software or API integration). More than 95,000 accommodations supply daily data; on top of this runs AI forecasting (occupancy, guest arrivals) and the “Accommodation Compass” analytics tool. The talk covers benefits (whitening the sector, tax revenue, more efficient marketing, competitiveness) and future plans: provider-level data + dynamic pricing support for everyone, full sector coverage, and cross-border European data exchange. It closes with five conditions for adoption: sector-wide common will, a legal mandate, starting with provider data, building other sources on top, and a national OR regional scale.",
     "type": "talk",
@@ -131,7 +131,7 @@ export const references: Reference[] = [
   {
     "id": "7",
     "slug": "tiszazug-2035-cserkeszolo-tourism-strategy-talk",
-    "title": "Cserkeszőlő's tourism strategy – in the light of innovative tourism strategies (Tiszazug 2035 talk)",
+    "title": "Cserkeszőlő tourism strategy",
     "summary": "A region that is not short on attractions but disorganized and under-packaged: repositioning the tourism of Tiszazug (13 settlements) based on primary research and four international strategy models (Saba, Plan T, Linz, Perth). Delivered at the “Crown and Sword” event in Cserkeszőlő.",
     "description": "Adam Schmutz's talk at the event “Tourism opportunities of businesses in local economic development”, organized by the “Crown and Sword” Rural and Regional Development Foundation at the Baghy-Szinyei Merse Manor in Cserkeszőlő. The talk (official slide title: “Tiszazug 2035 – Repositioning regional tourism in the light of primary research”) outlines a shared tourism vision for the 13 settlements of Tiszazug. The diagnosis: the region is a “sleeping giant” – 92–94% of the district's guest nights go to a single attraction (the Cserkeszőlő thermal bath), while 80% of the 166 tourism attractions have an unmanaged Google profile. It builds on a triple methodology: classic data analysis (KSH, NTAK), engagement-based research (in-depth interviews with mayors and providers, resident and visitor surveys) and a technology-based, AI-assisted digital visibility audit. It adapts lessons from four international models (Saba, Plan T / Austria, Linz DMO 4.0, Perth) and outlines the Tiszazug 2035 vision around four pillars (a regional “Visit Tiszazug” brand, networked operation / DMO, digital visibility, experience-based tourism), plus stakeholder-engagement tools (including a strategy-generator website). Other speakers: Gusztav Laving, Adam Bauer, Anita Galo and Zsolt Kabaly.",
     "type": "talk",
@@ -162,7 +162,7 @@ export const references: Reference[] = [
   {
     "id": "6",
     "slug": "digitalization-sustainability-earth-day-conference-balaton-2026",
-    "title": "Digitalization ↔ Sustainability – talk at the Earth Day Conference (Smart Tour, Lake Balaton region)",
+    "title": "Digitalisation and sustainability: Earth Day",
     "summary": "Sustainability can only be measured digitally – and from 27 September 2026 the EU ECGT regulation requires measured evidence for “green” claims. The talk, at the Smart Tour project's Earth Day opening event, showed how digitalization reduces Lake Balaton's environmental footprint.",
     "description": "Adam Schmutz's talk at the “Earth Day Conference in the Lake Balaton Region”, the opening event of the international Smart Tour project (Interreg Europe), organized by the Lake Balaton Integration Public Benefit Nonprofit Ltd. The central thesis: digitalization and sustainability are two sides of the same work – sustainability can only be measured, communicated and optimized digitally, and digitalization is meaningful only if its business or environmental impact is measurable. It builds on fresh data (e.g. 93% of global travelers would travel more sustainably; 62.4% of bookings happen online; Hungarian SMEs' digital intensity is 57.4% vs. the EU average of 72.9%) and presents practical SME-level tools in three roles: TOOL (sensor, dashboard, automation – e.g. Shelly, tado°, Sensgreen), CHANNEL (booking email, push, nudge) and SOLUTION (custom GPT and predictive decision support). Special emphasis is on the EU “Empowering Consumers for the Green Transition” (ECGT, 2024/825) regulation: from 27 September 2026, “green” claims require measured evidence – a regulatory and financial, not a moral, question. Hungarian and international good practices (Kerca Biofarm, Boutiquehotel Stadthalle, Adrère Amellal, Eccleston Square Hotel) close the talk. Other speakers included Dr. Gabor Molnar, Balazs Kovacs (Good Deal Consulting, Vienna – EU Climate Pact ambassador), Dr. Zsuzsanna Varadi (Visit Hungary) and Dr. Terez Horvath (VisitBalaton365).",
     "type": "talk",
@@ -197,7 +197,7 @@ export const references: Reference[] = [
   {
     "id": "1",
     "slug": "ai-based-solutions-tourism-digiturismo-podcast",
-    "title": "AI-based solutions in tourism – conversation on the DigiTurismo podcast (Part 2)",
+    "title": "AI solutions in tourism on DigiTurismo",
     "summary": "How did artificial intelligence become the “invisible infrastructure” of tourism – and why is GEO, not SEO, the key in the age of AI engines? A returning guest on the second AI episode of the DigiTurismo podcast, as one of Hungary's reference points on the topic.",
     "description": "Adam Schmutz was a guest for the second time on the DigiTurismo podcast to continue an inexhaustible topic: the role of artificial intelligence in tourism. The conversation explores how AI has become a kind of “invisible infrastructure” sitting behind Google Maps searches and personalized offers. It covers why GEO (Generative Engine Optimization – not SEO!) matters in the age of AI engines, and why AI will never fully replace human hospitality. The DigiTurismo hosts are Peter Princzinger, managing director of VisitBalaton365, and Andras Mihalovits. The episode was also covered by turizmus.com (28 April 2026).",
     "type": "podcast",
@@ -232,7 +232,7 @@ export const references: Reference[] = [
   {
     "id": "3",
     "slug": "innovation-opportunities-tourism-panel-kultkikoto",
-    "title": "Innovation opportunities in today's tourism – panel discussion at the KULTKIKÖTŐ conference",
+    "title": "Innovation in tourism (KULTKIKÖTŐ panel)",
     "summary": "A panel discussion on tourism innovation at the KULTKIKÖTŐ cultural tourism conference, together with an expert from Visit Hungary. Topics: AI “becoming invisible”, GEO, and the findings of an own study of 73 Lake Balaton businesses.",
     "description": "Adam Schmutz discussed the innovation opportunities of tourism on the panel of the KULTKIKÖTŐ – “In the Same Boat” cultural tourism conference. His fellow panelist was Botond Boros, head of the business intelligence and digital solutions division at Visit Hungary; the panel was moderated by Daniel Molnar (National Innovation Agency). A central idea: AI has “become invisible” – no longer a standalone tool but part of the infrastructure of search engines, maps and booking systems, which is why GEO (Generative Engine Optimization) matters more and more. The panel built on own research: of 73 Lake Balaton gastro-tourism businesses, 92% have an advanced digital presence yet only 5.5% sell online (a 17:1 ratio) – the barrier to innovation is not a lack of technology but decision logic. It also covered front-end vs. back-end AI, a case study (direct booking rising from 23% to 41% in a year), and the idea that in tourism the best innovation is invisible and the technology-to-human “translation” is the key.",
     "type": "panel",
@@ -271,7 +271,7 @@ export const references: Reference[] = [
   {
     "id": "12",
     "slug": "competitive-tourism-digitalization-panel-balaton365",
-    "title": "“Competitive tourism – digitalization in everyday practice” – moderating a panel discussion (Balaton365 workshop)",
+    "title": "Competitive tourism: everyday digitalisation",
     "summary": "Moderating the Balaton365 workshop panel “Competitive tourism – digitalization in everyday practice” (Balatonkenese), with prominent industry figures (MTPA, VIMOSZ, MTA, CheckINN, VisitBalaton365) – on the digital competitiveness of the destination.",
     "description": "Adam Schmutz moderated the two-hour closing panel discussion of the Balaton365 workshop, titled “Competitive tourism – digitalization in everyday practice”, in Balatonkenese. The discussion explored the competitiveness of tourism and the practical application of digitalization, with several leading figures of the Hungarian tourism industry. Panelists: Natalia Oszko-Jakab (MTPA), Dr. Zsofia Liziczayne Kovacs (MTMT), Lajos Borocz (VIMOSZ), Krisztina Bacsi (MTA), Petra Gedei (CheckINN), Dr. Terez Horvath (VisitBalaton365) and Daniel Damosy (Nitro Communications). The Balaton365 workshop program also covered the region's tourism results and plans, the performance of Hungarian tourism (MTÜ, Visit Hungary) and the DIMOP Plus developments.",
     "type": "panel",
@@ -307,7 +307,7 @@ export const references: Reference[] = [
   {
     "id": "10",
     "slug": "ai4tourism-itb-berlin-2026-exhibitor",
-    "title": "ITB Berlin 2026 – exhibitor participation with the AI4tourism brand",
+    "title": "ITB Berlin 2026 with AI4Tourism",
     "summary": "At the world's largest tourism trade fair, ITB Berlin, we launched the AI4tourism brand (March 2026). Over 250 professional contacts in three days – our goal is to be the clear, trustworthy voice in the noise around AI: through education, a use-case bank and a consulting marketplace.",
     "description": "ITB Berlin – the world's largest tourism trade fair – was the venue for the official launch of the AI4tourism brand (Hall 6.1, Stand 248). Over three days we collected more than 250 contacts from independent hotels, tour operators, DMOs, OTAs and technology platforms from more than 30 countries – and the concept drew huge interest. AI4tourism's mission is to be the clear, trustworthy voice in the noise around AI for the tourism sector. The market is full of AI tools; what's missing is clarity about what actually pays off – and what doesn't. The brand has three pillars: (1) EDUCATION – understandable, practical knowledge about the real possibilities of AI; (2) USE-CASE BANK – concrete, proven use cases from which players can choose a solution fitting their size and situation; (3) CONSULTING/DEVELOPMENT MARKETPLACE – where businesses meet the right experts and developers for implementation. The ITB experience confirmed the starting point: everyone watches AI, but few are sure they're looking at the right thing – exactly the gap AI4tourism aims to close.",
     "type": "exhibition",
@@ -344,7 +344,7 @@ export const references: Reference[] = [
   {
     "id": "2",
     "slug": "tech-optimism-digital-maturity-digiturismo-podcast",
-    "title": "Tech-optimism and digital maturity in tourism – conversation on the DigiTurismo podcast",
+    "title": "Tech-optimism and digital maturity",
     "summary": "Does an SME still need a website in 2026? What does it mean to be a tech-optimist, and how can digital maturity be measured? A conversation on the DigiTurismo podcast about the practical questions of digital tourism.",
     "description": "A conversation with Adam Schmutz, digital tourism expert, about what it means to be a tech-optimist and how a company's digital maturity can be measured. It covers whether a website is still needed in 2026, what Google My Business is, and why it pays off for an SME to develop its digital presence. The discussion also touches on the three things an SME must focus on to be successful in the future.",
     "type": "podcast",
@@ -380,7 +380,7 @@ export const references: Reference[] = [
   {
     "id": "4",
     "slug": "lake-balaton-gastro-tourism-online-sales-turizmus-bulletin-2025",
-    "title": "Waiting for a click: Why (don't) Lake Balaton gastro-tourism businesses sell their programs online? – academic study (Turizmus Bulletin)",
+    "title": "Why Balaton gastro firms don't sell online",
     "summary": "Peer-reviewed academic study in Turizmus Bulletin (Corvinus University of Budapest): the digital maturity and online sales propensity of 73 Lake Balaton gastro-tourism businesses. The surprising result – 92% have an advanced digital presence, but only 5.5% sell online (a 17:1 ratio) – is the research foundation of our entire online-sales practice.",
     "description": "Adam Schmutz's (PhD student, University of Pannonia) peer-reviewed study was published in Turizmus Bulletin Vol. XXV, Issue 4 (2025), DOI: 10.14267/TURBULL.2025v25n4.3. It examines the digital behavior of 73 Lake Balaton gastro-tourism micro-enterprises using a three-step mixed-method approach: automated data collection (Google Maps), structured website analysis, and analysis of real sales interactions via a startup sales team – revealing undistorted, spontaneous entrepreneurial reactions. The main finding is the “capability–adoption gap”: 92% have an advanced digital presence, yet only 5.5% use full-scale online sales (a 17:1 ratio). Versus the Western-European ~30% and Hungarian urban 23% averages, the Lake Balaton 5.5% points to a rural structural phenomenon. The study uses the TOE (Technology–Organization–Environment) framework and identifies five rejection patterns (seasonality, primacy of the personal touch, operational flexibility, alternative revenue models, general digital scepticism). Key takeaway: the barrier to digital adoption is not a lack of competence but context-bound decision logic – businesses deliberately separate marketing and sales (“digital front, analog back”). Also covered by turizmus.com (Mark Miskolczi, 5 February 2026).",
     "type": "publication",
@@ -411,7 +411,7 @@ export const references: Reference[] = [
   {
     "id": "11",
     "slug": "ai-training-visitbalaton365-dmo",
-    "title": "AI training for the VisitBalaton365 DMO team – “What is AI? AI basics and practical solutions”",
+    "title": "AI training for VisitBalaton365",
     "summary": "A full-day, hands-on AI training for the VisitBalaton365 DMO team – from AI basics through prompting and data processing to image generation and the “Google Maps for DMOs” module. Delivered by the three-person team (Adam Schmutz, Bence Bukovec, Eszter Schmutz), with real Lake Balaton examples and international DMO best practices.",
     "description": "A full-day, practice-oriented AI training for the staff of the VisitBalaton365 DMO, delivered by the team (Adam Schmutz, Bence Bukovec and Eszter Schmutz). Four modules: (1) AI basics and prompting – what AI is, how generative AI works, “AI as a mirror”, hallucination, and the 5 elements of an effective prompt (role, goal, audience, style, format); (2) copywriting and content planning with AI tools – tourism content types, prompt templates, multichannel content and AI detection; (3) data processing and note-taking (NotebookLM, Gemini) – quickly summarizing reports and statistics; (4) image generation and visual content (Canva AI, Firefly, Leonardo, Sora), plus “Google Maps for DMOs”. Based on a pre-survey (66.7% basic AI users; 83.3% would use it for copywriting; most popular tool: ChatGPT). It featured hands-on tasks with real Lake Balaton examples and a showcase of international DMO best practices (Visit Finland, Visit Norway “Aurora”, Helsinki “Lokki”, the Italian @venereitalia23 AI influencer, NAVITIME Japan). It also covered the four phases of DMO-level AI maturity (Beginners → Early adopters → AI pioneers) and ethical/data-protection (GDPR) aspects.",
     "type": "workshop",
@@ -448,7 +448,7 @@ export const references: Reference[] = [
   {
     "id": "13",
     "slug": "visible-tourism-tourism-summit-2025-exhibitor",
-    "title": "Tourism Summit 2025 – exhibitor participation with the Visible Tourism brand",
+    "title": "Tourism Summit 2025 with Visible Tourism",
     "summary": "As an exhibitor at Tourism Summit 2025 (Bálna, Budapest) with the Visible Tourism brand, which boosts the online visibility of tourism SMEs and destinations: Google Business Profile mentoring, GEO/AEO and visibility audits on Google Maps and in AI search.",
     "description": "We exhibited at Tourism Summit 2025 (organizer: Visit Hungary; venue: Bálna, Budapest) with the Visible Tourism brand – motto: “Tourists Ask Google. We Help You Answer.” / “Stay visible, stay relevant, stay on the map.” Visible Tourism helps destinations and tourism businesses be present – accurately and findably – exactly where visitors actually decide: on Google Maps, in Street View and in AI-driven search. Services: online visibility growth and a Google Business Profile (GBP) mentoring program plus GEO/AEO for tourism SMEs; visibility audits on Google Maps and AI search engines for destinations and DMOs, improving POIs, routes, opening hours and business data, publishing 360° Street View, and actually editing Google Maps content. The approach doesn't build a campaign but “infrastructure” within the Google ecosystem, with measurable before-and-after results that DMOs can also present to their partners. Visible Tourism is our own brand.",
     "type": "exhibition",
@@ -485,7 +485,7 @@ export const references: Reference[] = [
   {
     "id": "14",
     "slug": "ai-opener-visitbalaton365-ai-journey",
-    "title": "AI Opener – VisitBalaton365's AI Journey (AI Opener Bootcamp)",
+    "title": "AI Opener: VisitBalaton365's AI journey",
     "summary": "On an international stage, in English: VisitBalaton365 DMO's practical AI journey at the AI Opener Bootcamp in Edinburgh, to inspire other European destination management organizations (Edinburgh Futures Institute, University of Edinburgh).",
     "description": "Adam Schmutz's (VisitBalaton365) English-language talk at the AI Opener Bootcamp, aimed at sharing VisitBalaton365 DMO's practical AI experience with other destination management organizations. Context: the Lake Balaton destination spans 180 settlements, 3.2 million visitors and more than 9 million guest nights (2024). The talk was built on two main pillars. (1) Preparing the teams (AI education and internal integration): monthly AI sessions, SOPs co-created with AI, an internal AI toolkit, a prompt library, and a “role evolution” framework for the optimal distribution of human and AI tasks. (2) Enriching the digital presence (data for AI search engines and visitors) – in partnership with Visible Tourism: mapping Lake Balaton's uncharted hiking and cycling routes, 360° Street View content for the main attractions, sorting out admin access to Google Business Profiles, and turning static listings into a dynamic marketing tool. The message: DMOs can make their destination visible to both AI search engines and visitors through hands-on internal capability-building and concrete work within the Google ecosystem.",
     "type": "talk",
@@ -516,7 +516,7 @@ export const references: Reference[] = [
   {
     "id": "15",
     "slug": "digital-revolution-in-tourism-talk",
-    "title": "Digital revolution in tourism – talk on the digital transformation of tourism",
+    "title": "Digital revolution in tourism",
     "summary": "A comprehensive overview of the digital transformation of tourism: from online visibility and the Google ecosystem (Google Business Profile, zero-click search) to AI assistants – throughout backed by own Lake Balaton research data (Hévíz, 2025).",
     "description": "Adam Schmutz's (digital tourism expert, PhD student) comprehensive professional talk on the digital transformation of tourism. Five main topics: (1) the role of digitalization and changing guest expectations (79% of guests book online, 76% plan their trip on mobile); (2) online presence (paid–owned–earned) and the digitalization of the customer journey; (3) Google as the key to future online visibility – zero-click search and Google Maps as a decision-making platform; (4) the role of destination management organizations (DMOs) and Google Business Profile optimization; (5) online sales (AIDA) and AI assistants/chatbots in the guest cycle. The talk is backed by own, peer-reviewed Lake Balaton research data, including the gastro-tourism “capability–adoption” paradox (92% digital presence vs. 5.5% online sales).",
     "type": "talk",
@@ -554,7 +554,7 @@ export const references: Reference[] = [
   {
     "id": "17",
     "slug": "package-offer-product-development-workshop-keszthely-visitbalaton365-2025",
-    "title": "Package offer and product development workshop – two-day training for Lake Balaton providers (VisitBalaton365, Keszthely)",
+    "title": "Package and product development workshop",
     "summary": "A two-day product development workshop with 20 Lake Balaton providers (VisitBalaton365, Keszthely): Adam Schmutz, as facilitator, guided the small-group work with a planning canvas template. The result didn't stay a plan – a real, bookable experience package was born (“Lake Balaton like you've never seen it!”), also covered by Turizmus.com.",
     "description": "A two-day, practice-oriented package offer and product development workshop at VisitBalaton365's brand-new destination management training center in Keszthely, with 20 Lake Balaton tourism providers. The program ran from the concept and legal aspects of package offers through cycling packages to pricing, positioning, promotion and invoicing. As the workshop's facilitator, Adam Schmutz gave participants a sequential planning canvas template that guided small-group product development module by module (target group, content, duration, pricing, marketing, sales), and also contributed as a digital/sales expert. The trainers: Peter Princzinger, Balint Erdei, Laszlo Szilasi, Peter Burgyan, Nikolett Hajdu, Adam Schmutz. Measurable result: the workshop produced a real, bookable experience package – a two-night Gen-Z (16–19 year-olds) Lake Balaton school trip at HUF 55,000/person, bookable online at balatonbiketour.com.",
     "type": "workshop",
@@ -596,7 +596,7 @@ export const references: Reference[] = [
   {
     "id": "16",
     "slug": "online-presence-strategy-workshop-dobosi-estate-2024",
-    "title": "Online presence strategy workshop – hands-on training for tourism providers (Dobosi Estate)",
+    "title": "Online presence strategy workshop",
     "summary": "A hands-on online presence strategy workshop for 8 Lake Balaton providers at the Dobosi Estate: participants created their own strategy and a three-month plan. The proof that it works – one participant generated several hundred thousand forints in revenue from new online sales within a few months.",
     "description": "A one-day pilot online presence strategy workshop for experience-selling tourism providers at the Dobosi Estate Center (Szentantalfa). The four modules: (I) analyzing online visibility and online presence; (II) digital tools, online sales platforms and booking systems, conversion optimization; (III–IV) designing an online presence strategy. The presented tools were collected on a “link tree” (lnk.bio/novitatis), participants created their own strategy on a Figma whiteboard using a shared canvas framework, then chose 3 concrete projects achievable within three months (e.g. introducing online sales, increasing website traffic). The training was followed by individual online consultation. Measurable result: one participant launched online sales of their programs in a time-slot booking system and generated several hundred thousand forints in revenue.",
     "type": "workshop",
@@ -636,7 +636,7 @@ export const references: Reference[] = [
   {
     "id": "5",
     "slug": "digital-hospitality-balaton-website-analysis-book-chapter",
-    "title": "Digital hospitality at Lake Balaton: analysis of tourism providers' websites – book chapter (Changing Perspectives in Today's Tourism)",
+    "title": "Digital hospitality at Balaton: website study",
     "summary": "Research analyzing the websites of more than 1,300 Lake Balaton service providers, in a co-authored book chapter (Akadémiai Kiadó, “Changing Perspectives in Today's Tourism”). It maps the quality gaps of digital hospitality – joint work with University of Pannonia researchers, a cornerstone of our academic background.",
     "description": "Chapter 7 of the volume “Changing Perspectives in Today's Tourism” (ed. Mark Miskolczi, Akadémiai Kiadó, 2023), authored by Eszter Madarasz, Zsofia Marta Papp and Adam Schmutz (University of Pannonia, Faculty of Business and Economics, Department of Tourism). The chapter examines the role of digital marketing communication tools in tourism businesses in the context of the fourth industrial revolution. It analyzes the websites of more than 1,300 Lake Balaton service providers and highlights the quality problems that prevent some market players from meeting 21st-century consumer expectations. It discusses the role of an own website and presents good practices: as consumer pressure grows, Lake Balaton providers must follow digitalization trends and invest in their websites to stay competitive.",
     "type": "publication",
@@ -667,7 +667,7 @@ export const references: Reference[] = [
   {
     "id": "19",
     "slug": "digital-presence-tourinform-offices-national-tourinform-meeting-2023",
-    "title": "The digital presence of Tourinform offices – talk at the National Tourinform Meeting (Villány)",
+    "title": "Digital presence of Tourinform offices",
     "summary": "How do Tourinform offices perform in the digital space? A talk at the MTÜ National Tourinform Meeting (Villány): analysis of the online presence of 25 offices and the Visible Tourism concept – before the 94-office network, with press coverage (Turizmus.com).",
     "description": "At the professional conference of the MTÜ (Hungarian Tourism Agency / Visit Hungary) two-day National Tourinform Meeting (Villány, May 2023), Adam Schmutz gave a talk titled “The digital presence of Tourinform offices.” The talk analyzed the online presence of 25 Tourinform offices along six dimensions – access path (73%), information content (56%), visual appearance (43%), destination image (33%), social media (33%), functionality (19%) – as well as the digital visibility of Lake Balaton providers and the blocking points of the customer journey. The talk closed with the Visible Tourism concept and three key messages (visitor-centric mindset, development opportunities, Visible Tourism). Other speakers: Istvan Mayer (Mayor of Villány), Anita Molnar (Tourinform Coordination Office / Visit Hungary), Krisztian Steigervald (generation researcher), Renata Weinhardt (world café). The network participated with staff from 94 offices.",
     "type": "talk",
@@ -698,7 +698,7 @@ export const references: Reference[] = [
   {
     "id": "20",
     "slug": "digital-presence-balaton-providers-metu-checkinn-workshop-2023",
-    "title": "The digital presence of Lake Balaton providers – talk at the METU × CheckINN Digital Tourism Workshop",
+    "title": "Digital presence of Balaton providers",
     "summary": "The digital presence of Lake Balaton providers from the guest-experience perspective – a talk at the all-day Digital Tourism Workshop of Budapest Metropolitan University and CheckINN (~100 students, 11 talks). Focus on the blocking points of the customer journey; also covered by Turizmus.com.",
     "description": "At the joint, all-day Digital Tourism Workshop of the Tourism Institute of Budapest Metropolitan University (METU) and the CheckINN Tourism Innovation Hub (nearly 100 students, 11 talks and two round-table discussions), Adam Schmutz (managing director) gave a talk titled “The digital presence of Lake Balaton tourism destination providers, development opportunities.” He presented the digital presence of Lake Balaton providers from the guest-experience perspective and drew attention to the blocking points in the customer journey, whose handling is critical for the guest experience; he also took part in the workshop's round-table discussion. Other speakers included: Szabolcs Juhasz (MTÜ – NTAK), Noemi Ilyes (CheckINN), Noemi Kulcsar and Laszlo Vasa (METU), Zoltan Katona (Morgens), Peter Palicz (Kvi Hotel), Mark Miskolczi (Corvinus).",
     "type": "workshop",
@@ -737,7 +737,7 @@ export const references: Reference[] = [
   {
     "id": "18",
     "slug": "balaton365-season-opening-workshop-digital-visibility-2023",
-    "title": "Balaton365 season-opening workshop – the digital visibility of Lake Balaton providers (keynote talk)",
+    "title": "Balaton365 opener: digital visibility",
     "summary": "A discussion-starting research talk at the BalatonBike365 season-opening professional workshop (Budapest, Novotel): how visible are Lake Balaton providers in the digital space? Delivered before Lake Balaton decision-makers (MTSZA, MTÜ, Visit Hungary, BTSZ), this analysis is one of the starting points of our digital visibility work.",
     "description": "The opening, discussion-starting talk of the BalatonBike365 (BB365) season-opening professional workshop was given by Adam Schmutz, titled “The digital presence of Lake Balaton tourism destination providers, development opportunities.” The talk analyzed the digital visibility of Lake Balaton providers: based on a survey of 1,318 provider websites, the visitor (customer) journey gets stuck at some point for 92% of the providers examined (typical blocking points: foreign language, pricing, opening hours, booking option), and in the “100 good places / TOP 100” sample many have no working website at all. The talk closed with intervention recommendations pointing toward a SMART destination (improving the online accessibility of provider information, strengthening brand position, expanding online sales). The workshop served the four-season Lake Balaton concept; other speakers: Eszter Czene (MTÜ), Lajos Szabo (BB365), Peter Princzinger (BB365), Laszlo Konnyid (Quality Certification Body), Klara Wirth (Visit Hungary).",
     "type": "workshop",
@@ -768,7 +768,7 @@ export const references: Reference[] = [
   {
     "id": "22",
     "slug": "smart-balaton-podcast",
-    "title": "SMART Balaton – audio on Lake Balaton's smart, digital future",
+    "title": "SMART Balaton: Balaton's digital future",
     "summary": "What does a SMART, smart Lake Balaton look like? An audio piece on the vision of a digital, data-driven and more visible Lake Balaton destination – one episode of the two-part series linked to the “Digital Balaton” research. Available on SoundCloud.",
     "description": "Our own audio piece (Adam Schmutz), available on SoundCloud, on the SMART (smart) Lake Balaton concept: the role of digitalization, online visibility and a data-driven mindset in developing the Lake Balaton tourism destination. Together with the “Is Lake Balaton still analog?” episode it forms a two-part audio series linked to the “Digital Balaton” research.",
     "type": "podcast",
@@ -799,7 +799,7 @@ export const references: Reference[] = [
   {
     "id": "21",
     "slug": "is-lake-balaton-still-analog-podcast",
-    "title": "Is Lake Balaton still analog? – audio on the digital presence of Lake Balaton providers",
+    "title": "Is Lake Balaton still analog?",
     "summary": "How “analog” is Lake Balaton still in the digital space? An audio piece on the gaps in Lake Balaton providers' online presence and the direction of progress – the audio companion of the “Digital Balaton” research. Available on SoundCloud.",
     "description": "Our own audio piece (Adam Schmutz), available on SoundCloud, on the digital transformation of Lake Balaton. The episode explores the gaps in the online visibility of Lake Balaton tourism providers – closely linked to the “Digital Balaton” research (analysis of provider websites, the blocking points of the customer journey). Together with the “SMART Balaton” episode it forms a two-part audio series.",
     "type": "podcast",

@@ -59,7 +59,7 @@ export const projects: Project[] =
   {
     "id": "1",
     "slug": "digital-tourism-research-balaton-1300-providers-online-visibility",
-    "title": "Digital tourism research: online visibility of 1,300+ Lake Balaton providers",
+    "title": "Online visibility of 1,300+ Balaton providers",
     "cardSummary": "Online-visibility analysis of more than 1,300 Lake Balaton providers, the first Hungarian study to trace the full digital visitor journey.",
     "overview": "We analysed the online presence of more than 1,300 Lake Balaton tourism providers item by item, using a proprietary evaluation system that traced the full digital visitor journey, from first search to completed booking. No study of this scale had been done for Hungarian providers before. The final report set out intervention-level development directions to raise the destination's digital maturity, and it became the foundation of our online-sales and AI-visibility practice.",
     "detail": "How does a provider base built on development funding actually appear online, and how well does it meet the expectations of the digital age? We answered this by analysing the online presence of more than 1,300 providers item by item, with a comparable, proprietary evaluation system, tracing the full digital visitor journey ,  from the first search to a successful booking. The approach was novel: no study of this scale had been done for Hungarian providers before. The final report set out concrete, intervention-level development directions that measurably increase the destination's digital maturity. Born at the intersection of academic research and market analysis, this project is the foundation of our entire online-sales and AI-visibility practice.",
@@ -100,7 +100,7 @@ export const projects: Project[] =
   {
     "id": "2",
     "slug": "wine-gastronomy-tourism-development-plan-balaton-tokaj-sopron",
-    "title": "Wine and gastronomy tourism development plan across three priority destinations",
+    "title": "Wine and gastronomy development plan",
     "cardSummary": "A wine- and gastro-tourism development plan with a proprietary rating system across Lake Balaton, Tokaj and Sopron-Fertő.",
     "overview": "We assessed provider quality and the tourism significance of each location through field visits, then built a proprietary rating system to rank the surveyed wineries and gastro destinations. Alongside the funding proposals, we identified both ready-to-use and development-worthy attractions to underpin the destination value proposition and later brand strategies. The same repeatable methodology was applied across three regions: Lake Balaton, Tokaj-Upper Tisza-Nyírség and Sopron-Fertő, basing the recommendations on measurement rather than estimation.",
     "detail": "The aim was to make wine- and gastro-tourism supply developable on the basis of measurement, not estimation. We assessed provider quality and the tourism significance of each location through field visits, then built a proprietary rating system to rank the surveyed wineries and gastro destinations. Alongside the funding proposals, we identified both ready-to-use and development-worthy attractions that formed the basis of the destination value proposition and later brand strategies. We applied the same repeatable methodology in three separate projects: Lake Balaton, Tokaj–Upper Tisza–Nyírség and Sopron–Fertő. The work reflects our approach: research rigour, market-based evaluation and creative, usable recommendations in one.",
@@ -146,7 +146,7 @@ export const projects: Project[] =
   {
     "id": "3",
     "slug": "lake-balaton-cycle-route-feasibility-study-ginop-719",
-    "title": "Lake Balaton Cycle Route feasibility study and CBA (GINOP-7.1.9)",
+    "title": "Balaton Cycle Route feasibility study",
     "cardSummary": "A feasibility study and cost-benefit analysis for region-wide development of the Lake Balaton Cycle Route, connecting shoreline and hinterland settlements.",
     "overview": "We prepared a feasibility study and cost-benefit (CBA) analysis to underpin a region-wide development of the Lake Balaton Cycle Route, connecting both shoreline and hinterland settlements, as part of the funding application. The work gave particular weight to the real target group and to long-term sustainable operation. We translated the complex content into a clear graphic executive summary whose elements were picked up by several media outlets.",
     "detail": "We prepared a feasibility study and cost-benefit (CBA) analysis for the development of the Lake Balaton Cycle Route in the priority tourism region. The goal was to underpin a region-wide development that engages both shoreline and hinterland settlements. A feasibility study is a number-backed instrument of decision preparation ,  here prepared as part of the funding application. We placed strong emphasis on the real target group and on long-term sustainable operation, and translated the complex content into a clear, graphic executive summary whose elements were picked up by several media outlets ,  a good example of turning data-driven analysis into communicable, decision-supporting material.",
@@ -182,7 +182,7 @@ export const projects: Project[] =
   {
     "id": "4",
     "slug": "hospitality-venue-categorisation-methodology-regulation",
-    "title": "Hospitality-venue categorisation: methodology and regulatory preparation (Gov. Decree 634/2020)",
+    "title": "Hospitality venue categorisation (634/2020)",
     "cardSummary": "A national hospitality-venue business-type methodology that was incorporated into Government Decree 634/2020 (XII. 22).",
     "overview": "We assessed the domestic supply, defined the typical venue types and built a criteria system proposing business types that cover today's hospitality offer, together with methods for registration and sector-level data collection. After broad professional consultation with key sector players, we formulated a concrete legislative-amendment proposal. The hospitality-venue business types we developed were incorporated into Government Decree 634/2020 (XII. 22), giving the research a direct legislative impact.",
     "detail": "The project supported quality hospitality: assessing the domestic supply and precisely defining the typical venue types. Based on our supply analysis we set up a criteria system, proposed business types covering today's supply, and developed possible methods for registration and sector-level data collection. We closed the project with broad professional consultation with key sector players, then formulated a concrete legislative amendment proposal. The result did not stay on paper: the hospitality-venue business types we developed appeared in Government Decree 634/2020 (XII. 22). This project most clearly shows that connecting academically rigorous research with market reality can achieve measurable, even legislative-level impact.",
@@ -222,7 +222,7 @@ export const projects: Project[] =
   {
     "id": "5",
     "slug": "tourist-attraction-development-feasibility-study",
-    "title": "Tourist attraction development concept and feasibility study (HUF 1.45 billion)",
+    "title": "Attraction development: HUF 1.45bn study",
     "cardSummary": "A feasibility study and operating model for a HUF 1.45 billion tourist attraction, handed over in 2022.",
     "overview": "For the funding application we prepared a detailed feasibility study designing a full tourism service package for the client's planned attraction, aligned with the region's tourism concept and mindful of local residents' needs. We built the concept from visitor personas and gave particular attention to the operating business model and long-term sustainability. The attraction created by the HUF 1.45 billion project was handed over in 2022.",
     "detail": "For the funding application we prepared a detailed feasibility study designing a full tourism service package for the client's envisaged attraction: aligned with the region's tourism concept and mindful of local residents' needs. We built the concept from visitor personas and paid particular attention to the operating business model and long-term sustainability. The attraction created by the HUF 1.45 billion project was handed over in 2022. The work exemplifies how we translate creative, experience-centred design into a business-sound, number-backed concept.",
@@ -257,7 +257,7 @@ export const projects: Project[] =
   {
     "id": "6",
     "slug": "strategy-development-management-smes-design-thinking",
-    "title": "Strategy development and strategy management for SMEs with design thinking",
+    "title": "Strategy for SMEs with design thinking",
     "cardSummary": "Recurring strategy-development and strategy-management projects for SMEs, from whole-organisation workshops to long-term implementation support.",
     "overview": "These recurring SME projects used design thinking to define goals precisely and reach them. Each started with workshops that surfaced the organisation's real commitments and challenges, alongside a data-based analysis of industry trends and competitor strategies. From the strategy prototypes we jointly selected the best fit and developed the action plan. Most projects continued past handover, with the team staying actively involved in implementation and bringing in external experts when needed.",
     "detail": "We help businesses define their goals precisely ,  and actually reach them. Our approach is rooted in design thinking: because good strategy depends on engaging the whole organisation, we start projects with workshops that surface the organisation's real commitments and challenges. Alongside the internal picture, we always analyse the external environment ,  industry trends and competitors' strategies ,  using data. On this basis we identify the factors that need to change and co-design the target state in a workshop; from the strategy prototypes we jointly select the one that best fits the client's goals and develop the concrete action plan. Most projects do not end with handover ,  we stay actively involved in implementation, bringing in external experts when needed. This is where analytical research meets creative, client-centred design.",
@@ -293,7 +293,7 @@ export const projects: Project[] =
   {
     "id": "7",
     "slug": "winery-brand-strategy-design-thinking",
-    "title": "Winery brand strategy: design thinking and experience design in wine tourism",
+    "title": "Winery brand strategy in wine tourism",
     "cardSummary": "A deliberate winery brand strategy built on audience insight, with persona and experience-design workshops and visitor-journey analysis.",
     "overview": "The winery, a small business, had not previously defined the values it represents or designed a strategy. Because a brand's core message is closely tied to its leaders' motivations, we involved them mainly through workshops, facilitating the creative and decision-making process to define the target groups, their needs and motivations. We applied persona building and visitor-journey analysis from the design-thinking toolkit, reshaped specifically for tourism use, so the brand grew from a genuine understanding of the audience.",
     "detail": "The aim was to create a deliberate brand strategy for a winery. As a small business, the winery had not previously defined the values it represents, nor did it have a designed strategy. Since a brand's core message is strongly tied to its leaders' personal motivations, we placed strong emphasis on involving them, mainly through workshops. As facilitators we guided the creative and decision-making processes: defining the target groups, their needs and motivations, enabling more conscious strategy planning. We applied the tools ,  persona building, visitor-journey analysis ,  from the design-thinking toolkit, reshaped specifically for tourism use. The project shows our creative yet methodical approach: a brand is not a slogan but a coherent experience built on truly understanding the target group.",
@@ -329,7 +329,7 @@ export const projects: Project[] =
   {
     "id": "8",
     "slug": "international-youth-policy-research-methodology-handbook",
-    "title": "International youth-policy research and methodological handbook",
+    "title": "International youth-policy research and handbook",
     "cardSummary": "International research into youth ministry, built on 15 expert interviews and 260+ young people, presented to decision-makers.",
     "overview": "An international study into the challenges facing Christian youth work, using a mixed method of 15 expert in-depth interviews and a survey of more than 260 young people, 104 of them from abroad. The findings became a strategic proposal package, presented at the Hungarian Catholic Bishops' Conference youth-ministry conference in 2020, alongside a practical methodological handbook for organisations working with young people.",
     "detail": "Youth work based on Christian values (youth ministry) faces many challenges. In our international research project we explored the root causes of these problems using a mixed methodology: 15 expert in-depth interviews and the views of more than 260 young people (104 of them from abroad). The research resulted in a strategic proposal package for developing youth-ministry services, which we presented to decision-makers at the Hungarian Catholic Bishops' Conference youth-ministry conference in 2020. Alongside the research, we produced the methodological handbook “Youth Ministry Methodological Handbook - For Organisations Working with Young People” ,  a good example of turning scientific research into a directly usable, practical toolkit.",
@@ -373,7 +373,7 @@ export const projects: Project[] =
   {
     "id": "9",
     "slug": "museum-education-as-tourism-product-research",
-    "title": "Museum education as a tourism product: national study across 24 institutions",
+    "title": "Museum education as tourism product",
     "cardSummary": "National study assessing 24 institutions to define when museum education works as a tourism product.",
     "overview": "A national study examining whether museum education can be interpreted as a tourism product. Drawing on the literature, international best practice and roundtables with cultural and tourism professionals, we built a proprietary criteria system, then assessed sessions on site across 24 institutions. The study set out the developments needed for tourism use and the actors required to deliver them.",
     "detail": "The project examined the links between education (museum education) and tourism: can museum education be considered a tourism product, and if so, which directions could strengthen this link ,  and if not, how could the museums' educational service be developed into a tourism product. Based on the literature, international best practices and roundtable discussions with cultural and tourism professionals, we created a proprietary criteria system showing the conditions under which a museum-education service is interpretable from a tourism perspective. We carried out on-site visits in 24 institutions and assessed the sessions along this system. The result: the developments needed for tourism utilisation and the key actors required to deliver them. The work connects academic analysis with practical, on-the-ground experience.",
@@ -407,7 +407,7 @@ export const projects: Project[] =
   {
     "id": "10",
     "slug": "community-assessment-development-strategy",
-    "title": "Community assessment and community-development strategy",
+    "title": "Community assessment and development strategy",
     "cardSummary": "A parish community assessed via survey and interviews, then a development strategy and one-year action plan built with the members.",
     "overview": "We assessed the state of a parish community through surveys and in-depth interviews, then worked the findings up with the members themselves. In a workshop with the community's leaders we co-created a development strategy answering the challenges identified, alongside a one-year action plan breaking the goals into tangible steps. The strategy was built with those involved, on their own knowledge, rather than handed down from outside.",
     "detail": "We assessed the state of a parish community through surveys and in-depth interviews. We processed the findings with the involvement of community members, then co-created a strategy answering the challenges in a workshop with the community's leaders. Alongside the strategy we compiled a one-year action plan breaking the goals into tangible steps, contributing to the community's strengthening. The project shows our participatory, natural-community-development approach: we don't hand over a strategy written from outside ,  we create it together with those involved, building on their knowledge.",
@@ -441,7 +441,7 @@ export const projects: Project[] =
   {
     "id": "11",
     "slug": "ai-in-tourism-training-dmo",
-    "title": "AI in tourism: practical training for a destination management organisation",
+    "title": "AI in tourism: training for a DMO",
     "cardSummary": "Tailored AI training for a Lake Balaton DMO team, translating generative AI and GEO/AEO into everyday tourism workflows.",
     "overview": "A practical AI training for the staff of a Lake Balaton destination management organisation (DMO), showing how artificial intelligence applies to real, everyday tourism and destination-management workflows. The programme covered generative AI tools, efficient content creation, GEO/AEO (generative and answer-engine optimisation) and digital visibility, tailored throughout to participants' concrete tasks with worked examples and reusable workflow templates.",
     "detail": "We delivered a hands-on AI training for the staff of a Lake Balaton destination management organisation (DMO), showing the use of artificial intelligence in tourism and destination management through real, everyday workflows. The training covered generative AI tools, efficient content creation, GEO/AEO (generative and answer-engine optimisation) and destinations' digital visibility ,  all tailored to participants' concrete tasks, with tangible examples. The work shows how we turn up-to-date, research-based knowledge into immediately applicable, practical skill at tourism organisations.",
@@ -483,7 +483,7 @@ export const projects: Project[] =
   {
     "id": "12",
     "slug": "online-presence-training-tourism-providers",
-    "title": "Online presence training for tourism providers: from website to online sales",
+    "title": "Online presence training for tourism providers",
     "cardSummary": "Practical training on digital visibility for tourism providers, built on our own research into Lake Balaton providers' digital maturity.",
     "overview": "A practical training for tourism providers covering the real steps of digital visibility: website and Google My Business optimisation, and online sales. Participants worked on their own businesses with real examples so they could go on to improve their digital presence and grow their online revenue independently. The curriculum builds on our own research into the digital maturity of Lake Balaton providers, so it starts from market reality.",
     "detail": "An online-presence training for tourism providers covering the practical steps of digital visibility, website and Google My Business optimisation, and online sales. The goal was not theory but independence: working on their own businesses with real examples, participants learned the steps to then improve their digital presence and grow their online revenue themselves. The curriculum builds on our own research into the digital maturity of Lake Balaton providers ,  so it starts from market reality.",
@@ -526,7 +526,7 @@ export const projects: Project[] =
   {
     "id": "13",
     "slug": "destination-development-strategy-methodology",
-    "title": "Developing the methodology for destination-development strategy",
+    "title": "Destination-development strategy methodology",
     "cardSummary": "A repeatable, data-driven methodology for producing tourism destination-development strategies consistently across any destination.",
     "overview": "Most destination strategies are bespoke and hard to compare. We created a structured, repeatable methodology that guides the assembly of a tourism destination-development strategy step by step: situation assessment, the construction of the goal system, and the definition of intervention logic across supply elements, organisational operation and digital visibility. The aim is strategy produced on a data basis, consistently and reusably, rather than ad hoc.",
     "detail": "Most destination strategies are bespoke and hard to compare. We instead created a structured, repeatable methodology that guides the assembly of a tourism destination-development strategy step by step. The framework covers the steps of situation assessment, the construction of the goal system and the definition of intervention logic, addressing supply elements, organisational operation and digital visibility. The aim is for strategy to be produced not ad hoc but on a data basis, consistently and reusably across different destinations ,  a blend of research-based systems thinking and practical applicability.",
@@ -561,7 +561,7 @@ export const projects: Project[] =
   {
     "id": "14",
     "slug": "cserkeszolo-tourism-strategy-visitor-journey",
-    "title": "Cserkeszőlő tourism strategy and visitor-journey development",
+    "title": "Cserkeszőlő tourism strategy",
     "cardSummary": "A data-driven tourism strategy and visitor-journey development for Cserkeszőlő, mapping the whole guest experience.",
     "overview": "We developed the tourism strategy and visitor journey (VJP) for Cserkeszőlő on a data-driven situation assessment. The work surfaced the destination's strengths and points to improve, set the development directions and supply elements, and walked through the whole guest experience, from a visitor's first encounter with the destination to the end of their stay. The result is a set of tangible recommendations along the real visitor journey rather than a generic development list.",
     "detail": "We developed the tourism strategy and visitor journey (VJP) for Cserkeszőlő, building on data-driven situation assessment. The work uncovered the destination's strengths and points to improve, defined the development directions and supply elements, and walked through the whole visitor experience ,  from the moment a guest first encounters the destination to the end of their stay. The approach combines the rigour of destination research with creative, guest-centred experience design: the strategy is not a generic development list but a set of tangible recommendations along the real visitor journey.",
@@ -631,7 +631,7 @@ export const projects: Project[] =
   {
     "id": "16",
     "slug": "goshuin-companion-travel-app-japan",
-    "title": "Goshuin Companion: AI travel companion app for Japanese temple stamps",
+    "title": "Goshuin Companion: AI travel app for Japan",
     "cardSummary": "A minimalist iOS app that photographs a Japanese temple stamp, identifies the temple, translates the kanji and files it in a digital diary.",
     "overview": "International visitors to Japan collect hundreds of thousands of goshuin, hand-painted temple stamps, each year, yet most cannot read the calligraphic kanji. We delivered the full product, from market validation and product strategy to a visual design system, interactive prototype and the iOS app itself. The user photographs each stamp, the system identifies the temple via GPS and visual recognition, translates the kanji and stores everything in an elegant digital diary. Built with React Native and Expo, Apple Vision Framework for on-device OCR, local SQLite with no account, and RevenueCat for freemium purchases, it works fully offline.",
     "detail": "The goshuin is a traditional Japanese temple stamp, collected by visitors in a small book called a goshuincho. The calligraphic kanji is beautiful but unreadable to most international collectors ,  by the end of a two-week trip the typical visitor has 15-30 stamps and no memory of which temple gave them which. Our engagement covered the full product: market validation, product strategy, visual design system, interactive prototype, and the iOS application itself. The concept is a minimalist, MUJI-inspired companion app: the user photographs each stamp, the system identifies the temple using GPS and visual recognition, translates the kanji, and stores everything in an elegant digital diary. Tech: React Native + Expo for the cross-platform foundation, Apple Vision Framework for on-device OCR, local SQLite storage with no account, and RevenueCat for freemium in-app purchases. The app works fully offline ,  critical for roaming-sensitive travellers. The target community was reached via Reddit, niche Facebook groups and organic Instagram. The project shows we also turn research- and market-driven thinking into a real, finished digital product.",
@@ -712,7 +712,7 @@ export const projects: Project[] =
   {
     "id": "18",
     "slug": "lake-balaton-demand-supply-analysis-year-round-opening",
-    "title": "Lake Balaton demand and supply analysis: primary data and year-round opening",
+    "title": "Balaton demand and supply analysis",
     "cardSummary": "A statistical analysis of Lake Balaton tourism demand and supply, built on our own field data, focused on year-round opening and seasonality.",
     "overview": "We examined Lake Balaton tourism demand and supply with statistical methods built on primary data collection, processing our own field-survey data rather than secondary estimates. The analysis looked closely at providers' year-round opening and the seasonal fluctuation of supply. It showed where and in which periods real demand does not meet available supply, and the critical points for supply development and season extension.",
     "detail": "The project examined Lake Balaton tourism demand and supply with statistical methods, built on primary data collection. We processed our own field-survey data and specifically analysed providers' year-round opening and the seasonal fluctuation of supply. The analysis showed where and in which periods real demand does not meet available supply ,  and the critical points for supply development and season extension. The approach reflects our research method: we build not on secondary estimates but on our own field data and statistical analysis.",
@@ -752,7 +752,7 @@ export const projects: Project[] =
   {
     "id": "19",
     "slug": "cycling-tourism-situation-analysis-guide-training",
-    "title": "Cycling tourism situation analysis and tour-guide training",
+    "title": "Cycling tourism analysis and guide training",
     "cardSummary": "A situation analysis and development directions for cycling tourism after COVID-19, with a tour-guide training that builds professional supply.",
     "overview": "During the pandemic cycling tourism became one of Hungarian tourism's winners, but lasting success needs deliberate development. We analysed cycling tourism as a tourism product and set out development recommendations, giving priority to the impact of the COVID-19 crisis and changing demand. The project also developed a tour-guide training that passed on the professional and practical knowledge of cycling tour guidance, laying the groundwork for human capacity and professional supply alongside the analysis.",
     "detail": "During the pandemic cycling tourism became one of Hungarian tourism's winners ,  but lasting success requires deliberate development. We analysed cycling tourism as a tourism product and made development recommendations, giving priority to the impact of the COVID-19 crisis and the changing demand. The project also included developing a tour-guide training that passed on the professional and practical knowledge of cycling tour guidance ,  so alongside the situation analysis we also laid the groundwork for human capacity and professional supply.",
@@ -854,7 +854,7 @@ export const projects: Project[] =
   {
     "id": "22",
     "slug": "events-tourism-impact-assessment-five-regions",
-    "title": "Tourism impact assessment of events across five priority regions",
+    "title": "Events tourism impact assessment",
     "cardSummary": "Comparable event impact data across five priority tourism regions, built on a unified rating system and full field surveys.",
     "overview": "Linked to the GINOP-1.3.4 destination-development programmes, we assessed the tourism impact of events in five priority regions: Lake Balaton, Gyula-Békéscsaba, Mátra-Bükk, Szeged-Makó and Debrecen-Hajdúszoboszló-Hortobágy-Lake Tisza. In each region we surveyed dozens of events in full, then scored them on a single proprietary rating system so they became directly comparable. The work produced problem identification and destination-level development recommendations.",
     "detail": "The tourism impact of events is often hard to compare ,  so we added a unified yardstick. Linked to the GINOP-1.3.4 destination-development projects, we assessed the impacts achieved by events in five priority regions (Lake Balaton, Gyula–Békéscsaba, Mátra-Bükk, Szeged-Makó, and Debrecen–Hajdúszoboszló–Hortobágy–Lake Tisza). In each region we fully surveyed dozens of events, then analysed them along a unified, proprietary rating system ,  making the events comparable with one another. The result: problem identification and destination-level, practical development recommendations.",
@@ -901,7 +901,7 @@ export const projects: Project[] =
   {
     "id": "23",
     "slug": "local-products-tourism-integration-matra-bukk",
-    "title": "Integrating local products into tourism: Mátra-Bükk region",
+    "title": "Local products in tourism: Mátra-Bükk",
     "cardSummary": "Research into local producers' tourism role in Mátra-Bükk, surveying 42 producers and 28 hospitality venues, with a visitor recipe collection.",
     "overview": "As part of the GINOP-1.3.4-17-2018-00006 Mátra-Bükk tourism region programme, we examined the role of local producers in destination tourism. The survey reached 42 local producers and 28 hospitality venues, and comparing demand with supply surfaced small producers' competitiveness, quality and quantity constraints, an outdated regulatory environment and the absence of a unified producer database. We set out a problem and goal system, identified brands that can carry the destination on their own (Bükk cheese, Mátra buffalo, Szilvásvárad trout), and compiled a recipe collection of regional specialities for visitors. The central finding: integrating local products into tourism first requires agricultural-economy development.",
     "detail": "What turns a local product into a real tourism attraction? We explored this in connection with the GINOP-1.3.4-17-2018-00006 “Development and positioning of the Mátra-Bükk tourism region” project. We examined the role of local producers in destination tourism, identified the producers contributing to the destination brand, and compiled a recipe collection of the region's specialities for visitors. The survey reached 42 local producers and 28 hospitality venues; comparing demand and supply highlighted small producers' competitiveness, quality and quantity constraints, the outdated regulatory environment and the lack of a unified, up-to-date producer database. The study set out problems and goals and highlighted brands able to brand the destination on their own (e.g. Bükk cheese, Mátra buffalo, Szilvásvárad trout). Key takeaway: integrating local products into tourism first requires agricultural-economy development.",
@@ -1043,7 +1043,7 @@ export const projects: Project[] =
   {
     "id": "27",
     "slug": "kecskemet-cannery-ginop-121-project-preparation",
-    "title": "Kecskeméti Konzerv Ltd: GINOP-1.2.1 development project preparation",
+    "title": "Kecskeméti Konzerv: GINOP-1.2.1 project prep",
     "cardSummary": "Professional preparation of a GINOP-1.2.1 funding application for technological modernisation and production-capacity expansion.",
     "overview": "We carried out the professional preparation of a development project under the GINOP-1.2.1 scheme, aimed at technological modernisation and production-capacity expansion. We grounded the development, processed the market and production background, and compiled the professional content required for the funding application, connecting industry data with the company's own reality.",
     "detail": "We carried out the professional preparation of the “Technological modernisation and production-capacity expansion” development project under the GINOP-1.2.1 scheme: we grounded the development, processed the market and production background, and compiled the professional content required for the funding application. The work was based on connecting industry data with corporate reality.",
@@ -1077,7 +1077,7 @@ export const projects: Project[] =
   {
     "id": "28",
     "slug": "kincsesbanya-cycle-path-needs-assessment-marketing",
-    "title": "Kincsesbánya cycle path: needs assessment, market research and marketing strategy",
+    "title": "Kincsesbánya cycle path strategy",
     "cardSummary": "Needs assessment, market research and marketing strategy for the Kincsesbánya cycle-path development under TOP-1.2.1.",
     "overview": "For the Kincsesbánya cycle-path development under the TOP-1.2.1 scheme we prepared a needs assessment, market research and marketing strategy. The work uncovered the development's real target group and needs, then defined communication and marketing directions to grow the path's awareness and actual use, so the development would not only be built but also reach its audience.",
     "detail": "For the Kincsesbánya cycle-path development under the TOP-1.2.1 scheme we prepared a needs assessment, market research and marketing strategy. We uncovered the development's real target group and needs, then defined communication and marketing directions to grow the path's awareness and actual use ,  so the development not only gets built but also reaches its audience.",
