@@ -412,7 +412,7 @@ const en: ServicesContent = {
       headingBefore: "From ministries to ",
       headingNoWrap: "family-run",
       headingAfter: " guesthouses.",
-      lead: "We work at every level of the tourism economy, in Hungary and internationally, and translate between them.",
+      lead: "We work at every level of the tourism economy, in Hungary and internationally, with one methodology that connects them.",
     },
     partners: {
       eyebrow: "Partners",
@@ -745,7 +745,7 @@ const hu: ServicesContent = {
       headingBefore: "A minisztériumoktól a ",
       headingNoWrap: "családi",
       headingAfter: " panziókig.",
-      lead: "A turisztikai gazdaság minden szintjén dolgozunk, Magyarországon és nemzetközileg, és közvetítünk a szintek között.",
+      lead: "A turisztikai gazdaság minden szintjén dolgozunk, Magyarországon és nemzetközileg, egyetlen módszertannal, amely összeköti őket.",
     },
     partners: {
       eyebrow: "Partnerek",

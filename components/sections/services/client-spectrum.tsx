@@ -4,16 +4,16 @@ import { getServicesContent } from "@/lib/services-content";
 import type { Locale } from "@/lib/i18n/config";
 
 // Staircase of the tourism system: foundation (policy) at the base building up
-// to the operators who serve the guest. Cards stay white and teal (teal is the
-// primary colour); gold is a warm ACCENT only, the number disc + a left rule,
-// deepening as you go up so each level reads distinctly. Each level keeps its
-// full client list (the previous content).
+// to the operators who serve the guest. Cards stay white; the accent is the
+// BRAND scale — light-blue at the foundation deepening to dark teal at the top,
+// carried by the number disc + a left rule so each level reads distinctly. Each
+// level keeps its full client list (the previous content).
 // Indexed by the clientTiers order (0 = policy foundation … 2 = operators), so
-// it stays correct whatever language the tier labels are in.
-const META: { icon: LucideIcon; gold: string }[] = [
-  { icon: Landmark, gold: "#E6C871" }, // foundation, palest
-  { icon: MapPin, gold: "#D9B254" },
-  { icon: Store, gold: "#C99A3A" }, // top, deepest
+// it stays correct whatever language the tier labels are in. `on` = disc text.
+const META: { icon: LucideIcon; accent: string; on: string }[] = [
+  { icon: Landmark, accent: "#AAD7E6", on: "#1f3640" }, // foundation: light-blue, dark text
+  { icon: MapPin, accent: "#6E9CAB", on: "#ffffff" }, // destination: mid teal
+  { icon: Store, accent: "#334F5A", on: "#ffffff" }, // operators: deep teal
 ];
 
 export function ClientSpectrum({ locale }: { locale: Locale }) {
@@ -46,17 +46,17 @@ export function ClientSpectrum({ locale }: { locale: Locale }) {
             return (
               <ScrollReveal key={tier.tier} direction="up" duration={0.7} delay={i * 0.08}>
                 <div
-                  className="bg-white rounded-[1.5rem] border border-foreground/10 p-5 lg:p-7 shadow-[0_14px_36px_-26px_rgba(51,79,90,0.4)]"
+                  className="bg-white rounded-[1.5rem] border border-foreground/10 p-5 lg:p-7 shadow-[0_14px_36px_-26px_rgba(51,79,90,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#AAD7E6] hover:shadow-[0_22px_48px_-28px_rgba(51,79,90,0.5)]"
                   style={{
                     marginLeft: `${(levels.length - 1 - i) * 1.5}rem`,
-                    borderLeft: `5px solid ${m.gold}`,
+                    borderLeft: `5px solid ${m.accent}`,
                   }}
                 >
                   <div className="flex items-start gap-4 lg:gap-5">
                     {/* Gold number disc (the accent) */}
                     <div
-                      className="shrink-0 grid place-items-center h-11 w-11 lg:h-12 lg:w-12 rounded-full font-display text-xl lg:text-2xl text-[#3a2e12]"
-                      style={{ background: m.gold }}
+                      className="shrink-0 grid place-items-center h-11 w-11 lg:h-12 lg:w-12 rounded-full font-display text-xl lg:text-2xl"
+                      style={{ background: m.accent, color: m.on }}
                     >
                       {number}
                     </div>
