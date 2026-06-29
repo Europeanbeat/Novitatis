@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useLocale } from "@/lib/i18n/use-locale";
 
 const ARIA = {
@@ -24,6 +25,10 @@ export function PhotoLightbox({
   const a = ARIA[useLocale()] ?? ARIA.en;
   const all = cover ? [cover, ...photos] : photos;
   const [index, setIndex] = useState<number | null>(null);
+  // Render the overlay through a body portal so it escapes any ancestor
+  // stacking/overflow context (and the z-[200] page/route curtains).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const close = useCallback(() => setIndex(null), []);
   const prev = useCallback(
     () => setIndex((i) => (i === null ? i : (i - 1 + all.length) % all.length)),
@@ -94,9 +99,9 @@ export function PhotoLightbox({
         </div>
       )}
 
-      {index !== null && (
+      {mounted && index !== null && createPortal(
         <div
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-[#16252b]/90 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-[300] flex items-center justify-center bg-[#16252b]/90 backdrop-blur-sm p-4"
           onClick={close}
           role="dialog"
           aria-modal="true"
@@ -138,7 +143,8 @@ export function PhotoLightbox({
             onClick={close}
             className="max-h-[90vh] max-w-[92vw] object-contain rounded-lg shadow-2xl cursor-zoom-out"
           />
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
